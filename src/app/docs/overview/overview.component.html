@@ -1,17 +1,22 @@
 <div class="container">
 
-    <h1>Overview</h1>
+    <h1>Purpose</h1>
 
     <!-- Additionally, Programmable Video provides the missing pieces required to use WebRTC to build sophisticated applications:
          Global STUN/TURN relays, media services for large-scale group conferences and recording, and signaling infrastructure are all included. -->
 
+    <p>
+        <strong>ApiRTC</strong> helps to fastly build communication applications, from simple chat to rich media sharing.
+    </p>
+    <p>
+        It provides to developers easy to integrate <strong>API oriented Software Development Kits</strong>.
+    </p>
 
-    <h2 id="purpose">Purpose</h2>
+    <h1>Infrastructure</h1>
 
     <p>
-        <strong>ApiRTC</strong> is built on top <strong>WebRTC</strong>. It helps to fastly build rich media sharing web based applications.
+        <strong>ApiRTC</strong> is built on top <strong>WebRTC</strong>, and fills gaps <strong>WebRTC</strong> does not address :
     </p>
-    <p><strong>ApiRTC</strong> fills gaps <strong>WebRTC</strong> does not address :</p>
     <ul>
         <li>
             <p><strong>Signalisation</strong> server</p>
@@ -19,20 +24,11 @@
                 should be sent to remote peers in order to initiate connections.
                 <strong>ApiRTC cloud</strong> implements a signaling server using WebSockets. The browser and server interaction is event-based : the browser does not have to poll the server for a reply every time data have to be exchanged.
             </p>
-            <p><strong>ApiRTC</strong>&nbsp;<strong>signalisation</strong> enables very fast and interactive communication.</p>
-
-        </li>
-        <li>
-            <p><strong>STUN/TURN</strong> servers</p>
-            <p>To send and receive data to another browser the client must have some specific information. The most important information is the client’s public IP address. Each client or browser must know this information about each other in order to receive
-                an incoming connection from another client. Sometimes it’s difficult for the client to know its own public IP address, especially if the client is behind a firewall or NAT, which is very common these days. To overcome this, WebRTC recommends
-                the use of a STUN server. A STUN server allows clients to find out their own public IP address and which type of NAT they are behind. Sometimes it can be hard to fetch the information, depending on the NAT, and in that case, a TURN server
-                can help the process.</p>
-            <p><strong>ApiRTC</strong> provides both STUN and TURN servers.</p>
+            <p class="lead text-end"><strong>ApiRTC</strong>&nbsp;<strong>signalisation</strong> enables very fast and interactive communication</p>
         </li>
         <li>
             <p><strong>Star topology</strong> infrastructure</p>
-            <p>In a common WebRTC application using basic full mesh topology, each client must :</p>
+            <p>Basic <strong>WebRTC</strong> applications are using full mesh topology. Each client must :</p>
             <ul>
                 <li>encode and send their stream(s) to each remote peer</li>
                 <li>receive and decode every remote peer stream(s)</li>
@@ -41,7 +37,16 @@
             </p>
             <p><strong>ApiRTC</strong> enables the usage of a <strong>star topology</strong> by providing SFUs (Selective Forwarding Units) that acts as a central server that relays each peers’ streams.</p>
             <p>MCU (stands for Multipoint Control Unit) can also be used (TODO: check this ?)</p>
-            <p>Providing theses infrastructures, <strong>ApiRTC</strong> enables large scale group conversations support.</p>
+
+            <p class="lead text-end">Providing <strong>star topology</strong> infrastructures, <strong>ApiRTC</strong> enables large scale group conversations support</p>
+        </li>
+        <li>
+            <p><strong>STUN/TURN</strong> servers</p>
+            <p>To send and receive data to another browser the client must have some specific information. The most important information is the client’s public IP address. Each client or browser must know this information about each other in order to receive
+                an incoming connection from another client. Sometimes it’s difficult for the client to know its own public IP address, especially if the client is behind a firewall or NAT, which is very common these days. To overcome this, WebRTC recommends
+                the use of a STUN server. A STUN server allows clients to find out their own public IP address and which type of NAT they are behind. Sometimes it can be hard to fetch the information, depending on the NAT, and in that case, a TURN server
+                can help the process.</p>
+            <p class="lead text-end"><strong>ApiRTC</strong> provides both STUN and TURN servers</p>
         </li>
         <li>
             <p><strong>Administration</strong> infrastructure and services</p>
@@ -50,11 +55,13 @@
         </li>
     </ul>
 
-    <h2 id="apis">APIs Oriented</h2>
+    <h1>API Oriented Software Development Kits</h1>
 
-    <p>ApiRTC provides APIS to help you programming your apps or services in many languages.</p>
+    <p><strong>ApiRTC</strong> provides APIS to help you programming your apps or services in many languages.</p>
 
-    <p>To build to client app, Javascript API can be integrated in your vanilla HTML/javascript web app, or into any modern web application framework such as Angular, React, or Vue</p>
+    <p>For a client <strong>web-app</strong>, Javascript API can be integrated in your vanilla HTML/javascript or into any modern web application framework such as Angular, React, or Vue.</p>
+
+    <p>For a client <strong>mobile-app</strong>, Android and iOS SDKs</p>
 
     <p>Use our fully featured RESTful API to provision our platform, or use our services</p>
 

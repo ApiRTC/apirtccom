@@ -22,12 +22,11 @@
 
     <mat-tab-group animationDuration="0ms">
         <mat-tab label="Angular">
-            <br>
             <div class="card">
                 <div class="card-body">
-                    <p>In your project run :</p>
+                    <p>In your project directory, run :</p>
                     <p><code>npm install @apizee/apirtc@latest --save</code></p>
-                    <p>And in
+                    <p>In
                         <code>angular.json</code> add script :
                     </p>
                     <pre>
@@ -46,35 +45,26 @@
                                         "node_modules/@apizee/apirtc/apiRTC.min.js"
             </code>
                 </pre>
-                    <p>In your code, declare apiRTC variable :</p>
-                    <p><code>declare var apiRTC: any;</code></p>
                 </div>
             </div>
         </mat-tab>
         <mat-tab label="ReactJS">
-            <br>
             <div class="card">
                 <div class="card-body">
-                    <p>In your project run :</p>
+                    <p>In your project directory, run :</p>
                     <p><code>npm install @apizee/apirtc@latest --save</code></p>
-                    <p>In your code, import ApiRTC entrypoint classes :</p>
-                    <p><code>import {{ '{' }}' UserAgent {{ '}' }}' from "@apizee/apirtc";</code></p>
                 </div>
             </div>
         </mat-tab>
         <mat-tab label="VueJS">
-            <br>
             <div class="card">
                 <div class="card-body">
-                    <p>In your project run :</p>
+                    <p>In your project directory, run :</p>
                     <p><code>npm install @apizee/apirtc@latest --save</code></p>
-                    <p>In your code, import ApiRTC entrypoint classes :</p>
-                    <p><code>import  {{ '{' }}' UserAgent  {{ '}' }}' from "@apizee/apirtc";</code></p>
                 </div>
             </div>
         </mat-tab>
         <mat-tab label="JS">
-            <br>
             <div class="card">
                 <div class="card-body">
                     <p>Just add :
@@ -83,8 +73,6 @@
                     </p>
                     <!-- <code>&lt;head&gt;...&lt;/head&gt;</code> tags of <code>index.html</code> -->
                     <p>inside <code>&lt;head&gt;...&lt;/head&gt;</code> tag of <code>.html</code> document.</p>
-                    <p>In your code, declare apiRTC variable :</p>
-                    <p><code>declare var apiRTC: any;</code></p>
                 </div>
             </div>
         </mat-tab>
@@ -104,13 +92,70 @@
 
     <p class="text-center"><img src="assets/apirtc_useragent.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        userAgent = new apiRTC.UserAgent(&#123;uri: 'apzkey:' + apiKey&#125;);
-    </code></pre>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Angular & JS">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>declare var apiRTC: any;</code></p>
+                    <p><code>
+                        userAgent = new apiRTC.UserAgent(&#123;uri: 'apzkey:' + apiKey&#125;);
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="React/Vue">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        import &#123; UserAgent &#125; from '@apizee/apirtc';
+                        </code>
+                    </p>
+                    <p><code>
+                        const userAgent = new UserAgent(&#123;uri: 'apzkey:' + apiKey&#125;);
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Kotlin">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        import com.apizee.apiRTC.*
+                    </code>
+                    </p>
+                    <p><code>
+                        val optionsUa = UserAgent.UserAgentOptions(uri = "apzkey:$apiKey")<br>
+                        val ua = UserAgent(this, optionsUa)
+                    </code>
+                    </p>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Swift">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        import ApiRTCSDK
+                    </code>
+                    </p>
+                    <p><code>
+                        var ua: UserAgent?<br>
+                        ua = UserAgent(UserAgentOptions(uri: .apizee(login)))
+                    </code>
+                    </p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+    <!-- <pre class="border"></pre> -->
     <!-- 
-    <p><code>UserAgent</code> permet d'accèder aux fonctionnalités <strong>non-connectées</strong> d'<strong>ApiRTC</strong>.</p>
-    <p>TODO : list non-connected features</p>
-    <ul><li></li></ul> -->
+    <p><code>UserAgent</code> permet d'accèder aux fonctionnalités <strong>non-connectées</strong> d'<strong>ApiRTC</strong>.
+                    </p>
+                    <p>TODO : list non-connected features</p>
+                    <ul>
+                        <li></li>
+                    </ul> -->
 
     <h2>Stream</h2>
 
@@ -124,9 +169,19 @@
 
     <p class="text-center"><img src="assets/apirtc_createstream.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        userAgent.createStream(&#123;audio: true,video: true&#125;).then(stream => &#123;stream.attachToElement(domElement)&#125;);
-    </code></pre>
+
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        userAgent.createStream(&#123;audio: true,video: true&#125;).then(stream => &#123;stream.attachToElement(domElement)&#125;);
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
 
     <h2>Session</h2>
 
@@ -135,15 +190,24 @@
     </p>
     <!-- <p>TODO: lister les modes d'authentification, ou faire un lien vers un chapitre dédié</p> -->
 
-    <p>Simply using <code>UserAgent.register</code> without authentication details registers a <code>userAgent</code> with
+    <p>Simply using <code>UserAgent.register</code> without authentication details registers a
+        <code>userAgent</code> with
         <strong>ApiRTC</strong>'s servers without authentication.
     </p>
 
     <p class="text-center"><img src="assets/apirtc_useragent_register.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        userAgent.register().then(session => &#123;...&#125;);
-    </code></pre>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        userAgent.register().then(session => &#123;...&#125;);
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
     <p>The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
         <strong>conferences</strong>.
@@ -155,22 +219,40 @@
 
     <p class="text-center"><img src="assets/apirtc_session_getOrCreateConversation.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        conversation = session.getOrCreateConversation("MY_CONVERSATION");
-    </code></pre>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        conversation = session.getOrCreateConversation("MY_CONVERSATION");
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
     <!-- note : this is weird : conversation.join()-->
     <!-- could we make something easier to explain in the future : participant.join(conversationId) ? -->
-    <p>Calling <code>Conversation.join</code> makes the <code>userAgent</code> used to create the <code>Session</code> used to create this instance of
+    <p>Calling <code>Conversation.join</code> makes the <code>userAgent</code> used to create the
+        <code>Session</code> used to create this instance of
         <code>Conversation</code> (through it's <code>Session</code>) join the
         <strong>conversation</strong>.
         <!-- The <code>userAgent</code> then becomes a <strong>participant</strong>. -->
     </p>
 
     <p class="text-center"><img src="assets/apirtc_conversation_join.svg" alt="image"></p>
-    <pre class="border"><code>
-        conversation.join();
-    </code></pre>
+
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <p><code>
+                        conversation.join();
+                    </code></p>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
     <!-- TODO : this is weird again, now this is the conversation that actually wears the publish method -->
     <p>Once a <strong>conversation</strong> joined, a <code>userAgent</code> can publish a
@@ -179,9 +261,17 @@
 
     <p class="text-center"><img src="assets/apirtc_conversation_publish.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        conversation.publish(stream).then(stream => &#123;...&#125;);
-    </code></pre>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <code>
+                        conversation.publish(stream).then(stream => &#123;...&#125;);
+                    </code>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
     <!-- TODO : All that is weird and should be simplified -->
     <p>Subscribing to peer <strong>streams</strong> shall be implemented as followed :</p>
@@ -211,26 +301,35 @@
 
     <p class="text-center"><img src="assets/apirtc_conversation_subscribe.svg" alt="image"></p>
 
-    <pre class="border"><code>
-        conversation.on('streamListChanged', streamInfo => (&#123;
-            if (streamInfo.isRemote === true) &#123;
-                if (streamInfo.listEventType === 'added') &#123;
-                    conversation.subscribeToStream(streamInfo.streamId);
-                    ...
-        &#125;);
-        conversation.on('streamAdded', stream => (&#123;
-            stream.attachToElement(domElement)
-        &#125;);
-    </code></pre>
+    <mat-tab-group animationDuration="0ms">
+        <mat-tab label="JS">
+            <div class="card">
+                <div class="card-body">
+                    <code><pre>
+                    conversation.on('streamListChanged', streamInfo => (&#123;
+                        if (streamInfo.isRemote === true) &#123;
+                            if (streamInfo.listEventType === 'added') &#123;
+                                conversation.subscribeToStream(streamInfo.streamId);
+                                ...
+                    &#125;);
+                    conversation.on('streamAdded', stream => (&#123;
+                        stream.attachToElement(domElement)
+                    &#125;);</pre></code>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 
-    <p>At this stage, the application displays both yours and peers video <strong>streams</strong> in the page !</p>
+    <p>At this stage, the application displays both yours and peers video <strong>streams</strong> in the page !
+    </p>
 
     <p>This process is important because a <strong>stream</strong> published to a conversation can be restarted for various technical reasons. In this case the
         <code>'streamListChanged'</code> won't be fired ; but the <code>'streamRemoved'</code> event will be fired with corresponding
         <code>Stream</code> instance, and a <code>'streamAdded'</code> with the new instance will follow, allowing to display correct <strong>stream</strong>.
     </p>
 
-    <p>It is then important to listen on <code>'streamRemoved'</code> to undisplay the corresponding <code>Stream</code>.
+    <p>It is then important to listen on <code>'streamRemoved'</code> to undisplay the corresponding
+        <code>Stream</code>.
     </p>
 
     <p>Handling the remote <code>streamInfo.listEventType === 'removed'</code> is important to get notified that a stream is not published anymore // TODO shal I unsubscribeToStream(streamId) ??
