@@ -15,12 +15,14 @@ export class DocsComponent implements OnInit, AfterViewInit {
 
   constructor() { }
 
-
   ngOnInit(): void {
   }
 
   ngAfterViewInit(): void {
-    this.drawerRef?.open();
+    // this.drawerRef?.open();
+    // Move this to a timeout callback to avoid :
+    // ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
+    setTimeout(() => { this.drawerRef?.open(); }, 100)
   }
 
 }

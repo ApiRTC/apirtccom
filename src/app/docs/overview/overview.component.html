@@ -1,33 +1,53 @@
 <div class="container">
 
-    <h1>Purpose</h1>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <h1 class="text-center">Purpose</h1>
 
-    <!-- Additionally, Programmable Video provides the missing pieces required to use WebRTC to build sophisticated applications:
+            <!-- Additionally, Programmable Video provides the missing pieces required to use WebRTC to build sophisticated applications:
          Global STUN/TURN relays, media services for large-scale group conferences and recording, and signaling infrastructure are all included. -->
+            <p>
+                <strong>ApiRTC</strong> helps to fastly build communication applications, from simple chat to rich media sharing.
+            </p>
+            <p>
+                Built on top of
+                <a href="https://webrtc.org/" target="_blank" rel="noopener"><img width="30" src="./assets/webrtc.svg"><strong>WebRTC</strong></a>, <strong>ApiRTC</strong> fills gaps
+                <strong>WebRTC</strong> does not address.
+            </p>
+            <p>
+                It provides both <strong>infrastructure</strong> and <strong>APIs (Application Programming Interfaces)</strong> to take benefit from it.
+            </p>
+        </div>
+    </div>
 
-    <p>
-        <strong>ApiRTC</strong> helps to fastly build communication applications, from simple chat to rich media sharing.
-    </p>
-    <p>
-        It provides to developers easy to integrate <strong>API oriented Software Development Kits</strong>.
-    </p>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">APIs</h1>
 
-    <h1>Infrastructure</h1>
+            <p><strong>ApiRTC</strong> provides APIS to help you programming your apps or services in many languages.</p>
 
-    <p>
-        <strong>ApiRTC</strong> is built on top <strong>WebRTC</strong>, and fills gaps <strong>WebRTC</strong> does not address :
-    </p>
-    <ul>
-        <li>
-            <p><strong>Signalisation</strong> server</p>
+            <h2><strong>Javascript</strong> library</h2>
+            <p>For a client <strong>web-app</strong>, Javascript API can be integrated in your vanilla HTML/<img width="30" src="./assets/javascript.png">javascript or into any modern web application framework such as <img width="30" src="./assets/angular.png">Angular,
+                <img width="30" src="./assets/react.jpg">React, or <img width="30" src="./assets/vue.png">Vue.
+            </p>
+
+            <h2><strong>Android and iOS</strong> SDKs</h2>
+            <p>For a client <strong>mobile-app</strong>, <img width="30" src="./assets/android.png">Android and <img width="30" src="./assets/ios.png">iOS SDKs</p>
+
+            <h2><strong>Restfull</strong> API</h2>
+            <p>Use our fully featured <img width="30" src="./assets/rest_api.png">RESTful API to provision our platform, or use our infrastructure services.</p>
+        </div>
+        <div class="col">
+            <h1 class="text-center">Infrastructure</h1>
+
+            <h2><strong>Signalisation</strong> server</h2>
             <p>In order to realize a WebRTC application, one must establish a connection between the browsers that want to communicate. WebRTC provides the solution for the media plane but does not implement the signaling, i.e. how one client’s information
                 should be sent to remote peers in order to initiate connections.
                 <strong>ApiRTC cloud</strong> implements a signaling server using WebSockets. The browser and server interaction is event-based : the browser does not have to poll the server for a reply every time data have to be exchanged.
             </p>
             <p class="lead text-end"><strong>ApiRTC</strong>&nbsp;<strong>signalisation</strong> enables very fast and interactive communication</p>
-        </li>
-        <li>
-            <p><strong>Star topology</strong> infrastructure</p>
+
+            <h2><strong>Star topology</strong> infrastructure</h2>
             <p>Basic <strong>WebRTC</strong> applications are using full mesh topology. Each client must :</p>
             <ul>
                 <li>encode and send their stream(s) to each remote peer</li>
@@ -39,30 +59,19 @@
             <p>MCU (stands for Multipoint Control Unit) can also be used (TODO: check this ?)</p>
 
             <p class="lead text-end">Providing <strong>star topology</strong> infrastructures, <strong>ApiRTC</strong> enables large scale group conversations support</p>
-        </li>
-        <li>
-            <p><strong>STUN/TURN</strong> servers</p>
+
+            <h2><strong>STUN/TURN</strong> servers</h2>
             <p>To send and receive data to another browser the client must have some specific information. The most important information is the client’s public IP address. Each client or browser must know this information about each other in order to receive
                 an incoming connection from another client. Sometimes it’s difficult for the client to know its own public IP address, especially if the client is behind a firewall or NAT, which is very common these days. To overcome this, WebRTC recommends
                 the use of a STUN server. A STUN server allows clients to find out their own public IP address and which type of NAT they are behind. Sometimes it can be hard to fetch the information, depending on the NAT, and in that case, a TURN server
                 can help the process.</p>
             <p class="lead text-end"><strong>ApiRTC</strong> provides both STUN and TURN servers</p>
-        </li>
-        <li>
-            <p><strong>Administration</strong> infrastructure and services</p>
+
+            <h2><strong>Administration</strong> dashboard and services</h2>
             <p>dashboard</p>
             <p>recording</p>
-        </li>
-    </ul>
 
-    <h1>API Oriented Software Development Kits</h1>
-
-    <p><strong>ApiRTC</strong> provides APIS to help you programming your apps or services in many languages.</p>
-
-    <p>For a client <strong>web-app</strong>, Javascript API can be integrated in your vanilla HTML/javascript or into any modern web application framework such as Angular, React, or Vue.</p>
-
-    <p>For a client <strong>mobile-app</strong>, Android and iOS SDKs</p>
-
-    <p>Use our fully featured RESTful API to provision our platform, or use our services</p>
+        </div>
+    </div>
 
 </div>
