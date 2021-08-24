@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntroductionComponent implements OnInit {
 
+  // url = 'https://app.swaggerhub.com/apis-docs/kevin.moyse/Api-RTC-REST/3.0.0'
+
   constructor() { }
 
   ngOnInit(): void {
