@@ -11,6 +11,10 @@
     font-size: 1.8em !important;
 }
 
+#content {
+    margin-top: 80px;
+}
+
 footer {
     margin-top: 8px;
     display: flex;
