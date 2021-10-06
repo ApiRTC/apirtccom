@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DevGuideComponent implements OnInit {
 
+  ua_js_code=`new UserAgent({
+    uri:'apzkey:' + apiKey
+});`
+
   constructor() { }
 
   ngOnInit(): void {

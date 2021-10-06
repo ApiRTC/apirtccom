@@ -24,6 +24,8 @@ export { LogicalConceptsComponent } from './logical-concepts/logical-concepts.co
 export { OverviewComponent } from './overview/overview.component';
 export { TechnicalConceptsComponent } from './technical-concepts/technical-concepts.component';
 
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+
 import { SafePipe } from '../safe.pipe';
 
 @NgModule({
@@ -37,9 +39,26 @@ import { SafePipe } from '../safe.pipe';
   ],
   imports: [
     CommonModule, RouterModule,
-    MatTabsModule, MatSidenavModule
+    MatTabsModule, MatSidenavModule,
+    HighlightModule
   ],
   exports: [
-  ]
+  ],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        //lineNumbersLoader: () => import('highlightjs-line-numbers.js'), // Optional, only if you want the line numbers
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          javascript: () => import('highlight.js/lib/languages/javascript'),
+          json: () => import('highlight.js/lib/languages/json'),
+          kotlin: () => import('highlight.js/lib/languages/kotlin'),
+          xml: () => import('highlight.js/lib/languages/xml')
+        }
+      }
+    }
+  ],
 })
 export class DocsModule { }

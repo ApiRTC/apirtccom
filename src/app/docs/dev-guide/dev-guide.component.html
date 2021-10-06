@@ -1,68 +1,721 @@
-<div class="container">
-    <div class="row mt-5">
-        <div class="col">
-            <h1 id="user-agent">UserAgent</h1>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path
+            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z">
+        </path>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+        <path
+            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
+        </path>
+    </symbol>
+</svg>
+
+<div class="bd-main">
+    <div class="bd-intro mt-5">
+        <div class="container">
+            <p>
+                This guide covers all concepts and features you may require to develop your communication client
+                application.
+            </p>
         </div>
     </div>
-    <hr>
-    <div class="row mt-5">
-        <div class="col">
-            <h1 id="session">Session</h1>
 
-            <h2>Authentication</h2>
-
-            <h3>no Auth</h3>
-
-            <h3>3rd Party</h3>
-
-            <h3>JSON Web Token</h3>
-
-        </div>
+    <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+        <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
+        <nav id="TableOfContents">
+            <ul>
+                <li>
+                    <a [routerLink]="['.']" fragment="apikey">apiKey</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="user-agent">UserAgent</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="session">Session</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="h1__1298403728">Contacts : Presence,
+                        Groups</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="conversation">Conversation</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="h1__535264398">Moderation</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="local-streams">Local Streams</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="remote-streams">Remote Streams</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="streams-display">Streams Display</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="qos-statistics">QoS Statistics</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="speaker-detection">Speaker Detection</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="mute">Video/Audio Mute</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="whiteboard">Whiteboard</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="recording">Recording</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="chat-messages">Chat messages</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="device-control">Device Control</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="background-subtraction">Background
+                        subtraction</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="good-practices">Good practices</a>
+                    <ul>
+                        <li>
+                            <a href="#sub">Sub</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <hr>
-    <div class="row mt-5">
-        <div class="col">
-            <h1>User Presence</h1>
-        </div>
-    </div>
-    <hr>
-    <div class="row mt-5">
-        <div class="col">
-            <h1 id="conversation">Conversation</h1>
 
-            <h2>control P2P, mesh > sfu, SFU only...</h2>
+    <div class="bd-content">
+        <div class="container">
+            <h1 id="apiKey">
+                apiKey
+            </h1>
+            <p>
+                The <strong>apiKey</strong> is a 32 characters string associated with an <strong>Enterprise</strong>. It
+                allows associating <strong>ApiRTC</strong> usage with your project for quota and billing.
+            </p>
+            <p>
+                An <strong>apiKey</strong> is required to start using the client <strong>ApiRTC APIs</strong>.
+            </p>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Create an account and get an <strong>apiKey</strong> from <a href="https://www.apirtc.com"
+                        title="Get apiKey">https://www.apirtc.com</a>
+                </div>
+            </div>
+            <h1 id="user-agent" class="mt-5">
+                UserAgent
+            </h1>
+            <p>
+                The <code>UserAgent</code> is an entrypoint to <strong>ApiRTC</strong>. This is the first object to
+                instantiate. It represents the local user that will participate to communications.
+            </p>
+            <p class="text-center mt-3">
+                There are two ways to instantiate a <code>UserAgent</code> :
+            </p>
+            <div class="row">
+                <div class="col">
+                    <div class="card border-secondary">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title" id="h5_481336209">
+                                with apiKey
+                            </h5>
+                            <div class="card-text">
+                                <p>
+                                    This method is useful to use <strong>ApiRTC</strong> anonymously, or with external
+                                    user management.
+                                </p>
+                                <p>
+                                    In this case the <code>uri</code> is <strong>apiKey</strong> prefix with "apzkey:"
+                                    string.
+                                </p>
+                                <table data-tabs="true" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                Javascript/Typescript
+                                                <br />
+                                            </td>
+                                            <td>
+                                                <pre><code [highlight]="ua_js_code"></code></pre>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Kotlin
+                                                <br />
+                                            </td>
+                                            <td>
+                                                code
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Swift
+                                                <br />
+                                            </td>
+                                            <td>
+                                                code
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-secondary">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title" id="h5__1136524522">
+                                with username
+                            </h5>
+                            <div class="card-text">
+                                <p>
+                                    This method is useful to further authenticate with
+                                    <strong>ApiRTC</strong>&nbsp;<strong>User</strong> management.
+                                </p>
+                                <p>
+                                    In this case the <code>uri</code> is <strong>username</strong> prefixed with
+                                    "apizee:" string.
+                                </p>
+                                <table data-tabs="true" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 72px;">
+                                                Javascript/Typescript
+                                            </td>
+                                            <td style="width: 563px;">
+                                                code
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 72px;">
+                                                Kotlin
+                                                <br />
+                                            </td>
+                                            <td style="width: 563px;">
+                                                code
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 72px;">
+                                                Swift
+                                                <br />
+                                            </td>
+                                            <td style="width: 563px;">
+                                                code
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Optional moderation</h2>
+            <h2 id="h2_1401761593" class="mt-3">
+                UserData
+            </h2>
+            <p>
+                <code>UserData</code> is a class that holds a data object to store values associated to a
+                <code>UserAgent</code>. Make sure to call <code>UserData.setProp(key, value)</code> to set a property.
+            </p>
+            <p>
+                Once connected to <code>Session</code>, call <code>userData.setToSession()</code> to make other
+                connected peers notified of <code>UserData</code> properties change through the
+                <code>contactListUpdate</code> event.
+            </p>
+            <p>
+                For that purpose, the data object associated to <code>Session</code>'s <code>contactListUpdate</code>
+                event, <code>updatedContacts</code> will carry a <code>userDataChanged</code> array property of
+                <code>Contact</code>s for which <code>UserData</code> has changed.
+            </p>
+            <h2 id="h2_1174486459">
+                MediaDevices
+            </h2>
+            <p>
+                explain mediaDeviceChanged (hard to explain as this is not very logical for this to be on UserAgent
+                class ?)
+            </p>
+            <p>
+                <code>UserAgent</code>'s <code>mediaDeviceChanged</code> event can be listened to in order to get
+                notified of the list of available devices available to the browser:
+            </p>
+            <p>code</p>
+            <p class="mt-3">
+                Here is what the <code>mediaDevices</code> object looks like:
+            </p>
+            <p>code</p>
+            <p class="mt-3">
+                This is useful to propose a list of available media devices to the user.
+            </p>
+            <h1 id="session" class="mt-5">
+                Session
+            </h1>
+            <p>
+                The <code>Session</code> is obtained when connecting to the ApiRTC platform.
+            </p>
+            <p>
+                A <code>Session</code> with <strong>ApiRTC</strong> platform needs to be established in order to access
+                connected features of <strong>ApiRTC</strong> such as chat or video conferencing.
+            </p>
+            <p>
+                This is done through the <code>UserAgent.register();</code> method.
+            </p>
+            <p>
+                The <code>UserAgent.register(options);</code> can take an <code>options</code> parameter that can be
+                used to control the authentication mecanism.
+            </p>
+            <p>
+                Note that the required authentication must be configured by <strong>Enterprise</strong> (thus by
+                <strong>apiKey</strong>), from your account panel (TODO: give link).
+            </p>
+            <h2 id="h2__55841322">
+                Authentication
+            </h2>
+            <p>
+                Getting a Session supports the following authentication mecanisms :
+            </p>
+            <div class="row">
+                <div class="col-3">
+                    <div class="card border-secondary mb-3">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title" id="h5__856734607">
+                                No auth
+                            </h5>
+                            <p>code</p>
+                            <p class="card-text">
+                                <br />
+                                on a <code>UserAgent</code> created with <strong>apiKey</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>join... leave</p>
+                <div class="col-6">
+                    <div class="card border-secondary mb-3">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title" id="h5_2109125847">
+                                External user management
+                            </h5>
+                            <div class="card-text">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card border-secondary mb-3">
+                                            <div class="card-body text-secondary">
+                                                <h5 class="card-title" id="h5__278552043">
+                                                    JWT
+                                                </h5>
+                                                <p class="card-text">
+                                                </p>
+                                                <p>code</p>
+                                                <p class="card-text">
+                                                    on a <code>UserAgent</code> created with <strong>apiKey</strong>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="card border-secondary mb-3">
+                                            <div class="card-body text-secondary">
+                                                <h5 class="card-title" id="h5_703939062">
+                                                    3rdParty Auth server
+                                                </h5>
+                                                <p>code</p>
+                                                <p class="card-text">
+                                                    &nbsp;on a <code>UserAgent</code> created with
+                                                    <strong>apiKey</strong>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card border-info mb-3">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title" id="h5__1013182657">
+                                ApiRTC user management
+                            </h5>
+                        </div>
+                        <div class="card-body text-secondary">
+                            <p>code</p>
+                            <p class="card-text">
+                                on a <code>UserAgent</code> created with <strong>username</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 id="h1__1298403728" class="mt-5">
+                Contacts : Presence, Groups
+            </h1>
+            <p>
+                In an <strong>ApiRTC</strong> client application, remote participants are <code>Contact</code>s.
+            </p>
+            <p>
+                Listening on <code>Session.contactListUpdate</code> event notifies on <code>Contact</code>, connected
+                with to same <strong>Enterprise</strong>(<strong>apiKey</strong>), that joined, left, or for which
+                <code>UserData</code> changed.
+                (joinedGroup leftGroup userDataChanged)
+            </p>
+            <p>
+                This is known as the <strong>User</strong> <strong>presence</strong> feature.
+            </p>
+            <p>
+                A notion of <strong>groups</strong> comes with this feature for better control.
+            </p>
+            <h1 id="conversation" class="mt-5">
+                Conversation
+            </h1>
+            <p>
+                A <code>Conversation</code> is the way to gather participants to exchange medias. It can be text
+                message, audio/video streams, files...
+            </p>
+            <p>
+                Whenever there are 2 participants or more, a <code>Conversation</code> takes place.
+            </p>
+            <h2 id="h2__157250429">
+                getOrCreate
+            </h2>
+            <p>
+                To get a <code>Conversation</code> instance, the method
+                <code>Session.getOrCreateConversation(name, options)</code> shall be used.
+            </p>
+            <p>
+                <code>options</code> are :
+                datasample
+            </p>
+            <p>
+                <code>meshModeEnabled</code> enables the mesh mode (SFU star topoplogy is used by default). The streams
+                exchanges will remain in this mode until :
+            </p>
+            <ul>
+                <li>
+                    the number of participant goes over 4,
+                </li>
+                <li>
+                    or too many packet loss is detected for one participant,
+                </li>
+            </ul>
+            then the Conversation will automatically switch to star topology mode using ApiRTC SFUs infrastructure.
+            <p>
+            </p>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Check <a href="/articles/project-apirtc-docs/technical/a/h3_1280930038"
+                        title="link to SFUs">Technical Concepts</a> to learn about how <strong>ApiRTC</strong> handles
+                    small of large <code>Conversation</code>s.
+                </div>
+            </div>
+            <p>
+                Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code> forces
+                the <code>Conversation</code> to remain mesh only.
+            </p>
+            <h2 id="h2_1367192090">
+                Join
+            </h2>
+            <p>
+                <code>Conversation.join</code> method makes the local user represented by the <code>UserAgent</code>
+                that got (or created) the <code>Conversation</code> instance (through the session it registered to)
+                actually join.
+            </p>
+            <p>
+                <code>join()</code> actually returns a promise. <strong>Conversation</strong> will be joined when the
+                promise resolves. The resolution may depend on moderation.
+            </p>
+            <h2 id="h2__1846412581">
+                Leave
+            </h2>
+            <p>
+                <code>Conversation.leave</code> method makes the local user represented by the <code>UserAgent</code>
+                leave the <strong>conversation</strong>.
+            </p>
+            <h2 id="h2__535264398">
+                Moderation
+            </h2>
+            <p>
+                <strong>Moderation</strong> is feature that allows moderators to control who participates to a
+                <code>Conversation</code>
+            </p>
+            <p>
+                TODO : explain how this can be achieve (when it is actually developped)
+            </p>
+            <h2 id="h2__254716661">
+                accept/decline..
+            </h2>
+            <h2 id="h2_666725563">
+                eject...
+            </h2>
+            <p>
+                .. In the context of a moderated Conversation, the join will resolve only when a moderator accepts the
+                join request.
+            </p>
+            <h1 class="mt-5" id="local-streams">
+                Local Streams
+            </h1>
+            <p>
+                Acquiring <strong>local stream</strong> is done throught the
+                <code>UserAgent.createStream(options)</code> method.
+            </p>
+            <p>
+                <code>options</code> are :
+                datasample
+            </p>
+            <p>
+                <code>constraints</code> is of type <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamConstraints" target="_blank"
+                    rel="noopener">MediaStreamConstraints</a>
+            </p>
+            <h1 class="mt-5" id="remote-streams">
+                Remote Streams
+            </h1>
+            <h2 id="h2__1003081151">
+                Publish
+            </h2>
+            <p>
+                Publishing a <strong>local stream</strong> makes it available for remote peer participants to subscribe
+                and view it.
+            </p>
+            <p>
+                The <strong>local user</strong> (<code>UserAgent</code>) must have joined the conversation to publish a
+                <strong>stream</strong>.
+            </p>
+            <p>code</p>
+            <h3 id="h3_383706697">
+                PublishOptions
+            </h3>
+            <p>
+                <code>Conversation.publish(stream, options)</code> can take optionally take <code>PublishOptions</code>
+                second parameter object to control publication.
+                Please check reference for details on <a
+                    href="https://dev.apirtc.com/reference/global.html#PublishOptions" target="_blank"
+                    rel="noopener">PublishOptions</a>
+            </p>
+            <h2 id="h2__247607832">
+                Unpublish
+            </h2>
+            <p>
+                Unpublishing a <strong>local stream</strong> makes it unavailable for remote peer participants to
+                subscribe and stops sending <strong>media stream</strong> to peers.
+            </p>
+            <p>code</p>
+            <h2 id="h2__356384962">
+                Handle remote streams availability
+            </h2>
+            <p>
+                <strong>ApiRTC</strong> notifies when stream availability changes through the
+                <code>streamListChanged</code> event.
+            </p>
+            <p>
+                This event is triggered once for each existing <strong>stream</strong>, and then again every time a new
+                <strong>stream</strong> is published to the <strong>conversation</strong>.
+            </p>
+            <div class="alert alert-warning" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <span>The information carried by the event is <code>StreamInfo</code>: this is not a <code>Stream</code>
+                    yet.</span>
+            </div>
+            <p>code</p>
+            <p>
+                The <code>streamInfo.contact.getId()</code> and <code>streamInfo.streamId</code> can be useful to
+                identify remote <strong>peer</strong> and <strong>stream</strong>.
+            </p>
+            <h2 id="h2__419851974">
+                Subscribe
+            </h2>
+            <p>
+                A <strong>remote stream</strong> is subscribed to using the
+                <code>Conversation.subscribeToStream(streamId)</code> method. It takes the id of stream provided in the
+                <code>StreamInfo</code> data object:
+            </p>
+            <p>code</p>
+            <h3 id="h3__1222041136">
+                SubscribeOptions
+            </h3>
+            <p>
+                <code>Conversation.subscribeToStream(streamId, options)</code> can take optionally take
+                <code>SubscribeOptions</code> second parameter object to control subscription.
+                Please check reference for details on <a
+                    href="https://dev.apirtc.com/reference/global.html#SubscribeOptions" target="_blank"
+                    rel="noopener">SubscribeOptions</a>
+            </p>
+            <h2 id="h2__2018652737">
+                Unsubscribe
+            </h2>
+            <p>
+                Unsubscribing to a <strong>remote stream</strong> is done by the
+                <code>Conversation.unsubscribeToStream(streamId)</code> method.
+            </p>
+            <p>code</p>
+            <h2 id="h2_1580479363">
+                Manage media streams
+            </h2>
+            <p>
+                Once a <strong>stream</strong> has been subscribed, <strong>ApiRTC</strong> notifies with an actual
+                <code>Stream</code> instance through the <code>streamAdded</code> event.
+            </p>
+            <p>
+                This event is triggered every time the actual media stream is available to be displayed.
+            </p>
+            <p>code</p>
+            <p>
+                Whenever a <code>media stream</code> becomes unavailable, <strong>ApiRTC</strong> notifies the
+                <strong>conversation</strong> with a <code>streamRemoved</code> event.
+            </p>
+            <p>code</p>
+            <div class="alert alert-warning" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <span>
+                    A <code>media stream</code> may encounter technical issues, or meet network optimization requiring
+                    to change the actual <code>Stream</code> instance.
+                    In this case <code>streamRemoved</code> event will be also fired, prior to another
+                    <code>streamAdded</code> event with the new instance.
+                </span>
+            </div>
+            <h1 class="mt-5" id="streams-display">
+                Streams display
+            </h1>
+            <p>
+                In order to display or remove media element in DOM, you can use our helpers:
+            </p>
+            <ul>
+                <li>
+                    addInDiv() and removeFromDiv() to work within an element
+                </li>
+                <li>
+                    <code>Stream.attachToElement(domElement)</code> to directly attach to a <code>&lt;video&gt;</code>
+                    element.
+                </li>
+            </ul>
+            <p>
+                We manage some devices specificities in our helpers that can help avoid media plays issue for instance
+                with Safari iOS.
+            </p>
+            <p>code</p>
+            <h1 class="mt-5" id="qos-statistics">
+                QoS statistics
+            </h1>
+            <p>
+                <code>Conversation</code> event <code>callStatsUpdate</code> provides statistics informations on
+                <strong>media stream</strong> exchanges quality of service.
+            </p>
+            <p>code</p>
+            <p>
+                Depending on whether the stream is <strong>sent</strong> or <strong>received</strong>, the event data
+                object (<code>callStats</code>) holds the following informations:
+            </p>
+            <div class="row">
+                <div class="col">
+                    <p class="text-center">
+                        For a <strong>local stream</strong>, qos info on sent media
+                    </p>
+                    <p>code</p>
+                </div>
+                <div class="col">
+                    <p class="text-center">
+                        For a <strong>remote stream</strong>, qos info on received media
+                    </p>
+                    <p>code</p>
+                </div>
+            </div>
+            <p>
+                The <code>callStats.streamId</code> is useful to associate data to corresponding
+                <strong>stream</strong>.
+            </p>
+            <h1 class="mt-5" id="speaker-detection">
+                Speaker detection
+            </h1>
+            <p>
+                To display which participant is currently talking in a <code>Conversation</code>, enable the feature:
+            </p>
 
-            <h2>Streams acquisition (webcam or screen)</h2>
-
-            <h2>Streams publish and subscribe mecanisms</h2>
-
-            <h2>Streams Stats</h2>
-
-            <h2>Speaker detection</h2>
-
-            <h2>Video/Audio mute</h2>
-
-            <h2>whiteboard</h2>
-
-            <h2>recording</h2>
-
-            <h2>Messages exchages</h2>
-
-            <h2>Files exchanges</h2>
-
-        </div>
-    </div>
-    <hr>
-    <div class="row mt-5">
-        <div class="col">
-            <h1 id="good-practices">Good practices</h1>
-
-            <p>leave Conversation on application leave, or page closes on web.. ?</p>
-
+            <p>code</p>
+            <p>
+                Then, listen on the <code>audioAmplitude</code> event:
+            </p>
+            <p>code</p>
+            <p>
+                the event data object (<code>amplitudeInfo</code>) holds the following informations:
+            </p>
+            <p>code</p>
+            <p>
+                When the participant speaks and <code>amplitude</code> goes over the <code>threshold</code> configured
+                during feature enabling, event with <code>isSpeaking</code> set to <strong>true</strong> is fired.
+            </p>
+            <p>
+                When the participant does not speak anymore, the event is fired again with intitial
+                <code>amplitude</code> value that triggered the event, but this time <code>isSpeaking</code> is
+                <strong>false</strong>.
+            </p>
+            <h1 class="mt-5" id="mute">
+                Video/Audio Mute
+            </h1>
+            <p>
+                Explain Mute
+            </p>
+            <h1 class="mt-5" id="whiteboard">
+                Whiteboard
+            </h1>
+            <p>
+                Explain Whiteboard
+            </p>
+            <h1 class="mt-5" id="recording">
+                Recording
+            </h1>
+            <p>
+                Explain recording
+            </p>
+            <p>
+                Recording locally one stream...
+            </p>
+            <p>
+                Recording conversation : composite media file is stored on ApiRTC servers...
+            </p>
+            <h1 class="mt-5" id="chat-messages">
+                Chat messages
+            </h1>
+            <p>
+                Explain Chat messages
+            </p>
+            <h1 class="mt-5" id="device-control">
+                Device Control
+            </h1>
+            <p>
+                Explain Device Control for local and remote, things you can do, how to do it
+            </p>
+            <h1 class="mt-5" id="background-subtraction">
+                Background subtraction
+            </h1>
+            <p>
+                Explain Background subtraction, blur, transparent, image...
+            </p>
+            <h1 class="mt-5" id="good-practices">
+                Good practices
+            </h1>
+            <p>
+                Explain Good practices
+            </p>
         </div>
     </div>
 </div>
