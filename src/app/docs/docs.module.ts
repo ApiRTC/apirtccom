@@ -51,10 +51,13 @@ import { SafePipe } from '../safe.pipe';
         coreLibraryLoader: () => import('highlight.js/lib/core'),
         //lineNumbersLoader: () => import('highlightjs-line-numbers.js'), // Optional, only if you want the line numbers
         languages: {
+          // dockerfile: () => import('highlight.js/lib/languages/dockerfile'),
           typescript: () => import('highlight.js/lib/languages/typescript'),
           javascript: () => import('highlight.js/lib/languages/javascript'),
           json: () => import('highlight.js/lib/languages/json'),
           kotlin: () => import('highlight.js/lib/languages/kotlin'),
+          // shell: () => import('highlight.js/lib/languages/shell'),
+          swift: () => import('highlight.js/lib/languages/swift'),
           xml: () => import('highlight.js/lib/languages/xml')
         }
       }
