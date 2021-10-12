@@ -1,32 +1,84 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col">
-            <h1>Technical concepts</h1>
-
-            <p>Any ApiRTC application, involves at least two software parts, the <strong>client application</strong> and
-                <strong>ApiRTC platform</strong>.
+            <h1>
+                Technical concepts
+            </h1>
+            <p>
+                Any <strong>ApiRTC</strong> application, involves at least two software parts, the <strong>client
+                    application</strong> and
+                <strong>ApiRTC PaaS platform</strong>.
             </p>
-
-            <h2>Client application</h2>
-            <p>The client application is the web or mobile application final users are using to interact together. It allows the user to share messages or media, and it displays messages or media from the other participants</p>
-
-            <h2>ApiRTC platform</h2>
-
-            <h3>ApiRTC cloud</h3>
-
-            <p>ApiRTC cloud is responsible for the signaling.</p>
-
-            <h3>ApiRTC STUN/TURN</h3>
-
-            <h3>ApiRTC SFUs</h3>
-
-            <p>Tell about peer-to-peer, mesh mode, star topolofy SFUs... :</p>
-
-            <p>In ApiRTC, media streams flow through ApiRTC infrastructure SFUs.</p>
-
-            <p>But you can control that my enabling meshMode, and event force it remain mesh. Otherwise ApiRTC will automatically try to switch to star topology architecture.</p>
-
-
+            <h2>
+                Client application
+            </h2>
+            <p>
+                The client application is the web or mobile application that connects users together. It allows them to
+                share messages or media, and it displays messages or media from the others.
+            </p>
+            <h2>
+                ApiRTC platform
+            </h2>
+            <p>
+                The <strong>ApiRTC</strong> plateform is involved to at least as a signalisation server. Depending on
+                the situation it can also act as an authentication server. authenticate users
+            </p>
+            <h3>
+                ApiRTC CCS
+            </h3>
+            <p>
+                ApiRTC CSS is responsible for the signaling.
+            </p>
+            <p>TODO : PARTICIPATION ?</p>
+            <h3>
+                ApiRTC cloud
+            </h3>
+            <p>
+                ApiRTC Cloud hosts the configuration of your Enterprise(s) and information on your potential Users.
+            </p>
+            <p>TODO : PARTICIPATION ?</p>
+            <h3>
+                ApiRTC STUN/TURN
+            </h3>
+            <p>Sometimes, users might face connectivity issues because of different IP networks where Firewalls and NATs
+                (Network Address Translators) could include specific network policies that will not allow RTC
+                communications.</p>
+            <p>In order to solve this kind of network connection scenario, we need to use ICE (Interactive Connectivity
+                Establishment) protocol and it defines a systematic way of finding possible communication options
+                between a peer and the video gateway.</p>
+            <p>ICE (INTERACTIVE CONNECTIVITY ESTABLISHMENT) is a protocol used to generate media traversal candidates
+                that can be used in WebRTC applications, and it can be successfully sent and received through Network
+                Address Translation (NAT)s using STUN and TURN.</p>
+            <p>STUN (Session Traversal Utilities for NAT) that complements ICE through NATs using UDP protocol. STUN
+                allows applications to discover the presence and types of NATs and firewalls between them and on the
+                public Internet. It can be used by any device to determine the IP address and port allocated to it by a
+                NAT.</p>
+            <p>Typically A STUN client can send messages to the STUN server to get the Public IP and ports information
+                then STUN server retrieve that information. Using this Public IP and Port information clients will make
+                a peer to peer communication through the internet.</p>
+            <p>TURN (Traversal Using Relays around NAT) is a protocol that assists in the traversal of network address
+                translators (NAT) or firewalls for webRTC applications. TURN Server allows clients to send and receive
+                data through an intermediary server. The TURN protocol is the extension to STUN.</p>
+            <p>In a few cases, client communication endpoints are stuck behind different types of NATs, or when a
+                symmetric NAT is in use, it may be easier to send media through a relay server and its called the TURN
+                server.</p>
+            <p><strong>ApiRTC</strong> provides both STUN and TURN servers to address theses WebRTC requirements.</p>
+            <h3>
+                ApiRTC SFUs
+            </h3>
+            <p>
+                ApiRTC features SFUs servers to enable large number of users video conferences to happen
+            </p>
+            <p>
+                Tell about peer-to-peer, mesh mode, star topolofy SFUs... :
+            </p>
+            <p>
+                In ApiRTC, media streams flow through ApiRTC infrastructure SFUs.
+            </p>
+            <p>
+                But you can control that my enabling meshMode, and event force it remain mesh. Otherwise ApiRTC will
+                automatically try to switch to star topology architecture.
+            </p>
         </div>
     </div>
 </div>

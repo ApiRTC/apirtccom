@@ -3,36 +3,40 @@
     <div class="row mt-5">
         <div class="col fs-6">
 
-            <h1 id="h1_1503330406">
+            <h1>
                 Load ApiRTC library
             </h1>
 
             <ul class="nav nav-tabs mt-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="js-tab" data-bs-toggle="tab" data-bs-target="#js" type="button"
-                        role="tab" aria-controls="js" aria-selected="false" value="" name="">JS</button>
+                        role="tab" aria-controls="js" aria-selected="false" value="" name=""
+                        (click)="lang='javascript'">JS</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="angular-tab" data-bs-toggle="tab" data-bs-target="#angular"
-                        type="button" role="tab" aria-controls="angular" aria-selected="true" value=""
-                        name="">Angular</button>
+                        type="button" role="tab" aria-controls="angular" aria-selected="true" value="" name=""
+                        (click)="lang='javascript'">Angular</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="react-tab" data-bs-toggle="tab" data-bs-target="#react" type="button"
-                        role="tab" aria-controls="react" aria-selected="false" value="" name="">ReactJS</button>
+                        role="tab" aria-controls="react" aria-selected="false" value="" name=""
+                        (click)="lang='javascript'">ReactJS</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="vuejs-tab" data-bs-toggle="tab" data-bs-target="#vuejs" type="button"
-                        role="tab" aria-controls="vuejs" aria-selected="false" value="" name="">VueJS</button>
+                        role="tab" aria-controls="vuejs" aria-selected="false" value="" name=""
+                        (click)="lang='javascript'">VueJS</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="android-tab" data-bs-toggle="tab" data-bs-target="#android"
-                        type="button" role="tab" aria-controls="android" aria-selected="false" value=""
-                        name="">Android</button>
+                        type="button" role="tab" aria-controls="android" aria-selected="false" value="" name=""
+                        (click)="lang='kotlin'">Android</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="ios-tab" data-bs-toggle="tab" data-bs-target="#ios" type="button"
-                        role="tab" aria-controls="ios" aria-selected="false" value="" name="">iOS</button>
+                        role="tab" aria-controls="ios" aria-selected="false" value="" name=""
+                        (click)="lang='swift'">iOS</button>
                 </li>
             </ul>
             <div class="tab-content">
@@ -132,17 +136,14 @@
             </div>
         </div>
     </div>
-
     <h2 class="mt-5">
         UserAgent
     </h2>
-
     <p>
         As the entry point to <strong>ApiRTC</strong>, <code>UserAgent</code> is instantiated using the
         <strong>apiKey</strong> associated to your <strong>enterprise</strong> account on <a
             href="https://www.apirtc.com" target="_blank" rel="noopener">https://www.apirtc.com</a>.
     </p>
-
     <p class="alert alert-info" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
             <use xlink:href="#info-fill"></use>
@@ -152,27 +153,27 @@
                 rel="noopener">https://cloud.apirtc.com/enterprise/api</a>
         </span>
     </p>
-
     <p class="text-center my-5">
         <img src="/assets/apirtc_useragent.svg" alt="UserAgent" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
             <!-- <button class="nav-link active" [ngClass]="{'active': lang==='javascript'}" id="useragent_js-tab" data-bs-toggle="tab" data-bs-target="#useragent_js" type="button"
                 role="tab" aria-controls="useragent_js" aria-selected="false" value="" name="">js/ts</button> -->
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
             <!-- <button class="nav-link" id="useragent_kotlin-tab" data-bs-toggle="tab" data-bs-target="#useragent_kotlin" type="button"
                 role="tab" aria-controls="useragent_kotlin" aria-selected="true" value="" name="">Kotlin</button> -->
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
-
         <li class="nav-item" role="presentation">
             <!-- <button class="nav-link" id="useragent_swift-tab" data-bs-toggle="tab" data-bs-target="#useragent_swift" type="button"
                 role="tab" aria-controls="useragent_swift" aria-selected="false" value="" name="">Swift</button> -->
-                <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
@@ -186,52 +187,33 @@
             <pre><code [highlight]="useragent_swift" [languages]="['swift']"></code></pre>
         </div>
     </div>
-
-    <!-- 
-  <pre class="border">
-  </pre>
-  -->
-    <!-- 
-  <p>
-  <code>UserAgent</code> permet d'accèder aux fonctionnalités <strong>non-connectées</strong> d'<strong>ApiRTC</strong>.
-  </p>
-  <p>
-  TODO : list non-connected features
-  </p>
-  <ul>
-  <li>
-  </li>
-  </ul>
-  -->
-
     <h2 class="mt-5">
         Stream
     </h2>
-
     <p>
         When <code>UserAgent.createStream(options)</code> is called, a popup opens in the browser to request user
         acceptance for using media devices. Then it provides an instance of <code>Stream</code>, which carries media
         <strong>stream</strong> from computer device through the browser.
     </p>
-
     <p>
         The method <code>Stream.attachToElement(domElement)</code> binds the <strong>stream</strong> to a DOM
         <code>&lt;video&gt;</code> element in order to display it in the web page.
     </p>
-
     <p class="text-center my-5">
         <img src="/assets/apirtc_createstream.svg" alt="createstream" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
@@ -241,44 +223,37 @@
         <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
             <!-- <pre><code [highlight]="createStream_kotlin"></code></pre> -->
         </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel" >
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
             <!-- <pre><code [highlight]="createStream_swift"></code></pre> -->
         </div>
     </div>
-
     <h2 class="mt-5">
         Session
     </h2>
-
     <p>
         To use <strong>ApiRTC</strong>'s connected features, a <code>userAgent</code> must register to get a
         <strong>session</strong>. This can be done with or without authentication.
     </p>
-    <!-- 
-  <p>
-  TODO: lister les modes d'authentification, ou faire un lien vers un chapitre dédié
-  </p>
-  -->
-
     <p>
         Simply using <code>UserAgent.register()</code> without authentication details registers a
         <code>userAgent</code> with
         <strong>ApiRTC</strong>'s servers without authentication.
     </p>
-
     <p class="text-center my-5">
-        <img src="/assets/apirtc_useragent_register.svg" alt="register"/>
+        <img src="/assets/apirtc_useragent_register.svg" alt="register" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
@@ -288,40 +263,39 @@
         <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
             <!-- <pre><code [highlight]="register_kotlin"></code></pre> -->
         </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel" >
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
             <!-- <pre><code [highlight]="register_swift"></code></pre> -->
         </div>
     </div>
-
     <p>
         The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
         <strong>conferences</strong>.
     </p>
-
     <h2 class="mt-5">
         Conversation
     </h2>
     <p>
         An instance of <code>Conversation</code> is obtained from <code>Session.getOrCreateConversation(name)</code>.
     </p>
-
     <p class="text-center my-5">
-        <img src="/assets/apirtc_session_getOrCreateConversation.svg" alt="getOrCreateConversation"/>
+        <img src="/assets/apirtc_session_getOrCreateConversation.svg" alt="getOrCreateConversation" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}"  role="tabpanel">
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
             <pre><code [highlight]="getOrCreateConversation_js"></code></pre>
         </div>
         <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
@@ -331,7 +305,6 @@
             <!-- <pre><code [highlight]="getOrCreateConversation_swift"></code></pre> -->
         </div>
     </div>
-
     <h4 class="mt-5">
         Join
     </h4>
@@ -344,24 +317,25 @@
         <strong>conversation</strong>.
         <!-- The <code>userAgent</code> then becomes a <strong>participant</strong>. -->
     </p>
-
     <p class="text-center my-5">
-        <img src="/assets/apirtc_conversation_join.svg" alt="join"/>
+        <img src="/assets/apirtc_conversation_join.svg" alt="join" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}"  role="tabpanel">
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
             <pre><code [highlight]="join_js"></code></pre>
         </div>
         <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
@@ -371,7 +345,6 @@
             <!-- <pre><code [highlight]="join_swift"></code></pre> -->
         </div>
     </div>
-
     <h4 class="mt-5">
         Publish Streams
     </h4>
@@ -380,34 +353,34 @@
         Once a <strong>conversation</strong> joined, a <code>userAgent</code> can publish a
         <strong>stream</strong> using <code>Conversation.publish(stream)</code> method :
     </p>
-
     <p class="text-center my-5">
-        <img src="/assets/apirtc_conversation_publish.svg" alt="publish"/>
+        <img src="/assets/apirtc_conversation_publish.svg" alt="publish" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}"  role="tabpanel">
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
             <pre><code [highlight]="publish_js"></code></pre>
         </div>
         <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}">
             <!-- <pre><code [highlight]="publish_kotlin"></code></pre> -->
         </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}"role="tabpanel">
+        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
             <!-- <pre><code [highlight]="publish_swift"></code></pre> -->
         </div>
     </div>
-
     <h4 class="mt-5">
         Subscribe to Streams
     </h4>
@@ -444,20 +417,21 @@
             </p>
         </li>
     </ul>
-
     <p class="text-center my-5">
-        <img src="/assets/apirtc_conversation_subscribe.svg" alt="subscribe"/>
+        <img src="/assets/apirtc_conversation_subscribe.svg" alt="subscribe" />
     </p>
-
     <ul class="nav nav-tabs mt-5" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
+                (click)="lang='javascript'">js/ts</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
+                (click)="lang='kotlin'">Kotlin</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
+                (click)="lang='swift'">Swift</button>
         </li>
     </ul>
     <div class="tab-content">
@@ -471,7 +445,6 @@
             <!-- <pre><code [highlight]="subscribe_swift"></code></pre> -->
         </div>
     </div>
-
     <p class="mt-3">
     </p>
     <div class="alert alert-warning" role="alert">
@@ -488,7 +461,6 @@
             to display correct <code>Stream</code>.
         </p>
     </div>
-
     <p class="mt-5">
     </p>
     <div class="alert alert-success d-flex align-items-center" role="alert">
@@ -499,7 +471,6 @@
             At this stage, the application displays both local and remote video <strong>streams</strong> in the page !
         </div>
     </div>
-
     <div class="alert alert-primary" role="alert">
         <p>
             It is then important to listen on <code>'streamRemoved'</code> to stop displaying the corresponding
@@ -510,7 +481,6 @@
             <strong>stream</strong> is not published anymore.
         </p>
     </div>
-
     <p class="mt-5">
     </p>
     <!-- TODO : provide a simple sample for each framework -->
@@ -543,8 +513,6 @@
   Session n'existe plus
   On crée une Conversation depuis un autre point d'entrée ?
   les events de converation sont revus pour ne pas avoir streamListChanged puis streamAdded, on aurait plutot participantJoined et sur participant récupéré streamAdded -->
-
-
     <!-- 
   <h3>
   Conference

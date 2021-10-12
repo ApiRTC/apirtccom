@@ -1,30 +1,82 @@
 <div class="container">
     <div class="row mt-5">
         <div class="col">
-            <h1>Logical concepts</h1>
-
-            <h2>Users</h2>
-
-            <p>From a client application point of view, the local participant is represented by the <code>UserAgent</code>.</p>
-            <p>Remote participants are <code>Contact</code>s</p>
-
-
-
-            <h2>Conversation</h2>
-            <!-- <p>In an <strong>ApiRTC</strong> application, <code>Conversation</code> is the central concept.</p> -->
-
-            <p>Whenever there are 2 participants or more, a <code>Conversation</code> takes place</p>
-            <!-- peer2peer and mesh control are explained in technical-concepts and devguide so d'ont explain here -->
-
-
-            <!-- FEATURES: to put somewhere else ? -->
-            <!-- <h2>presence</h2> -->
-            <!-- <h2>messages</h2>
-            <h2>Streams</h2>
-            <p>stream acquisition</p>
-            <h2>whiteboard</h2>
-            <p>Publish and subscribe...</p> -->
-
+            <h1>
+                Enterprise &amp; apiKey
+            </h1>
+            <p>
+                An account on <strong>ApiRTC</strong> platform consists in a main <strong>Enterprise</strong> and and
+                admin <strong>User</strong>.
+            </p>
+            <p>
+                One <strong>apiKey</strong> is associated to one <strong>Enterprise</strong>. The
+                <strong>apiKey</strong> is a simple string that identifies a client application without any principal.
+                It is useful for accessing the api, associating <strong>ApiRTC</strong> usage with your project for
+                quota and billing.
+            </p>
+            <p>
+                <strong>ApiRTC</strong> allows to create children <strong>Enterprise</strong>s to the main
+                <strong>Enterprise</strong>, each one having it's own <strong>apiKey</strong>.
+                This is usefull to isolate quota and billing of different projects.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1>
+                Users and participants
+            </h1>
+            <p>
+                Depending on projects and needs, communications <strong>participants</strong> may be:
+            </p>
+            <ul>
+                <li>
+                    <strong>User</strong>s managed by <strong>ApiRTC</strong> platform,
+                </li>
+                <li>
+                    users managed externaly,
+                </li>
+                <li>
+                    guests
+                </li>
+            </ul>
+            <p>
+                <strong>ApiRTC</strong> managed <strong>User</strong>s are associated to an <strong>Enterprise</strong>.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1>
+                Conversation
+            </h1>
+            <p>
+                A <strong>Conversation</strong> happens between participants. They may or may not be
+                <strong>User</strong>s defined on the <strong>ApiRTC</strong> platform.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1>
+                Usage based billing
+            </h1>
+            <p>
+                <strong>ApiRTC</strong> billing is based on usage.
+            </p>
+            <p>
+                Video <strong>Conversation</strong> billing is based on the number of minutes in communication and per
+                <strong>participant</strong>.
+            </p>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Understand more about pricing : <a href="https://apirtc.com/pricing/" target="_blank" rel="noopener"
+                        title="pricing">ApiRTC pricing</a>.
+                </div>
+            </div>
         </div>
     </div>
 </div>

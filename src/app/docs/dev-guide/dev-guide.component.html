@@ -1,13 +1,4 @@
 <div class="bd-main">
-    <div class="bd-intro mt-5">
-        <div class="container">
-            <p>
-                This guide covers all concepts and features you may require to develop your communication client
-                application.
-            </p>
-        </div>
-    </div>
-
     <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
         <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
         <nav id="TableOfContents">
@@ -79,7 +70,11 @@
 
     <div class="bd-content">
         <div class="container">
-            <h1 id="apiKey">
+            <p class="mt-5 fs-5">
+                This guide covers all concepts and features you may require to develop your communication <strong>client
+                    application</strong> with <strong>ApiRTC</strong>.
+            </p>
+            <h1 id="apiKey" class="mt-5">
                 apiKey
             </h1>
             <p>
@@ -126,24 +121,30 @@
                                 </p>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='javascript'">js/ts</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='kotlin'">Kotlin</button>
                                     </li>
-                            
+
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='swift'">Swift</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apikey_js" [languages]="['javascript']"></code></pre>
                                     </div>
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apikey_kotlin" [languages]="['kotlin']"></code></pre>
                                     </div>
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apikey_swift" [languages]="['swift']"></code></pre>
                                     </div>
                                 </div>
@@ -168,23 +169,29 @@
                                 </p>
                                 <ul class="nav nav-tabs" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='javascript'">js/ts</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='javascript'">js/ts</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='kotlin'">Kotlin</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='kotlin'">Kotlin</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link"  type="button" role="tab" (click)="lang='swift'">Swift</button>
+                                        <button class="nav-link" type="button" role="tab"
+                                            (click)="lang='swift'">Swift</button>
                                     </li>
                                 </ul>
                                 <div class="tab-content">
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apirtc_js" [languages]="['javascript']"></code></pre>
                                     </div>
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apirtc_kotlin" [languages]="['kotlin']"></code></pre>
                                     </div>
-                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
+                                    <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}"
+                                        role="tabpanel">
                                         <pre><code [highlight]="useragent_apirtc_swift" [languages]="['swift']"></code></pre>
                                     </div>
                                 </div>
@@ -194,7 +201,7 @@
                 </div>
             </div>
 
-            <h2 id="h2_1401761593" class="mt-3">
+            <h2 class="mt-3">
                 UserData
             </h2>
             <p>
@@ -211,7 +218,7 @@
                 event, <code>updatedContacts</code> will carry a <code>userDataChanged</code> array property of
                 <code>Contact</code>s for which <code>UserData</code> has changed.
             </p>
-            <h2 id="h2_1174486459">
+            <h2>
                 MediaDevices
             </h2>
             <p>
@@ -251,7 +258,7 @@
                 Note that the required authentication must be configured by <strong>Enterprise</strong> (thus by
                 <strong>apiKey</strong>), from your account panel (TODO: give link).
             </p>
-            <h2 id="h2__55841322">
+            <h2>
                 Authentication
             </h2>
             <p>
@@ -331,7 +338,7 @@
                     </div>
                 </div>
             </div>
-            <h1 id="h1__1298403728" class="mt-5">
+            <h1 class="mt-5">
                 Contacts : Presence, Groups
             </h1>
             <p>
@@ -359,7 +366,7 @@
             <p>
                 Whenever there are 2 participants or more, a <code>Conversation</code> takes place.
             </p>
-            <h2 id="h2__157250429">
+            <h2>
                 getOrCreate
             </h2>
             <p>
@@ -399,7 +406,7 @@
                 Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code> forces
                 the <code>Conversation</code> to remain mesh only.
             </p>
-            <h2 id="h2_1367192090">
+            <h2>
                 Join
             </h2>
             <p>
@@ -411,14 +418,14 @@
                 <code>join()</code> actually returns a promise. <strong>Conversation</strong> will be joined when the
                 promise resolves. The resolution may depend on moderation.
             </p>
-            <h2 id="h2__1846412581">
+            <h2>
                 Leave
             </h2>
             <p>
                 <code>Conversation.leave</code> method makes the local user represented by the <code>UserAgent</code>
                 leave the <strong>conversation</strong>.
             </p>
-            <h2 id="h2__535264398">
+            <h2>
                 Moderation
             </h2>
             <p>
@@ -428,10 +435,10 @@
             <p>
                 TODO : explain how this can be achieve (when it is actually developped)
             </p>
-            <h2 id="h2__254716661">
-                accept/decline..
+            <h2>
+                accept/decline...
             </h2>
-            <h2 id="h2_666725563">
+            <h2>
                 eject...
             </h2>
             <p>
@@ -457,7 +464,7 @@
             <h1 class="mt-5" id="remote-streams">
                 Remote Streams
             </h1>
-            <h2 id="h2__1003081151">
+            <h2>
                 Publish
             </h2>
             <p>
@@ -469,7 +476,7 @@
                 <strong>stream</strong>.
             </p>
             <p>code</p>
-            <h3 id="h3_383706697">
+            <h3>
                 PublishOptions
             </h3>
             <p>
@@ -479,7 +486,7 @@
                     href="https://dev.apirtc.com/reference/global.html#PublishOptions" target="_blank"
                     rel="noopener">PublishOptions</a>
             </p>
-            <h2 id="h2__247607832">
+            <h2>
                 Unpublish
             </h2>
             <p>
@@ -487,7 +494,7 @@
                 subscribe and stops sending <strong>media stream</strong> to peers.
             </p>
             <p>code</p>
-            <h2 id="h2__356384962">
+            <h2>
                 Handle remote streams availability
             </h2>
             <p>
@@ -510,7 +517,7 @@
                 The <code>streamInfo.contact.getId()</code> and <code>streamInfo.streamId</code> can be useful to
                 identify remote <strong>peer</strong> and <strong>stream</strong>.
             </p>
-            <h2 id="h2__419851974">
+            <h2>
                 Subscribe
             </h2>
             <p>
@@ -519,7 +526,7 @@
                 <code>StreamInfo</code> data object:
             </p>
             <p>code</p>
-            <h3 id="h3__1222041136">
+            <h3>
                 SubscribeOptions
             </h3>
             <p>
@@ -529,7 +536,7 @@
                     href="https://dev.apirtc.com/reference/global.html#SubscribeOptions" target="_blank"
                     rel="noopener">SubscribeOptions</a>
             </p>
-            <h2 id="h2__2018652737">
+            <h2>
                 Unsubscribe
             </h2>
             <p>
@@ -537,7 +544,7 @@
                 <code>Conversation.unsubscribeToStream(streamId)</code> method.
             </p>
             <p>code</p>
-            <h2 id="h2_1580479363">
+            <h2>
                 Manage media streams
             </h2>
             <p>
