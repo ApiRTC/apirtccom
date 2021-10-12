@@ -13,7 +13,7 @@ export class GettingStartedComponent implements OnInit {
   <script type="text/javascript" src="https://cloud.apirtc.com/apiRTC/apiRTC-latest.min.js"></script>
 </head>`;
 
-  npm_install = `npm install @apizee/apirtc@latest --save`;
+  npm_install = `$ npm install @apizee/apirtc@latest --save`;
   angular_json = `{
     "projects": {
       "YOUR_PROJECT_NAME": {
@@ -29,30 +29,36 @@ export class GettingStartedComponent implements OnInit {
     }
   }`;
 
-  useragent_js = `declare var apiRTC: any;
+  useragent = {
+    javascript: `declare var apiRTC: any;
 userAgent = new apiRTC.UserAgent({
-  uri:'apzkey:' + apiKey
-});`;
-  useragent_ts = `import { UserAgent } from '@apizee/apirtc';
-  const userAgent = new UserAgent({uri: 'apzkey:' + apiKey});`;
-  useragent_kotlin = `import com.apizee.apiRTC.*
+  uri: 'apzkey:' + apiKey
+});`,
+    typescript: `import { UserAgent } from '@apizee/apirtc';
+const userAgent = new UserAgent({uri: 'apzkey:' + apiKey});`,
+    kotlin: `import com.apizee.apiRTC.*
 val options = UserAgent.UserAgentOptions(uri = "apzkey:$apiKey")
-val userAgent = UserAgent(this, options)`
-  useragent_swift = `import ApiRTCSDK
+val userAgent = UserAgent(this, options)`,
+    swift: `import ApiRTCSDK
 var userAgent: UserAgent?
-userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`;
+userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`
+  }
+  // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instread of apiKey
 
-  createStream_js = `userAgent.createStream({audio: true,video: true}).then(stream => {stream.attachToElement(domElement)});`;
+  createStream = {
+    javascript: `userAgent.createStream({audio: true,video: true}).then(stream => {stream.attachToElement(domElement)});`
+  };
 
-  register_js = `userAgent.register().then(session => {...});`;
+  register = { javascript: `userAgent.register().then(session => {...});` };
 
-  getOrCreateConversation_js = `conversation = session.getOrCreateConversation("MY_CONVERSATION");`;
+  getOrCreateConversation = { javascript: `conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
 
-  join_js = `conversation.join();`;
+  join = { javascript: `conversation.join();` };
 
-  publish_js = `conversation.publish(stream).then(stream => {...});`;
+  publish = { javascript: `conversation.publish(stream).then(stream => {...});` };
 
-  subscribe_js = `conversation.on('streamListChanged', streamInfo => ({
+  subscribe = {
+    javascript: `conversation.on('streamListChanged', streamInfo => ({
   if (streamInfo.isRemote === true) {
     if (streamInfo.listEventType === 'added') {
       conversation.subscribeToStream(streamInfo.streamId);
@@ -62,7 +68,7 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`;
   
 conversation.on('streamAdded', stream => ({
   stream.attachToElement(domElement)
-});`;
+});` };
 
   lang = 'javascript';
 

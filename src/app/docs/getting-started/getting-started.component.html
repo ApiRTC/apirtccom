@@ -88,7 +88,7 @@
             <hr />
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row">
         <div class="col">
             <h3>
                 Before we start coding... let's list and explain the main classes involved :
@@ -136,6 +136,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <hr />
+        </div>
+    </div>
     <h2 class="mt-5">
         UserAgent
     </h2>
@@ -156,37 +161,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_useragent.svg" alt="UserAgent" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <!-- <button class="nav-link active" [ngClass]="{'active': lang==='javascript'}" id="useragent_js-tab" data-bs-toggle="tab" data-bs-target="#useragent_js" type="button"
-                role="tab" aria-controls="useragent_js" aria-selected="false" value="" name="">js/ts</button> -->
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <!-- <button class="nav-link" id="useragent_kotlin-tab" data-bs-toggle="tab" data-bs-target="#useragent_kotlin" type="button"
-                role="tab" aria-controls="useragent_kotlin" aria-selected="true" value="" name="">Kotlin</button> -->
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <!-- <button class="nav-link" id="useragent_swift-tab" data-bs-toggle="tab" data-bs-target="#useragent_swift" type="button"
-                role="tab" aria-controls="useragent_swift" aria-selected="false" value="" name="">Swift</button> -->
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="useragent_js" [languages]="['javascript']"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <pre><code [highlight]="useragent_kotlin" [languages]="['kotlin']"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <pre><code [highlight]="useragent_swift" [languages]="['swift']"></code></pre>
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="useragent" (onLang)="lang=$event"></app-codenav>
     <h2 class="mt-5">
         Stream
     </h2>
@@ -202,31 +177,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_createstream.svg" alt="createstream" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="createStream_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <!-- <pre><code [highlight]="createStream_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="createStream_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="createStream" (onLang)="lang=$event"></app-codenav>
     <h2 class="mt-5">
         Session
     </h2>
@@ -242,31 +193,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_useragent_register.svg" alt="register" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="register_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <!-- <pre><code [highlight]="register_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="register_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="register" (onLang)="lang=$event"></app-codenav>
     <p>
         The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
         <strong>conferences</strong>.
@@ -280,31 +207,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_session_getOrCreateConversation.svg" alt="getOrCreateConversation" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="getOrCreateConversation_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <!-- <pre><code [highlight]="getOrCreateConversation_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="getOrCreateConversation_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="getOrCreateConversation" (onLang)="lang=$event"></app-codenav>
     <h4 class="mt-5">
         Join
     </h4>
@@ -320,31 +223,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_join.svg" alt="join" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="join_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <!-- <pre><code [highlight]="join_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="join_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="join" (onLang)="lang=$event"></app-codenav>
     <h4 class="mt-5">
         Publish Streams
     </h4>
@@ -356,31 +235,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_publish.svg" alt="publish" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="publish_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}">
-            <!-- <pre><code [highlight]="publish_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="publish_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="publish" (onLang)="lang=$event"></app-codenav>
     <h4 class="mt-5">
         Subscribe to Streams
     </h4>
@@ -420,31 +275,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_subscribe.svg" alt="subscribe" />
     </p>
-    <ul class="nav nav-tabs mt-5" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='javascript'}" type="button" role="tab"
-                (click)="lang='javascript'">js/ts</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='kotlin'}" type="button" role="tab"
-                (click)="lang='kotlin'">Kotlin</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" [ngClass]="{'active' : lang==='swift'}" type="button" role="tab"
-                (click)="lang='swift'">Swift</button>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='javascript'}" role="tabpanel">
-            <pre><code [highlight]="subscribe_js"></code></pre>
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='kotlin'}" role="tabpanel">
-            <!-- <pre><code [highlight]="subscribe_kotlin"></code></pre> -->
-        </div>
-        <div class="tab-pane mt-3 fade" [ngClass]="{'show active' : lang==='swift'}" role="tabpanel">
-            <!-- <pre><code [highlight]="subscribe_swift"></code></pre> -->
-        </div>
-    </div>
+    <app-codenav [lang]="lang" [code]="subscribe" (onLang)="lang=$event"></app-codenav>
     <p class="mt-3">
     </p>
     <div class="alert alert-warning" role="alert">
