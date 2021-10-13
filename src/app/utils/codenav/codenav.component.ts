@@ -8,14 +8,16 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 export class CodenavComponent implements OnInit {
 
 
-  _lang: string = 'javascript';
-  @Input() set lang(lang: string) {
-    this._lang = lang;
-  }
+  // _lang: string = 'javascript';
+  // @Input() set lang(lang: string) {
+  //   this._lang = lang;
+  // }
+  // @Output() onLang = new EventEmitter<string>();
 
   @Input() code: any = {};
 
-  @Output() onLang = new EventEmitter<string>();
+  @Input()  language!: string;
+  @Output() languageChange = new EventEmitter<string>();
 
   constructor() { }
 
@@ -23,8 +25,9 @@ export class CodenavComponent implements OnInit {
   }
 
   setLang(lang: string) {
-    this._lang = lang;
-    this.onLang.emit(this._lang);
+    this.language = lang;
+    //this.onLang.emit(this.language);
+    this.languageChange.emit(this.language);
   }
 
 }

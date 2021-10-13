@@ -91,8 +91,9 @@
                     <use xlink:href="#info-fill"></use>
                 </svg>
                 <div>
-                    Create an <strong>account</strong> and get an <strong>apiKey</strong> from <a href="https://www.apirtc.com"
-                        title="Get apiKey" target="_blank" rel="noopener">https://www.apirtc.com</a>
+                    Create an <strong>account</strong> and get an <strong>apiKey</strong> from <a
+                        href="https://www.apirtc.com" title="Get apiKey" target="_blank"
+                        rel="noopener">https://www.apirtc.com</a>
                 </div>
             </div>
             <h1 id="user-agent" class="mt-5">
@@ -103,7 +104,7 @@
                 instantiate. It represents the local user that will participate to communications.
             </p>
             <p class="text-center mt-3">
-                There are two ways to instantiate a <code>UserAgent</code> :
+                There are two ways to instantiate a <code>UserAgent</code>:
             </p>
             <div class="row">
                 <div class="col">
@@ -121,7 +122,7 @@
                                     In this case the <code>uri</code> is <strong>apiKey</strong> prefixed with "apzkey:"
                                     string.
                                 </p>
-                                <app-codenav [lang]="lang" [code]="useragent_apikey" (onLang)="lang=$event">
+                                <app-codenav [code]="useragent_apikey" [(language)]="lang">
                                 </app-codenav>
                             </div>
                         </div>
@@ -142,7 +143,7 @@
                                     In this case the <code>uri</code> is <strong>username</strong> prefixed with
                                     "apizee:" string.
                                 </p>
-                                <app-codenav [lang]="lang" [code]="useragent_apirtc" (onLang)="lang=$event">
+                                <app-codenav [code]="useragent_apirtc" [(language)]="lang">
                                 </app-codenav>
                             </div>
                         </div>
@@ -172,9 +173,9 @@
             </h2>
             <p>
                 <code>UserAgent</code>'s <code>mediaDeviceChanged</code> event can be listened to in order to get
-                notified of the list of available devices available to the browser:
+                notified of the list of devices available to the browser:
             </p>
-            <app-codenav [lang]="lang" [code]="mediaDeviceChanged" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="mediaDeviceChanged" [(language)]="lang"></app-codenav>
             <p class="mt-3">
                 Here is what the <code>mediaDevices</code> object looks like:
             </p>
@@ -223,7 +224,7 @@
                             <h3 class="card-title">
                                 No auth
                             </h3>
-                            <app-codenav [lang]="lang" [code]="register_noauth" (onLang)="lang=$event"></app-codenav>
+                            <app-codenav [code]="register_noauth" [(language)]="lang"></app-codenav>
                             <p class="card-text">
                                 <br />
                                 on a <code>UserAgent</code> created with <strong>apiKey</strong>
@@ -246,7 +247,7 @@
                                                 <h3 class="card-title" id="h5__278552043">
                                                     JWT (JSON Web Token)
                                                 </h3>
-                                                <app-codenav [lang]="lang" [code]="register_jwt" (onLang)="lang=$event">
+                                                <app-codenav [code]="register_jwt" [(language)]="lang">
                                                 </app-codenav>
                                                 <p class="card-text">
                                                     on a <code>UserAgent</code> created with <strong>apiKey</strong>
@@ -262,8 +263,8 @@
                                                 <h3 class="card-title">
                                                     3rdParty Auth server
                                                 </h3>
-                                                <app-codenav [lang]="lang" [code]="register_3rdparty"
-                                                    (onLang)="lang=$event"></app-codenav>
+                                                <app-codenav [code]="register_3rdparty" [(language)]="lang">
+                                                </app-codenav>
                                                 <p class="card-text">
                                                     &nbsp;on a <code>UserAgent</code> created with
                                                     <strong>apiKey</strong>
@@ -284,7 +285,7 @@
                             </h3>
                         </div>
                         <div class="card-body text-secondary">
-                            <app-codenav [lang]="lang" [code]="register_apirtc" (onLang)="lang=$event"></app-codenav>
+                            <app-codenav [code]="register_apirtc" [(language)]="lang"></app-codenav>
                             <p class="card-text">
                                 on a <code>UserAgent</code> created with <strong>username</strong>
                             </p>
@@ -431,7 +432,7 @@
                 The <strong>local user</strong> (<code>UserAgent</code>) must have joined the conversation to publish a
                 <strong>stream</strong>.
             </p>
-            <app-codenav [lang]="lang" [code]="publish" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="publish" [(language)]="lang"></app-codenav>
             <h3>
                 PublishOptions
             </h3>
@@ -449,7 +450,7 @@
                 Unpublishing a <strong>local stream</strong> makes it unavailable for remote peer participants to
                 subscribe and stops sending <strong>media stream</strong> to peers.
             </p>
-            <app-codenav [lang]="lang" [code]="unpublish" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="unpublish" [(language)]="lang"></app-codenav>
             <h2>
                 Handle remote streams availability
             </h2>
@@ -468,7 +469,7 @@
                 <span>The information carried by the event is <code>StreamInfo</code>: this is not a <code>Stream</code>
                     yet.</span>
             </div>
-            <app-codenav [lang]="lang" [code]="streamListChanged" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="streamListChanged" [(language)]="lang"></app-codenav>
             <p>
                 The <code>streamInfo.contact.getId()</code> and <code>streamInfo.streamId</code> can be useful to
                 identify remote <strong>peer</strong> and <strong>stream</strong>.
@@ -481,7 +482,7 @@
                 <code>Conversation.subscribeToStream(streamId)</code> method. It takes the id of stream provided in the
                 <code>StreamInfo</code> data object:
             </p>
-            <app-codenav [lang]="lang" [code]="subscribe" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="subscribe" [(language)]="lang"></app-codenav>
             <h3>
                 SubscribeOptions
             </h3>
@@ -499,7 +500,7 @@
                 Unsubscribing to a <strong>remote stream</strong> is done by the
                 <code>Conversation.unsubscribeToStream(streamId)</code> method.
             </p>
-            <app-codenav [lang]="lang" [code]="unsubscribe" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="unsubscribe" [(language)]="lang"></app-codenav>
             <h2>
                 Manage media streams
             </h2>
@@ -510,12 +511,12 @@
             <p>
                 This event is triggered every time the actual media stream is available to be displayed.
             </p>
-            <app-codenav [lang]="lang" [code]="streamAdded" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="streamAdded" [(language)]="lang"></app-codenav>
             <p>
                 Whenever a <code>media stream</code> becomes unavailable, <strong>ApiRTC</strong> notifies the
                 <strong>conversation</strong> with a <code>streamRemoved</code> event.
             </p>
-            <app-codenav [lang]="lang" [code]="streamRemoved" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="streamRemoved" [(language)]="lang"></app-codenav>
             <div class="alert alert-warning" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
                     <use xlink:href="#exclamation-triangle-fill"></use>
@@ -546,7 +547,7 @@
                 We manage some devices specificities in our helpers that can help avoid media plays issue for instance
                 with Safari iOS.
             </p>
-            <app-codenav [lang]="lang" [code]="displayStream" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="displayStream" [(language)]="lang"></app-codenav>
             <h1 class="mt-5" id="stream-capabilities">
                 Stream capabilities
             </h1>
@@ -565,7 +566,7 @@
                 <code>Conversation</code> event <code>callStatsUpdate</code> provides statistics informations on
                 <strong>media stream</strong> exchanges quality of service.
             </p>
-            <app-codenav [lang]="lang" [code]="callStatsUpdate" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="callStatsUpdate" [(language)]="lang"></app-codenav>
             <p>
                 Depending on whether the stream is <strong>sent</strong> or <strong>received</strong>, the event data
                 object (<code>callStats</code>) holds the following informations:
@@ -594,11 +595,11 @@
             <p>
                 To display which participant is currently talking in a <code>Conversation</code>, enable the feature:
             </p>
-            <app-codenav [lang]="lang" [code]="enableActiveSpeakerDetecting" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="enableActiveSpeakerDetecting" [(language)]="lang"></app-codenav>
             <p>
                 Then, listen on the <code>audioAmplitude</code> event:
             </p>
-            <app-codenav [lang]="lang" [code]="audioAmplitude" (onLang)="lang=$event"></app-codenav>
+            <app-codenav [code]="audioAmplitude" [(language)]="lang"></app-codenav>
             <p>
                 the event data object (<code>amplitudeInfo</code>) holds the following informations:
             </p>

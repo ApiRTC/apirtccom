@@ -161,23 +161,24 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_useragent.svg" alt="UserAgent" />
     </p>
-    <app-codenav [lang]="lang" [code]="useragent" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="useragent" [(language)]="lang" [(language)]="lang"></app-codenav>
     <h1 class="mt-5">
         Stream
     </h1>
     <p>
         When <code>UserAgent.createStream(options)</code> is called, a popup opens in the browser to request user
-        acceptance for using media devices. Then it provides an instance of <code>Stream</code>, which carries media
-        <strong>stream</strong> from computer device through the browser.
+        acceptance for using media devices. The returned <code>Promise</code> resolves with an instance of
+        <code>Stream</code>, which
+        carries <strong>media stream</strong> from computer device through the browser.
     </p>
     <p>
-        The method <code>Stream.attachToElement(domElement)</code> binds the <strong>stream</strong> to a DOM
+        The method <code>Stream.attachToElement(domElement)</code> binds the <strong>media stream</strong> to a DOM
         <code>&lt;video&gt;</code> element in order to display it in the web page.
     </p>
     <p class="text-center my-5">
         <img src="/assets/apirtc_createstream.svg" alt="createstream" />
     </p>
-    <app-codenav [lang]="lang" [code]="createStream" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="createStream" [(language)]="lang"></app-codenav>
     <h1 class="mt-5">
         Session
     </h1>
@@ -193,7 +194,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_useragent_register.svg" alt="register" />
     </p>
-    <app-codenav [lang]="lang" [code]="register" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="register" [(language)]="lang"></app-codenav>
     <p>
         The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
         <strong>conferences</strong>.
@@ -207,7 +208,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_session_getOrCreateConversation.svg" alt="getOrCreateConversation" />
     </p>
-    <app-codenav [lang]="lang" [code]="getOrCreateConversation" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="getOrCreateConversation" [(language)]="lang"></app-codenav>
     <h2 class="mt-5">
         Join
     </h2>
@@ -223,7 +224,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_join.svg" alt="join" />
     </p>
-    <app-codenav [lang]="lang" [code]="join" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="join" [(language)]="lang"></app-codenav>
     <h2 class="mt-5">
         Publish Streams
     </h2>
@@ -235,7 +236,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_publish.svg" alt="publish" />
     </p>
-    <app-codenav [lang]="lang" [code]="publish" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="publish" [(language)]="lang"></app-codenav>
     <h2 class="mt-5">
         Subscribe to Streams
     </h2>
@@ -275,7 +276,7 @@
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_subscribe.svg" alt="subscribe" />
     </p>
-    <app-codenav [lang]="lang" [code]="subscribe" (onLang)="lang=$event"></app-codenav>
+    <app-codenav [code]="subscribe" [(language)]="lang"></app-codenav>
     <p class="mt-3">
     </p>
     <div class="alert alert-warning" role="alert">
@@ -283,13 +284,22 @@
             <use xlink:href="#exclamation-triangle-fill"></use>
         </svg>
         <span>This publish/subscribe mecanism is important:</span>
-        <p class="mt-3 ps-5">
+        <p class="mt-3">
             A <strong>stream</strong> published to a conversation can be restarted for various technical reasons. In
             this case the
             <code>'streamListChanged'</code> won't be fired ; but the <code>'streamRemoved'</code> event will be fired
             with corresponding
             <code>Stream</code> instance, and a <code>'streamAdded'</code> with the new instance will follow, allowing
             to display correct <code>Stream</code>.
+        </p>
+        <p class="mt-3">
+            It is then important to listen on <code>'streamRemoved'</code> to stop displaying the corresponding
+            <code>Stream</code>.
+        </p>
+        <hr>
+        <p class="mb-0">
+            Also, handling the remote <code>streamInfo.listEventType === 'removed'</code> is important to get notified that a
+            <strong>stream</strong> is not published anymore.
         </p>
     </div>
     <p class="mt-5">
@@ -301,16 +311,6 @@
         <div>
             At this stage, the application displays both local and remote video <strong>streams</strong> in the page !
         </div>
-    </div>
-    <div class="alert alert-primary" role="alert">
-        <p>
-            It is then important to listen on <code>'streamRemoved'</code> to stop displaying the corresponding
-            <code>Stream</code>.
-        </p>
-        <p>
-            Handling the remote <code>streamInfo.listEventType === 'removed'</code> is important to get notified that a
-            <strong>stream</strong> is not published anymore.
-        </p>
     </div>
     <p class="mt-5">
     </p>
