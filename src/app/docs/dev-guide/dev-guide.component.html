@@ -13,14 +13,14 @@
                     <a [routerLink]="['.']" fragment="session">Session</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="h1__1298403728">Contacts : Presence,
+                    <a [routerLink]="['.']" fragment="contacts">Contacts : Presence,
                         Groups</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="conversation">Conversation</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="h1__535264398">Moderation</a>
+                    <a [routerLink]="['.']" fragment="moderation">Moderation</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="local-streams">Local Streams</a>
@@ -293,7 +293,7 @@
                     </div>
                 </div>
             </div>
-            <h1 class="mt-5">
+            <h1 id="contacts" class="mt-5">
                 Contacts : Presence, Groups
             </h1>
             <p>
@@ -382,9 +382,9 @@
                 <code>Conversation.leave</code> method makes the local user represented by the <code>UserAgent</code>
                 leave the <strong>conversation</strong>.
             </p>
-            <h2>
+            <h1 id="moderation" class="mt-5">
                 Moderation
-            </h2>
+            </h1>
             <p>
                 <strong>Moderation</strong> is feature that allows moderators to control who participates to a
                 <code>Conversation</code>
