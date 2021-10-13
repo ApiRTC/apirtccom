@@ -168,6 +168,22 @@ stream.attachToElement(videoDomElement)
 stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
   }
 
+  getCapabilities = `{ 
+    "aspectRatio": { "max": 1280, "min": 0.001388888888888889 },
+    "brightness": { "max": 64, "min": -64, "step": 1 },
+    "colorTemperature": { "max": 6500, "min": 2800, "step": 1 },
+    "contrast": { "max": 64, "min": 0, "step": 1 },
+    "exposureMode": ["manual", "continuous"],
+    "exposureTime": { "max": 10000, "min": 39, "step": 1 },
+    "frameRate": { "max": 30, "min": 0 },
+    "height": { "max": 720, "min": 1 },
+    "resizeMode": ["none", "crop-and-scale"],
+    "saturation": { "max": 128, "min": 0, "step": 1 },
+    "sharpness": { "max": 5, "min": 0, "step": 1 },
+    "whiteBalanceMode": ["manual", "continuous"],
+    "width": { "max": 1280, "min": 1 }
+  }`
+
   callStatsUpdate = {
     javascript: `conversation.on('callStatsUpdate', (callStats: any) => {
   // handle callStats.stats data

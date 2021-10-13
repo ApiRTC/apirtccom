@@ -141,9 +141,9 @@
             <hr />
         </div>
     </div>
-    <h2 class="mt-5">
+    <h1 class="mt-5">
         UserAgent
-    </h2>
+    </h1>
     <p>
         As the entry point to <strong>ApiRTC</strong>, <code>UserAgent</code> is instantiated using the
         <strong>apiKey</strong> associated to your <strong>enterprise</strong> account on <a
@@ -162,9 +162,9 @@
         <img src="/assets/apirtc_useragent.svg" alt="UserAgent" />
     </p>
     <app-codenav [lang]="lang" [code]="useragent" (onLang)="lang=$event"></app-codenav>
-    <h2 class="mt-5">
+    <h1 class="mt-5">
         Stream
-    </h2>
+    </h1>
     <p>
         When <code>UserAgent.createStream(options)</code> is called, a popup opens in the browser to request user
         acceptance for using media devices. Then it provides an instance of <code>Stream</code>, which carries media
@@ -178,9 +178,9 @@
         <img src="/assets/apirtc_createstream.svg" alt="createstream" />
     </p>
     <app-codenav [lang]="lang" [code]="createStream" (onLang)="lang=$event"></app-codenav>
-    <h2 class="mt-5">
+    <h1 class="mt-5">
         Session
-    </h2>
+    </h1>
     <p>
         To use <strong>ApiRTC</strong>'s connected features, a <code>userAgent</code> must register to get a
         <strong>session</strong>. This can be done with or without authentication.
@@ -198,9 +198,9 @@
         The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
         <strong>conferences</strong>.
     </p>
-    <h2 class="mt-5">
+    <h1 class="mt-5">
         Conversation
-    </h2>
+    </h1>
     <p>
         An instance of <code>Conversation</code> is obtained from <code>Session.getOrCreateConversation(name)</code>.
     </p>
@@ -208,9 +208,9 @@
         <img src="/assets/apirtc_session_getOrCreateConversation.svg" alt="getOrCreateConversation" />
     </p>
     <app-codenav [lang]="lang" [code]="getOrCreateConversation" (onLang)="lang=$event"></app-codenav>
-    <h4 class="mt-5">
+    <h2 class="mt-5">
         Join
-    </h4>
+    </h2>
     <!-- note : this is weird : conversation.join()-->
     <!-- could we make something easier to explain in the future : participant.join(conversationId) ? -->
     <p>
@@ -224,9 +224,9 @@
         <img src="/assets/apirtc_conversation_join.svg" alt="join" />
     </p>
     <app-codenav [lang]="lang" [code]="join" (onLang)="lang=$event"></app-codenav>
-    <h4 class="mt-5">
+    <h2 class="mt-5">
         Publish Streams
-    </h4>
+    </h2>
     <!-- TODO : this is weird again, now this is the conversation that actually wears the publish method -->
     <p>
         Once a <strong>conversation</strong> joined, a <code>userAgent</code> can publish a
@@ -236,9 +236,9 @@
         <img src="/assets/apirtc_conversation_publish.svg" alt="publish" />
     </p>
     <app-codenav [lang]="lang" [code]="publish" (onLang)="lang=$event"></app-codenav>
-    <h4 class="mt-5">
+    <h2 class="mt-5">
         Subscribe to Streams
-    </h4>
+    </h2>
     <!-- TODO : All that is weird and should be simplified -->
     <p>
         Subscribing to peer <strong>streams</strong> shall be implemented as followed :
