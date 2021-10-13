@@ -29,6 +29,20 @@ export class GettingStartedComponent implements OnInit {
     }
   }`;
 
+  android_dependency = `dependencies {
+  ...
+  implementation 'com.apizee.apiRTC:apiRTC:1.1.0'
+}`;
+
+  ios_pod = `pod 'ApiRTCSDK'`;
+  ios_post_install = `post_install do |installer|
+  installer.pods_project.targets.each do |target|
+		target.build_configurations.each do |config|
+			config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+		end
+	end
+end`;
+
   useragent = {
     javascript: `declare var apiRTC: any;
 userAgent = new apiRTC.UserAgent({
@@ -46,10 +60,22 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`
   // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instread of apiKey
 
   createStream = {
-    javascript: `userAgent.createStream({audio: true,video: true}).then(stream => {stream.attachToElement(domElement)});`
+    javascript: `userAgent.createStream({audio: true,video: true}).then(stream => {stream.attachToElement(domElement)});`,
+    kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
+createStreamOptions.constraints.audio = true
+createStreamOptions.constraints.video = true
+userAgent?.createStream(createStreamOptions)?.then {
+  val stream = it as Stream
+  stream.attachToElement(localVideoView)
+}`
   };
 
-  register = { javascript: `userAgent.register().then(session => {...});` };
+  register = {
+    javascript: `userAgent.register().then(session => {...});`,
+    kotlin: `userAgent.register(optionsRegister)?.then { itSession ->
+  val session = itSession as Session
+  ...
+}` };
 
   getOrCreateConversation = { javascript: `conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
 

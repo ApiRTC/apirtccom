@@ -60,6 +60,7 @@ import {UtilsModule} from '../utils/utils.module';
         languages: {
           typescript: () => import('highlight.js/lib/languages/typescript'),
           javascript: () => import('highlight.js/lib/languages/javascript'),
+          gradle: () => import('highlight.js/lib/languages/gradle'),
           kotlin: () => import('highlight.js/lib/languages/kotlin'),
           swift: () => import('highlight.js/lib/languages/swift'),
           json: () => import('highlight.js/lib/languages/json'),

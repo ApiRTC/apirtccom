@@ -1,12 +1,9 @@
 <div class="container">
-
     <div class="row mt-5">
         <div class="col fs-6">
-
             <h1>
                 Load ApiRTC library
             </h1>
-
             <ul class="nav nav-tabs mt-5" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="js-tab" data-bs-toggle="tab" data-bs-target="#js" type="button"
@@ -72,13 +69,18 @@
                 </div>
                 <div class="tab-pane mt-3 fade" id="android" role="tabpanel" aria-labelledby="android-tab">
                     <p>
-                        TODO
+                        In <code>build.gradle</code>, add:
                     </p>
+                    <pre><code [highlight]="android_dependency"></code></pre>
                 </div>
                 <div class="tab-pane mt-3 fade" id="ios" role="tabpanel" aria-labelledby="ios-tab">
-                    <p>
-                        TODO
-                    </p>
+                    <div class="alert alert-warning" role="alert">
+                        Requires iOS 12+, Swift 5+, Xcode 12+
+                    </div>
+                    <p>CocoaPods installation</p>
+                    <pre><code [highlight]="ios_pod"></code></pre>
+                    <p>Use Podfile post_install setup to properly link dependencies:</p>
+                    <pre><code [highlight]="ios_post_install"></code></pre>
                 </div>
             </div>
         </div>
@@ -212,14 +214,11 @@
     <h2 class="mt-5">
         Join
     </h2>
-    <!-- note : this is weird : conversation.join()-->
-    <!-- could we make something easier to explain in the future : participant.join(conversationId) ? -->
     <p>
         Calling <code>Conversation.join()</code> makes the <code>userAgent</code> used to create the
         <code>Session</code> used to create this instance of
         <code>Conversation</code> (through it's <code>Session</code>) join the
         <strong>conversation</strong>.
-        <!-- The <code>userAgent</code> then becomes a <strong>participant</strong>. -->
     </p>
     <p class="text-center my-5">
         <img src="/assets/apirtc_conversation_join.svg" alt="join" />
@@ -228,7 +227,6 @@
     <h2 class="mt-5">
         Publish Streams
     </h2>
-    <!-- TODO : this is weird again, now this is the conversation that actually wears the publish method -->
     <p>
         Once a <strong>conversation</strong> joined, a <code>userAgent</code> can publish a
         <strong>stream</strong> using <code>Conversation.publish(stream)</code> method :
@@ -240,7 +238,6 @@
     <h2 class="mt-5">
         Subscribe to Streams
     </h2>
-    <!-- TODO : All that is weird and should be simplified -->
     <p>
         Subscribing to peer <strong>streams</strong> shall be implemented as followed :
     </p>
@@ -256,7 +253,6 @@
                 (value
                 <code>'added'</code>) or a removal.
             </p>
-
         </li>
         <li>
             <p>
@@ -316,42 +312,37 @@
     <p class="mt-5">
     </p>
     <!-- TODO : provide a simple sample for each framework -->
-    <div class="alert alert-info" role="alert">
+    <div class="alert alert-info text-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
             <use xlink:href="#info-fill"></use>
         </svg>
-        <span>Please find full code of <strong>getting started apps</strong> with:</span>
-        <ul class="mt-3 ps-5">
-            <li>
-                <a href="https://github.com/ApiRTC/ApiRTC-angular" target="_blank" rel="noopener">Angular</a>,
-            </li>
-            <li>
-                <a href="https://github.com/ApiRTC/apirtc-react" target="_blank" rel="noopener">React</a>,
-            </li>
-            <li>
-                <a href="https://github.com/ApiRTC/apirtc-vuejs" target="_blank" rel="noopener">VueJS</a>
-            </li>
-            <!--
-  <li>
-  <a href="https://github.com/apizee/ApiRTC-examples" target="_blank">Pure JS</a>,
-  </li>
-  -->
-        </ul>
+        <span >Find full code of <strong>getting started apps</strong>:</span>
+        <div class="row mt-3 ">
+            <div class="col">
+                <p>Web</p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/ApiRTC/ApiRTC-angular" target="_blank" rel="noopener">Angular</a>,
+                    </li>
+                    <li>
+                        <a href="https://github.com/ApiRTC/apirtc-react" target="_blank" rel="noopener">React</a>,
+                    </li>
+                    <li>
+                        <a href="https://github.com/ApiRTC/apirtc-vuejs" target="_blank" rel="noopener">VueJS</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <p>Mobile</p>
+                <ul>
+                    <li>
+                        <a href="https://github.com/apizee/ApiRTC_Android_sample" target="_blank" rel="noopener">Android</a>,
+                    </li>
+                    <li>
+                        <a href="https://github.com/apizee/ApiRTC-iOS-Samples" target="_blank" rel="noopener">iOS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <!-- TODO IDEA : -->
-    <!-- Faire une documentation v5 qui correspondrait à ce que cela pourrait etre pour etre plus simple
-  UserAgent -> Participant
-  Session n'existe plus
-  On crée une Conversation depuis un autre point d'entrée ?
-  les events de converation sont revus pour ne pas avoir streamListChanged puis streamAdded, on aurait plutot participantJoined et sur participant récupéré streamAdded -->
-    <!-- 
-  <h3>
-  Conference
-  </h3>
-  <p>
-  La conférence est une conversation avec la possibilité d'avoir un modérateur qui doit être un utilisateur géré par ApiRTC.
-  </p>
-  -->
-
 </div>
