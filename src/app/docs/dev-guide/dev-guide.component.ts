@@ -161,6 +161,13 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 });`
   }
 
+  screenSharing = {
+    javascript: `// Returns a Promise.<Stream> containing the stream
+Stream.createScreensharingStream().then(stream => {
+  console.log("Is it a screensharing ? " + stream.isScreensharing())
+}.catch(console.err)`
+  }
+
   displayStream = {
     javascript: `// display media stream by attaching to a media element (like <video>)
 stream.attachToElement(videoDomElement)
