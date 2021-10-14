@@ -60,6 +60,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: inherit
 }
 
+.bd-toc nav a.active {
+    color: black;
+    font: bold;
+}
+
 .bd-toc nav a:not(:hover) {
     text-decoration: none
 }

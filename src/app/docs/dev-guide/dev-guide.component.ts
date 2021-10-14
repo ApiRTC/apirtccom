@@ -1,12 +1,13 @@
-import { NgSwitchDefault } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-dev-guide',
   templateUrl: './dev-guide.component.html',
   styleUrls: ['./dev-guide.component.css']
 })
-export class DevGuideComponent implements OnInit {
+export class DevGuideComponent implements OnInit, OnDestroy {
 
   useragent_apikey = {
     javascript: `userAgent = new UserAgent({
@@ -348,9 +349,23 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
 
   lang = 'javascript';
 
-  constructor() { }
+  routerSubscription: any;
+  anchor = '';
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
+    this.routerSubscription = this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        //console.log('route :', val);
+        this.anchor = val.url.split('#')[1] || '';
+      }
+    });
+  }
+  
+  ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
   }
 
 }

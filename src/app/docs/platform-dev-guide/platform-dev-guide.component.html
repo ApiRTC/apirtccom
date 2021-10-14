@@ -4,13 +4,13 @@
         <nav id="TableOfContents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="provisioning">Provisioning</a>
+                    <a [routerLink]="['.']" fragment="provisioning" [ngClass]="{'active': anchor === 'provisioning' }">Provisioning</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="medias">Medias</a>
+                    <a [routerLink]="['.']" fragment="medias" [ngClass]="{'active': anchor === 'medias' }">Medias</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="webhooks">WebHooks</a>
+                    <a [routerLink]="['.']" fragment="webhooks" [ngClass]="{'active': anchor === 'webhooks' }">WebHooks</a>
                 </li>
             </ul>
         </nav>

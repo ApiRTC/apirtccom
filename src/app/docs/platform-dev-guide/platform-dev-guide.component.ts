@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-platform-dev-guide',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlatformDevGuideComponent implements OnInit {
 
-  constructor() { }
+  routerSubscription: any;
+  anchor = '';
 
-  ngOnInit(): void {
+  constructor(private router: Router) {
+    this.routerSubscription = this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        //console.log('route :', val);
+        this.anchor = val.url.split('#')[1] || '';
+      }
+    });
+  }
+  
+  ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
   }
 
 }

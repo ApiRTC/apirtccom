@@ -4,71 +4,90 @@
         <nav id="TableOfContents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="apikey">apiKey</a>
+                    <a [routerLink]="['.']" fragment="apikey" [ngClass]="{'active': anchor === 'apikey' }">apiKey</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="user-agent">UserAgent</a>
+                    <a [routerLink]="['.']" fragment="user-agent"
+                        [ngClass]="{'active': anchor === 'user-agent' }">UserAgent</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="session">Session</a>
+                    <a [routerLink]="['.']" fragment="session" [ngClass]="{'active': anchor === 'session' }">Session</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="contacts">Contacts : Presence,
+                    <a [routerLink]="['.']" fragment="contacts" [ngClass]="{'active': anchor === 'contacts' }">Contacts
+                        : Presence,
                         Groups</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="conversation">Conversation</a>
+                    <a [routerLink]="['.']" fragment="conversation"
+                        [ngClass]="{'active': anchor === 'conversation' }">Conversation</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="moderation">Moderation</a>
+                    <a [routerLink]="['.']" fragment="moderation"
+                        [ngClass]="{'active': anchor === 'moderation' }">Moderation</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="local-streams">Local Streams</a>
+                    <a [routerLink]="['.']" fragment="local-streams"
+                        [ngClass]="{'active': anchor === 'local-streams' }">Local Streams</a>
                     <ul>
                         <li>
-                            <a [routerLink]="['.']" fragment="camera">Camera</a>
+                            <a [routerLink]="['.']" fragment="camera"
+                                [ngClass]="{'active': anchor === 'camera' }">Camera</a>
                         </li>
                         <li>
-                            <a [routerLink]="['.']" fragment="screensharing">Screensharing</a>
+                            <a [routerLink]="['.']" fragment="screensharing"
+                                [ngClass]="{'active': anchor === 'screensharing' }">Screensharing</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="remote-streams">Remote Streams</a>
+                    <a [routerLink]="['.']" fragment="remote-streams"
+                        [ngClass]="{'active': anchor === 'remote-streams' }">Remote Streams</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="stream-display">Stream display</a>
+                    <a [routerLink]="['.']" fragment="stream-display"
+                        [ngClass]="{'active': anchor === 'stream-display' }">Stream display</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="stream-capabilities">Stream capabilities</a>
+                    <a [routerLink]="['.']" fragment="stream-capabilities"
+                        [ngClass]="{'active': anchor === 'stream-capabilities' }">Stream capabilities</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="qos-statistics">QoS Statistics</a>
+                    <a [routerLink]="['.']" fragment="qos-statistics"
+                        [ngClass]="{'active': anchor === 'qos-statistics' }">QoS Statistics</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="speaker-detection">Speaker Detection</a>
+                    <a [routerLink]="['.']" fragment="speaker-detection"
+                        [ngClass]="{'active': anchor === 'speaker-detection' }">Speaker Detection</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="mute">Video/Audio Mute</a>
+                    <a [routerLink]="['.']" fragment="mute" [ngClass]="{'active': anchor === 'mute' }">Video/Audio
+                        Mute</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="whiteboard">Whiteboard</a>
+                    <a [routerLink]="['.']" fragment="whiteboard"
+                        [ngClass]="{'active': anchor === 'whiteboard' }">Whiteboard</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="recording">Recording</a>
+                    <a [routerLink]="['.']" fragment="recording"
+                        [ngClass]="{'active': anchor === 'recording' }">Recording</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="chat-messages">Chat messages</a>
+                    <a [routerLink]="['.']" fragment="chat-messages"
+                        [ngClass]="{'active': anchor === 'chat-messages' }">Chat messages</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="device-control">Device Control</a>
+                    <a [routerLink]="['.']" fragment="device-control"
+                        [ngClass]="{'active': anchor === 'device-control' }">Device Control</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="background-subtraction">Background
+                    <a [routerLink]="['.']" fragment="background-subtraction"
+                        [ngClass]="{'active': anchor === 'background-subtraction' }">Background
                         subtraction</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="good-practices">Good practices</a>
+                    <a [routerLink]="['.']" fragment="good-practices"
+                        [ngClass]="{'active': anchor === 'good-practices' }">Good practices</a>
                     <!-- <ul>
                         <li>
                             <a href="#sub">Sub</a>
@@ -432,8 +451,8 @@
             <app-codenav [code]="createStream" [(language)]="lang"></app-codenav>
             <p>
                 Possible <code>options</code> (<a
-                href="https://dev.apirtc.com/reference/global.html#CreateStreamOptions" target="_blank"
-                rel="noopener"><code>CreateStreamOptions</code></a>) are :
+                    href="https://dev.apirtc.com/reference/global.html#CreateStreamOptions" target="_blank"
+                    rel="noopener"><code>CreateStreamOptions</code></a>) are :
             </p>
             <pre><code [highlight]="createStream_options" [languages]="['json']"></code></pre>
             <p>
@@ -445,7 +464,8 @@
                 <a id="screensharing" class="anchor"></a>
                 Screensharing
             </h2>
-            <p>Acquiring screensharing <strong>local stream</strong> is done through a <code>Stream</code> static method:</p>
+            <p>Acquiring screensharing <strong>local stream</strong> is done through a <code>Stream</code> static
+                method:</p>
             <app-codenav [code]="screenSharing" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
                 <a id="remote-streams" class="anchor"></a>
