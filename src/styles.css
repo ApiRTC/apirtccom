@@ -7,27 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     grid-area: main
 }
 
-@media (min-width: 768px) {
-    .bd-main {
-        display: grid;
-        gap: inherit;
-        grid-template-areas: "intro" "toc" "content";
-        grid-template-rows: auto auto 1fr
-    }
-}
-
-@media (min-width: 992px) {
-    .bd-main {
-        grid-template-areas: "intro toc" "content toc";
-        grid-template-columns: 4fr 1fr;
-        grid-template-rows: auto 1fr
-    }
-}
-
-.bd-intro {
-    grid-area: intro
-}
-
 .bd-toc {
     grid-area: toc
 }
@@ -37,7 +16,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     min-width: 1px
 }
 
-@media (min-width: 992px) {
+
+@media (min-width: 1700px) {
+    .bd-main {
+        display: grid;
+        gap: inherit;
+        grid-template-areas: "content toc" ;
+        grid-template-columns: 5fr 1fr;
+    }
+}
+
+@media (min-width: 1700px) {
     .bd-toc {
         position: fixed;
         /* position: -webkit-sticky; */

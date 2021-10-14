@@ -33,7 +33,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li>
                     <a [routerLink]="['.']" fragment="remote-streams">Remote Streams</a>
                 </li>
@@ -70,11 +69,11 @@
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="good-practices">Good practices</a>
-                    <ul>
+                    <!-- <ul>
                         <li>
                             <a href="#sub">Sub</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </nav>
@@ -428,7 +427,7 @@
             <p>
                 Acquiring <strong>camera local stream</strong> is done throught the
                 <code>UserAgent.createStream(options)</code> method. The browser asks the user to choose among available
-                media devices. Then the <code>Promise</code> resolves with a <code>Stream</code> instance.
+                media devices. The <code>Promise</code> resolves with a <code>Stream</code> instance.
             </p>
             <app-codenav [code]="createStream" [(language)]="lang"></app-codenav>
             <p>
