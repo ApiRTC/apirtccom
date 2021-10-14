@@ -102,6 +102,24 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   "meshOnlyEnabled" : false  // true to force staying mesh mode. default: false.
 }`;
 
+  createStream = {
+    javascript: `userAgent.createStream({
+    constraints: {
+      audio: true,
+      video: true
+    }
+  }).then(stream => {
+    // ...
+  });`,
+    kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
+createStreamOptions.constraints.audio = true
+createStreamOptions.constraints.video = true
+userAgent?.createStream(createStreamOptions)?.then {
+val stream = it as Stream
+// ...
+}`
+  };
+
   createStream_options = `{
   "audioInputId" : true, // audio input device id (obtained from UserAgent.getUserMediaDevices); set to false if audio track is not requested
   "videoInputId" : true, // video input device id (obtained from UserAgent.getUserMediaDevices); set to false if video track is not requested
@@ -111,10 +129,17 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   "filters" : [] // Array.<FilterDescriptor>, descriptors of media stream filters
 }`
 
+  screenSharing = {
+    javascript: `// Returns a Promise.<Stream> containing the stream
+Stream.createScreensharingStream().then(stream => {
+// ...
+}.catch(console.err)`
+  }
+
   publish = {
-    javascript: `conversation.publish(localStream).then((stream: any) => {
+    javascript: `conversation.publish(localStream).then(stream => {
   // local stream is published
-}).catch((error: any) => {
+}).catch(error => {
   // error
 });`
   }
@@ -122,7 +147,6 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   unpublish = {
     javascript: `conversation.unpublish(stream);`
   }
-
 
   streamListChanged = {
     javascript: `conversation.on('streamListChanged', streamInfo => ({
@@ -159,13 +183,6 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   // undisplay media stream
   ...
 });`
-  }
-
-  screenSharing = {
-    javascript: `// Returns a Promise.<Stream> containing the stream
-Stream.createScreensharingStream().then(stream => {
-  console.log("Is it a screensharing ? " + stream.isScreensharing())
-}.catch(console.err)`
   }
 
   displayStream = {

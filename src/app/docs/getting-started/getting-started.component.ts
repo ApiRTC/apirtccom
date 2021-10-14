@@ -60,7 +60,9 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`
   // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instread of apiKey
 
   createStream = {
-    javascript: `userAgent.createStream({audio: true,video: true}).then(stream => {stream.attachToElement(domElement)});`,
+    javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(stream => {
+  stream.attachToElement(domElement)
+});`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
 createStreamOptions.constraints.video = true
