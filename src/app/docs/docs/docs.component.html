@@ -1,11 +1,8 @@
-<mat-sidenav-container class="example-container" autosize>
-    <mat-sidenav #drawer class="example-sidenav" mode="side" [fixedInViewport]="true" [fixedTopGap]="80">
+<mat-sidenav-container autosize>
+    <mat-sidenav #drawer mode="side" [fixedInViewport]="true" [fixedTopGap]="100">
         <app-docs-side-menu></app-docs-side-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
-    <!-- <div class="example-sidenav-content">
-        
-    </div> -->
 </mat-sidenav-container>
