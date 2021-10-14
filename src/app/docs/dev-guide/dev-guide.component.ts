@@ -1,5 +1,5 @@
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, HostListener, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -8,6 +8,63 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./dev-guide.component.css']
 })
 export class DevGuideComponent implements OnInit, OnDestroy {
+
+
+  routerSubscription: any;
+  current = '';
+
+  constructor(private router: Router) {
+    this.routerSubscription = this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        //console.log('route :', val);
+        this.current = val.url.split('#')[1] || '';
+      }
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
+  }
+
+  @ViewChildren('anchor') anchors?: QueryList<ElementRef>;
+
+  checkOffsetTop() {
+    const pageOffset = window.pageYOffset;
+    //console.log("pageOffset", pageOffset); // this will console log our scroll position
+    //var previous_offsetTop = 0;
+    this.anchors?.forEach((element) => {
+      //console.log("element#" + element.nativeElement.id, element.nativeElement.offsetTop);
+      if (pageOffset >= element.nativeElement.offsetTop) {
+        this.current = element.nativeElement.id;
+      }
+    })
+  }
+
+  private lastCall?: number;
+  private timeoutId: any;
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    //console.log("onScroll")
+    const interval = 100;
+    var now = new Date().getTime();
+    if (this.lastCall && now < (this.lastCall + interval)) {
+      // if we are inside the interval we wait
+      //console.log('throttle WAIT');
+      clearTimeout(this.timeoutId);
+      this.timeoutId = setTimeout(() => {
+        this.lastCall = now;
+        this.checkOffsetTop();
+      }, interval - (now - this.lastCall));
+    }
+    else {
+      this.lastCall = now;
+      this.checkOffsetTop();
+    }
+  }
 
   useragent_apikey = {
     javascript: `userAgent = new UserAgent({
@@ -348,24 +405,5 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
 }`;
 
   lang = 'javascript';
-
-  routerSubscription: any;
-  anchor = '';
-
-  constructor(private router: Router) {
-    this.routerSubscription = this.router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {
-        //console.log('route :', val);
-        this.anchor = val.url.split('#')[1] || '';
-      }
-    });
-  }
-  
-  ngOnInit() {
-  }
-
-  ngOnDestroy(): void {
-    this.routerSubscription?.unsubscribe();
-  }
 
 }

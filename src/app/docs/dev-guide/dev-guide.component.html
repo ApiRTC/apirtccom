@@ -4,90 +4,90 @@
         <nav id="TableOfContents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="apikey" [ngClass]="{'active': anchor === 'apikey' }">apiKey</a>
+                    <a [routerLink]="['.']" fragment="apikey" [ngClass]="{'active': current === 'apikey' }">apiKey</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="user-agent"
-                        [ngClass]="{'active': anchor === 'user-agent' }">UserAgent</a>
+                        [ngClass]="{'active': current === 'user-agent' }">UserAgent</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="session" [ngClass]="{'active': anchor === 'session' }">Session</a>
+                    <a [routerLink]="['.']" fragment="session" [ngClass]="{'active': current === 'session' }">Session</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="contacts" [ngClass]="{'active': anchor === 'contacts' }">Contacts
+                    <a [routerLink]="['.']" fragment="contacts" [ngClass]="{'active': current === 'contacts' }">Contacts
                         : Presence,
                         Groups</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="conversation"
-                        [ngClass]="{'active': anchor === 'conversation' }">Conversation</a>
+                        [ngClass]="{'active': current === 'conversation' }">Conversation</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="moderation"
-                        [ngClass]="{'active': anchor === 'moderation' }">Moderation</a>
+                        [ngClass]="{'active': current === 'moderation' }">Moderation</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="local-streams"
-                        [ngClass]="{'active': anchor === 'local-streams' }">Local Streams</a>
+                        [ngClass]="{'active': current === 'local-streams' }">Local Streams</a>
                     <ul>
                         <li>
                             <a [routerLink]="['.']" fragment="camera"
-                                [ngClass]="{'active': anchor === 'camera' }">Camera</a>
+                                [ngClass]="{'active': current === 'camera' }">Camera</a>
                         </li>
                         <li>
                             <a [routerLink]="['.']" fragment="screensharing"
-                                [ngClass]="{'active': anchor === 'screensharing' }">Screensharing</a>
+                                [ngClass]="{'active': current === 'screensharing' }">Screensharing</a>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="remote-streams"
-                        [ngClass]="{'active': anchor === 'remote-streams' }">Remote Streams</a>
+                        [ngClass]="{'active': current === 'remote-streams' }">Remote Streams</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="stream-display"
-                        [ngClass]="{'active': anchor === 'stream-display' }">Stream display</a>
+                        [ngClass]="{'active': current === 'stream-display' }">Stream display</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="stream-capabilities"
-                        [ngClass]="{'active': anchor === 'stream-capabilities' }">Stream capabilities</a>
+                        [ngClass]="{'active': current === 'stream-capabilities' }">Stream capabilities</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="qos-statistics"
-                        [ngClass]="{'active': anchor === 'qos-statistics' }">QoS Statistics</a>
+                        [ngClass]="{'active': current === 'qos-statistics' }">QoS Statistics</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="speaker-detection"
-                        [ngClass]="{'active': anchor === 'speaker-detection' }">Speaker Detection</a>
+                        [ngClass]="{'active': current === 'speaker-detection' }">Speaker Detection</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="mute" [ngClass]="{'active': anchor === 'mute' }">Video/Audio
+                    <a [routerLink]="['.']" fragment="mute" [ngClass]="{'active': current === 'mute' }">Video/Audio
                         Mute</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="whiteboard"
-                        [ngClass]="{'active': anchor === 'whiteboard' }">Whiteboard</a>
+                        [ngClass]="{'active': current === 'whiteboard' }">Whiteboard</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="recording"
-                        [ngClass]="{'active': anchor === 'recording' }">Recording</a>
+                        [ngClass]="{'active': current === 'recording' }">Recording</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="chat-messages"
-                        [ngClass]="{'active': anchor === 'chat-messages' }">Chat messages</a>
+                        [ngClass]="{'active': current === 'chat-messages' }">Chat messages</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="device-control"
-                        [ngClass]="{'active': anchor === 'device-control' }">Device Control</a>
+                        [ngClass]="{'active': current === 'device-control' }">Device Control</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="background-subtraction"
-                        [ngClass]="{'active': anchor === 'background-subtraction' }">Background
+                        [ngClass]="{'active': current === 'background-subtraction' }">Background
                         subtraction</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="good-practices"
-                        [ngClass]="{'active': anchor === 'good-practices' }">Good practices</a>
+                        [ngClass]="{'active': current === 'good-practices' }">Good practices</a>
                     <!-- <ul>
                         <li>
                             <a href="#sub">Sub</a>
@@ -104,7 +104,7 @@
                     application</strong> with <strong>ApiRTC</strong>.
             </p>
             <h1 class="mt-5">
-                <a id="apikey" class="anchor"></a>
+                <a #anchor id="apikey" class="anchor"></a>
                 apiKey
             </h1>
             <p>
@@ -125,7 +125,7 @@
                 </div>
             </div>
             <h1 class="mt-5">
-                <a id="user-agent" class="anchor"></a>
+                <a #anchor id="user-agent" class="anchor"></a>
                 UserAgent
             </h1>
             <p>
@@ -213,7 +213,7 @@
                 This is useful to propose a list of available media devices to the user.
             </p>
             <h1 class="mt-5">
-                <a id="session" class="anchor"></a>
+                <a #anchor id="session" class="anchor"></a>
                 Session
             </h1>
             <p>
@@ -324,7 +324,7 @@
                 </div>
             </div>
             <h1 class="mt-5">
-                <a id="contacts" class="anchor"></a>
+                <a #anchor id="contacts" class="anchor"></a>
                 Contacts : Presence, Groups
             </h1>
             <p>
@@ -343,7 +343,7 @@
                 A notion of <strong>groups</strong> comes with this feature for better control.
             </p>
             <h1 class="mt-5">
-                <a id="conversation" class="anchor"></a>
+                <a #anchor id="conversation" class="anchor"></a>
                 Conversation
             </h1>
             <p>
@@ -415,7 +415,7 @@
                 leave the <strong>conversation</strong>.
             </p>
             <h1 class="mt-5">
-                <a id="moderation" class="anchor"></a>
+                <a #anchor id="moderation" class="anchor"></a>
                 Moderation
             </h1>
             <p>
@@ -435,12 +435,12 @@
                 .. In the context of a moderated Conversation, the join will resolve only when a moderator accepts the
                 join request.
             </p>
-            <h1 class="mt-5">
-                <a id="local-streams" class="anchor"></a>
+            <h1 #localStreams class="mt-5">
+                <a #anchor id="local-streams" class="anchor"></a>
                 Local Streams
             </h1>
             <h2 class="mt-3">
-                <a id="camera" class="anchor"></a>
+                <a #anchor id="camera" class="anchor"></a>
                 Camera
             </h2>
             <p>
@@ -461,14 +461,14 @@
                     rel="noopener">MediaStreamConstraints</a>
             </p>
             <h2 class="mt-3">
-                <a id="screensharing" class="anchor"></a>
+                <a #anchor id="screensharing" class="anchor"></a>
                 Screensharing
             </h2>
             <p>Acquiring screensharing <strong>local stream</strong> is done through a <code>Stream</code> static
                 method:</p>
             <app-codenav [code]="screenSharing" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
-                <a id="remote-streams" class="anchor"></a>
+                <a #anchor id="remote-streams" class="anchor"></a>
                 Remote Streams
             </h1>
             <h2>
@@ -579,7 +579,7 @@
                 </span>
             </div>
             <h1 class="mt-5">
-                <a id="stream-display" class="anchor"></a>
+                <a #anchor id="stream-display" class="anchor"></a>
                 Stream display
             </h1>
             <p>
@@ -600,7 +600,7 @@
             </p>
             <app-codenav [code]="displayStream" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
-                <a id="stream-capabilities" class="anchor"></a>
+                <a #anchor id="stream-capabilities" class="anchor"></a>
                 Stream capabilities
             </h1>
             <p><code>Stream.getCapabilities()</code> method gathers informations on the <strong>media stream</strong>.
@@ -612,7 +612,7 @@
             <p>Here is an example of the object returned (on Chrome):</p>
             <pre><code [highlight]="getCapabilities" [languages]="['json']"></code></pre>
             <h1 class="mt-5">
-                <a id="qos-statistics" class="anchor"></a>
+                <a #anchor id="qos-statistics" class="anchor"></a>
                 QoS statistics
             </h1>
             <p>
@@ -643,7 +643,7 @@
                 <strong>stream</strong>.
             </p>
             <h1 class="mt-5">
-                <a id="speaker-detection" class="anchor"></a>
+                <a #anchor id="speaker-detection" class="anchor"></a>
                 Speaker detection
             </h1>
             <p>
@@ -668,21 +668,21 @@
                 <strong>false</strong>.
             </p>
             <h1 class="mt-5">
-                <a id="mute" class="anchor"></a>
+                <a #anchor id="mute" class="anchor"></a>
                 Video/Audio Mute
             </h1>
             <p>
                 Explain Mute
             </p>
             <h1 class="mt-5">
-                <a id="whiteboard" class="anchor"></a>
+                <a #anchor id="whiteboard" class="anchor"></a>
                 Whiteboard
             </h1>
             <p>
                 Explain Whiteboard
             </p>
             <h1 class="mt-5">
-                <a id="recording" class="anchor"></a>
+                <a #anchor id="recording" class="anchor"></a>
                 Recording
             </h1>
             <p>
@@ -695,28 +695,28 @@
                 Recording conversation : composite media file is stored on ApiRTC servers...
             </p>
             <h1 class="mt-5">
-                <a id="chat-messages" class="anchor"></a>
+                <a #anchor id="chat-messages" class="anchor"></a>
                 Chat messages
             </h1>
             <p>
                 Explain Chat messages
             </p>
             <h1 class="mt-5">
-                <a id="device-control" class="anchor"></a>
+                <a #anchor id="device-control" class="anchor"></a>
                 Device Control
             </h1>
             <p>
                 Explain Device Control for local and remote, things you can do, how to do it
             </p>
             <h1 class="mt-5">
-                <a id="background-subtraction" class="anchor"></a>
+                <a #anchor id="background-subtraction" class="anchor"></a>
                 Background subtraction
             </h1>
             <p>
                 Explain Background subtraction, blur, transparent, image...
             </p>
             <h1 class="mt-5">
-                <a id="good-practices" class="anchor"></a>
+                <a #anchor id="good-practices" class="anchor"></a>
                 Good practices
             </h1>
             <p>

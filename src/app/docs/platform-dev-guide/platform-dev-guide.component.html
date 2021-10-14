@@ -4,13 +4,13 @@
         <nav id="TableOfContents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="provisioning" [ngClass]="{'active': anchor === 'provisioning' }">Provisioning</a>
+                    <a [routerLink]="['.']" fragment="provisioning" [ngClass]="{'active': current === 'provisioning' }">Provisioning</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="medias" [ngClass]="{'active': anchor === 'medias' }">Medias</a>
+                    <a [routerLink]="['.']" fragment="medias" [ngClass]="{'active': current === 'medias' }">Medias</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="webhooks" [ngClass]="{'active': anchor === 'webhooks' }">WebHooks</a>
+                    <a [routerLink]="['.']" fragment="webhooks" [ngClass]="{'active': current === 'webhooks' }">WebHooks</a>
                 </li>
             </ul>
         </nav>
@@ -31,21 +31,21 @@
                 </div>
             </div>
             <h1 class="mt-5">
-                <a id="provisioning" class="anchor"></a>
+                <a #anchor id="provisioning" class="anchor"></a>
                 Provisioning
             </h1>
             <p>
                 Enterprises, Users
             </p>
             <h1 id="medias" class="mt-5">
-                <a id="medias" class="anchor"></a>
+                <a  #anchor id="medias" class="anchor"></a>
                 Medias management
             </h1>
             <p>
                 Retrieve or delete medias exchanged or recorded during <strong>Conversation</strong>s.
             </p>
             <h1 id="webhooks" class="mt-5">
-                <a id="webhooks" class="anchor"></a>
+                <a  #anchor id="webhooks" class="anchor"></a>
                 WebHooks
             </h1>
             <p>
