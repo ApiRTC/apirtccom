@@ -29,9 +29,6 @@
                     <a [routerLink]="['.']" fragment="remote-streams">Remote Streams</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="stream-screensharing">Stream Screensharing</a>
-                </li>
-                <li>
                     <a [routerLink]="['.']" fragment="stream-display">Stream display</a>
                 </li>
                 <li>
@@ -45,6 +42,9 @@
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="mute">Video/Audio Mute</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="screensharing">Screensharing</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="whiteboard">Whiteboard</a>
@@ -531,11 +531,6 @@
                     <code>streamAdded</code> event with the new instance.
                 </span>
             </div>
-            <h1 class="mt-5" id="stream-screensharing">
-                Stream Screensharing
-            </h1>
-            <p>Create a new stream which contains a screenshare selected by the user. It is a static method so you have to use <code>Stream</code> object in order to use it.</p>
-            <app-codenav [code]="screenSharing" [(language)]="lang"></app-codenav>
             <h1 class="mt-5" id="stream-display">
                 Stream display
             </h1>
@@ -627,6 +622,11 @@
             <p>
                 Explain Mute
             </p>
+            <h1 class="mt-5" id="screensharing">
+                Screensharing
+            </h1>
+            <p>Create a new stream which contains a screenshare selected by the user. It is a static method so you have to use <code>Stream</code> object in order to use it.</p>
+            <app-codenav [code]="screenSharing" [(language)]="lang"></app-codenav>
             <h1 class="mt-5" id="whiteboard">
                 Whiteboard
             </h1>
