@@ -1,8 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-
+import { Component, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 import { MatDrawer } from '@angular/material/sidenav';
-
 
 @Component({
   selector: 'app-docs',
@@ -11,9 +10,21 @@ import { MatDrawer } from '@angular/material/sidenav';
 })
 export class DocsComponent implements OnInit, AfterViewInit {
 
-  @ViewChild("drawer") drawerRef: MatDrawer | undefined;
+  @ViewChild("snav") drawerRef: MatDrawer | undefined;
 
-  constructor() { }
+  mobileQuery: MediaQueryList;
+  private _mobileQueryListener: () => void;
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    this.mobileQuery = media.matchMedia('(max-width: 768px)');
+    this._mobileQueryListener = () => {
+      changeDetectorRef.detectChanges();
+      if (!this.mobileQuery.matches) {
+        this.drawerRef?.open();
+      }
+    };
+    this.mobileQuery.addEventListener("change", this._mobileQueryListener);
+  }
 
   ngOnInit(): void {
   }

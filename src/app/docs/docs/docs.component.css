@@ -1,0 +1,15 @@
+.mobile-btn {
+    display: none;
+}
+
+.display {
+    display: block;
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+}
+
+.mat-apirtc {
+    /* background-color: ; */
+    color: #1977B3;
+}

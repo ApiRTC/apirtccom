@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { DemoComponent } from './demo/demo.component';
 import { DevGuideComponent } from './dev-guide/dev-guide.component';
@@ -32,7 +34,7 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 import { SafePipe } from '../safe.pipe';
 
-import {UtilsModule} from '../utils/utils.module';
+import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import {UtilsModule} from '../utils/utils.module';
   ],
   imports: [
     CommonModule, RouterModule,
-    MatTabsModule, MatSidenavModule,
+    MatTabsModule, MatSidenavModule, MatButtonModule, MatIconModule,
     HighlightModule,
     UtilsModule
   ],

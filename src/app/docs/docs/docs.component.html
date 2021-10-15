@@ -1,6 +1,12 @@
-<mat-sidenav-container><!--   -->
-    <mat-sidenav #drawer mode="side" [fixedInViewport]="true" [fixedTopGap]="100">
-        <app-docs-side-menu></app-docs-side-menu>
+<div class="mobile-btn" [class.display]="mobileQuery.matches && !snav.opened">
+    <button mat-mini-fab color="apirtc" (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+</div>
+<mat-sidenav-container>
+    <!--   -->
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"  [fixedInViewport]="true" [fixedTopGap]="100">
+        <app-docs-side-menu (click)="mobileQuery.matches&&snav.toggle()"></app-docs-side-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>
