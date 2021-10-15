@@ -38,6 +38,21 @@
             <h3>
                 ApiRTC CCS
             </h3>
+
+            <div class="row">
+                <h4>Signalisation</h4>
+                <p class="col-lg-8">
+                    In order to realize a <strong>WebRTC</strong> application, one must establish a connection
+                    between the browsers that want to communicate. <strong>WebRTC</strong> provides the solution
+                    for
+                    the media plane but does not implement the signaling, i.e. how one client’s information
+                    should be sent to remote peers in order to initiate connections.
+                    <strong>ApiRTC cloud</strong> implements a signaling server using WebSockets. The browser
+                    and
+                    server interaction is event-based : the browser does not have to poll the server for a reply
+                    every time data have to be exchanged.
+                </p>
+            </div>
             <p>
                 ApiRTC CSS is responsible for the signaling...
             </p>
@@ -52,9 +67,24 @@
             <h3>
                 ApiRTC STUN/TURN
             </h3>
+            <p> To send and receive data to another browser the client must have some specific information. The
+                most important information is the client’s public IP address. Each client or browser must know
+                this information about each other in order
+                to receive an incoming connection from another client.</p>
+
             <p>Sometimes, users might face connectivity issues because of different IP networks where Firewalls and NATs
                 (Network Address Translators) could include specific network policies that will not allow RTC
                 communications.</p>
+            <!-- <p>
+                    Sometimes it’s difficult for the client
+                    to know its own public IP address, especially if the client is behind a firewall or NAT, which
+                    is very common these days. 
+                </p> -->
+            <p>To overcome
+                this, <strong>WebRTC</strong> recommends the use of a STUN server. A STUN server allows clients
+                to find out their own public IP address and which type of NAT they are behind. Sometimes it can
+                be hard to fetch the information, depending on the NAT,
+                and in that case, a TURN server can help the process.</p>
             <p>In order to solve this kind of network connection scenario, we need to use ICE (Interactive Connectivity
                 Establishment) protocol and it defines a systematic way of finding possible communication options
                 between a peer and the video gateway.</p>
@@ -85,12 +115,47 @@
                 Tell about peer-to-peer, mesh mode, star topolofy SFUs... :
             </p>
             <p>
+                Basic <strong>WebRTC</strong> applications are using full mesh topology. Each client must :
+            </p>
+            <ul>
+                <li>
+                    encode and send their stream(s) to each remote peer
+                </li>
+                <li>
+                    receive and decode every remote peer stream(s)
+                </li>
+            </ul>
+            <p>
+                The CPU load and the required bandwidth increases linearly as the number of peers and streams
+                grows. This topology is unsuitable for applications where larger groups of peers need to be
+                connected at once.
+            </p>
+            <p>
+                <strong>ApiRTC</strong> enables the usage of a <strong>star topology</strong> by providing SFUs
+                (Selective Forwarding Units) that acts as a central server that relays each peers’ streams.
+            </p>
+            <!-- <p>
+                MCU (stands for Multipoint Control Unit) can also be used (TODO: check this ?)
+            </p> -->
+            <p>
                 In ApiRTC, media streams flow through ApiRTC infrastructure SFUs.
             </p>
             <p>
                 But you can control that my enabling meshMode, and event force it remain mesh. Otherwise ApiRTC will
                 automatically try to switch to star topology architecture.
             </p>
+
+            <h3>Users management</h3>
+            <p>
+                When it comes to Users management, one can decide to use his own or leverage with
+                <strong>ApiRTC</strong>'s.
+            </p>
+            <h3>Media storage</h3>
+            <p>
+                <strong>ApiRTC</strong> also includes databases for <strong>Media storage</strong>, providing a
+                secure way to store exchanged data or conversations recordings.
+            </p>
+
         </div>
     </div>
 </div>

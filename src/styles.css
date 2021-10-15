@@ -7,6 +7,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     grid-area: main
 }
 
+.bg-apirtc {
+    background-color: #0078D4;  
+}
+
 .bd-toc {
     grid-area: toc;
     display: none;
@@ -62,8 +66,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .bd-toc nav a.active {
-    color: black;
-    font: bold;
+    color: #1977B3;
 }
 
 .bd-toc nav a:not(:hover) {
