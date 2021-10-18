@@ -6,7 +6,7 @@
 <mat-sidenav-container>
     <!--   -->
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"  [fixedInViewport]="true" [fixedTopGap]="100">
-        <app-docs-side-menu (click)="mobileQuery.matches&&snav.toggle()"></app-docs-side-menu>
+        <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet></router-outlet>

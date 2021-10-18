@@ -11,13 +11,21 @@
                         [ngClass]="{'active': current === 'user-agent' }">UserAgent</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="session" [ngClass]="{'active': current === 'session' }">Session</a>
+                    <a [routerLink]="['.']" fragment="session"
+                        [ngClass]="{'active': current === 'session' }">Session</a>
+
+                    <ul>
+                        <li>
+                            <a [routerLink]="['.']" fragment="authentication"
+                                [ngClass]="{'active': current === 'authentication' }">Authentication</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['.']" fragment="presence"
+                                [ngClass]="{'active': current === 'presence' }">Presence, Groups</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a [routerLink]="['.']" fragment="contacts" [ngClass]="{'active': current === 'contacts' }">Contacts
-                        : Presence,
-                        Groups</a>
-                </li>
+
                 <li>
                     <a [routerLink]="['.']" fragment="conversation"
                         [ngClass]="{'active': current === 'conversation' }">Conversation</a>
@@ -190,11 +198,11 @@
             <p>
                 Once connected to <code>Session</code>, call <code>userData.setToSession()</code> to make other
                 connected peers notified of <code>UserData</code> properties change through the
-                <code>contactListUpdate</code> event.
+                <code>Session.contactListUpdate</code> event.
             </p>
             <p>
-                For that purpose, the data object associated to <code>Session</code>'s <code>contactListUpdate</code>
-                event, <code>updatedContacts</code> will carry a <code>userDataChanged</code> array property of
+                For that purpose, the data object associated to <code>Session.contactListUpdate</code>
+                event has a <code>userDataChanged</code> property which is an array of
                 <code>Contact</code>s for which <code>UserData</code> has changed.
             </p>
             <h2>
@@ -242,6 +250,7 @@
                 </div>
             </div>
             <h2>
+                <a #anchor id="authentication" class="anchor"></a>
                 Authentication
             </h2>
             <p>
@@ -324,24 +333,27 @@
                 </div>
             </div>
             <h1 class="mt-5">
-                <a #anchor id="contacts" class="anchor"></a>
-                Contacts : Presence, Groups
+                <a #anchor id="presence" class="anchor"></a>
+                Presence, Groups
             </h1>
             <p>
-                In an <strong>ApiRTC</strong> client application, remote participants are <code>Contact</code>s.
+                In an <strong>ApiRTC</strong> client application, remote users are <code>Contact</code>s.
+            </p>
+            <p>
+                The <strong>presence</strong> feature allows to get notified to all users
+                currently connected with same <strong>apiKey</strong>.
             </p>
             <p>
                 Listening on <code>Session.contactListUpdate</code> event notifies on <code>Contact</code>, connected
                 with to same <strong>Enterprise</strong>(<strong>apiKey</strong>), that joined, left, or for which
                 <code>UserData</code> changed.
-                (joinedGroup leftGroup userDataChanged)
             </p>
             <p>
-                This is known as the <strong>User</strong> <strong>presence</strong> feature.
+                A notion of <strong>groups</strong> comes with this feature for better control. To make a user connect
+                within some group, set the <code>RegisterInformation.groups</code> in the
+                <code>UserAgent.register()</code> options.
             </p>
-            <p>
-                A notion of <strong>groups</strong> comes with this feature for better control.
-            </p>
+            <app-codenav [code]="contactListUpdate" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
                 <a #anchor id="conversation" class="anchor"></a>
                 Conversation
@@ -506,7 +518,7 @@
             </h2>
             <p>
                 <strong>ApiRTC</strong> notifies when stream availability changes through the
-                <code>streamListChanged</code> event.
+                <code>Conversation.streamListChanged</code> event.
             </p>
             <p>
                 This event is triggered once for each existing <strong>stream</strong>, and then again every time a new
@@ -516,13 +528,13 @@
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
                     <use xlink:href="#exclamation-triangle-fill"></use>
                 </svg>
-                <span>The information carried by the event is <code>StreamInfo</code>: this is not a <code>Stream</code>
+                <span>The data object carried by <code>Conversation.streamListChanged</code> event is <code>StreamInfo</code>: this is not a <code>Stream</code>
                     yet.</span>
             </div>
             <app-codenav [code]="streamListChanged" [(language)]="lang"></app-codenav>
             <p>
                 The <code>streamInfo.contact.getId()</code> and <code>streamInfo.streamId</code> can be useful to
-                identify remote <strong>peer</strong> and <strong>stream</strong>.
+                identify remote which <strong>peer</strong> published one <strong>stream</strong>.
             </p>
             <h2>
                 Subscribe
@@ -727,5 +739,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>

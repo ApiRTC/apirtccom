@@ -1,6 +1,6 @@
 
 import { Component, OnDestroy, OnInit, HostListener, ViewChildren, QueryList, ElementRef } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-dev-guide',
@@ -9,15 +9,23 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class DevGuideComponent implements OnInit, OnDestroy {
 
-
   routerSubscription: any;
   current = '';
+  disableScrollListener = false;
 
   constructor(private router: Router) {
     this.routerSubscription = this.router.events.subscribe((val) => {
+      if (val instanceof NavigationStart) {
+        this.disableScrollListener = true;
+      }
       if (val instanceof NavigationEnd) {
-        //console.log('route :', val);
-        this.current = val.url.split('#')[1] || '';
+        const anchorId = val.url.split('#')[1] || '';
+        this.current = anchorId;
+        setTimeout(() => {
+          //console.log('route :', val);
+          this.current = anchorId;
+          this.disableScrollListener = false;
+        }, 1000);
       }
     });
   }
@@ -40,7 +48,8 @@ export class DevGuideComponent implements OnInit, OnDestroy {
       if (pageOffset >= element.nativeElement.offsetTop) {
         this.current = element.nativeElement.id;
       }
-    })
+    });
+    console.log('current =>', this.current)
   }
 
   private lastCall?: number;
@@ -49,7 +58,8 @@ export class DevGuideComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     //console.log("onScroll")
-    const interval = 100;
+    if (this.disableScrollListener === true) { return; }
+    const interval = 250;
     var now = new Date().getTime();
     if (this.lastCall && now < (this.lastCall + interval)) {
       // if we are inside the interval we wait
@@ -151,6 +161,24 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
     kotlin: `TODO`,
     swift: `TODO`
   }
+
+  contactListUpdate = {
+    javascript: `session.on('contactListUpdate', (updatedContacts: any) => {
+  for (const group of Object.keys(updatedContacts.joinedGroup)) {
+    for (const contact of updatedContacts.joinedGroup[group]) {
+      // ...
+    }
+  }
+  for (const group of Object.keys(updatedContacts.leftGroup)) {
+    for (const contact of updatedContacts.leftGroup[group]) {
+      // ...
+    }
+  }
+  for (const contact of updatedContacts.userDataChanged) {
+    // ...
+  }
+})`
+  };
 
   // TODO : do we document the 'active' parameter here ?
   // in any case, it shall be document as follows in the api reference (not documented at the moment)

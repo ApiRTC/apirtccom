@@ -11,6 +11,10 @@
     font-size: 1.8em !important;
 }
 
+.navbar-brand {
+    margin-left:0.8em
+}
+
 #content {
     margin-top: 80px;
 }

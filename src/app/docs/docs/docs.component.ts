@@ -36,4 +36,10 @@ export class DocsComponent implements OnInit, AfterViewInit {
     setTimeout(() => { this.drawerRef?.open(); }, 100)
   }
 
+  onMenuClick() {
+    if (this.mobileQuery.matches) {
+      this.drawerRef?.toggle();
+    }
+  }
+
 }
