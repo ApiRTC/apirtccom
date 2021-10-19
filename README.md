@@ -4,13 +4,17 @@
 
 Requirements:
 
-    - git
+    - git installed on your computer,
 
-    - a code editor like Visual Studio Code
+    - github account with access right to this repository, and likely your public ssh key exchanged with github,
 
-First, clone this repository
+    - a code editor like Visual Studio Code.
 
-Then:
+Clone this repository:
+
+`git clone git@github.com:ApiRTC/apirtccom.git`
+
+go inside the project:
 
 `cd apirtccom`
 
