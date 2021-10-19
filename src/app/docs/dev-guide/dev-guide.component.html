@@ -107,10 +107,14 @@
     </div>
     <div class="bd-content">
         <div class="container">
-            <p class="mt-5 fs-5">
-                This guide covers all concepts and features you may require to develop your communication <strong>client
-                    application</strong> with <strong>ApiRTC</strong>.
-            </p>
+            <div class="row justify-content-center mt-5">
+                <div class="col-10 fs-5">
+                    <p class="text-center">
+                        This guide covers all concepts and features to develop your communication
+                        <strong>client application</strong> with <strong>ApiRTC</strong>.
+                    </p>
+                </div>
+            </div>
             <h1 class="mt-5">
                 <a #anchor id="apikey" class="anchor"></a>
                 apiKey
@@ -528,7 +532,8 @@
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
                     <use xlink:href="#exclamation-triangle-fill"></use>
                 </svg>
-                <span>The data object carried by <code>Conversation.streamListChanged</code> event is <code>StreamInfo</code>: this is not a <code>Stream</code>
+                <span>The data object carried by <code>Conversation.streamListChanged</code> event is
+                    <code>StreamInfo</code>: this is not a <code>Stream</code>
                     yet.</span>
             </div>
             <app-codenav [code]="streamListChanged" [(language)]="lang"></app-codenav>

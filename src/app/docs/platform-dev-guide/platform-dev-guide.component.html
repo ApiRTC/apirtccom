@@ -4,13 +4,15 @@
         <nav id="TableOfContents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="provisioning" [ngClass]="{'active': current === 'provisioning' }">Provisioning</a>
+                    <a [routerLink]="['.']" fragment="provisioning"
+                        [ngClass]="{'active': current === 'provisioning' }">Provisioning</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="medias" [ngClass]="{'active': current === 'medias' }">Medias</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="webhooks" [ngClass]="{'active': current === 'webhooks' }">WebHooks</a>
+                    <a [routerLink]="['.']" fragment="webhooks"
+                        [ngClass]="{'active': current === 'webhooks' }">WebHooks</a>
                 </li>
             </ul>
         </nav>
@@ -18,16 +20,12 @@
 
     <div class="bd-content">
         <div class="container">
-            <div class="row">
-                <div class="col fs-5">
-                    <p class="mt-5">
-                        You can interact with <strong>ApiRTC Platform</strong> through a <strong>RESTful API</strong>.
+            <div class="row justify-content-center mt-5">
+                <div class="col-10 fs-5">
+                    <p class="text-center">
+                        Lear how to interact with <strong>ApiRTC Platform</strong>.
                     </p>
-                    <p>
-                        Also, <strong>ApiRTC Platform</strong> can notify your backend server when some events happen
-                        through
-                        <strong>webhooks</strong>.
-                    </p>
+                    <!-- <p><strong>RESTful API</strong></p> -->
                 </div>
             </div>
             <h1 class="mt-5">
@@ -38,16 +36,18 @@
                 Enterprises, Users
             </p>
             <h1 id="medias" class="mt-5">
-                <a  #anchor id="medias" class="anchor"></a>
+                <a #anchor id="medias" class="anchor"></a>
                 Medias management
             </h1>
             <p>
                 Retrieve or delete medias exchanged or recorded during <strong>Conversation</strong>s.
             </p>
             <h1 id="webhooks" class="mt-5">
-                <a  #anchor id="webhooks" class="anchor"></a>
+                <a #anchor id="webhooks" class="anchor"></a>
                 WebHooks
             </h1>
+            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when some
+                events happen.</p>
             <p>
                 Explain how webhooks work
             </p>
