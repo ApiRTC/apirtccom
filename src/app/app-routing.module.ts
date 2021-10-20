@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
-import { DemoComponent, DevGuideComponent, DocsComponent, GettingStartedComponent,
+import {
+  DemoComponent, DevGuideComponent, DocsComponent, GettingStartedComponent,
   ExamplesComponent,
   IntroductionComponent, LogicalConceptsComponent, OverviewComponent,
-  PlatformDevGuideComponent, TechnicalConceptsComponent } from './docs/docs.module';
+  PlatformDevGuideComponent, ReactUiDevGuideComponent, TechnicalConceptsComponent
+} from './docs/docs.module';
 import { FeaturesComponent } from './features/features.component';
 import { UseCasesComponent } from './use-cases/use-cases.component';
 
@@ -21,6 +23,7 @@ const routes: Routes = [
       { path: 'technical-concepts', component: TechnicalConceptsComponent },
       { path: 'logical-concepts', component: LogicalConceptsComponent },
       { path: 'dev-guide', component: DevGuideComponent },
+      { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
       { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
       { path: 'demo', component: DemoComponent },
       { path: 'examples', component: ExamplesComponent },

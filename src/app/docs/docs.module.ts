@@ -17,6 +17,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { LogicalConceptsComponent } from './logical-concepts/logical-concepts.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
+import { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
 import { TechnicalConceptsComponent } from './technical-concepts/technical-concepts.component';
 
 export { DemoComponent } from './demo/demo.component';
@@ -28,6 +29,7 @@ export { IntroductionComponent } from './introduction/introduction.component';
 export { LogicalConceptsComponent } from './logical-concepts/logical-concepts.component';
 export { OverviewComponent } from './overview/overview.component';
 export { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
+export { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
 export { TechnicalConceptsComponent } from './technical-concepts/technical-concepts.component';
 
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
@@ -36,6 +38,7 @@ import { SafePipe } from '../safe.pipe';
 
 import { UtilsModule } from '../utils/utils.module';
 
+
 @NgModule({
   declarations: [
     DevGuideComponent,
@@ -43,7 +46,7 @@ import { UtilsModule } from '../utils/utils.module';
     DocsComponent,
     GettingStartedComponent,
     IntroductionComponent,
-    OverviewComponent, SafePipe, LogicalConceptsComponent, TechnicalConceptsComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent,
+    OverviewComponent, SafePipe, LogicalConceptsComponent, TechnicalConceptsComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent, ReactUiDevGuideComponent,
   ],
   imports: [
     CommonModule, RouterModule,
