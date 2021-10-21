@@ -136,6 +136,37 @@ class TchatView extends Component<IProps> {
 }`
   }
 
+  whiteboard = {
+    typescript: `import { Session } from "@apizee/apirtc"
+import { Whiteboard } from "@apizee/apizee-components-alpha"
+import { Component } from "react"
+    
+interface IProps {
+  session: Session
+}
+    
+export class WhiteboardView extends Component<IProps> {
+  componentWillUnmount = () => {
+    //  Leave the room on unmount
+    if(this.props.session.getWhiteboardClient()) this.props.session.getWhiteboardClient().leaveRoom()
+  }
+    
+  render() {
+    return (
+      <Whiteboard canvasId="whiteboard" metadata={{
+        enterpriseId: this.props.session.getUserAgent().getEnterprise().getId(),
+        roomId: "myconversation",
+        userToken: this.props.session.getToken(),
+        keyStorage: "myconversation-key",
+        defaultTool: "void",
+        colors: ["red", "green", "blue", "yellow"],
+        cursorColor: "purple"
+      }} />
+    )
+  }
+}`
+  }
+
   lang = "typescript";
 
 }
