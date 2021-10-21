@@ -47,415 +47,56 @@
             </h1>
             <p>
                 Hook used to interface apiRTC javascript library with React components.
+                <a href="https://www.apizee.com/inte/storybook-apizee-components-alpha/?path=/docs/hooks-useapirtc--page"><em>References</em></a>
             </p>
             <app-codenav [code]="useapirtc" [(language)]="lang"></app-codenav>
-            <em>Parameter with * are required</em>
-            <table class="table table-bordered">
-                <thead>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default value</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><pre>api_key*</pre></td>
-                        <td>Your api key claimed on <a href="https://cloud.apirtc.com">https://cloud.apirtc.com</a>, can also be an empty string</td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>You can now access to methods such as <code>createStream</code>, <code>createScreenSharing</code>, <code>register</code>, <code>login</code>, <code>logout</code> and <code>getConversation</code>. Or properties like <code>userAgent</code>, <code>devices</code>, <code>session</code>, <code>userData</code> and <code>cloudApi</code>.</p>
+            <h3 class="mt-2">Greetings example</h3>
+            <app-codenav [code]="useapirtc_greetings" [(language)]="lang"></app-codenav>
             <h1 #anchor id="login" class="anchor" class="mt-5">
                 LoginForm
             </h1>
             <p>
                 Display a login form used to identify user with a username/password pair. <b>This component is not intended for user's connection by apiKey !</b>
+                <a href="https://www.apizee.com/inte/storybook-apizee-components-alpha/?path=/docs/modules-login-login-form--default"><em>References</em></a>
             </p>
             <p>
                 The login prop is retrieved thanks to the hook <b>useApiRTC</b> with <code>apirtc.login</code>
             </p>
             <app-codenav [code]="login" [(language)]="lang"></app-codenav>
-            <em>Props with * are required</em>
-            <table class="table table-bordered">
-                <thead>
-                    <th>Props</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default value</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><pre>labels</pre></td>
-                        <td>Edit labels of fields</td>
-                        <td><code>{{"{ username?: string; usernameTooltip?: string | undefined; password?: string | undefined; passwordTooltip?: string | undefined; submit?: string | undefined; cancel?: string | undefined; \}"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>title</pre></td>
-                        <td>Set title at the top of the login form</td>
-                        <td><code>ReactNode</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>subTitle</pre></td>
-                        <td>Set subtitle at the top of the login form</td>
-                        <td><code>ReactNode</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>showTooltipHelpPassword</pre></td>
-                        <td>Display or not a helping tooltip about the password field</td>
-                        <td><code>boolean</code></td>
-                        <td><pre>false</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onSubmit*</pre></td>
-                        <td>Function executed when the login form is submitted</td>
-                        <td><code>{{"(username: string, password: string) => Promise\<any\>"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onCancel</pre></td>
-                        <td>Function executed when the user click on the cancel button</td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                </tbody>
-            </table>
             <h1 #anchor id="agenda" class="anchor" class="mt-5">
                 Agenda
             </h1>
             <p>
                 Show a calendar with all the conferences scheduled for a specific user.
+                <a href="https://www.apizee.com/inte/storybook-apizee-components-alpha/?path=/docs/apps-agenda--agenda-app-with-register"><em>References</em></a>
             </p>
             <p>
                 The <code>cloud_url</code> prop correspond to <b>the url of your cloud instance</b> and the <code>session</code> prop is retrieved thanks to the hook <b>useApiRTC</b> with <code>apirtc.session</code>
             </p>
             <app-codenav [code]="agenda" [(language)]="lang"></app-codenav>
-            <em>Props with * are required</em>
-            <table class="table table-bordered">
-                <thead>
-                    <th>Props</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default value</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><pre>bearerToken*</pre></td>
-                        <td>Bearer token of the user</td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>userId</pre></td>
-                        <td>Id of the user</td>
-                        <td><code>number</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>handleSelectEvent*</pre></td>
-                        <td>Function executed when the user select an event in the calendar</td>
-                        <td><code>(event: any) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>handleNavigate</pre></td>
-                        <td></td>
-                        <td><code>(date: Date) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onFetchError</pre></td>
-                        <td>Function executed if an error occured during the request/td>
-                        <td><code>(error: any) => void)</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>culture</pre></td>
-                        <td>Set the culture of the calendar</td>
-                        <td><code>string</code></td>
-                        <td><pre>"en"</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>locale</pre></td>
-                        <td>Set the locale of the calendar with the library <code>date-fns</code></td>
-                        <td><code>Locale</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>defaultView</pre></td>
-                        <td>Set the default view of the calendar</td>
-                        <td><code>undefined</code>, <code>"month"</code>, <code>"week"</code>,     <code>"work_week"</code>,    <code>"day"</code>,  <code>"agenda"</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>layout</pre></td>
-                        <td></td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>selectable</pre></td>
-                        <td></td>
-                        <td><code>boolean</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>step</pre></td>
-                        <td></td>
-                        <td><code>number</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>styleCustom</pre></td>
-                        <td></td>
-                        <td><code>any</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>timeslots</pre></td>
-                        <td></td>
-                        <td><code>number</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>startDayOfWeek</pre></td>
-                        <td>Set the first day of the week</td>
-                        <td><code>number</code></td>
-                        <td><pre>0</pre></td>
-                    </tr>
-                </tbody>
-            </table>
             <h1 #anchor id="chat" class="anchor" class="mt-5">
                 Chat
             </h1>
             <p>
                 Display a chat box in which you can send message, receive other user's message and see if someone is typing or not.
+                <a href="https://www.apizee.com/inte/storybook-apizee-components-alpha/?path=/docs/apps-chat--chat-with-api-rtc"><em>References</em></a>
             </p>
             <p>
                 The <code>apirtc</code> prop will be used by the Chat component implicitly.
             </p>
             <app-codenav [code]="chat" [(language)]="lang"></app-codenav>
-            <em>Props with * are required</em>
-            <table class="table table-bordered">
-                <thead>
-                    <th>Props</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default value</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><pre>conversationName*</pre></td>
-                        <td>Name of the conversation</td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>labels</pre></td>
-                        <td>Set the labels of the chat box</td>
-                        <td><code>{{"messagesList: {emptyMessage: string, errorMessage: string, seeNewMessages: string, loadingFiles: string}, chatComposer: {shareFromComputerFile: string, shareFromOtherSource: string, textAreaAriaLabel: string, sendButtonAriaLabel: string, emojiPickerButton: string}"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>emojisCategories</pre></td>
-                        <td>Set the emojis to display</td>
-                        <td><code>EmojisCategories</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>locale</pre></td>
-                        <td>Set the locale</td>
-                        <td><code>Locale</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>composer</pre></td>
-                        <td>Function executed when the login form is submitted</td>
-                        <td><code>{{"(username: string, password: string) => Promise\<any\>"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onCancel</pre></td>
-                        <td>Tweak the chat box properties</td>
-                        <td><code>{{"{isDisabled?: boolean, placeholder?: string, maxCharacters?: number, withEmojis?: boolean, canInputFile?: boolean, canShareOtherFile?: boolean}"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onMediaAnnotate</pre></td>
-                        <td>Function executed when a media is annotate</td>
-                        <td><code>(media: PartialMediaDescription) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onMediaAnnotate</pre></td>
-                        <td>Function executed when a media is annotate</td>
-                        <td><code>(media: PartialMediaDescription) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onMediaDownload</pre></td>
-                        <td>Function executed when a media is dowloaded</td>
-                        <td><code>(media: PartialMediaDescription) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onChangeInputFile</pre></td>
-                        <td>Function executed when the user change the input file</td>
-                        <td><code>{{"(event: React.ChangeEvent\<HTMLInputElement\>) => void"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onShareOtherFile</pre></td>
-                        <td></td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>sharedMedias</pre></td>
-                        <td>List of shared medias</td>
-                        <td><code>PartialMediaDescription[]</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onSharedMedias</pre></td>
-                        <td>Function executed medias are shared</td>
-                        <td><code>(sharedMedias: PartialMediaDescription[]) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                </tbody>
-            </table>
             <h1 #anchor id="whiteboard" class="anchor" class="mt-5">
                 Whiteboard
             </h1>
             <p>
                 Show a whiteboard where you can draw and see others drawings sharing the same <code>roomId</code>.
+                <a href="https://www.apizee.com/inte/storybook-apizee-components-alpha/?path=/docs/apps-whiteboard--whiteboard-story"><em>References</em></a>
             </p>
             <p>
                 The <code>session</code> prop is retrieved thanks to the hook <b>useApiRTC</b> with <code>apirtc.session</code>.
             </p>
             <app-codenav [code]="whiteboard" [(language)]="lang"></app-codenav>
-            <em>Props with * are required</em>
-            <table class="table table-bordered">
-                <thead>
-                    <th>Props</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Default value</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><pre>canvasId*</pre></td>
-                        <td>Id of the component's generated canvas</td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>metadata*</pre></td>
-                        <td>Set the metadata of the whiteboard</td>
-                        <td><code>WhiteboardMetadata</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>imageFitAtLoad</pre></td>
-                        <td>Change image behaviors</td>
-                        <td><code>undefined</code>, <code>"contain"</code>, <code>"cover"</code></td>
-                        <td><pre>"contain"</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>labels</pre></td>
-                        <td>Set the labels</td>
-                        <td><code>{{"Partial<{ loadingDialog: { header: string; loading: string; done: string; error: string; close: string; }; savingDialog: { header: string; loading: string; done: string; error: string; close: string; }; confirmDialog: { ...; }; ... 5 more ...; getImageUrlErrors: { ...; }; }>"}}</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>role</pre></td>
-                        <td>Set the role</td>
-                        <td><code>"guest"</code>, <code>"moderator"</code></td>
-                        <td><pre>"guest"</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>closeWhiteboardFromOutsideCallback</pre></td>
-                        <td></td>
-                        <td><code>(confirmClose: boolean) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>fullscreenActivated</pre></td>
-                        <td>Set if the fullscreen is activated</td>
-                        <td><code>boolean</code></td>
-                        <td><pre>false</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>isOpen</pre></td>
-                        <td></td>
-                        <td><code>boolean</code></td>
-                        <td><pre>true</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>isMinimized</pre></td>
-                        <td></td>
-                        <td><code>boolean</code></td>
-                        <td><pre>false</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>isReadOnly</pre></td>
-                        <td></td>
-                        <td><code>boolean</code></td>
-                        <td><pre>false</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onClose</pre></td>
-                        <td>Function executed when the user closes the whiteboard</td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onEdit</pre></td>
-                        <td>Function executed when the user starts editing the whiteboard</td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onExitFullscreenMode</pre></td>
-                        <td>Function executed when the user exits the fullscreen mode</td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onFullscreenMode</pre></td>
-                        <td>Function executed when the user enters the fullscreen mode</td>
-                        <td><code>() => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>onSave</pre></td>
-                        <td>Function executed when the user saves the whiteboard</td>
-                        <td><code>(message: imageMessage) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>setSnapshotUrlCallback</pre></td>
-                        <td></td>
-                        <td><code>(snapshotUrl: string) => void</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>showFullscreen</pre></td>
-                        <td>Display or not the fullscreen button</td>
-                        <td><code>boolean</code></td>
-                        <td><pre>true</pre></td>
-                    </tr>
-                    <tr>
-                        <td><pre>snapshotUrl</pre></td>
-                        <td></td>
-                        <td><code>string</code></td>
-                        <td><pre>-</pre></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>

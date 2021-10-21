@@ -72,6 +72,15 @@ function App() {
 }`
   };
 
+  useapirtc_greetings = {
+    typescript: `import { useApiRTC } from "@apizee/apizee-components-alpha"
+
+function App() {
+  const apirtc = useApiRTC("myApiKey");
+  return (<h1>Hello {apirtc.userAgent.getUsername()} !</h1>);
+}`
+  }
+
   login = {
     typescript: `import { RegisterInformation } from "@apizee/apirtc";
 import { LoginForm } from "@apizee/apizee-components-alpha";
