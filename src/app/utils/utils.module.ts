@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodenavComponent } from './codenav/codenav.component';
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { HighlightModule } from 'ngx-highlightjs';
 
 @NgModule({
@@ -9,7 +14,9 @@ import { HighlightModule } from 'ngx-highlightjs';
     CodenavComponent
   ],
   imports: [
-    CommonModule, HighlightModule
+    CommonModule, HighlightModule,
+    ClipboardModule,
+    MatButtonModule, MatSnackBarModule
   ],
   exports: [
     CodenavComponent

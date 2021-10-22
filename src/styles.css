@@ -61,7 +61,7 @@ body {
 }
 
 .bd-toc nav li {
-    margin-bottom: .25rem
+    margin-top: .5rem
 }
 
 .bd-toc nav a {
@@ -85,4 +85,8 @@ a.anchor {
     position: relative;
     top: -5rem;
     visibility: hidden;
+}
+
+code {
+    color: #1977B3;
 }

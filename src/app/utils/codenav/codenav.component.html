@@ -1,40 +1,49 @@
-<ul class="nav nav-tabs" role="tablist">
-    <li *ngIf="code.javascript" class="nav-item" role="presentation">
-        <button class="nav-link" [ngClass]="{'active' : language==='javascript'}"
-            type="button" role="tab" (click)="setLang('javascript')">Javascript</button>
-    </li>
-    <li *ngIf="code.typescript" class="nav-item" role="presentation">
-        <button class="nav-link" [ngClass]="{'active' : language==='typescript'}"
-            type="button" role="tab" (click)="setLang('typescript')">Typescript</button>
-    </li>
-    <!-- <li *ngIf="code.jsts" class="nav-item" role="presentation">
+<div class="codenav">
+    <ul class="nav nav-tabs" role="tablist">
+        <li *ngIf="code.javascript" class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active' : language==='javascript'}" type="button" role="tab"
+                (click)="setLang('javascript')">Javascript</button>
+        </li>
+        <li *ngIf="code.typescript" class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active' : language==='typescript'}" type="button" role="tab"
+                (click)="setLang('typescript')">Typescript</button>
+        </li>
+        <!-- <li *ngIf="code.jsts" class="nav-item" role="presentation">
         <button class="nav-link" [ngClass]="{'active' : language==='javascript' || language==='typescript'}"
             type="button" role="tab" (click)="setLang('javascript')">js/ts</button>
     </li> -->
-    <li *ngIf="code.kotlin" class="nav-item" role="presentation">
-        <button class="nav-link" [ngClass]="{'active' : language==='kotlin'}" type="button"
-            role="tab" (click)="setLang('kotlin')">Kotlin</button>
-    </li>
-    <li *ngIf="code.swift" class="nav-item" role="presentation">
-        <button class="nav-link" [ngClass]="{'active' : language==='swift'}" type="button"
-            role="tab" (click)="setLang('swift')">Swift</button>
-    </li>
-</ul>
-<div class="tab-content">
-    <div *ngIf="code.javascript" class="tab-pane fade" [ngClass]="{'show active' : language==='javascript'}"
-        role="tabpanel">
-        <pre><code [highlight]="code.javascript" [languages]="['javascript']"></code></pre>
-    </div>
-    <div *ngIf="code.typescript" class="tab-pane fade" [ngClass]="{'show active' : language==='typescript'}"
-        role="tabpanel">
-        <pre><code [highlight]="code.typescript" [languages]="['typescript']"></code></pre>
-    </div>
-    <div *ngIf="code.kotlin" class="tab-pane fade" [ngClass]="{'show active' : language==='kotlin'}"
-        role="tabpanel">
-        <pre><code [highlight]="code.kotlin" [languages]="['kotlin']"></code></pre>
-    </div>
-    <div *ngIf="code.swift" class="tab-pane fade" [ngClass]="{'show active' : language==='swift'}"
-        role="tabpanel">
-        <pre><code [highlight]="code.swift" [languages]="['swift']"></code></pre>
+        <li *ngIf="code.kotlin" class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active' : language==='kotlin'}" type="button" role="tab"
+                (click)="setLang('kotlin')">Kotlin</button>
+        </li>
+        <li *ngIf="code.swift" class="nav-item" role="presentation">
+            <button class="nav-link" [ngClass]="{'active' : language==='swift'}" type="button" role="tab"
+                (click)="setLang('swift')">Swift</button>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div *ngIf="code.javascript" class="tab-pane fade" [ngClass]="{'show active' : language==='javascript'}"
+            role="tabpanel">
+            <button mat-icon-button class="float-end" [cdkCopyToClipboard]="code.javascript" (click)="snackCopied()"><span
+                    class="material-icons">content_copy</span></button>
+            <pre><code [highlight]="code.javascript" [languages]="['javascript']"></code></pre>
+        </div>
+        <div *ngIf="code.typescript" class="tab-pane fade" [ngClass]="{'show active' : language==='typescript'}"
+            role="tabpanel">
+            <button mat-icon-button class="float-end" [cdkCopyToClipboard]="code.typescript" (click)="snackCopied()"><span
+                    class="material-icons">content_copy</span></button>
+            <pre><code [highlight]="code.typescript" [languages]="['typescript']"></code></pre>
+        </div>
+        <div *ngIf="code.kotlin" class="tab-pane fade" [ngClass]="{'show active' : language==='kotlin'}"
+            role="tabpanel">
+            <button mat-icon-button class="float-end" [cdkCopyToClipboard]="code.kotlin" (click)="snackCopied()"><span
+                    class="material-icons">content_copy</span></button>
+            <pre><code [highlight]="code.kotlin" [languages]="['kotlin']"></code></pre>
+        </div>
+        <div *ngIf="code.swift" class="tab-pane fade" [ngClass]="{'show active' : language==='swift'}" role="tabpanel">
+            <button mat-icon-button class="float-end" [cdkCopyToClipboard]="code.swift" (click)="snackCopied()"><span
+                    class="material-icons">content_copy</span></button>
+            <pre><code [highlight]="code.swift" [languages]="['swift']"></code></pre>
+        </div>
     </div>
 </div>

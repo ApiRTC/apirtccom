@@ -13,7 +13,7 @@ export class GettingStartedComponent implements OnInit {
   <script type="text/javascript" src="https://cloud.apirtc.com/apiRTC/apiRTC-latest.min.js"></script>
 </head>`;
 
-  npm_install = `$ npm install @apizee/apirtc@latest --save`;
+  npm_install = `npm install @apizee/apirtc@latest --save`;
   angular_json = `{
     "projects": {
       "YOUR_PROJECT_NAME": {

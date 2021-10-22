@@ -87,62 +87,6 @@
     <div class="row mt-5 justify-content-end">
         <div class="col-lg-8">
             <h2>
-                ApiRTC STUN/TURN
-            </h2>
-            <p> To send and receive data to another browser the client must have some specific information. The
-                most important information is the client’s public IP address. Each client or browser must know
-                this information about each other in order
-                to receive an incoming connection from another client.</p>
-
-            <p>Sometimes, users might face connectivity issues because of different IP networks where Firewalls and
-                NATs
-                (Network Address Translators) could include specific network policies that will not allow RTC
-                communications.</p>
-            <!-- <p>
-                    Sometimes it’s difficult for the client
-                    to know its own public IP address, especially if the client is behind a firewall or NAT, which
-                    is very common these days. 
-                </p> -->
-            <p>To overcome
-                this, <strong>WebRTC</strong> recommends the use of a STUN server. A STUN server allows clients
-                to find out their own public IP address and which type of NAT they are behind. Sometimes it can
-                be hard to fetch the information, depending on the NAT,
-                and in that case, a TURN server can help the process.</p>
-            <p>In order to solve this kind of network connection scenario, we need to use ICE (Interactive
-                Connectivity
-                Establishment) protocol and it defines a systematic way of finding possible communication options
-                between a peer and the video gateway.</p>
-            <p>ICE (INTERACTIVE CONNECTIVITY ESTABLISHMENT) is a protocol used to generate media traversal
-                candidates
-                that can be used in WebRTC applications, and it can be successfully sent and received through
-                Network
-                Address Translation (NAT)s using STUN and TURN.</p>
-            <p>STUN (Session Traversal Utilities for NAT) that complements ICE through NATs using UDP protocol. STUN
-                allows applications to discover the presence and types of NATs and firewalls between them and on the
-                public Internet. It can be used by any device to determine the IP address and port allocated to it
-                by a
-                NAT.</p>
-            <p>Typically A STUN client can send messages to the STUN server to get the Public IP and ports
-                information
-                then STUN server retrieve that information. Using this Public IP and Port information clients will
-                make
-                a peer to peer communication through the internet.</p>
-            <p>TURN (Traversal Using Relays around NAT) is a protocol that assists in the traversal of network
-                address
-                translators (NAT) or firewalls for webRTC applications. TURN Server allows clients to send and
-                receive
-                data through an intermediary server. The TURN protocol is the extension to STUN.</p>
-            <p>In a few cases, client communication endpoints are stuck behind different types of NATs, or when a
-                symmetric NAT is in use, it may be easier to send media through a relay server and its called the
-                TURN
-                server.</p>
-            <p><strong>ApiRTC</strong> provides both STUN and TURN servers to address theses WebRTC requirements.
-            </p>
-        </div>
-    </div>
-    <div class="row mt-5 justify-content-start">
-        <div class="col-lg-8">
-            <h2>
                 ApiRTC SFUs
             </h2>
             <p>
@@ -183,4 +127,73 @@
             </p>
         </div>
     </div>
+    <div class="row mt-5 justify-content-start">
+        <div class="col-lg-8">
+            <h2>
+                ApiRTC STUN/TURN
+            </h2>
+            <p> To send and receive data to another browser the client must have some specific information. The
+                most important information is the client’s public IP address. Each client or browser must know
+                this information about each other in order
+                to receive an incoming connection from another client.</p>
+
+            <p>Sometimes, users might face connectivity issues because of different IP networks where Firewalls and
+                NATs
+                (Network Address Translators) could include specific network policies that will not allow RTC
+                communications.</p>
+            <!-- <p>
+                    Sometimes it’s difficult for the client
+                    to know its own public IP address, especially if the client is behind a firewall or NAT, which
+                    is very common these days. 
+                </p> -->
+            <p>To overcome
+                this, <strong>WebRTC</strong> recommends the use of a STUN server. A STUN server allows clients
+                to find out their own public IP address and which type of NAT they are behind. Sometimes it can
+                be hard to fetch the information, depending on the NAT,
+                and in that case, a TURN server can help the process.</p>
+            <p>In order to solve this kind of network connection scenario, we need to use ICE (Interactive
+                Connectivity
+                Establishment) protocol and it defines a systematic way of finding possible communication options
+                between a peer and the video gateway.</p>
+            <ul>
+                <li>
+                    <p>ICE (INTERACTIVE CONNECTIVITY ESTABLISHMENT) is a protocol used to generate media traversal
+                        candidates
+                        that can be used in WebRTC applications, and it can be successfully sent and received through
+                        Network
+                        Address Translation (NAT)s using STUN and TURN.</p>
+                </li>
+                <li>
+                    <p>STUN (Session Traversal Utilities for NAT) that complements ICE through NATs using UDP protocol.
+                        STUN
+                        allows applications to discover the presence and types of NATs and firewalls between them and on
+                        the
+                        public Internet. It can be used by any device to determine the IP address and port allocated to
+                        it
+                        by a NAT.</p>
+                    <p>Typically A STUN client can send messages to the STUN server to get the Public IP and ports
+                        information
+                        then STUN server retrieve that information. Using this Public IP and Port information clients
+                        will
+                        make
+                        a peer to peer communication through the internet.</p>
+                </li>
+                <li>
+                    <p>TURN (Traversal Using Relays around NAT) is a protocol that assists in the traversal of network
+                        address
+                        translators (NAT) or firewalls for webRTC applications. TURN Server allows clients to send and
+                        receive
+                        data through an intermediary server. The TURN protocol is the extension to STUN.</p>
+                </li>
+            </ul>
+            <p>In a few cases, client communication endpoints are stuck behind different types of NATs, or when a
+                symmetric NAT is in use, it may be easier to send media through a relay server and its called the
+                TURN
+                server.</p>
+
+            <p><strong>ApiRTC</strong> provides both STUN and TURN servers to address theses WebRTC requirements.
+            </p>
+        </div>
+    </div>
+
 </div>

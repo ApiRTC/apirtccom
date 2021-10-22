@@ -1,4 +1,5 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-codenav',
@@ -7,27 +8,25 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 })
 export class CodenavComponent implements OnInit {
 
-
-  // _lang: string = 'javascript';
-  // @Input() set lang(lang: string) {
-  //   this._lang = lang;
-  // }
-  // @Output() onLang = new EventEmitter<string>();
-
   @Input() code: any = {};
 
-  @Input()  language!: string;
+  @Input() language!: string;
   @Output() languageChange = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   setLang(lang: string) {
     this.language = lang;
-    //this.onLang.emit(this.language);
     this.languageChange.emit(this.language);
+  }
+
+  snackCopied() {
+    this._snackBar.open(`${this.language} copied!`, 'ok', {
+      duration: 1000
+    });
   }
 
 }

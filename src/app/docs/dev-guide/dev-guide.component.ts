@@ -99,8 +99,8 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 
   mediaDeviceChanged = {
     javascript: `userAgent.on("mediaDeviceChanged", () => {
-    const mediaDevices = this.userAgent.getUserMediaDevices();
-    // handle new set of mediaDevices
+  const mediaDevices = this.userAgent.getUserMediaDevices();
+  // handle new set of mediaDevices
 });`};
 
   mediaDeviceChanged_kotlin = `TODO`;
@@ -138,26 +138,26 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 
   register_jwt = {
     javascript: `session = userAgent.register({
-      id:"<userId>",
-      token:"<JSONWebToken>"
-    });`,
+  id:"<userId>",
+  token:"<JSONWebToken>"
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
 
   register_3rdparty = {
     javascript: `session = userAgent.register({
-      id:"<userId>",
-      token:"<authToken>"
-    });`,
+  id:"<userId>",
+  token:"<authToken>"
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
 
   register_apirtc = {
     javascript: `session = userAgent.register({
-    password:"<theUserPassword>"
-  });`,
+  password:"<theUserPassword>"
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
@@ -190,13 +190,13 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 
   createStream = {
     javascript: `userAgent.createStream({
-    constraints: {
-      audio: true,
-      video: true
-    }
-  }).then(stream => {
-    // ...
-  });`,
+  constraints: {
+    audio: true,
+    video: true
+  }
+}).then(stream => {
+  // ...
+});`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
 createStreamOptions.constraints.video = true

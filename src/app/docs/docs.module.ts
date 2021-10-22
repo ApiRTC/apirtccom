@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { ClipboardModule } from '@angular/cdk/clipboard';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { DemoComponent } from './demo/demo.component';
 import { DevGuideComponent } from './dev-guide/dev-guide.component';
@@ -49,8 +52,9 @@ import { UtilsModule } from '../utils/utils.module';
     OverviewComponent, SafePipe, LogicalConceptsComponent, TechnicalConceptsComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent, ReactUiDevGuideComponent,
   ],
   imports: [
-    CommonModule, RouterModule,
+    CommonModule, RouterModule, ClipboardModule,
     MatTabsModule, MatSidenavModule, MatButtonModule, MatIconModule,
+    MatSnackBarModule, 
     HighlightModule,
     UtilsModule
   ],
