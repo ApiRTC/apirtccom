@@ -2,18 +2,136 @@
     <div class="row justify-content-center mt-5">
         <div class="col-10 fs-5">
             <p class="text-center">
-                <strong>ApiRTC</strong> helps to fastly build communication applications, from simple chat to rich media
+                <strong>ApiRTC</strong> helps to quickly build communication applications, from simple chat to rich
+                media
                 sharing.
             </p>
         </div>
     </div>
-    <div class="row justify-content-center gx-5">
-        <div class="col-lg-6 gy-5">
+    <div class="row mt-5">
+        <div class="col">
             <div class="card bg-light">
+                <h1 class="card-header text-center">
+                    <strong>ApiRTC</strong> provides <strong>APIs to develop applications</strong> and the required
+                    underlying <strong>infrastructure</strong> to make them scale
+                </h1>
+                <div class="card-body  position-relative">
+                    <div class="row">
+                        <div class="col-xs-12 col-lg-7 align-self-end">
+                            <div class="row">
+                                <!-- class="img-fluid" -->
+                                <div class="col-xl-8"><img src="./assets/apirtc_paas_partial.svg" alt=""
+                                    class="img-fluid" />
+                                </div>
+                                <div class="col d-none d-xl-block"> <img src="./assets/apirtc_features.svg" alt=""
+                                    class="img-fluid" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col gy-5 align-self-end h-100">
+                            <p class="text-center">
+                                <em>
+                                    Built on top of <a href="https://webrtc.org/" target="_blank" rel="noopener"><img
+                                            src="./assets/webrtc.svg" alt=""
+                                            style="width: 32px; height: 31px;" /><strong>WebRTC</strong></a>,
+                                    <strong>ApiRTC</strong> fills
+                                    the gaps:</em>
+                            </p>
+                            <div id="carousel-paas" class="carousel slide carousel-dark mt-5" data-bs-ride="carousel">
+                                <div class="carousel-inner" style="width:100%; height: 100px !important;">
+                                    <div class="carousel-item active">
+                                        <figure class="text-center">
+                                            <blockquote class="blockquote">
+                                                <p><strong>ApiRTC</strong>&nbsp;<strong>signalling</strong> enables very
+                                                    fast and interactive
+                                                    communication</p>
+                                            </blockquote>
+                                            <figcaption class="blockquote-footer">
+                                                <strong>Signalling control</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <figure class="text-center">
+                                            <blockquote class="blockquote">
+                                                <p>Providing <strong>SFU servers</strong> for <strong>star
+                                                        topology</strong> network communications,
+                                                    <strong>ApiRTC</strong> enables large scale group conversations
+                                                    support
+                                                </p>
+                                            </blockquote>
+                                            <figcaption class="blockquote-footer">
+                                                <strong>Infrastructure</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <figure class="text-center">
+                                            <blockquote class="blockquote">
+                                                <p><strong>ApiRTC</strong> provides both STUN and TURN servers</p>
+                                            </blockquote>
+                                            <figcaption class="blockquote-footer">
+                                                <strong>Infrastructure</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <figure class="text-center">
+                                            <blockquote class="blockquote">
+                                                <p><strong>ApiRTC</strong> provides databases for <strong>User
+                                                        management</strong> and <strong>Media
+                                                        storage</strong></p>
+                                            </blockquote>
+                                            <figcaption class="blockquote-footer">
+                                                <strong>Databases</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <figure class="text-center">
+                                            <blockquote class="blockquote">
+                                                <p><strong>ApiRTC</strong> dashboard provides configuration and access
+                                                    to your
+                                                    <strong>services</strong>
+                                                </p>
+                                            </blockquote>
+                                            <figcaption class="blockquote-footer">
+                                                <strong>Administration</strong>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-paas"
+                                    data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-paas"
+                                    data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div class="mt-5">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="position-absolute bottom-0 end-0 px-3">
+                        <a class="btn btn-primary" routerLink="../technical-concepts">Discover ApiRTC
+                            PaaS</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-5">
+        <div class="col">
+            <div class="card h-100 bg-light">
                 <h1 class="card-header text-center">
                     Build your own <strong>frontend</strong> application
                 </h1>
-                <div class="card-body">
+                <div class="card-body position-relative">
                     <!-- 
   <h3 class="card-subtitle mb-2 text-muted">
   <strong>ApiRTC</strong> provides APIS to help you programming your apps or services in many languages.
@@ -38,46 +156,51 @@
                     <h2 class="mt-3">
                         Mobile
                         <span class="float-end">
-                            <img src="./assets/android.png" style="width: 48px; height: 56px;"
-                                alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/ios.png"
-                                style="width: 48px; height: 23px;" alt="" />
+                            <!-- style="width: 48px; height: 23px;" -->
+                            <img src="./assets/android.svg" 
+                                alt="" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./assets/apple_logo_black.svg"
+                                 alt="" />
                         </span>
                     </h2>
                     <p class="card-text clearfix">
-                        <strong>ApiRTC</strong> <b>Android and iOS SDK</b><b>s</b> let you develop native mobile apps.
-
+                        <strong>ApiRTC</strong>&nbsp;<strong>Android and iOS SDK</strong> let you develop native mobile apps.
                     </p>
-                    <p class="card-text">
-                        <strong>ApiRTC</strong> also supports web-to-mobile using frameworks such as
+                    <p class="card-text clearfix">
+                        <strong>ApiRTC</strong> also supports <strong>web-to-mobile</strong> using frameworks such as
                         <strong>Ionic</strong>.
                         <img src="./assets/ionic.png" class="float-end" style="width: 56px; height: 56px;" alt="" />
                     </p>
-
-                </div>
-                <div class="card-footer">
-                    <p class="text-center fs-5">
-                        <a class="card-link" routerLink="../getting-started">Get Started</a>
-                        <a class="card-link" routerLink="../dev-guide">Dev Guide</a>
-                        <a class="card-link" routerLink="../demo">Demo</a>
+                    <div class="mt-5">
+                        <p></p>
+                    </div>
+                    <p class="position-absolute bottom-0 end-0 px-3">
+                        <a class="btn btn-primary" routerLink="../getting-started">Get Started</a>&nbsp;&nbsp;
+                        <a class="btn btn-primary" routerLink="../demo">Demo</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="btn btn-primary" routerLink="../dev-guide">Developer's Guide</a>
                     </p>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 gy-5">
-            <div class="card bg-light">
+        <div class="col">
+            <div class="card h-100 bg-light">
                 <h1 class="card-header text-center">
                     Interact with <strong>ApiRTC</strong>&nbsp;<strong>Platform</strong>
                 </h1>
-                <div class="card-body">
+                <!-- style="background-color: blue;" -->
+                <div class="card-body position-relative">
+                    <!-- <div class="row" >
+                        <div class="col-12"> -->
                     <h2 class="mt-3">
                         RESTful API
                         <img src="./assets/rest_api.png" class="float-end" style="width: 92px; height: 94.872px;"
                             alt="" />
                     </h2>
+                    <p>
+                        <strong>Control</strong> the <strong>ApiRTC</strong> platform
+                    </p>
                     <ul>
                         <li>
                             Provisioning
-
                         </li>
                         <li>
                             Access Services
@@ -92,109 +215,37 @@
                         <img src="./assets/http.png" class="float-end" style="width: 84px; height: 50px;" alt="" />
                     </h2>
                     <p>
-                        Get notified of various events on the <strong>ApiRTC</strong> platform
+                        <strong>Get notified</strong> of various events on the <strong>ApiRTC</strong> platform
                     </p>
-                </div>
-                <div class="card-footer">
-                    <p class="text-center fs-5">
-                        <a class="card-link" routerLink="../platform-dev-guide">Dev Guide</a>
+                    <!-- <div class="mt-5 text-end">
+                        <a class="btn btn-primary" routerLink="../platform-dev-guide">Developer's Guide</a>
+                    </div> -->
+                    <p class="position-absolute bottom-0 end-0 px-3">
+                        <a class="btn btn-primary " routerLink="../platform-dev-guide">Developer's Guide</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row mt-5 justify-content-center">
+    <!-- <div class="row mt-5 justify-content-center">
         <div class="col-10 fs-5">
             <p class="text-center">
                 <strong>ApiRTC</strong> provides <strong>APIs</strong> to develop applications and the required
                 underlying <strong>infrastructure</strong> to make them scale.
             </p>
         </div>
-    </div>
+    </div> -->
 
-    <div class="row mt-5 justify-content-center">
-        <div class="col">
-            <!-- <div class="card bg-light"> -->
-            <!-- <h1 class="card-header text-center"">
-                    Rely on <strong>ApiRTC</strong>&nbsp;<strong>Platform</strong> infrastructure
-                </h1> -->
-            <!-- <div class="card-body"> -->
-            <p class="text-center">
-                <img src="./assets/apirtc_cloud.svg" alt="" class="img-fluid"
-                    style="width: 855px; height: 505.279px;" />
-            </p>
-        </div>
-    </div>
-
-    <div class="row mt-5 justify-content-center">
-        <div class="col-10 fs-5">
-            <p class="text-center">
-                Built on top of <a href="https://webrtc.org/" target="_blank" rel="noopener"><img
-                        src="./assets/webrtc.svg" alt=""
-                        style="width: 32px; height: 31px;" /><strong>WebRTC</strong></a>, <strong>ApiRTC</strong> fills
-                the gaps:
-            </p>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col">
-            <figure class="text-center">
-                <blockquote class="blockquote">
-                    <p><strong>ApiRTC</strong>&nbsp;<strong>signalling</strong> enables very fast and interactive
-                        communication</p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    <strong>Signalling control</strong>
-                </figcaption>
-            </figure>
-
-            <figure class="text-center mt-5">
-                <blockquote class="blockquote">
-                    <p>Providing <strong>SFU servers</strong> for <strong>star topology</strong> network communications,
-                        <strong>ApiRTC</strong> enables large scale group conversations support
-                    </p>
-                    <p><strong>ApiRTC</strong> provides both STUN and TURN servers</p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    <strong>Infrastructure</strong>
-                </figcaption>
-            </figure>
-
-            <figure class="text-center mt-5">
-                <blockquote class="blockquote">
-                    <p><strong>ApiRTC</strong> provides databases for <strong>User management</strong> and <strong>Media
-                            storage</strong></p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    <strong>Databases</strong>
-                </figcaption>
-            </figure>
-
-            <figure class="text-center mt-5">
-                <blockquote class="blockquote">
-                    <p><strong>ApiRTC</strong> dashboard provides configuration and access to your
-                        <strong>services</strong></p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    <strong>Administration</strong>
-                </figcaption>
-            </figure>
-        </div>
-    </div>
-
-    <div class="row mt-5 justify-content-center">
+    <!-- <div class="row mt-5 justify-content-center">
         <div class="col">
             <p class="text-center fs-5">
                 <a class="card-link" routerLink="../technical-concepts">Technical Concepts</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <a class="card-link" routerLink="../logical-concepts">Logical Concepts</a>
             </p>
-            <!-- </div> -->
-            <!-- </div> -->
         </div>
-    </div>
+    </div> -->
     <div class="row mt-5">
         <p></p>
     </div>
