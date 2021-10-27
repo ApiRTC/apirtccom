@@ -4,6 +4,7 @@ html, body { height: 100%; }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #fafafa;
 }
 
 .bd-main {
@@ -87,6 +88,20 @@ a.anchor {
     visibility: hidden;
 }
 
+/* bootstrap tweek */
+
 code {
     color: #1977B3;
 }
+
+.btn-primary {
+    background-color: #1977B3;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #0078D4;
+}
+
+.alert-info, .card-header {
+    background-color: #E1EEF7;
+}
+

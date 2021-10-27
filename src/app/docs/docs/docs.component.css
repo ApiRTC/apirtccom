@@ -14,6 +14,7 @@
     color: #1977B3;
 }
 
-/* .mat-sidenav {
-    width: auto;
-} */
+mat-sidenav {
+    background-color: #fafafa;
+    border: unset;
+}
