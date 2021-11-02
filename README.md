@@ -24,6 +24,22 @@ Install the project dependencies:
 
 Then Run the development server and add your contributions !
 
+## Good Practices and rules
+
+Links:
+
+    - Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
+
+Images:
+
+    - Optimise images filenames for SEO: Use keyword descriptive language, Don’t use stop words (such as a, in, the), Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
+
+    - Use alt="alt tag" for img
+
+    - reduce file size
+
+    - more https://www.natalleblas.com/optimise-images-for-seo/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
