@@ -18,6 +18,10 @@ go inside the project:
 
 `cd apirtccom`
 
+Install Anglar command line interface:
+
+`(sudo) npm install -g @angular/cli`
+
 Install the project dependencies:
 
 `npm install`
