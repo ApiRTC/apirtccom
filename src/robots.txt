@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://dev.apirtc.com/sitemap.xml
