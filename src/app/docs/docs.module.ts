@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { ArchitectureComponent } from './architecture/architecture.component';
 import { DemoComponent } from './demo/demo.component';
 import { DevGuideComponent } from './dev-guide/dev-guide.component';
 import { DocsComponent } from './docs/docs.component';
@@ -21,8 +22,8 @@ import { LogicalConceptsComponent } from './logical-concepts/logical-concepts.co
 import { OverviewComponent } from './overview/overview.component';
 import { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
 import { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
-import { TechnicalConceptsComponent } from './technical-concepts/technical-concepts.component';
 
+export { ArchitectureComponent } from './architecture/architecture.component';
 export { DemoComponent } from './demo/demo.component';
 export { DevGuideComponent } from './dev-guide/dev-guide.component';
 export { DocsComponent } from './docs/docs.component';
@@ -33,7 +34,6 @@ export { LogicalConceptsComponent } from './logical-concepts/logical-concepts.co
 export { OverviewComponent } from './overview/overview.component';
 export { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
 export { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
-export { TechnicalConceptsComponent } from './technical-concepts/technical-concepts.component';
 
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
@@ -49,7 +49,7 @@ import { UtilsModule } from '../utils/utils.module';
     DocsComponent,
     GettingStartedComponent,
     IntroductionComponent,
-    OverviewComponent, SafePipe, LogicalConceptsComponent, TechnicalConceptsComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent, ReactUiDevGuideComponent,
+    OverviewComponent, SafePipe, LogicalConceptsComponent, ArchitectureComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent, ReactUiDevGuideComponent, ArchitectureComponent,
   ],
   imports: [
     CommonModule, RouterModule, ClipboardModule,
