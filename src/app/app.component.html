@@ -1,22 +1,34 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-apirtc">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/home"><img height="36" width="140" alt="ApiRTC" src="./assets/apiRTC-dark.png" /></a>
+        <!-- <a class="navbar-brand" routerLink="/home"> -->
+        <a class="navbar-brand" href="https://apirtc.com">
+            <img height="36" width="140" alt="ApiRTC" src="./assets/apiRTC-dark.png" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" routerLink="/features" routerLinkActive="active">Features</a>
+                    <!-- <a class="nav-link" aria-current="page" routerLink="/features" routerLinkActive="active">Features</a> -->
+                    <a class="nav-link" href="https://apirtc.com/features/">Features</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/use-cases" routerLinkActive="active">Use-Cases</a>
+                    <!-- <a class="nav-link" routerLink="/use-cases" routerLinkActive="active">Use-Cases</a> -->
+                    <a class="nav-link" href="https://apirtc.com/use-cases/">Use-Cases</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/docs" routerLinkActive="active">Developers</a>
+                    <a class="nav-link" href="https://apirtc.com/pricing/">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+                    <!-- <a class="nav-link" routerLink="/docs" routerLinkActive="active">Developers</a> -->
+                    <a class="nav-link active" routerLink="/docs">Developers</a>
+                </li>
+                <li class="nav-item">
+                    <!-- <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a> -->
+                    <a class="nav-link" href="https://apirtc.com/blog/">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://apirtc.com/contact-us/">Contact</a>
                 </li>
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,7 +88,20 @@
 
 <!-- <input type="hidden" #selection> -->
 <div id="content">
-    <router-outlet></router-outlet>
+    <!-- <router-outlet></router-outlet> -->
+    <div class="mobile-btn" [class.display]="mobileQuery?.matches && !snav.opened">
+        <button mat-mini-fab color="apirtc" (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <mat-sidenav-container>
+        <mat-sidenav #snav [mode]="mobileQuery?.matches ? 'over' : 'side'"  [fixedInViewport]="true" [fixedTopGap]="100">
+            <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
 
 <!-- Footer -->

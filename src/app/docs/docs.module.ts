@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -13,7 +12,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ArchitectureComponent } from './architecture/architecture.component';
 import { DemoComponent } from './demo/demo.component';
 import { DevGuideComponent } from './dev-guide/dev-guide.component';
-import { DocsComponent } from './docs/docs.component';
 import { DocsSideMenuComponent } from './docs-side-menu/docs-side-menu.component';
 import { ExamplesComponent } from './examples/examples.component';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
@@ -26,7 +24,6 @@ import { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guid
 export { ArchitectureComponent } from './architecture/architecture.component';
 export { DemoComponent } from './demo/demo.component';
 export { DevGuideComponent } from './dev-guide/dev-guide.component';
-export { DocsComponent } from './docs/docs.component';
 export { ExamplesComponent } from './examples/examples.component';
 export { GettingStartedComponent } from './getting-started/getting-started.component';
 export { IntroductionComponent } from './introduction/introduction.component';
@@ -41,24 +38,27 @@ import { SafePipe } from '../safe.pipe';
 
 import { UtilsModule } from '../utils/utils.module';
 
-
 @NgModule({
   declarations: [
     DevGuideComponent,
     DocsSideMenuComponent,
-    DocsComponent,
     GettingStartedComponent,
     IntroductionComponent,
-    OverviewComponent, SafePipe, LogicalConceptsComponent, ArchitectureComponent, DemoComponent, PlatformDevGuideComponent, ExamplesComponent, ReactUiDevGuideComponent, ArchitectureComponent,
+    OverviewComponent, LogicalConceptsComponent,
+    ArchitectureComponent,
+    DemoComponent, PlatformDevGuideComponent,
+    ExamplesComponent, ReactUiDevGuideComponent,
+    SafePipe
   ],
   imports: [
     CommonModule, RouterModule, ClipboardModule,
-    MatTabsModule, MatSidenavModule, MatButtonModule, MatIconModule,
-    MatSnackBarModule, 
+    MatTabsModule, MatButtonModule, MatIconModule,
+    MatSnackBarModule,
     HighlightModule,
     UtilsModule
   ],
   exports: [
+    DocsSideMenuComponent
   ],
   providers: [
     {

@@ -65,3 +65,13 @@ git status
 git commit -a -m "deploy"
 
 git push origin main
+
+## Build with SSR Server-Side-Rendering
+
+Build
+
+`npm run build:ssr`
+
+Serve locally
+
+`npm run serve:ssr`
