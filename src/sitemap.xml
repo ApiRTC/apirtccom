@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:4000/</loc>
+    <loc>https://dev.apirtc.com/</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/docs</loc>
+    <loc>https://dev.apirtc.com/docs</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/overview</loc>
+    <loc>https://dev.apirtc.com/overview</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/architecture</loc>
+    <loc>https://dev.apirtc.com/architecture</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/logical-concepts</loc>
+    <loc>https://dev.apirtc.com/logical-concepts</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/getting-started</loc>
+    <loc>https://dev.apirtc.com/getting-started</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/react-ui-dev-guide</loc>
+    <loc>https://dev.apirtc.com/react-ui-dev-guide</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/platform-dev-guide</loc>
+    <loc>https://dev.apirtc.com/platform-dev-guide</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/dev-guide</loc>
+    <loc>https://dev.apirtc.com/demo</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/demo</loc>
+    <loc>https://dev.apirtc.com/dev-guide</loc>
   </url>
   <url>
-    <loc>http://localhost:4000/examples</loc>
+    <loc>https://dev.apirtc.com/examples</loc>
   </url>
 </urlset>
