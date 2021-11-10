@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkapirtccom=self.webpackChunkapirtccom||[]).push([[558],{558:(l,s,e)=>{e.r(s),e.d(s,{default:()=>n});const n=function(c){return{name:"Shell Session",aliases:["console","shellsession"],contains:[{className:"meta",begin:/^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?/,starts:{end:/[^\\](?=\s*$)/,subLanguage:"bash"}}]}}}}]);
