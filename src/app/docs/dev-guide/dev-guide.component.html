@@ -385,8 +385,7 @@
             <pre><code [highlight]="getOrCreateConversation__options" [languages]="['json']"></code></pre>
             <p>
                 <code>meshModeEnabled</code> enables the mesh mode (otherwise SFU star topology is used by default).
-                The streams
-                exchanges will remain in this mode until :
+                The stream exchanges will remain in this mode until:
             </p>
             <ul>
                 <li>
@@ -414,46 +413,112 @@
                 Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code> forces
                 the <code>Conversation</code> to remain mesh only.
             </p>
+            <p>
+                <code>moderationEnabled</code> enables moderation for the local user on the newly created
+                <strong>Conversation</strong>. This option may change the behavior of the joining process depending on
+                whether the UserAgent is moderator or not. If the local user is moderator, then they will be able to
+                join without any third-party action. If the local user is not moderator, then they will be able to join
+                only after the permission of one of the moderators. Note that every participant must enable this option
+                to have consistent moderation.
+            </p>
+            <p>
+                <code>moderator</code> adds the local user to the list of moderators. When this option is enabled for
+                the local user, they will receive joining requests from other non-moderator participants.
+            </p>
             <h2>
                 Join
             </h2>
             <p>
-                <code>Conversation.join</code> method makes the local user represented by the <code>UserAgent</code>
-                that got (or created) the <code>Conversation</code> instance (through the session it registered to)
-                actually join.
+                <code>Conversation.join()</code> makes the local user enter the <strong>Conversation</strong>. Note that
+                this method returns a <code>Promise</code> and one must wait for it to be fulfilled before doing
+                anything else on the <strong>Conversation</strong>.
             </p>
             <p>
-                <code>join()</code> actually returns a promise. <strong>Conversation</strong> will be joined when the
-                promise resolves. The resolution may depend on moderation.
+                A good practice is to register all required event listeners before calling the <code>join</code> method.
             </p>
+            <app-codenav [code]="conversationJoin" [(language)]="lang"></app-codenav>
             <h2>
                 Leave
             </h2>
             <p>
-                <code>Conversation.leave</code> method makes the local user represented by the <code>UserAgent</code>
-                leave the <strong>conversation</strong>.
+                <code>Conversation.leave()</code> makes the local user leave the <strong>Conversation</strong>. All
+                ongoing calls will be automatically closed.
             </p>
+            <p>
+                A good practice is to destroy the <strong>Conversation</strong> after leaving it.
+            </p>
+            <app-codenav [code]="conversationLeaveAndDestroy" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
                 <a #anchor id="moderation" class="anchor"></a>
                 Moderation
             </h1>
             <p>
-                <strong>Moderation</strong> is feature that allows moderators to control who participates to a
-                <code>Conversation</code>
-            </p>
-            <p>
-                TODO : explain how this can be achieve (when it is actually developed)
+              When enabled, moderation allows a group of users (a.k.a. moderators) to control who is allowed to
+              participate to the <strong>Conversation</strong>.
             </p>
             <h2>
-                accept/decline...
-            </h2>
-            <h2>
-                eject...
+                Activation
             </h2>
             <p>
-                .. In the context of a moderated Conversation, the join will resolve only when a moderator accepts the
-                join request.
+              In order to activate the moderation for a <strong>Conversation</strong>, every user must explicitly set
+              the <code>moderationEnabled</code> option to <code>true</code>
+              (<code>Session#getOrCreateConversation</code>).
             </p>
+            <p>
+              Additionally, users who will act as moderators must set the <code>moderator</code> option to
+              <code>true</code> as well.
+            </p>
+            <h2>
+                Moderators
+            </h2>
+            <p>
+                Moderators do not require any kind of permissions from other participants to join the
+                <strong>Conversation</strong>.
+            </p>
+            <p>
+                One may choose between 2 solutions in order to grant or deny access to other participants:
+            </p>
+            <ul>
+                <li>register to <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> event
+                listeners (on <code>Conversation</code>), or</li>
+                <li>register to <code>conversationJoinRequest</code> event listener (on <code>Session</code>).</li>
+            </ul>
+            <h3>
+              Solution 1: Waiting Room
+            </h3>
+            <p>
+                The waiting room is a presence group associated to the <strong>Conversation</strong> and it allows one
+                to know which participants are currently waiting for a moderation answer.
+                <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> will be triggered
+                respectively upon the arrival of a user in the waiting room and the deparature of a user from the
+                waiting room.
+            </p>
+            <app-codenav [code]="conversationModeratorWaitingRoom" [(language)]="lang"></app-codenav>
+            <h3>
+              Solution 2: Join Request
+            </h3>
+            <p>
+                When a guest wants to join a <strong>Conversation</strong>, a request will be sent every 5 seconds to
+                all moderators until it is either accepted or denied. <code>conversationJoinRequest</code> will be
+                triggered upon reception of each and every one of those requests.
+            </p>
+            <app-codenav [code]="conversationModeratorJoinRequest" [(language)]="lang"></app-codenav>
+            <p>
+                Both solutions may be used at the same time.
+            </p>
+            <h2>
+                Guests
+            </h2>
+            <p>
+                Guests are non-moderators. Guests must received permission from one of the moderators to join the <strong>Conversation</strong>.
+            </p>
+            <h2>
+                Eject
+            </h2>
+            <p>
+                Moderators have the ability to eject another participant from the <strong>Conversation</strong>.
+            </p>
+            <app-codenav [code]="conversationModeratorEject" [(language)]="lang"></app-codenav>
             <h1 #localStreams class="mt-5">
                 <a #anchor id="local-streams" class="anchor"></a>
                 Local Streams
