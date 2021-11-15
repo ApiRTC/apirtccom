@@ -70,17 +70,14 @@ Serve locally
 
 ## Build and Deploy to 'docs' (for github pages deployment) - DO NOT USE FOR PRODUCTION
 
+```
 ng build --configuration production --output-path docs --base-href /apirtccom/
-
 cp docs/index.html docs/404.html
-
 git add docs/*
-
 git status
-
 git commit -a -m "deploy"
-
 git push origin main
+```
 
 ## Build and Deploy with SSR - USE THIS FOR PRODUCTION
 
