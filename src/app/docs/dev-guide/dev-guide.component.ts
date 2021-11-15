@@ -184,9 +184,101 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   // in any case, it shall be document as follows in the api reference (not documented at the moment)
   //active : true // true to get existing Conversation. false to create a new Conversation in any case. default: true.
   getOrCreateConversation__options = `{
-  "meshModeEnabled" : false, // true to enable mesh mode. default: false.
-  "meshOnlyEnabled" : false  // true to force staying mesh mode. default: false.
+  "meshModeEnabled": true,    // Whether the mesh mode is enabled. Default is false.
+  "meshOnlyEnabled": true,    // Whether the mesh mode is the only mode allowed, i.e. no transition to another mode will occur. Default is false.
+  "moderationEnabled": true,  // Whether moderation is enabled for the new Conversation. Default is false.
+  "moderator": true           // Whether the UserAgent shall be added to the list of moderators. Default is false.
 }`;
+
+  conversationJoin = {
+    javascript: `let currentConversation = currentSession.getOrCreateConversation(converationName, createOpts);
+
+currentConversation.on('streamListChanged', function (streamInfo) {
+  // Handle the 'streamListChanged' event.
+});
+// Register other event listeners
+// ...
+
+// One can join now.
+currentConversation.join()
+  .then(function () {
+    // One successfully joined the conversation.
+  }, function (err) {
+    // One could not join the conversation.
+  });`
+  };
+
+  conversationLeaveAndDestroy = {
+    javascript: `currentConversation.leave()
+  .then(function () {
+    currentConversation.destroy();
+  });`
+  };
+
+
+  conversationModeratorWaitingRoom = {
+    javascript: `// The participants currently present in the waiting room.
+const candidates = [];
+
+currentConversation.on('contactJoinedWaitingRoom', function (contact) {
+    // A participant joined the waiting room.
+
+    // One may add the participant into its list.
+    let contactId = contact.getId();
+    let candidate = candidates.find((c) => c.contactId === contactId);
+    if (!candidate) {
+      candidates.push({ contactId, });
+    }
+
+    // One can grant...
+    currentConversation.allowEntry(contact);
+
+    // ...or deny access.
+    currentConversation.denyEntry(contact);
+});
+
+conversation.on('contactLeftWaitingRoom', function (contact) {
+  // A participant left the waiting room.
+
+  // One may removethe participant from its list.
+  let contactId = contact.getId();
+  let candidateIdx = candidates.findIndex((c) => c.contactId === contactId);
+  if (candidateIdx >= 0) {
+    candidates.splice(candidateIdx, 1);
+  }
+});`
+  };
+
+  conversationModeratorJoinRequest = {
+    javascript: `currentSession.on('conversationJoinRequest', function (joinRequest) {
+  // The conversation associated to the request.
+  const conversation = joinRequest.getConversatoin();
+  // The Contact representing the participant requesting to join the Conversation.
+  const contact = joinRequest.getSender();
+
+  // One can accept...
+  joinRequest.accept()
+    .then(function () {
+      // Positive response sent to the participant.
+    });
+
+  // ...or decline the request.
+  joinRequest.decline('my reason')
+    .then(function () {
+      // Negative response sent to the participant.
+    });
+});`
+  };
+
+  conversationModeratorEject = {
+    javascript: `currentConversation.eject(contact, { reason: 'my reason' })
+  .then(() => {
+      console.log('ejected');
+  })
+  .catch((err) => {
+      console.error('ejected', err);
+  });`
+  };
 
   createStream = {
     javascript: `userAgent.createStream({
@@ -278,7 +370,7 @@ stream.attachToElement(videoDomElement)
 stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
   }
 
-  getCapabilities = `{ 
+  getCapabilities = `{
     "aspectRatio": { "max": 1280, "min": 0.001388888888888889 },
     "brightness": { "max": 64, "min": -64, "step": 1 },
     "colorTemperature": { "max": 6500, "min": 2800, "step": 1 },
