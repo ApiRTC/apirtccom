@@ -28,6 +28,14 @@ Install the project dependencies:
 
 Then Run the development server and add your contributions !
 
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
 ## Good Practices and rules
 
 Links:
@@ -44,15 +52,23 @@ Images:
 
     - more https://www.natalleblas.com/optimise-images-for-seo/
 
-## Development server
+## SSR (Server-Side-Rendering)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Because an angular application is not SEO friendly, it is important to publish it with SSR in order to get a public website that google can crawl.
 
-## Code scaffolding
+Serve locally
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`npm run dev:ssr`
 
-## Build and Deploy to 'docs' (for github pages deployment)
+Build
+
+`npm run build:ssr`
+
+Serve locally
+
+`npm run serve:ssr`
+
+## Build and Deploy to 'docs' (for github pages deployment) - DO NOT USE FOR PRODUCTION
 
 ng build --configuration production --output-path docs --base-href /apirtccom/
 
@@ -66,12 +82,35 @@ git commit -a -m "deploy"
 
 git push origin main
 
-## Build with SSR Server-Side-Rendering
+## Build and Deploy with SSR - USE THIS FOR PRODUCTION
 
-Build
+Strategy
 
-`npm run build:ssr`
+A frontend apache server configured with SSL and will proxies requests to the node/express server actually serving the website.
 
-Serve locally
+pm2 is installed on the server and manages the website node/express server.
 
-`npm run serve:ssr`
+Commands
+
+```
+git clone https://github.com/ApiRTC/apirtccom.git
+cd apirtccom/
+npm install
+npm run build:ssr
+sudo npm install pm2 -g
+pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
+pm2 stop apirtccom
+pm2 restart apirtccom
+```
+
+Apache Configuration
+
+```
+sudo vi /etc/apache2/sites-enabled/000-default.conf
+```
+
+In both VirtualHost *:80 and VirtualHost *:443 for ServerName dev.apirtc.com, added:
+
+```
+ ProxyPass / http://localhost:4000/
+```
