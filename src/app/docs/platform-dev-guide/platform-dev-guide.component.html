@@ -1,18 +1,30 @@
 <div class="bd-main">
+    <a #anchor id="introduction" class="anchor"></a>
     <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
         <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
-        <nav  class="table-of-contents">
+        <nav class="table-of-contents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="authentication"
-                        [ngClass]="{'active': current === 'authentication' }">Authentication</a>
+                    <a [routerLink]="['.']" fragment="introduction"
+                        [ngClass]="{'active': current === 'introduction' }">Introduction</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="provisioning"
-                        [ngClass]="{'active': current === 'provisioning' }">Provisioning</a>
-                </li>
-                <li>
-                    <a [routerLink]="['.']" fragment="medias" [ngClass]="{'active': current === 'medias' }">Medias</a>
+                    <a [routerLink]="['.']" fragment="rest-apis" [ngClass]="{'active': current === 'rest-apis' }">REST
+                        APIs</a>
+                    <ul>
+                        <li>
+                            <a [routerLink]="['.']" fragment="authentication"
+                                [ngClass]="{'active': current === 'authentication' }">Authentication</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['.']" fragment="provisioning"
+                                [ngClass]="{'active': current === 'provisioning' }">Provisioning</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['.']" fragment="medias"
+                                [ngClass]="{'active': current === 'medias' }">Medias</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="webhooks"
@@ -21,7 +33,6 @@
             </ul>
         </nav>
     </div>
-
     <div class="bd-content">
         <div class="container">
             <div class="row justify-content-center mt-5">
@@ -29,23 +40,36 @@
                     <p class="text-center">
                         Learn how to interact with <strong>ApiRTC Platform</strong>.
                     </p>
-                    <!-- <p><strong>RESTful API</strong></p> -->
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-10 fs-6">
+                    <p><strong>ApiRTC</strong> platform is compound of software layers to enables communication between
+                        people through client applications.
+                    </p>
+                    <p><strong>ApiRTC</strong>&nbsp;<strong>REST APIs</strong> and <strong>WebHooks</strong> enable
+                        interaction between your backend and <strong>ApiRTC</strong> backend.
+                    </p>
+                    <p>The most common interaction is <strong>provisioning</strong> the services you have registered
+                        for. This includes Users and Enterprises management. The <strong>REST APIs</strong> also allow
+                        to retrieve communication data, such as recorded videos...</p>
+                    <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
+                        <strong>WebHooks</strong> to your backend server.
+                    </p>
                 </div>
             </div>
 
-            <p class="mt-5"></p>
-            <p>ApiRTC platform is compound of software layers to enables communication between people through client
-                applications. ApiRTC REST Api enables interaction between your backend and ApiRTC backend.</p>
-            <p>The most common interaction is provisioning the services you have registered for. This includes
-                the User Management.</p>
-            <p>The REST Api also allows to retrieve communication data, such as recorded videos</p>
-
-            <h1>REST Api</h1>
-
+            <h1 class="mt-5">
+                <a #anchor id="rest-apis" class="anchor"></a>
+                REST APIs
+            </h1>
             <h2 class="mt-5">
                 <a #anchor id="authentication" class="anchor"></a>
                 Authentication
             </h2>
+            <p><strong>ApiRTC</strong>&nbsp;<strong>REST API</strong> supports HTTP Bearer authentication.
+                In order to authenticate, you must get a token by issuing a POST /token, providing username and
+                password of your <strong>ApiRTC</strong> account.</p>
 
             <h2 class="mt-5">
                 <a #anchor id="provisioning" class="anchor"></a>
@@ -57,7 +81,8 @@
             <p>Use subaccounts to simplify configuration, reporting, and billing of different projects.</p>
             <p>Organizing your communication traffic by use case is paramount to simplifying the billing allocation
                 process. The Subaccounts API allows developers to spin up new subaccounts for each new use case and
-                business unit, allowing billing and traffic to be allocated efficiently at the end of every month.</p>
+                business unit, allowing billing and traffic to be allocated efficiently at the end of every month.
+            </p>
             <h2 id="medias" class="mt-5">
                 <a #anchor id="medias" class="anchor"></a>
                 Medias management
@@ -69,8 +94,20 @@
                 <a #anchor id="webhooks" class="anchor"></a>
                 WebHooks
             </h1>
-            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when some
-                events happen.</p>
+            <p><strong>ApiRTC</strong> triggers webhooks
+                to let your backend know when events happen, like a COnversation has ended. Webhooks are triggered
+                asynchronously.</p>
+            <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to suit
+                your needs !</p>
+
+            <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
+                <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
+                URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application includes
+                details of the event. Your application can then perform whatever
+                logic is necessary.
+            </p>
+            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
+                some events happen.</p>
             <p>
                 Explain how webhooks work
             </p>
