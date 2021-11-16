@@ -191,17 +191,15 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 }`;
 
   conversationJoin = {
-    javascript: `let currentConversation = currentSession.getOrCreateConversation(converationName, createOpts);
+    javascript: `conversation = session.getOrCreateConversation(converationName, createOpts);
 
-currentConversation.on('streamListChanged', function (streamInfo) {
+conversation.on('streamListChanged', streamInfo => {
   // Handle the 'streamListChanged' event.
 });
-// Register other event listeners
-// ...
 
 // One can join now.
-currentConversation.join()
-  .then(function () {
+conversation.join()
+  .then(() => {
     // One successfully joined the conversation.
   }, function (err) {
     // One could not join the conversation.
@@ -209,9 +207,9 @@ currentConversation.join()
   };
 
   conversationLeaveAndDestroy = {
-    javascript: `currentConversation.leave()
-  .then(function () {
-    currentConversation.destroy();
+    javascript: `conversation.leave()
+  .then(() => {
+    conversation.destroy();
   });`
   };
 
@@ -220,7 +218,7 @@ currentConversation.join()
     javascript: `// The participants currently present in the waiting room.
 const candidates = [];
 
-currentConversation.on('contactJoinedWaitingRoom', function (contact) {
+conversation.on('contactJoinedWaitingRoom', contact => {
     // A participant joined the waiting room.
 
     // One may add the participant into its list.
@@ -231,13 +229,13 @@ currentConversation.on('contactJoinedWaitingRoom', function (contact) {
     }
 
     // One can grant...
-    currentConversation.allowEntry(contact);
+    conversation.allowEntry(contact);
 
     // ...or deny access.
-    currentConversation.denyEntry(contact);
+    conversation.denyEntry(contact);
 });
 
-conversation.on('contactLeftWaitingRoom', function (contact) {
+conversation.on('contactLeftWaitingRoom', contact => {
   // A participant left the waiting room.
 
   // One may removethe participant from its list.
@@ -250,20 +248,20 @@ conversation.on('contactLeftWaitingRoom', function (contact) {
   };
 
   conversationModeratorJoinRequest = {
-    javascript: `currentSession.on('conversationJoinRequest', function (joinRequest) {
+    javascript: `session.on('conversationJoinRequest', request => {
   // The conversation associated to the request.
-  const conversation = joinRequest.getConversatoin();
+  const conversation = request.getConversation();
   // The Contact representing the participant requesting to join the Conversation.
-  const contact = joinRequest.getSender();
+  const contact = request.getSender();
 
   // One can accept...
-  joinRequest.accept()
+  request.accept()
     .then(function () {
       // Positive response sent to the participant.
     });
 
   // ...or decline the request.
-  joinRequest.decline('my reason')
+  request.decline('my reason')
     .then(function () {
       // Negative response sent to the participant.
     });
@@ -271,12 +269,12 @@ conversation.on('contactLeftWaitingRoom', function (contact) {
   };
 
   conversationModeratorEject = {
-    javascript: `currentConversation.eject(contact, { reason: 'my reason' })
+    javascript: `conversation.eject(contact, { reason: 'a reason' })
   .then(() => {
-      console.log('ejected');
+    console.log('ejected', contact);
   })
   .catch((err) => {
-      console.error('ejected', err);
+    console.error('eject error', err);
   });`
   };
 

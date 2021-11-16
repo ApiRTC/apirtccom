@@ -86,7 +86,7 @@ userAgent?.createStream(createStreamOptions)?.then {
   publish = { javascript: `conversation.publish(stream).then(stream => {...});` };
 
   subscribe = {
-    javascript: `conversation.on('streamListChanged', streamInfo => ({
+    javascript: `conversation.on('streamListChanged', streamInfo => {
   if (streamInfo.isRemote === true) {
     if (streamInfo.listEventType === 'added') {
       conversation.subscribeToStream(streamInfo.streamId);
@@ -94,7 +94,7 @@ userAgent?.createStream(createStreamOptions)?.then {
   }
 });
   
-conversation.on('streamAdded', stream => ({
+conversation.on('streamAdded', stream => {
   stream.attachToElement(domElement)
 });` };
 
