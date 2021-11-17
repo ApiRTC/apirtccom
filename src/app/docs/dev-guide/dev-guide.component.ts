@@ -191,17 +191,17 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 }`;
 
   conversationJoin = {
-    javascript: `conversation = session.getOrCreateConversation(converationName, createOpts);
+    javascript: `conversation = session.getOrCreateConversation(name, options);
 
 conversation.on('streamListChanged', streamInfo => {
-  // Handle the 'streamListChanged' event.
+  // Handle the 'streamListChanged' event...
 });
 
 // One can join now.
 conversation.join()
   .then(() => {
     // One successfully joined the conversation.
-  }, function (err) {
+  }, error => {
     // One could not join the conversation.
   });`
   };
@@ -213,38 +213,44 @@ conversation.join()
   });`
   };
 
+  // `
+  // The participants currently present in the waiting room.
+  // const candidates = [];
+  //     // One may add the participant into its list.
+  //     let contactId = contact.getId();
+  //     let candidate = candidates.find((c) => c.contactId === contactId);
+  //     if (!candidate) {
+  //       candidates.push({ contactId, });
+  //     }
+  // One may remove the participant from its list.
+  // let contactId = contact.getId();
+  // let candidateIdx = candidates.findIndex((c) => c.contactId === contactId);
+  // if (candidateIdx >= 0) {
+  //   candidates.splice(candidateIdx, 1);
+  // }
+  //     `
 
   conversationModeratorWaitingRoom = {
-    javascript: `// The participants currently present in the waiting room.
-const candidates = [];
-
+    javascript: `
 conversation.on('contactJoinedWaitingRoom', contact => {
-    // A candidate joined the waiting room.
-
-    // One may add the participant into its list.
-    let contactId = contact.getId();
-    let candidate = candidates.find((c) => c.contactId === contactId);
-    if (!candidate) {
-      candidates.push({ contactId, });
-    }
-
-    // One can grant...
-    conversation.allowEntry(contact);
-
-    // ...or deny access.
-    conversation.denyEntry(contact);
+  // A candidate joined the waiting room.
+  // Store it into a list and display it in the DOM
+  // ...
 });
 
 conversation.on('contactLeftWaitingRoom', contact => {
   // A candidate left the waiting room.
-
-  // One may removethe participant from its list.
-  let contactId = contact.getId();
-  let candidateIdx = candidates.findIndex((c) => c.contactId === contactId);
-  if (candidateIdx >= 0) {
-    candidates.splice(candidateIdx, 1);
-  }
+  // Remove from list
+  // ...
 });`
+  };
+
+  conversationAllowDenyEntry = {
+    javascript: `// One can grant...
+conversation.allowEntry(contact);
+// ...or deny access.
+conversation.denyEntry(contact);
+`
   };
 
   conversationModeratorJoinRequest = {
@@ -276,6 +282,17 @@ conversation.on('contactLeftWaitingRoom', contact => {
   .catch((err) => {
     console.error('eject error', err);
   });`
+  };
+
+  conversationParticipantEjected = {
+    javascript: `conversation.on('participantEjected', data => {
+  console.log('on:participantEjected', data);
+  if (data.self) {
+    // local user was ejected,
+    // unpublish streams,
+    // and destroy the conversation
+  }
+});`
   };
 
   createStream = {

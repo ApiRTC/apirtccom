@@ -144,9 +144,9 @@
             </h1>
             <p>
                 The <code>UserAgent</code> is an entrypoint to <strong>ApiRTC</strong>. This is the first object to
-                instantiate. It represents the local user that will participate to communications.
+                instantiate. It represents the <strong>local user</strong> that will participate to communications.
             </p>
-            <p class="text-center mt-3">
+            <p class="mt-3">
                 There are two ways to instantiate a <code>UserAgent</code>:
             </p>
             <div class="row">
@@ -163,7 +163,7 @@
                                 </p>
                                 <p>
                                     In this case the <code>uri</code> is <strong>apiKey</strong> prefixed with "apzkey:"
-                                    string.
+                                    string:
                                 </p>
                                 <app-codenav [code]="useragent_apikey" [(language)]="lang">
                                 </app-codenav>
@@ -184,7 +184,7 @@
                                 </p>
                                 <p>
                                     In this case the <code>uri</code> is <strong>username</strong> prefixed with
-                                    "apizee:" string.
+                                    "apizee:" string:
                                 </p>
                                 <app-codenav [code]="useragent_apirtc" [(language)]="lang">
                                 </app-codenav>
@@ -261,9 +261,9 @@
                 Authentication
             </h2>
             <p>
-                Getting a Session supports the following authentication mechanisms :
+                Getting a <strong>session</strong> supports the following <strong>authentication</strong> mechanisms:
             </p>
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-sm-12 col-xl-4">
                     <div class="card border-secondary mb-3">
                         <div class="card-body text-secondary">
@@ -278,45 +278,37 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-12 col-xl-4">
-                    <div class="card border-secondary mb-3">
-                        <div class="card-body text-secondary">
-                            <h3 class="card-title">
-                                External user management
-                            </h3>
-                            <div class="card-text">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card border-secondary mb-3">
-                                            <div class="card-body text-secondary">
-                                                <h3 class="card-title" id="h5__278552043">
-                                                    JWT (JSON Web Token)
-                                                </h3>
-                                                <app-codenav [code]="register_jwt" [(language)]="lang">
-                                                </app-codenav>
-                                                <p class="card-text">
-                                                    on a <code>UserAgent</code> created with <strong>apiKey</strong>
-                                                </p>
-                                            </div>
-                                        </div>
+                    <div class="card-text">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-body text-secondary">
+                                        <h3 class="card-title" id="h5__278552043">
+                                            External user management JWT (JSON Web Token)
+                                        </h3>
+                                        <app-codenav [code]="register_jwt" [(language)]="lang">
+                                        </app-codenav>
+                                        <p class="card-text">
+                                            on a <code>UserAgent</code> created with <strong>apiKey</strong>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card border-secondary mb-3">
-                                            <div class="card-body text-secondary">
-                                                <h3 class="card-title">
-                                                    3rdParty Auth server
-                                                </h3>
-                                                <app-codenav [code]="register_3rdparty" [(language)]="lang">
-                                                </app-codenav>
-                                                <p class="card-text">
-                                                    &nbsp;on a <code>UserAgent</code> created with
-                                                    <strong>apiKey</strong>
-                                                </p>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card border-secondary mb-3">
+                                    <div class="card-body text-secondary">
+                                        <h3 class="card-title">
+                                            External user management 3rdParty Auth server
+                                        </h3>
+                                        <app-codenav [code]="register_3rdparty" [(language)]="lang">
+                                        </app-codenav>
+                                        <p class="card-text">
+                                            &nbsp;on a <code>UserAgent</code> created with
+                                            <strong>apiKey</strong>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -324,13 +316,11 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-xl-4">
-                    <div class="card border-info mb-3">
+                    <div class="card border-secondary mb-3">
                         <div class="card-body text-secondary">
                             <h3 class="card-title">
                                 ApiRTC user management
                             </h3>
-                        </div>
-                        <div class="card-body text-secondary">
                             <app-codenav [code]="register_apirtc" [(language)]="lang"></app-codenav>
                             <p class="card-text">
                                 on a <code>UserAgent</code> created with <strong>username</strong>
@@ -379,14 +369,17 @@
                 To get a <code>Conversation</code> instance, the method
                 <code>Session.getOrCreateConversation(name, options)</code> shall be used.
             </p>
-            <div class="row mt-3">
+            <p>
+                The <code>name</code> is a free string.
+            </p>
+            <div class="row align-items-center mt-3">
                 <div class="col-4">
                     <p>
                         Possible <code>options</code> are :
                     </p>
                     <pre><code [highlight]="getOrCreateConversation__options" [languages]="['json']"></code></pre>
                 </div>
-                <div class="col">
+                <div class="col border-start">
                     <p>
                         <code>meshModeEnabled</code> enables the mesh mode (otherwise SFU star topology is used by
                         default).
@@ -403,12 +396,12 @@
                         </li>
                     </ul>
                     <p>
-                        Then the <strong>Conversation</strong> will automatically switch to star topology mode using
+                        Then the <strong>conversation</strong> will automatically switch to star topology mode using
                         ApiRTC SFUs infrastructure.
                     </p>
                     <p>
                         Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code>
-                        forces the <code>Conversation</code> to remain mesh only.
+                        forces the <strong>conversation</strong> to remain mesh only.
                     </p>
                     <div class="alert alert-info d-flex align-items-center" role="alert">
                         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
@@ -421,17 +414,14 @@
                         </div>
                     </div>
                     <p>
-                        <code>moderationEnabled</code> enables moderation for the local user on the newly created
-                        <strong>Conversation</strong>. This option may change the behavior of the joining process
-                        depending on whether the UserAgent is moderator or not. If the local user is moderator, then
-                        they will be able to join without any third-party action. If the local user is not moderator,
-                        then they will be able to join only after the permission of one of the moderators. Note that
-                        every participant must enable this option to have consistent moderation.
+                        <code>moderationEnabled</code> enables <strong>moderation</strong> on the
+                        <code>Conversation</code> to create. This option may change the behavior of the joining process
+                        depending on whether <code>moderator</code> option is true or false. Note that
+                        every party must enable this option to have consistent moderation.
                     </p>
                     <p>
-                        <code>moderator</code> adds the local user to the list of moderators. When this option is
-                        enabled for the local user, they will receive joining requests from other non-moderator
-                        participants.
+                        <code>moderator</code> adds the <strong>local user</strong> to the list of moderators for the
+                        <strong>conversation</strong>.
                     </p>
                 </div>
             </div>
@@ -440,23 +430,24 @@
                 Join
             </h2>
             <p>
-                <code>Conversation.join()</code> makes the local user enter the <strong>Conversation</strong>. Note that
+                <code>Conversation.join()</code> makes the local user enter the <strong>conversation</strong>. Note that
                 this method returns a <code>Promise</code> and one must wait for it to be fulfilled before doing
-                anything else on the <strong>Conversation</strong>.
+                anything else on the <strong>conversation</strong>.
             </p>
             <p>
-                A good practice is to register all required event listeners before calling the <code>join</code> method.
+                A good practice is to register all required <code>Conversation</code> event listeners before calling the
+                <code>join</code> method:
             </p>
             <app-codenav [code]="conversationJoin" [(language)]="lang"></app-codenav>
             <h2>
                 Leave
             </h2>
             <p>
-                <code>Conversation.leave()</code> makes the local user leave the <strong>Conversation</strong>. All
+                <code>Conversation.leave()</code> makes the local user leave the <strong>conversation</strong>. All
                 ongoing calls will be automatically closed.
             </p>
             <p>
-                A good practice is to destroy the <strong>Conversation</strong> after leaving it.
+                A good practice is to destroy the <code>Conversation</code> after leaving it.
             </p>
             <app-codenav [code]="conversationLeaveAndDestroy" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
@@ -464,48 +455,69 @@
                 Moderation
             </h1>
             <p>
-                When enabled, moderation allows a group of users (a.k.a. moderators) to control who is allowed to
-                participate to the <strong>Conversation</strong>.
+                When enabled, <strong>moderation</strong> allows a group of users (<strong>moderators</strong>) to
+                control who is allowed to participate to the <strong>conversation</strong>.
             </p>
             <h2>
                 Activation
             </h2>
             <p>
-                In order to activate the moderation for a <strong>Conversation</strong>, every user must explicitly set
-                the <code>moderationEnabled</code> option to <code>true</code>
-                (<code>Session#getOrCreateConversation</code>).
+                In order to activate the <strong>moderation</strong> for a <strong>conversation</strong>, every party
+                (<strong>moderator</strong> or not) must explicitly set the <code>moderationEnabled</code> option to
+                <code>true</code>
+                when calling <a href="https://dev.apirtc.com/reference/Session.html#getOrCreateConversation__anchor"
+                    target="_blank" rel="noopener">getOrCreateConversation&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
             <p>
-                Additionally, users who will act as moderators must set the <code>moderator</code> option to
+                Additionally, a party that shall be a <strong>moderator</strong> must set the <code>moderator</code>
+                option to
                 <code>true</code> as well.
             </p>
-            <h2>
+            <!-- <h2>
                 Moderators
             </h2>
             <p>
-                Moderators do not require any kind of permissions from other participants to join the
-                <strong>Conversation</strong>.
+                <strong>Moderators</strong> do not require any kind of permissions from other participants to join the
+                <strong>conversation</strong>.
+            </p> -->
+            <h2>Joining process</h2>
+            <p>If the <strong>local user</strong> is <strong>moderator</strong>, then the <code>join()</code> will
+                resolve immediately.
             </p>
+            <p>But if the <strong>local user</strong> is not <strong>moderator</strong>, then the <code>join()</code>
+                will only resolve when a <strong>moderator</strong> allows it. In the meanwhile, the user will be put in
+                a <strong>waiting room</strong>.</p>
+            <!-- <h2>
+                Guests
+            </h2>
             <p>
+                Guests are non-moderators. Guests must received permission from one of the moderators to join the
+                <strong>conversation</strong>.
+            </p> -->
+            <h2>
+                Waiting Room
+            </h2>
+            <p>
+                The <strong>waiting room</strong> is a presence group associated to the <strong>conversation</strong>
+                and it allows to know which participants are currently waiting for a moderation answer.</p>
+            <p>Events <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> will be triggered
+                respectively upon the arrival and departure of a user to/from the <strong>waiting room</strong>:
+            </p>
+            <app-codenav [code]="conversationModeratorWaitingRoom" [(language)]="lang"></app-codenav>
+            <p>Then the <strong>moderator</strong> can allow or deny a contact to enter the
+                <strong>conversation</strong>:
+            </p>
+            <app-codenav [code]="conversationAllowDenyEntry" [(language)]="lang"></app-codenav>
+            <!-- <p>
                 One may choose between 2 solutions in order to grant or deny access to other participants:
             </p>
             <ul>
                 <li>register to <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> event
                     listeners (on <code>Conversation</code>), or</li>
                 <li>register to <code>conversationJoinRequest</code> event listener (on <code>Session</code>).</li>
-            </ul>
-            <h3>
-                Solution 1: Waiting Room
-            </h3>
-            <p>
-                The waiting room is a presence group associated to the <strong>Conversation</strong> and it allows one
-                to know which participants are currently waiting for a moderation answer.
-                <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> will be triggered
-                respectively upon the arrival of a user in the waiting room and the deparature of a user from the
-                waiting room.
-            </p>
-            <app-codenav [code]="conversationModeratorWaitingRoom" [(language)]="lang"></app-codenav>
-            <h3>
+            </ul> -->
+            <!-- <h3>
                 Solution 2: Join Request
             </h3>
             <p>
@@ -516,21 +528,20 @@
             <app-codenav [code]="conversationModeratorJoinRequest" [(language)]="lang"></app-codenav>
             <p>
                 Both solutions may be used at the same time.
-            </p>
-            <h2>
-                Guests
-            </h2>
-            <p>
-                Guests are non-moderators. Guests must received permission from one of the moderators to join the
-                <strong>Conversation</strong>.
-            </p>
+            </p> -->
+
             <h2>
                 Eject
             </h2>
             <p>
-                Moderators have the ability to eject another participant from the <strong>Conversation</strong>.
+                Moderators have the ability to eject another participant from the <strong>conversation</strong>.
             </p>
             <app-codenav [code]="conversationModeratorEject" [(language)]="lang"></app-codenav>
+            <p>To get notified of a participant ejection, listen on the <code>participantEjected</code> event. The event
+                data object wears a <code>self</code> boolean set to true if the current <strong>local user</strong>
+                is the ejected participant.</p>
+            <app-codenav [code]="conversationParticipantEjected" [(language)]="lang"></app-codenav>
+
             <h1 #localStreams class="mt-5">
                 <a #anchor id="local-streams" class="anchor"></a>
                 Local Streams
