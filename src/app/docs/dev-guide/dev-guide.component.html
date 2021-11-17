@@ -379,52 +379,63 @@
                 To get a <code>Conversation</code> instance, the method
                 <code>Session.getOrCreateConversation(name, options)</code> shall be used.
             </p>
-            <p>
-                Possible <code>options</code> are :
-            </p>
-            <pre><code [highlight]="getOrCreateConversation__options" [languages]="['json']"></code></pre>
-            <p>
-                <code>meshModeEnabled</code> enables the mesh mode (otherwise SFU star topology is used by default).
-                The stream exchanges will remain in this mode until:
-            </p>
-            <ul>
-                <li>
-                    the number of participant goes over 4,
-                </li>
-                <li>
-                    or too many packet loss is detected for one participant,
-                </li>
-            </ul>
-            then the <strong>Conversation</strong> will automatically switch to star topology mode using ApiRTC SFUs
-            infrastructure.
-            <p>
-            </p>
-            <div class="alert alert-info d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-                    <use xlink:href="#info-fill"></use>
-                </svg>
-                <div>
-                    Check <a routerLink="../architecture" title="link to SFUs">Architecture</a> to learn
-                    about how <strong>ApiRTC</strong> handles
-                    small and large <code>Conversation</code>s.
+            <div class="row mt-3">
+                <div class="col-4">
+                    <p>
+                        Possible <code>options</code> are :
+                    </p>
+                    <pre><code [highlight]="getOrCreateConversation__options" [languages]="['json']"></code></pre>
+                </div>
+                <div class="col">
+                    <p>
+                        <code>meshModeEnabled</code> enables the mesh mode (otherwise SFU star topology is used by
+                        default).
+                    </p>
+                    <p>
+                        The stream exchanges will remain in this mode until:
+                    </p>
+                    <ul>
+                        <li>
+                            the number of participant goes over 4,
+                        </li>
+                        <li>
+                            or too many packet loss is detected for one participant.
+                        </li>
+                    </ul>
+                    <p>
+                        Then the <strong>Conversation</strong> will automatically switch to star topology mode using
+                        ApiRTC SFUs infrastructure.
+                    </p>
+                    <p>
+                        Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code>
+                        forces the <code>Conversation</code> to remain mesh only.
+                    </p>
+                    <div class="alert alert-info d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                            <use xlink:href="#info-fill"></use>
+                        </svg>
+                        <div>
+                            Check <a routerLink="../architecture" title="link to SFUs">Architecture</a> to learn
+                            about how <strong>ApiRTC</strong> handles
+                            small and large <code>Conversation</code>s.
+                        </div>
+                    </div>
+                    <p>
+                        <code>moderationEnabled</code> enables moderation for the local user on the newly created
+                        <strong>Conversation</strong>. This option may change the behavior of the joining process
+                        depending on whether the UserAgent is moderator or not. If the local user is moderator, then
+                        they will be able to join without any third-party action. If the local user is not moderator,
+                        then they will be able to join only after the permission of one of the moderators. Note that
+                        every participant must enable this option to have consistent moderation.
+                    </p>
+                    <p>
+                        <code>moderator</code> adds the local user to the list of moderators. When this option is
+                        enabled for the local user, they will receive joining requests from other non-moderator
+                        participants.
+                    </p>
                 </div>
             </div>
-            <p>
-                Setting both <code>meshModeEnabled</code> and <code>meshOnlyEnabled</code> to <code>true</code> forces
-                the <code>Conversation</code> to remain mesh only.
-            </p>
-            <p>
-                <code>moderationEnabled</code> enables moderation for the local user on the newly created
-                <strong>Conversation</strong>. This option may change the behavior of the joining process depending on
-                whether the UserAgent is moderator or not. If the local user is moderator, then they will be able to
-                join without any third-party action. If the local user is not moderator, then they will be able to join
-                only after the permission of one of the moderators. Note that every participant must enable this option
-                to have consistent moderation.
-            </p>
-            <p>
-                <code>moderator</code> adds the local user to the list of moderators. When this option is enabled for
-                the local user, they will receive joining requests from other non-moderator participants.
-            </p>
+
             <h2>
                 Join
             </h2>
@@ -453,20 +464,20 @@
                 Moderation
             </h1>
             <p>
-              When enabled, moderation allows a group of users (a.k.a. moderators) to control who is allowed to
-              participate to the <strong>Conversation</strong>.
+                When enabled, moderation allows a group of users (a.k.a. moderators) to control who is allowed to
+                participate to the <strong>Conversation</strong>.
             </p>
             <h2>
                 Activation
             </h2>
             <p>
-              In order to activate the moderation for a <strong>Conversation</strong>, every user must explicitly set
-              the <code>moderationEnabled</code> option to <code>true</code>
-              (<code>Session#getOrCreateConversation</code>).
+                In order to activate the moderation for a <strong>Conversation</strong>, every user must explicitly set
+                the <code>moderationEnabled</code> option to <code>true</code>
+                (<code>Session#getOrCreateConversation</code>).
             </p>
             <p>
-              Additionally, users who will act as moderators must set the <code>moderator</code> option to
-              <code>true</code> as well.
+                Additionally, users who will act as moderators must set the <code>moderator</code> option to
+                <code>true</code> as well.
             </p>
             <h2>
                 Moderators
@@ -480,11 +491,11 @@
             </p>
             <ul>
                 <li>register to <code>contactJoinedWaitingRoom</code> and <code>contactLeftWaitingRoom</code> event
-                listeners (on <code>Conversation</code>), or</li>
+                    listeners (on <code>Conversation</code>), or</li>
                 <li>register to <code>conversationJoinRequest</code> event listener (on <code>Session</code>).</li>
             </ul>
             <h3>
-              Solution 1: Waiting Room
+                Solution 1: Waiting Room
             </h3>
             <p>
                 The waiting room is a presence group associated to the <strong>Conversation</strong> and it allows one
@@ -495,7 +506,7 @@
             </p>
             <app-codenav [code]="conversationModeratorWaitingRoom" [(language)]="lang"></app-codenav>
             <h3>
-              Solution 2: Join Request
+                Solution 2: Join Request
             </h3>
             <p>
                 When a guest wants to join a <strong>Conversation</strong>, a request will be sent every 5 seconds to
@@ -510,7 +521,8 @@
                 Guests
             </h2>
             <p>
-                Guests are non-moderators. Guests must received permission from one of the moderators to join the <strong>Conversation</strong>.
+                Guests are non-moderators. Guests must received permission from one of the moderators to join the
+                <strong>Conversation</strong>.
             </p>
             <h2>
                 Eject

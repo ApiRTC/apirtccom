@@ -184,10 +184,10 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   // in any case, it shall be document as follows in the api reference (not documented at the moment)
   //active : true // true to get existing Conversation. false to create a new Conversation in any case. default: true.
   getOrCreateConversation__options = `{
-  "meshModeEnabled": true,    // Whether the mesh mode is enabled. Default is false.
-  "meshOnlyEnabled": true,    // Whether the mesh mode is the only mode allowed, i.e. no transition to another mode will occur. Default is false.
-  "moderationEnabled": true,  // Whether moderation is enabled for the new Conversation. Default is false.
-  "moderator": true           // Whether the UserAgent shall be added to the list of moderators. Default is false.
+  "meshModeEnabled": true,
+  "meshOnlyEnabled": true,
+  "moderationEnabled": true,
+  "moderator": true
 }`;
 
   conversationJoin = {
@@ -219,7 +219,7 @@ conversation.join()
 const candidates = [];
 
 conversation.on('contactJoinedWaitingRoom', contact => {
-    // A participant joined the waiting room.
+    // A candidate joined the waiting room.
 
     // One may add the participant into its list.
     let contactId = contact.getId();
@@ -236,7 +236,7 @@ conversation.on('contactJoinedWaitingRoom', contact => {
 });
 
 conversation.on('contactLeftWaitingRoom', contact => {
-  // A participant left the waiting room.
+  // A candidate left the waiting room.
 
   // One may removethe participant from its list.
   let contactId = contact.getId();
@@ -256,13 +256,13 @@ conversation.on('contactLeftWaitingRoom', contact => {
 
   // One can accept...
   request.accept()
-    .then(function () {
+    .then(() => {
       // Positive response sent to the participant.
     });
 
   // ...or decline the request.
   request.decline('my reason')
-    .then(function () {
+    .then(() => {
       // Negative response sent to the participant.
     });
 });`
