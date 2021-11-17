@@ -1,51 +1,31 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-apirtc">
+<nav id="menu" class="navbar navbar-expand-lg fixed-top navbar-dark bg-apirtc">
     <div class="container-fluid">
-        <!-- <a class="navbar-brand" routerLink="/home"> -->
         <a class="navbar-brand" href="https://apirtc.com">
             <img height="36" width="140" alt="ApiRTC" src="./assets/apiRTC-dark.png" /></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu"
+            aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <!-- <a class="nav-link" aria-current="page" routerLink="/features" routerLinkActive="active">Features</a> -->
                     <a class="nav-link" href="https://apirtc.com/features/">Features</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" routerLink="/use-cases" routerLinkActive="active">Use-Cases</a> -->
                     <a class="nav-link" href="https://apirtc.com/use-cases/">Use-Cases</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://apirtc.com/pricing/">Pricing</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" routerLink="/docs" routerLinkActive="active">Developers</a> -->
                     <a class="nav-link active" routerLink="/docs">Developers</a>
                 </li>
                 <li class="nav-item">
-                    <!-- <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a> -->
                     <a class="nav-link" href="https://apirtc.com/blog/">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://apirtc.com/contact-us/">Contact</a>
                 </li>
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
@@ -59,14 +39,6 @@
         </div>
     </div>
 </nav>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -86,16 +58,14 @@
     </symbol>
 </svg>
 
-<!-- <input type="hidden" #selection> -->
 <div id="content">
-    <!-- <router-outlet></router-outlet> -->
     <div class="mobile-btn" [class.display]="mobileQuery?.matches && !snav.opened">
         <button mat-mini-fab color="apirtc" (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
     <mat-sidenav-container>
-        <mat-sidenav #snav [mode]="mobileQuery?.matches ? 'over' : 'side'"  [fixedInViewport]="true" [fixedTopGap]="100">
+        <mat-sidenav #snav [mode]="mobileQuery?.matches ? 'over' : 'side'" [fixedInViewport]="true" [fixedTopGap]="100">
             <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
         </mat-sidenav>
         <mat-sidenav-content>
@@ -105,23 +75,29 @@
 </div>
 
 <!-- Footer -->
-
-<!-- <footer>
-    Love ApiRTC ?&nbsp;
-    <a href="https://github.com/ApiRTC" target="_blank" rel="noopener"> Give our repo a star.
-        <div class="github-star-badge">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-            </svg>
-            Star
+<nav class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-apirtc">
+    <div class="container">
+        <span class="navbar-text">Copyright © 2022. Apizee - Easy Web Communications. All rights
+            reserved</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-footer"
+            aria-controls="navbar-footer" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-footer">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="//www.apirtc.com/legal-notice/">Legals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//www.apirtc.com/privacy/">Privacy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="//www.apirtc.com/cookie-management-policy/">Cookie Management Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:openAxeptioCookies()">Manage my cookies</a>
+                </li>
+            </ul>
         </div>
-    </a>
-</footer> -->
-
-<!-- <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39"
-        d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
-        transform="translate(142.69 -634.312)" fill="#eee" />
-</svg> -->
+    </div>
+</nav>
