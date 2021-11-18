@@ -1,32 +1,31 @@
 <div class="bd-main">
-    <div class="container">
-        <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
-            <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
-            <nav class="table-of-contents">
-                <ul>
-                    <li>
-                        <a [routerLink]="['.']" fragment="useapirtc"
-                            [ngClass]="{'active': current === 'useapirtc' }">useApiRTC</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['.']" fragment="login"
-                            [ngClass]="{'active': current === 'login' }">LoginForm</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['.']" fragment="agenda"
-                            [ngClass]="{'active': current === 'agenda' }">Agenda</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['.']" fragment="chat" [ngClass]="{'active': current === 'chat' }">Chat</a>
-                    </li>
-                    <li>
-                        <a [routerLink]="['.']" fragment="whiteboard"
-                            [ngClass]="{'active': current === 'whiteboard' }">Whiteboard</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="bd-content">
+
+    <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+        <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
+        <nav class="table-of-contents">
+            <ul>
+                <li>
+                    <a [routerLink]="['.']" fragment="useapirtc"
+                        [ngClass]="{'active': current === 'useapirtc' }">useApiRTC</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="login" [ngClass]="{'active': current === 'login' }">LoginForm</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="agenda" [ngClass]="{'active': current === 'agenda' }">Agenda</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="chat" [ngClass]="{'active': current === 'chat' }">Chat</a>
+                </li>
+                <li>
+                    <a [routerLink]="['.']" fragment="whiteboard"
+                        [ngClass]="{'active': current === 'whiteboard' }">Whiteboard</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="bd-content">
+        <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-10 fs-5">
                     <p class="text-center">
@@ -122,6 +121,13 @@
                 <code>apirtc.session</code>.
             </p>
             <app-codenav [code]="whiteboard" [(language)]="lang"></app-codenav>
+            <!-- two trailing rows are required to let space for footer -->
+            <div class="row mt-5">
+                <p></p>
+            </div>
+            <div class="row mt-5">
+                <p></p>
+            </div>
         </div>
     </div>
 </div>
