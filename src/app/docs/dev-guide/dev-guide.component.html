@@ -373,11 +373,8 @@
                 The <code>name</code> is a free string.
             </p>
             <div class="row align-items-center mt-3">
-                <div class="col-4">
-                    <p>
-                        Possible <code>options</code> are :
-                    </p>
-                    <pre><code [highlight]="getOrCreateConversation__options" [languages]="['json']"></code></pre>
+                <div class="col">
+                    <app-codenav [code]="getOrCreateConversation" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
                     <p>

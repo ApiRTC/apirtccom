@@ -180,15 +180,17 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
 })`
   };
 
-  // TODO : do we document the 'active' parameter here ?
+  // TODO : do we document the 'active' option here ?
   // in any case, it shall be document as follows in the api reference (not documented at the moment)
   //active : true // true to get existing Conversation. false to create a new Conversation in any case. default: true.
-  getOrCreateConversation__options = `{
-  "meshModeEnabled": true,
-  "meshOnlyEnabled": true,
-  "moderationEnabled": true,
-  "moderator": true
-}`;
+  getOrCreateConversation = {
+    javascript: `conversation = session.getOrCreateConversation(name, {
+  meshModeEnabled: false,
+  meshOnlyEnabled: false,
+  moderationEnabled: false,
+  moderator: false
+});`
+  };
 
   conversationJoin = {
     javascript: `conversation = session.getOrCreateConversation(name, options);
