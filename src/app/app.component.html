@@ -58,7 +58,8 @@
     </symbol>
 </svg>
 
-<div id="content">
+<!--my-5 used to allow margin for menu and footer -->
+<div id="content" class="my-5">
     <div class="mobile-btn" [class.display]="mobileQuery?.matches && !snav.opened">
         <button mat-mini-fab color="apirtc" (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
@@ -68,7 +69,8 @@
         <mat-sidenav #snav [mode]="mobileQuery?.matches ? 'over' : 'side'" [fixedInViewport]="true" [fixedTopGap]="100">
             <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <!--mb-5 used to allow more margin for footer -->
+        <mat-sidenav-content class="mb-5">
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
@@ -77,8 +79,8 @@
 <!-- Footer -->
 <nav class="navbar navbar-expand-lg fixed-bottom navbar-dark bg-apirtc">
     <div class="container">
-        <span class="navbar-text ms-5">Copyright © 2022. Apizee - Easy Web Communications. All rights
-            reserved</span>
+        <span class="navbar-text ms-5">Copyright © 2022. Apizee. All rights
+            reserved.</span>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-footer"
             aria-controls="navbar-footer" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
