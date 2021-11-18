@@ -193,18 +193,17 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   };
 
   conversationJoin = {
-    javascript: `conversation = session.getOrCreateConversation(name, options);
-
-conversation.on('streamListChanged', streamInfo => {
+    javascript: `conversation.on('streamListChanged', streamInfo => {
   // Handle the 'streamListChanged' event...
 });
+// and any other relevant events
+// ...
 
-// One can join now.
 conversation.join()
   .then(() => {
-    // One successfully joined the conversation.
+    // local user successfully joined the conversation.
   }, error => {
-    // One could not join the conversation.
+    // local user could not join the conversation.
   });`
   };
 
@@ -248,9 +247,9 @@ conversation.on('contactLeftWaitingRoom', contact => {
   };
 
   conversationAllowDenyEntry = {
-    javascript: `// One can grant...
+    javascript: `// Grant...
 conversation.allowEntry(contact);
-// ...or deny access.
+// ... or deny access.
 conversation.denyEntry(contact);
 `
   };
@@ -262,7 +261,7 @@ conversation.denyEntry(contact);
   // The Contact representing the participant requesting to join the Conversation.
   const contact = request.getSender();
 
-  // One can accept...
+  // Accept...
   request.accept()
     .then(() => {
       // Positive response sent to the participant.
