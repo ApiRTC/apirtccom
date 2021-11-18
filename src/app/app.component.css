@@ -11,6 +11,10 @@
     display: none;
 }
 
+#sidenav {
+    margin-bottom: 80px;
+}
+
 .display {
     display: block;
     position: fixed;

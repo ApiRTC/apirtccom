@@ -59,14 +59,16 @@
 </svg>
 
 <!--my-5 used to allow margin for menu and footer -->
-<div id="content" class="my-5">
+<div class="my-5">
     <div class="mobile-btn mt-5 ms-3" [class.display]="mobileQuery?.matches && !snav.opened">
         <button mat-mini-fab color="apirtc" (click)="snav.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
     <mat-sidenav-container>
-        <mat-sidenav #snav [mode]="mobileQuery?.matches ? 'over' : 'side'" [fixedInViewport]="true" [fixedTopGap]="100">
+        <!-- margin-bottom: 80px; set in css to let sidenav display properly above footer -->
+        <mat-sidenav id="sidenav" #snav [mode]="mobileQuery?.matches ? 'over' : 'side'" [fixedInViewport]="true"
+            [fixedTopGap]="100">
             <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
         </mat-sidenav>
         <!--mb-5 used to allow more margin for footer -->
