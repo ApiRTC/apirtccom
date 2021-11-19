@@ -46,7 +46,7 @@ function run(): void {
   const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
-  // const server = app();
+  const server = app();
   // server.listen(port, () => {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
@@ -56,9 +56,10 @@ function run(): void {
       key: readFileSync("./cert/selfsigned.key"),
       cert: readFileSync("./cert/selfsigned.crt")
     },
-    app()
-  ).listen(port);
-
+    server
+  ).listen(port, () => {
+    console.log(`Node Express server listening on h2 https://localhost:${port}`);
+  });
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
