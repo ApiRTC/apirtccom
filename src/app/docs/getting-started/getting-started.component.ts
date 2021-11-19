@@ -13,7 +13,7 @@ export class GettingStartedComponent implements OnInit {
   <script type="text/javascript" src="https://cloud.apirtc.com/apiRTC/apiRTC-latest.min.js"></script>
 </head>`;
 
-  npm_install = `npm install @apizee/apirtc@latest --save`;
+  npm_install = `npm install @apirtc/apirtc@latest --save`;
   angular_json = `{
     "projects": {
       "YOUR_PROJECT_NAME": {
@@ -21,7 +21,7 @@ export class GettingStartedComponent implements OnInit {
           "build": {
             "options": {
               "scripts": [
-                "node_modules/@apizee/apirtc/apiRTC.min.js"]
+                "node_modules/@apirtc/apirtc/apiRTC.min.js"]
             }
           }
         }
@@ -48,7 +48,7 @@ end`;
 userAgent = new apiRTC.UserAgent({
   uri: 'apzkey:' + apiKey
 });`,
-    typescript: `import { UserAgent } from '@apizee/apirtc';
+    typescript: `import { UserAgent } from '@apirtc/apirtc';
 const userAgent = new UserAgent({uri: 'apzkey:' + apiKey});`,
     kotlin: `import com.apizee.apiRTC.*
 val options = UserAgent.UserAgentOptions(uri = "apzkey:$apiKey")
@@ -57,7 +57,7 @@ val userAgent = UserAgent(this, options)`,
 var userAgent: UserAgent?
 userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`
   }
-  // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instread of apiKey
+  // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instead of apiKey
 
   createStream = {
     javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(stream => {
