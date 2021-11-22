@@ -46,7 +46,7 @@ function run(): void {
   const port = process.env['PORT'] || 4000;
 
   // Start up the Node server
-  const server = app();
+  //const server = app();
   // server.listen(port, () => {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
@@ -54,9 +54,13 @@ function run(): void {
   spdy.createServer(
     {
       key: readFileSync("./cert/selfsigned.key"),
-      cert: readFileSync("./cert/selfsigned.crt")
+      cert: readFileSync("./cert/selfsigned.crt"),
+      spdy: {
+        // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
+        plain: false
+      }
     },
-    server
+    app()
   ).listen(port, () => {
     console.log(`Node Express server listening on h2 https://localhost:${port}`);
   });
