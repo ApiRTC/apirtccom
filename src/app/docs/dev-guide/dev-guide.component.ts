@@ -540,6 +540,22 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
   "isSpeaking": true
 }`;
 
+  toggleAudioVideoMute = {
+    javascript: `// toggle audio
+if (stream.isAudioMuted()) {
+    stream.unmuteAudio();
+}
+else { stream.muteAudio(); }
+
+// toggle video
+if (stream.isVideoMuted()) {
+  stream.unmuteVideo();
+}
+else { stream.muteVideo(); }
+`
+  };
+
+
   lang = 'javascript';
 
 }

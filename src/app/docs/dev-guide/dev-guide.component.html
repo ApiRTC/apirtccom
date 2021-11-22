@@ -69,7 +69,7 @@
                         [ngClass]="{'active': current === 'speaker-detection' }">Speaker Detection</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="mute" [ngClass]="{'active': current === 'mute' }">Video/Audio
+                    <a [routerLink]="['.']" fragment="mute" [ngClass]="{'active': current === 'mute' }">Audio/Video
                         Mute</a>
                 </li>
                 <li>
@@ -778,11 +778,14 @@
             </p>
             <h1 class="mt-5">
                 <a #anchor id="mute" class="anchor"></a>
-                Video/Audio Mute
+                Audio/Video Mute
             </h1>
             <p>
-                Explain Mute
+                To control <strong>local or remote stream</strong> audio/video mute, use the following
+                <code>Stream</code>
+                methods:
             </p>
+            <app-codenav [code]="toggleAudioVideoMute" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
                 <a #anchor id="whiteboard" class="anchor"></a>
                 Whiteboard
