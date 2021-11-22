@@ -557,7 +557,7 @@
                 Possible <code>options</code> (<a
                     href="https://dev.apirtc.com/reference/global.html#CreateStreamOptions" target="_blank"
                     rel="noopener"><code>CreateStreamOptions</code>&nbsp;<span
-                        class="material-icons align-middle fs-6">open_in_new</span></a>) are :
+                        class="material-icons align-middle fs-6">open_in_new</span></a>) are:
             </p>
             <pre><code [highlight]="createStream_options" [languages]="['json']"></code></pre>
             <p>
@@ -797,15 +797,41 @@
                 <a #anchor id="recording" class="anchor"></a>
                 Recording
             </h1>
+            <!-- <p>
+                TODO : Recording locally one stream...
+            </p> -->
             <p>
-                Explain recording
+                <strong>ApiRTC</strong> platform allows to record a composite video of a <strong>conversation</strong>.
+                The video will be composed of all streams exchanged in the <strong>conversation</strong> and will be
+                stored in <strong>ApiRTC</strong>'s database.
             </p>
+            <p>To start recording a <strong>conversation</strong>:</p>
+            <app-codenav [code]="startRecording" [(language)]="lang"></app-codenav>
             <p>
-                Recording locally one stream...
+                Example of <code>recordingInfo</code> (<a
+                    href="https://dev.apirtc.com/reference/global.html#RecordingInfo" target="_blank"
+                    rel="noopener"><code>RecordingInfo</code>&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>):
             </p>
-            <p>
-                Recording conversation : composite media file is stored on ApiRTC servers...
-            </p>
+            <pre><code [highlight]="recordingInfo" [languages]="['json']"></code></pre>
+            <p>To stop recording a <strong>conversation</strong>:</p>
+            <app-codenav [code]="stopRecording" [(language)]="lang"></app-codenav>
+            <p>Once the recording is stopped, the <strong>ApiRTC</strong> platform wil process it and make it available
+                for download. To get notified when a record is available:</p>
+            <app-codenav [code]="recordingAvailable" [(language)]="lang"></app-codenav>
+            <p>When the video is available, you can use the <code>RecordingInfo.mediaURL</code> to download it.</p>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Manage your recorded medias from your <strong>ApiRTC</strong> account <a
+                        href="https://cloud.apirtc.com/media-manager" title="Media Manager" target="_blank"
+                        rel="noopener">Media-Manager&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>
+                </div>
+            </div>
+
             <h1 class="mt-5">
                 <a #anchor id="chat-messages" class="anchor"></a>
                 Chat messages

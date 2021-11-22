@@ -551,11 +551,47 @@ else { stream.muteAudio(); }
 if (stream.isVideoMuted()) {
   stream.unmuteVideo();
 }
-else { stream.muteVideo(); }
-`
+else { stream.muteVideo(); }`
   };
 
+  recordingAvailable = {
+    javascript: `conversation.on('recordingAvailable', (recordingInfo: any) => {
+  console.log("on:recordingAvailable", recordingInfo);
+  ...
+});`
+  };
 
+  recordingInfo = `{
+    "roomName": "Test",
+    "callId": "COMPOSITE",
+    "recordType": "composite",
+    "convId": "2b0839f5-aa1e-4cb2-ba9a-46848a6b",
+    "mediaId": "1261785",
+    "mediaURL": "https://dashboard.apizee.com/media/showVideo/<id>/hash/2c625610-4baa-11ec-a192-538513dee1ef",
+    "recordedFileName": "vfrP9vWu-3467-composite.mp4",
+    "audioOnly": false,
+    "videoOnly": false,
+    "mode": "complete",
+    "labelEnabled": false
+  }`
+
+  startRecording = {
+    javascript: `conversation.startRecording().then((recordingInfo: any) => {
+  console.info('startRecording', recordingInfo);
+}).catch((error: any) => {
+  console.error('startRecording', error);
+});`
+  };
+
+  stopRecording = {
+    javascript: `conversation.stopRecording().then((recordingInfo: any) => {
+  console.info('stopRecording', recordingInfo);
+}).catch((error: any) => {
+  console.error('stopRecording', error);
+});`
+  };
+
+  // default lang
   lang = 'javascript';
 
 }
