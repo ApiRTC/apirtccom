@@ -4,7 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
 import {
-  ArchitectureComponent, DemoComponent, DevGuideComponent,
+  ArchitectureComponent, AuthenticationComponent, 
+  CompatibilityComponent,
+  DemoComponent, DevGuideComponent,
   ExamplesComponent, GettingStartedComponent,
   LogicalConceptsComponent, OverviewComponent,
   PlatformDevGuideComponent, ReactUiDevGuideComponent
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'architecture', component: ArchitectureComponent },
+  { path: 'authentication', component: AuthenticationComponent },
+  { path: 'compatibility', component: CompatibilityComponent },
   { path: 'logical-concepts', component: LogicalConceptsComponent },
   { path: 'dev-guide', component: DevGuideComponent },
   { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },

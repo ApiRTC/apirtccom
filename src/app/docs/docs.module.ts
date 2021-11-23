@@ -10,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { ArchitectureComponent } from './architecture/architecture.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
+import { CompatibilityComponent } from './compatibility/compatibility.component';
 import { DemoComponent } from './demo/demo.component';
 import { DevGuideComponent } from './dev-guide/dev-guide.component';
 import { DocsSideMenuComponent } from './docs-side-menu/docs-side-menu.component';
@@ -22,6 +24,8 @@ import { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-gui
 import { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
 
 export { ArchitectureComponent } from './architecture/architecture.component';
+export { AuthenticationComponent } from './authentication/authentication.component';
+export { CompatibilityComponent } from './compatibility/compatibility.component';
 export { DemoComponent } from './demo/demo.component';
 export { DevGuideComponent } from './dev-guide/dev-guide.component';
 export { ExamplesComponent } from './examples/examples.component';
@@ -38,6 +42,8 @@ import { SafePipe } from '../safe.pipe';
 
 import { UtilsModule } from '../utils/utils.module';
 
+
+
 @NgModule({
   declarations: [
     DevGuideComponent,
@@ -48,7 +54,9 @@ import { UtilsModule } from '../utils/utils.module';
     ArchitectureComponent,
     DemoComponent, PlatformDevGuideComponent,
     ExamplesComponent, ReactUiDevGuideComponent,
-    SafePipe
+    SafePipe,
+    AuthenticationComponent,
+    CompatibilityComponent
   ],
   imports: [
     CommonModule, RouterModule, ClipboardModule,
