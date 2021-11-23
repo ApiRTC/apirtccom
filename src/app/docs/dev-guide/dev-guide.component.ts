@@ -315,12 +315,12 @@ val stream = it as Stream
   };
 
   createStream_options = `{
-  "audioInputId" : true, // audio input device id (obtained from UserAgent.getUserMediaDevices); set to false if audio track is not requested
-  "videoInputId" : true, // video input device id (obtained from UserAgent.getUserMediaDevices); set to false if video track is not requested
-  "constraints" : {}, // MediaStreamConstraints
-  "enhancedAudioActivated" : false 	// add possibility to create an enhanced audio flow (echoCancellation deactivated, noiseReduction deactivated ...) - Only supported on Chrome
-  "facingMode" : "user" 	// facingMode should be equal to 'user', 'environment', 'left', 'right' or 'deactivated'.
-  "filters" : [] // Array.<FilterDescriptor>, descriptors of media stream filters
+  audioInputId: true,
+  videoInputId: true,
+  constraints: {},
+  enhancedAudioActivated: false
+  facingMode: "user"
+  filters: []
 }`
 
   screenSharing = {
