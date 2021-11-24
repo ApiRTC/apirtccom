@@ -386,22 +386,6 @@ stream.attachToElement(videoDomElement)
 stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
   }
 
-  getCapabilities = `{
-    "aspectRatio": { "max": 1280, "min": 0.001388888888888889 },
-    "brightness": { "max": 64, "min": -64, "step": 1 },
-    "colorTemperature": { "max": 6500, "min": 2800, "step": 1 },
-    "contrast": { "max": 64, "min": 0, "step": 1 },
-    "exposureMode": ["manual", "continuous"],
-    "exposureTime": { "max": 10000, "min": 39, "step": 1 },
-    "frameRate": { "max": 30, "min": 0 },
-    "height": { "max": 720, "min": 1 },
-    "resizeMode": ["none", "crop-and-scale"],
-    "saturation": { "max": 128, "min": 0, "step": 1 },
-    "sharpness": { "max": 5, "min": 0, "step": 1 },
-    "whiteBalanceMode": ["manual", "continuous"],
-    "width": { "max": 1280, "min": 1 }
-  }`
-
   callStatsUpdate = {
     javascript: `conversation.on('callStatsUpdate', (callStats: any) => {
   // handle callStats.stats data
@@ -590,6 +574,124 @@ else { stream.muteVideo(); }`
   console.error('stopRecording', error);
 });`
   };
+
+  blur = {
+    javascript: 
+`stream.blur().then(blurredStream => {
+  ...
+})`
+  };
+
+  blurPublish = {
+    javascript:
+`// display blurred media stream by attaching to a media element (like <video>)
+blurredStream.attachToElement(videoDomElement)
+// publish the blurred stream
+conversation.publish(blurredStream).then((blurredStream) => {
+  ...
+});` 
+  };
+
+  blurStop = {
+    javascript:
+`// stop blur from original stream
+stream.unblur();
+// stop blur from blurred stream
+blurredStream.release();
+`
+  }
+
+  capabilitiesGetSettings = {
+    javascript:
+`// get stream capabilities actual values
+stream.getSettings();
+`}
+
+  capabilitiesGetSettingsListen = {
+  javascript:
+`stream.on('streamSettings', (settings) => {
+  ...
+});`}
+
+capabilitiesGetSettingsResult = `{
+  "aspectRatio": 1.333333333333,
+  "frameRate": 30,
+  "height": 480,
+  "resizeMode": "none",
+  "width": 640
+}`
+
+capabilitiesGetCapabilities = {
+  javascript:
+`// get stream capabilities values ranges
+stream.getCapabilities();
+`}
+
+capabilitiesGetCapabilitiesListen = {
+javascript:
+`stream.on('streamCapabilities', (capabilities) => {
+...
+});`}
+
+capabilitiesGetCapabilitiesResult = `{
+  "aspectRatio": { "max": 1920, "min": 0.001388888888888889 },
+  "frameRate": { "max": 30.000000305175, "min": 0 },
+  "height": { "max": 1080, "min": 1 },
+  "resizeMode": ["none", "crop-and-scale"],
+  "width": { "max": 1920, "min": 1 }
+}`
+
+capabilitiesGetConstraints = {
+  javascript:
+`// get stream capabilities that were modified and their values
+stream.getConstraints();
+`}
+
+capabilitiesGetConstraintsListen = {
+javascript:
+`stream.on('streamConstraints', (constraints) => {
+...
+});`}
+
+capabilitiesGetConstraintsResult = `{}`
+capabilitiesGetConstraintsResult2 = `{
+  advanced: [
+    "frameRate": 10
+  ]
+}`
+
+setCapability = {
+  javascript: 
+`stream.setCapability("frameRate", 10).then(() => {
+  ...
+});`}
+
+remoteCapability = {
+  javascript:
+`remoteStream.askRemoteCapabilityAuthorization();`}
+
+remoteCapabilityListen = {
+  javascript:
+`remoteStream.on('remoteCapabilityRequestAccepted', () => {
+  // remote user accepted
+})
+remoteStream.on('remoteCapabilityRequestRefused', () => {
+  // remote user refused
+})`}
+
+remoteRequest = {
+  javascript:
+`stream.on('remoteCapabilityRequest', (data) => {
+  // accept or refuse doing one of the following
+  stream.acceptRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
+  stream.refuseRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
+})`}
+
+remoteSetCapability = {
+  javascript: 
+`remoteStream.setCapability("frameRate", 10).then(() => {
+  ...
+})`}
 
   // default lang
   lang = 'javascript';
