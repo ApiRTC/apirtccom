@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
 import {
-  ArchitectureComponent, AuthenticationComponent, 
+  ArchitectureComponent, AuthenticationComponent,
   CompatibilityComponent,
   DemoComponent, DevGuideComponent,
   ExamplesComponent, GettingStartedComponent,
   LogicalConceptsComponent, OverviewComponent,
-  PlatformDevGuideComponent, ReactUiDevGuideComponent
+  PlatformDevGuideComponent, ReactUiDevGuideComponent, ReleasePracticesComponent
 } from './docs/docs.module';
-import { FeaturesComponent } from './features/features.component';
-import { UseCasesComponent } from './use-cases/use-cases.component';
 
 const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
@@ -39,10 +35,11 @@ const routes: Routes = [
   { path: 'compatibility', component: CompatibilityComponent },
   { path: 'logical-concepts', component: LogicalConceptsComponent },
   { path: 'dev-guide', component: DevGuideComponent },
-  { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
-  { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
   { path: 'demo', component: DemoComponent },
   { path: 'examples', component: ExamplesComponent },
+  { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
+  { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
+  { path: 'release-practices', component: ReleasePracticesComponent },
 
   // { path: 'features', component: FeaturesComponent },
   // { path: 'blog', component: BlogComponent },

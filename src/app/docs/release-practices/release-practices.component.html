@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-10 fs-5">
+            <p class="text-center">
+                <strong>ApiRTC</strong> versioning and releases.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <p>We recognize that you need stability from the <strong>ApiRTC</strong> library. Stability ensures that
+                reusable components and libraries, tutorials, tools, and learned practices don't become obsolete
+                unexpectedly. Stability is essential for the ecosystem around <strong>ApiRTC</strong> to thrive.</p>
+
+            <p>We also share with you the need for <strong>ApiRTC</strong> to keep evolving. We strive to ensure that
+                the foundation on top of which you are building is continuously improving and enabling you to stay
+                up-to-date with the rest of the web ecosystem and your user needs.</p>
+
+            <p>This document contains the practices that we follow to provide you with a leading-edge application
+                development platform, balanced with stability. We strive to ensure that future changes are always
+                introduced in a predictable way. We want everyone who depends on <strong>ApiRTC</strong> to know when
+                and how new features are added, and to be well-prepared when obsolete ones are removed.</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1>
+                <strong>ApiRTC</strong> versioning
+            </h1>
+            <p><strong>ApiRTC</strong> version numbers indicate the level of changes that are introduced by the release.
+                This use of semantic versioning helps you understand the potential impact of updating to a new version.
+            </p>
+            <p><strong>ApiRTC</strong> version numbers have three parts: major.minor.patch. For example, version 4.5.3
+                indicates major version 4, minor version 5, and patch level 3.</p>
+            <p>The version number is incremented based on the level of change included in the release.</p>
+            <ul>
+                <li>Major releases contain significant new features, some but minimal developer assistance is expected
+                    during the update. When updating to a new major release, you might need to run update scripts,
+                    refactor code, run additional tests, and learn new APIs.</li>
+                <li>Minor releases contain new smaller features. Minor releases are fully backward-compatible; no
+                    developer assistance is expected during update, but you can optionally modify your applications and
+                    libraries to begin using new APIs, features, and capabilities that were added in the release. We
+                    update peer dependencies in minor versions by expanding the supported versions, but we do not
+                    require projects to update these dependencies.</li>
+                <li>Patch releases are low risk, bug fix releases. No developer assistance is expected during update.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

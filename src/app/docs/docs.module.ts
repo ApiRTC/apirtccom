@@ -22,6 +22,7 @@ import { LogicalConceptsComponent } from './logical-concepts/logical-concepts.co
 import { OverviewComponent } from './overview/overview.component';
 import { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
 import { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
+import { ReleasePracticesComponent } from './release-practices/release-practices.component';
 
 export { ArchitectureComponent } from './architecture/architecture.component';
 export { AuthenticationComponent } from './authentication/authentication.component';
@@ -35,6 +36,7 @@ export { LogicalConceptsComponent } from './logical-concepts/logical-concepts.co
 export { OverviewComponent } from './overview/overview.component';
 export { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
 export { ReactUiDevGuideComponent } from './react-ui-dev-guide/react-ui-dev-guide.component';
+export { ReleasePracticesComponent } from './release-practices/release-practices.component';
 
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
@@ -42,21 +44,20 @@ import { SafePipe } from '../safe.pipe';
 
 import { UtilsModule } from '../utils/utils.module';
 
-
-
 @NgModule({
   declarations: [
-    DevGuideComponent,
-    DocsSideMenuComponent,
+    ArchitectureComponent, AuthenticationComponent,
+    CompatibilityComponent,
+    DemoComponent, DevGuideComponent, DocsSideMenuComponent,
+    ExamplesComponent,
     GettingStartedComponent,
     IntroductionComponent,
-    OverviewComponent, LogicalConceptsComponent,
-    ArchitectureComponent,
-    DemoComponent, PlatformDevGuideComponent,
-    ExamplesComponent, ReactUiDevGuideComponent,
-    SafePipe,
-    AuthenticationComponent,
-    CompatibilityComponent
+    LogicalConceptsComponent,
+    OverviewComponent,
+    PlatformDevGuideComponent,
+    ReactUiDevGuideComponent, ReleasePracticesComponent,
+
+    SafePipe
   ],
   imports: [
     CommonModule, RouterModule, ClipboardModule,
