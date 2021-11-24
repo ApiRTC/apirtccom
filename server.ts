@@ -43,13 +43,27 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4000;
+  const port = process.env['PORT'] || 4080;
+  const port_https = process.env['PORT'] || 4443;
 
   // Start up the Node server
   //const server = app();
   // server.listen(port, () => {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
+  
+  // For test purpose ? try plain:true
+  spdy.createServer(
+    {
+      spdy: {
+        plain: true
+      }
+    },
+    app()
+  ).listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+
   // Make server using h2 (http2, http/2) https protocol
   spdy.createServer(
     {
@@ -61,8 +75,8 @@ function run(): void {
       }
     },
     app()
-  ).listen(port, () => {
-    console.log(`Node Express server listening on h2 https://localhost:${port}`);
+  ).listen(port_https, () => {
+    console.log(`Node Express server listening on https://localhost:${port_https}`);
   });
 }
 
