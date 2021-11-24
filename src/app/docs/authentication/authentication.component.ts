@@ -12,4 +12,21 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  jsonwebtoken_sign = `jsonwebtoken.sign({
+    grants: {
+      apiRTC_UserAgent_Id: userId
+    }
+  },
+  secret,
+  {
+    header: {
+      typ: 'JWT'
+    },
+    algorithm: 'HS256',
+    subject: apiKey,
+    audience: 'apiRTC',
+    expiresIn: 3600,
+    jwtid: uuidv4()
+  });`
+
 }

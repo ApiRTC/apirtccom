@@ -6,4 +6,101 @@
             </p>
         </div>
     </div>
+    <div class="row mt-5">
+        <div class="col">
+            <p>
+                <strong>ApiRTC</strong>'s different <strong>API</strong>s accept different
+                <strong>authentication</strong> mechanisms.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h1>Frontend Application API</h1>
+            <p>The frontend API can authenticate with <strong>ApiRTC</strong>'s <strong>user management</strong>, or
+                with
+                <strong>external user management</strong>.
+            </p>
+            <p><strong>ApiRTC</strong>&nbsp;<strong>user management</strong> supports login/password authentication.</p>
+            <p>In case of <strong>external user management</strong>, <strong>JSON Web token</strong> authentication is
+                supported by <strong>ApiRTC</strong> platform.</p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <h2>JWT</h2>
+            <p>JSON Web token is an <a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">open
+                    standard&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a> defining a
+                compact and self-contained way for securely transmitting information between parties as a JSON object.
+            </p>
+            <p>This information can be verified and trusted because it is digitally signed. When tokens are signed are
+                signed using private/public key pairs, the signature also certifies that only the party holding the
+                private key is the one that signed it.</p>
+            <p>JSON Web token are a way for you to authenticate your users in the ApiRTC platform without sharing any
+                end-user information. Once you have authenticated your users you can decide when to permit them to join
+                a video session.</p>
+            <p>The authentication call-flow is illustrated below:</p>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <p class="text-center">
+                <img src="./assets/apirtc-jwt.png" alt="PaaS" width="564" height="388" class="img-fluid" />
+            </p>
+        </div>
+        <div class="col">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">
+                    The application issues a request to the auth server to get a <strong>JWT</strong>.
+                    <p class="mt-3">To understand required JWT format, please read sample code below using <a
+                            href="https://www.npmjs.com/package/jsonwebtoken" target="_blank"
+                            rel="noopener">jsonwebtoken&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>:</p>
+                    <pre><code [highlight]="jsonwebtoken_sign" [languages]="['javascript']"></code></pre>
+                    <p><code>userId</code> is the user id in external user management,</p>
+                    <p><code>secret</code> is a secret key that you get from <a
+                        href="https://cloud.apirtc.com/enterprise/users-authentication" target="_blank"
+                        rel="noopener">ApiRTC authentication configuration&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>,</p>
+                    <p><code>apiKey</code> is your account apiKey you get from <a
+                        href="https://cloud.apirtc.com/enterprise/api" target="_blank"
+                        rel="noopener">ApiRTC apiKey&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>.</p> 
+                </li>
+                <li class="list-group-item">The application registers with the client API, providing the <strong>JWT</strong>.
+                </li>
+            </ol>
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row mt-5">
+        <div class="col">
+            <h2>3rdparty</h2>
+            <p>First, the application must issue a request to the auth server to get a <strong>token</strong> that will
+                be used as a
+                parameter to <strong>ApiRTC</strong> authentication.</p>
+            <p>Then during <strong>ApiRTC</strong> authentication, <strong>ApiRTC</strong> platform will issue a HTTP
+                GET request to the configured authentication server with this <strong>token</strong> as follows:</p>
+            <p><code>GET /checkToken?userId=USERID&apiKey=APIKEY&token=TOKEN</code></p>
+            <p>The server is expected to return JSON payload <code>&lbrace;result:true&rbrace;</code> for successful
+                authentication,
+                or <code>&lbrace;result:false&rbrace;</code> to reject.</p>
+        </div>
+    </div> -->
+    <div class="row mt-5">
+        <div class="col">
+            <h1>Platform API</h1>
+            <p>The platform REST APIs requires a <strong>user</strong> account with <strong>ADMIN</strong> role on the
+                <strong>ApiRTC</strong>. Refer to <a [routerLink]="['../platform-dev-guide']"
+                    fragment="authentication">Platform Api, Authentication</a> for more
+                information.
+            </p>
+
+        </div>
+    </div>
 </div>
