@@ -527,15 +527,17 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
   toggleAudioVideoMute = {
     javascript: `// toggle audio
 if (stream.isAudioMuted()) {
-    stream.unmuteAudio();
+  stream.unmuteAudio();
+} else {
+  stream.muteAudio();
 }
-else { stream.muteAudio(); }
 
 // toggle video
 if (stream.isVideoMuted()) {
   stream.unmuteVideo();
-}
-else { stream.muteVideo(); }`
+} else {
+  stream.muteVideo();
+}`
   };
 
   recordingAvailable = {
