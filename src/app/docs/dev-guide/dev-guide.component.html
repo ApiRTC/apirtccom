@@ -751,11 +751,18 @@
                 Local stream
             </h2>
             <div class="alert alert-warning" role="alert">
-                This method may not work with all browsers. Also, returned capabilities may differ from a device to another.
+                This method may not work with all browsers. Also, returned capabilities may differ from a device to
+                another.
             </div>
-            <p>Stream capabilities are camera properties that are accessible and that could be modified (e.g. brightness, contrast, frameRate, saturation, torch, zoom). <strong>ApiRTC</strong> allows to control them through <code>Stream</code> object.</p>
-            <p>There are 3 methods to get all the information you need : <code>getSettings</code>, <code>getCapabilities</code> and <code>getConstraints</code>.</p>
-            <p>The <code>Stream.getSettings()</code> function return an object with all available capabilities and their actual values. If a capability is not on the returned object it means the device and/or the navigator does not handle this capability.</p>
+            <p>Stream capabilities are camera properties that are accessible and that could be modified (e.g.
+                brightness, contrast, frameRate, saturation, torch, zoom). <strong>ApiRTC</strong> allows to control
+                them through <code>Stream</code> object.</p>
+            <p>There are 3 methods to get all the information you need : <code>getSettings</code>,
+                <code>getCapabilities</code> and <code>getConstraints</code>.
+            </p>
+            <p>The <code>Stream.getSettings()</code> function return an object with all available capabilities and their
+                actual values. If a capability is not on the returned object it means the device and/or the navigator
+                does not handle this capability.</p>
             <div class="row align-items-center mt-3">
                 <div class="col">
                     <app-codenav [code]="capabilitiesGetSettings" [(language)]="lang"></app-codenav>
@@ -765,205 +772,258 @@
                 <div class="col border-start">
                     <p>Here is an example of the object returned :</p>
                     <pre><code [highlight]="capabilitiesGetSettingsResult" [languages]="['json']"></code></pre>
-                    <p>In this example <code>frameRate</code> is a supported capability and it's actual value is 30. <code>zoom</code> is not a supported capability for this combination of device/camera/navigator as it is not present in the returned object.</p>
+                    <p>In this example <code>frameRate</code> is a supported capability and it's actual value is 30.
+                        <code>zoom</code> is not a supported capability for this combination of device/camera/navigator
+                        as it is not present in the returned object.
+                    </p>
                     <div class="alert alert-warning" role="alert">
-                        Capabilities are linked to the camera used, changing it also change the returned capabilities. On smartphones with multiple back cameras, sometimes the torch capability is only attached to one of them.
+                        Capabilities are linked to the camera used, changing it also change the returned capabilities.
+                        On smartphones with multiple back cameras, sometimes the torch capability is only attached to
+                        one of them.
                     </div>
-            </div>
-            <p>The <code>Stream.getCapabilities()</code> function return an object with all available capabilities and their accepted values ranges.</p>
-            <div class="row align-items-center mt-3">
-                <div class="col">
-                    <app-codenav [code]="capabilitiesGetCapabilities" [(language)]="lang"></app-codenav>
-                    <p>To get the result, listen the <code>streamCapabilities</code> event :</p>
-                    <app-codenav [code]="capabilitiesGetCapabilitiesListen" [(language)]="lang"></app-codenav>
                 </div>
-                <div class="col border-start">
-                    <p>Here is an example of the object returned :</p>
-                    <pre><code [highlight]="capabilitiesGetCapabilitiesResult" [languages]="['json']"></code></pre>
-                    <p>In this example <code>frameRate</code> capability may be modified between 0 and 30.000000305175.</p>
-            </div>
-            <p>The <code>Stream.getConstraints()</code> function return an object with all capabilities that were modified from their default value and their actual values.</p>
-            <div class="row align-items-center mt-3">
-                <div class="col">
-                    <app-codenav [code]="capabilitiesGetConstraints" [(language)]="lang"></app-codenav>
-                    <p>To get the result, listen the <code>streamCapabilities</code> event :</p>
-                    <app-codenav [code]="capabilitiesGetConstraintsListen" [(language)]="lang"></app-codenav>
-                </div>
-                <div class="col border-start">
-                    <p>Here is an example of the object returned if no cabality modified :</p>
-                    <pre><code [highlight]="capabilitiesGetConstraintsResult" [languages]="['json']"></code></pre>
-                    <p>Here is an example of the object returned if <code>frameRate</code> capability was modified to value 10 :</p>
-                    <pre><code [highlight]="capabilitiesGetConstraintsResult2" [languages]="['json']"></code></pre>
-            </div>
-            <p>To modify a capability value use the <code>setCapability</code> function as below :</p>
-            <app-codenav [code]="setCapability" [(language)]="lang"></app-codenav>
-            <h2 class="mt-3">
-                <a #anchor id="capabilities-remote" class="anchor"></a>
-                Remote stream
-            </h2>
-            <p>On a remote stream you may use all the previous functions explained for a local stream the exact same way, expect for the <code>setCapability</code> method for a non-intrusive reason.</p> 
-            <p>The usage of <code>setCapability</code> is the same, but it will throw an error saying you need to ask authorization to the remote user before using this method.</p>
-            <div class="row align-items-center mt-3">
-                <div class="col">
-                    <p>Here is what you need to do to ask the authorization to the remote user to perform <code>setCapability</code> calls in his name on his device :</p>
-                    <app-codenav [code]="remoteCapability" [(language)]="lang"></app-codenav>
-                    <p>Then, listen <code>remoteCapabilityRequestAccepted</code> and <code>remoteCapabilityRequestRefused</code> events :</p>
-                    <app-codenav [code]="remoteCapabilityListen" [(language)]="lang"></app-codenav>
-                </div>
-                <div class="col border-start">
-                    <p>Here is what the remote user needs to do to handle your request, and to accept or refuse it. Listen the <code>remoteCapabilityRequest</code> event, and answer by accepting using <code>acceptRemoteCapabilityRequest</code> function or refuse using <code>refuseRemoteCapabilityRequest</code> function.</p>
-                    <app-codenav [code]="remoteRequest" [(language)]="lang"></app-codenav>
-                </div>
-            </div>
-            <p>If the remote user accepted the remote capability control you may perform <code>setCapability</code> calls without error :</p>
-            <app-codenav [code]="remoteSetCapability" [(language)]="lang"></app-codenav>
-            <p>In this particular case of remote <code>setCapability</code> usage the promise is released when the order has been send to the remote user to execute the <code>setCapability</code> function, not when the capability has been set.</p>
-            <h1 class="mt-5">
-                <a #anchor id="qos-statistics" class="anchor"></a>
-                QoS statistics
-            </h1>
-            <p>
-                <code>Conversation</code> event <code>callStatsUpdate</code> provides statistics information on
-                <strong>media stream</strong> exchanges quality of service.
-            </p>
-            <app-codenav [code]="callStatsUpdate" [(language)]="lang"></app-codenav>
-            <p>
-                Depending on whether the stream is <strong>sent</strong> or <strong>received</strong>, the event data
-                object (<code>callStats</code>) holds the following information:
-            </p>
-            <div class="row">
-                <div class="col">
-                    <p class="text-center">
-                        For a <strong>local stream</strong>, qos info on sent media
-                    </p>
-                    <pre><code [highlight]="stats_sent" [languages]="['json']"></code></pre>
-                </div>
-                <div class="col">
-                    <p class="text-center">
-                        For a <strong>remote stream</strong>, qos info on received media
-                    </p>
-                    <pre><code [highlight]="stats_received" [languages]="['json']"></code></pre>
-                </div>
-            </div>
-            <p>
-                The <code>callStats.streamId</code> is useful to associate data to corresponding
-                <strong>stream</strong>.
-            </p>
-            <h1 class="mt-5">
-                <a #anchor id="speaker-detection" class="anchor"></a>
-                Speaker detection
-            </h1>
-            <p>
-                To display which participant is currently talking in a <code>Conversation</code>, enable the feature:
-            </p>
-            <app-codenav [code]="enableActiveSpeakerDetecting" [(language)]="lang"></app-codenav>
-            <p>
-                Then, listen on the <code>audioAmplitude</code> event:
-            </p>
-            <app-codenav [code]="audioAmplitude" [(language)]="lang"></app-codenav>
-            <p>
-                the event data object (<code>amplitudeInfo</code>) holds the following information:
-            </p>
-            <pre><code [highlight]="amplitudeInfo" [languages]="['json']"></code></pre>
-            <p>
-                When the participant speaks and <code>amplitude</code> goes over the <code>threshold</code> configured
-                during feature enabling, event with <code>isSpeaking</code> set to <strong>true</strong> is fired.
-            </p>
-            <p>
-                When the participant does not speak anymore, the event is fired again with initial
-                <code>amplitude</code> value that triggered the event, but this time <code>isSpeaking</code> is
-                <strong>false</strong>.
-            </p>
-            <h1 class="mt-5">
-                <a #anchor id="mute" class="anchor"></a>
-                Audio/Video Mute
-            </h1>
-            <p>
-                To control <strong>local or remote stream</strong> audio/video mute, use the following
-                <code>Stream</code>
-                methods:
-            </p>
-            <app-codenav [code]="toggleAudioVideoMute" [(language)]="lang"></app-codenav>
-            <h1 class="mt-5">
-                <a #anchor id="whiteboard" class="anchor"></a>
-                Whiteboard
-            </h1>
-            <p>
-                Explain Whiteboard
-            </p>
-            <h1 class="mt-5">
-                <a #anchor id="recording" class="anchor"></a>
-                Recording
-            </h1>
-            <!-- <p>
+                <p>The <code>Stream.getCapabilities()</code> function return an object with all available capabilities
+                    and their accepted values ranges.</p>
+                <div class="row align-items-center mt-3">
+                    <div class="col">
+                        <app-codenav [code]="capabilitiesGetCapabilities" [(language)]="lang"></app-codenav>
+                        <p>To get the result, listen the <code>streamCapabilities</code> event :</p>
+                        <app-codenav [code]="capabilitiesGetCapabilitiesListen" [(language)]="lang"></app-codenav>
+                    </div>
+                    <div class="col border-start">
+                        <p>Here is an example of the object returned :</p>
+                        <pre><code [highlight]="capabilitiesGetCapabilitiesResult" [languages]="['json']"></code></pre>
+                        <p>In this example <code>frameRate</code> capability may be modified between 0 and
+                            30.000000305175.</p>
+                    </div>
+                    <p>The <code>Stream.getConstraints()</code> function return an object with all capabilities that
+                        were modified from their default value and their actual values.</p>
+                    <div class="row align-items-center mt-3">
+                        <div class="col">
+                            <app-codenav [code]="capabilitiesGetConstraints" [(language)]="lang"></app-codenav>
+                            <p>To get the result, listen the <code>streamCapabilities</code> event :</p>
+                            <app-codenav [code]="capabilitiesGetConstraintsListen" [(language)]="lang"></app-codenav>
+                        </div>
+                        <div class="col border-start">
+                            <p>Here is an example of the object returned if no cabality modified :</p>
+                            <pre><code [highlight]="capabilitiesGetConstraintsResult" [languages]="['json']"></code></pre>
+                            <p>Here is an example of the object returned if <code>frameRate</code> capability was
+                                modified to value 10 :</p>
+                            <pre><code [highlight]="capabilitiesGetConstraintsResult2" [languages]="['json']"></code></pre>
+                        </div>
+                        <p>To modify a capability value use the <code>setCapability</code> function as below :</p>
+                        <app-codenav [code]="setCapability" [(language)]="lang"></app-codenav>
+                        <h2 class="mt-3">
+                            <a #anchor id="capabilities-remote" class="anchor"></a>
+                            Remote stream
+                        </h2>
+                        <p>On a remote stream you may use all the previous functions explained for a local stream the
+                            exact same way, expect for the <code>setCapability</code> method for a non-intrusive reason.
+                        </p>
+                        <p>The usage of <code>setCapability</code> is the same, but it will throw an error saying you
+                            need to ask authorization to the remote user before using this method.</p>
+                        <div class="row align-items-center mt-3">
+                            <div class="col">
+                                <p>Here is what you need to do to ask the authorization to the remote user to perform
+                                    <code>setCapability</code> calls in his name on his device :
+                                </p>
+                                <app-codenav [code]="remoteCapability" [(language)]="lang"></app-codenav>
+                                <p>Then, listen <code>remoteCapabilityRequestAccepted</code> and
+                                    <code>remoteCapabilityRequestRefused</code> events :
+                                </p>
+                                <app-codenav [code]="remoteCapabilityListen" [(language)]="lang"></app-codenav>
+                            </div>
+                            <div class="col border-start">
+                                <p>Here is what the remote user needs to do to handle your request, and to accept or
+                                    refuse it. Listen the <code>remoteCapabilityRequest</code> event, and answer by
+                                    accepting using <code>acceptRemoteCapabilityRequest</code> function or refuse using
+                                    <code>refuseRemoteCapabilityRequest</code> function.
+                                </p>
+                                <app-codenav [code]="remoteRequest" [(language)]="lang"></app-codenav>
+                            </div>
+                        </div>
+                        <p>If the remote user accepted the remote capability control you may perform
+                            <code>setCapability</code> calls without error :
+                        </p>
+                        <app-codenav [code]="remoteSetCapability" [(language)]="lang"></app-codenav>
+                        <p>In this particular case of remote <code>setCapability</code> usage the promise is released
+                            when the order has been send to the remote user to execute the <code>setCapability</code>
+                            function, not when the capability has been set.</p>
+                        <h1 class="mt-5">
+                            <a #anchor id="qos-statistics" class="anchor"></a>
+                            QoS statistics
+                        </h1>
+                        <p>
+                            <code>Conversation</code> event <code>callStatsUpdate</code> provides statistics information
+                            on
+                            <strong>media stream</strong> exchanges quality of service.
+                        </p>
+                        <app-codenav [code]="callStatsUpdate" [(language)]="lang"></app-codenav>
+                        <p>
+                            Depending on whether the stream is <strong>sent</strong> or <strong>received</strong>, the
+                            event data
+                            object (<code>callStats</code>) holds the following information:
+                        </p>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-center">
+                                    For a <strong>local stream</strong>, qos info on sent media
+                                </p>
+                                <pre><code [highlight]="stats_sent" [languages]="['json']"></code></pre>
+                            </div>
+                            <div class="col">
+                                <p class="text-center">
+                                    For a <strong>remote stream</strong>, qos info on received media
+                                </p>
+                                <pre><code [highlight]="stats_received" [languages]="['json']"></code></pre>
+                            </div>
+                        </div>
+                        <p>
+                            The <code>callStats.streamId</code> is useful to associate data to corresponding
+                            <strong>stream</strong>.
+                        </p>
+                        <h1 class="mt-5">
+                            <a #anchor id="speaker-detection" class="anchor"></a>
+                            Speaker detection
+                        </h1>
+                        <p>
+                            To display which participant is currently talking in a <code>Conversation</code>, enable the
+                            feature:
+                        </p>
+                        <app-codenav [code]="enableActiveSpeakerDetecting" [(language)]="lang"></app-codenav>
+                        <p>
+                            Then, listen on the <code>audioAmplitude</code> event:
+                        </p>
+                        <app-codenav [code]="audioAmplitude" [(language)]="lang"></app-codenav>
+                        <p>
+                            the event data object (<code>amplitudeInfo</code>) holds the following information:
+                        </p>
+                        <pre><code [highlight]="amplitudeInfo" [languages]="['json']"></code></pre>
+                        <p>
+                            When the participant speaks and <code>amplitude</code> goes over the <code>threshold</code>
+                            configured
+                            during feature enabling, event with <code>isSpeaking</code> set to <strong>true</strong> is
+                            fired.
+                        </p>
+                        <p>
+                            When the participant does not speak anymore, the event is fired again with initial
+                            <code>amplitude</code> value that triggered the event, but this time <code>isSpeaking</code>
+                            is
+                            <strong>false</strong>.
+                        </p>
+                        <h1 class="mt-5">
+                            <a #anchor id="mute" class="anchor"></a>
+                            Audio/Video Mute
+                        </h1>
+                        <p>
+                            To control <strong>local or remote stream</strong> audio/video mute, use the following
+                            <code>Stream</code>
+                            methods:
+                        </p>
+                        <app-codenav [code]="toggleAudioVideoMute" [(language)]="lang"></app-codenav>
+                        <h1 class="mt-5">
+                            <a #anchor id="whiteboard" class="anchor"></a>
+                            Whiteboard
+                        </h1>
+                        <p>
+                            Explain Whiteboard
+                        </p>
+                        <h1 class="mt-5">
+                            <a #anchor id="recording" class="anchor"></a>
+                            Recording
+                        </h1>
+                        <!-- <p>
                 TODO : Recording locally one stream...
             </p> -->
-            <p>
-                <strong>ApiRTC</strong> platform allows to record a composite video of a <strong>conversation</strong>.
-                The video will be composed of all streams exchanged in the <strong>conversation</strong> and will be
-                stored in <strong>ApiRTC</strong>'s database.
-            </p>
-            <p>To start recording a <strong>conversation</strong>:</p>
-            <app-codenav [code]="startRecording" [(language)]="lang"></app-codenav>
-            <p>
-                Example of <code>recordingInfo</code> (<a
-                    href="https://dev.apirtc.com/reference/global.html#RecordingInfo" target="_blank"
-                    rel="noopener"><code>RecordingInfo</code>&nbsp;<span
-                        class="material-icons align-middle fs-6">open_in_new</span></a>):
-            </p>
-            <pre><code [highlight]="recordingInfo" [languages]="['json']"></code></pre>
-            <p>To stop recording a <strong>conversation</strong>:</p>
-            <app-codenav [code]="stopRecording" [(language)]="lang"></app-codenav>
-            <p>Once the recording is stopped, the <strong>ApiRTC</strong> platform wil process it and make it available
-                for download. To get notified when a record is available:</p>
-            <app-codenav [code]="recordingAvailable" [(language)]="lang"></app-codenav>
-            <p>When the video is available, you can use the <code>RecordingInfo.mediaURL</code> to download it.</p>
-            <div class="alert alert-info d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-                    <use xlink:href="#info-fill"></use>
-                </svg>
-                <div>
-                    Manage your recorded medias from your <strong>ApiRTC</strong> account <a
-                        href="https://cloud.apirtc.com/media-manager" title="Media Manager" target="_blank"
-                        rel="noopener">Media-Manager&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <p>
+                            <strong>ApiRTC</strong> platform allows to record a composite video of a
+                            <strong>conversation</strong>.
+                            The video will be composed of all streams exchanged in the <strong>conversation</strong> and
+                            will be
+                            stored in <strong>ApiRTC</strong>'s database.
+                        </p>
+                        <p>To start recording a <strong>conversation</strong>:</p>
+
+                        <div class="row align-items-center mt-3">
+                            <div class="col">
+                                <app-codenav [code]="startRecording" [(language)]="lang"></app-codenav>
+                            </div>
+                            <div class="col border-start">
+                                <p>
+                                    Refer to <a href="https://dev.apirtc.com/reference/Conversation.html#startRecording"
+                                        target="_blank" rel="noopener"><code>startRecording(options)</code>&nbsp;<span
+                                            class="material-icons align-middle fs-6">open_in_new</span></a> for
+                                    <code>options</code> details.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            Example of <code>recordingInfo</code> (<a
+                                href="https://dev.apirtc.com/reference/global.html#RecordingInfo" target="_blank"
+                                rel="noopener"><code>RecordingInfo</code>&nbsp;<span
+                                    class="material-icons align-middle fs-6">open_in_new</span></a>):
+                        </p>
+                        <pre><code [highlight]="recordingInfo" [languages]="['json']"></code></pre>
+                        <p>To stop recording a <strong>conversation</strong>:</p>
+                        <app-codenav [code]="stopRecording" [(language)]="lang"></app-codenav>
+                        <p>Once the recording is stopped, the <strong>ApiRTC</strong> platform wil process it and make
+                            it available
+                            for download. To get notified when a record is available:</p>
+                        <app-codenav [code]="recordingAvailable" [(language)]="lang"></app-codenav>
+                        <p>When the video is available, you can use the <code>RecordingInfo.mediaURL</code> to download
+                            it.</p>
+                        <div class="alert alert-info d-flex align-items-center" role="alert">
+                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                                <use xlink:href="#info-fill"></use>
+                            </svg>
+                            <div>
+                                Manage your recorded medias from your <strong>ApiRTC</strong> account <a
+                                    href="https://cloud.apirtc.com/media-manager" title="Media Manager" target="_blank"
+                                    rel="noopener">Media-Manager&nbsp;<span
+                                        class="material-icons align-middle fs-6">open_in_new</span></a>
+                            </div>
+                        </div>
+
+                        <h1 class="mt-5">
+                            <a #anchor id="chat-messages" class="anchor"></a>
+                            Chat messages
+                        </h1>
+                        <p>
+                            Explain Chat messages
+                        </p>
+                        <h1 class="mt-5">
+                            <a #anchor id="background-subtraction" class="anchor"></a>
+                            Background subtraction
+                        </h1>
+                        <p>
+                            <strong>ApiRTC</strong> allows to create a background blurred stream based on an original
+                            stream using <code>Stream.blur()</code>.
+                        </p>
+                        <p>To start the blur process on a <strong>stream</strong> :</p>
+                        <app-codenav [code]="blur" [(language)]="lang"></app-codenav>
+                        <p>The returned blurred stream is a an instance of <code>Stream</code> and is a copy of the base
+                            stream with a blur process applied on it. It means that there is a strong dependance between
+                            the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
+                            the parent is released the child also). Both streams needs to be handled by the application
+                            to keep the blur process going on.</p>
+                        <p>Then, use the blurred stream as a local stream :</p>
+                        <app-codenav [code]="blurPublish" [(language)]="lang"></app-codenav>
+
+                        <p>To stop the blur process :</p>
+                        <app-codenav [code]="blurStop" [(language)]="lang"></app-codenav>
+                        <p>Both methods have the same result, the only difference is the object on which you call the
+                            method.</p>
+                        <h1 class="mt-5">
+                            <a #anchor id="good-practices" class="anchor"></a>
+                            Good practices
+                        </h1>
+                        <p>
+                            Explain Good practices
+                        </p>
+                        <h2 class="mt-3">
+                            <a #anchor id="uptodate" class="anchor"></a>
+                            Keeping Up-to-Date
+                        </h2>
+                    </div>
                 </div>
             </div>
-
-            <h1 class="mt-5">
-                <a #anchor id="chat-messages" class="anchor"></a>
-                Chat messages
-            </h1>
-            <p>
-                Explain Chat messages
-            </p>
-            <h1 class="mt-5">
-                <a #anchor id="background-subtraction" class="anchor"></a>
-                Background subtraction
-            </h1>
-            <p>
-                <strong>ApiRTC</strong> allows to create a background blurred stream based on an original stream using <code>Stream.blur()</code>.
-            </p>
-            <p>To start the blur process on a <strong>stream</strong> :</p>
-            <app-codenav [code]="blur" [(language)]="lang"></app-codenav>
-            <p>The returned blurred stream is a an instance of <code>Stream</code> and is a copy of the base stream with a blur process applied on it. It means that there is a strong dependance between the child and his parent (e.g. If the parent audio is muted the child audio will be too, if the parent is released the child also). Both streams needs to be handled by the application to keep the blur process going on.</p>
-            <p>Then, use the blurred stream as a local stream :</p>
-            <app-codenav [code]="blurPublish" [(language)]="lang"></app-codenav>
-
-            <p>To stop the blur process :</p>
-            <app-codenav [code]="blurStop" [(language)]="lang"></app-codenav>
-            <p>Both methods have the same result, the only difference is the object on which you call the method.</p>
-            <h1 class="mt-5">
-                <a #anchor id="good-practices" class="anchor"></a>
-                Good practices
-            </h1>
-            <p>
-                Explain Good practices
-            </p>
-            <h2 class="mt-3">
-                <a #anchor id="uptodate" class="anchor"></a>
-                Keeping Up-to-Date
-            </h2>
-        </div>
-    </div>
-</div>
