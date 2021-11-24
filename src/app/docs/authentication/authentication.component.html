@@ -29,8 +29,9 @@
     <div class="row mt-5">
         <div class="col">
             <h2>JWT</h2>
-            <p>JSON Web token is an <a href="https://tools.ietf.org/html/rfc7519" target="_blank" rel="noopener">open
-                    standard&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a> defining a
+            <p>JSON Web token is an <a class="text-nowrap" href="https://tools.ietf.org/html/rfc7519" target="_blank"
+                    rel="noopener">open standard&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a> defining a
                 compact and self-contained way for securely transmitting information between parties as a JSON object.
             </p>
             <p>This information can be verified and trusted because it is digitally signed. When tokens are signed are
@@ -53,21 +54,21 @@
                 <li class="list-group-item">
                     The application issues a request to the auth server to get a <strong>JWT</strong>.
                     <p class="mt-3">To understand required JWT format, please read sample code below using <a
-                            href="https://www.npmjs.com/package/jsonwebtoken" target="_blank"
+                            class="text-nowrap" href="https://www.npmjs.com/package/jsonwebtoken" target="_blank"
                             rel="noopener">jsonwebtoken&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>:</p>
                     <pre><code [highlight]="jsonwebtoken_sign" [languages]="['javascript']"></code></pre>
                     <p><code>userId</code> is the user id in external user management,</p>
-                    <p><code>secret</code> is a secret key that you get from <a
-                        href="https://cloud.apirtc.com/enterprise/users-authentication" target="_blank"
-                        rel="noopener">ApiRTC authentication configuration&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a>,</p>
-                    <p><code>apiKey</code> is your account apiKey you get from <a
-                        href="https://cloud.apirtc.com/enterprise/api" target="_blank"
-                        rel="noopener">ApiRTC apiKey&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a>.</p> 
+                    <p><code>secret</code> is a secret key that you get from <a class="text-nowrap"
+                            href="https://cloud.apirtc.com/enterprise/users-authentication" target="_blank"
+                            rel="noopener">ApiRTC authentication configuration&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>,</p>
+                    <p><code>apiKey</code> is your account apiKey you get from <a class="text-nowrap"
+                            href="https://cloud.apirtc.com/enterprise/api" target="_blank" rel="noopener">ApiRTC
+                            apiKey&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>.</p>
                 </li>
-                <li class="list-group-item">The application registers with the client API, providing the <strong>JWT</strong>.
+                <li class="list-group-item">The application registers with the client API, providing the
+                    <strong>JWT</strong>.
                 </li>
             </ol>
 
