@@ -67,19 +67,19 @@ function run(): void {
   });
 
   // Make server using h2 (http2, http/2) https protocol
-  // spdy.createServer(
-  //   {
-  //     key: readFileSync("./cert/selfsigned.key"),
-  //     cert: readFileSync("./cert/selfsigned.crt"),
-  //     spdy: {
-  //       // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
-  //       plain: false
-  //     }
-  //   },
-  //   app()
-  // ).listen(port_https, () => {
-  //   console.log(`Node Express server listening on https://localhost:${port_https}`);
-  // });
+  spdy.createServer(
+    {
+      key: readFileSync("./cert/selfsigned.key"),
+      cert: readFileSync("./cert/selfsigned.crt"),
+      spdy: {
+        // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
+        plain: false
+      }
+    },
+    app()
+  ).listen(port_https, () => {
+    console.log(`Node Express server listening on https://localhost:${port_https}`);
+  });
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
