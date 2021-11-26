@@ -1,0 +1,47 @@
+{
+    "dictionary": [],
+    "anchors": [
+        {
+            "title": "Front App API Developer's Guide",
+            "path": "dev-guide",
+            "fragment": "moderation",
+            "keywords": [
+                "moderation",
+                "moderator",
+                "moderate"
+            ]
+        },
+        {
+            "title": "Front App API Developer's Guide",
+            "path": "dev-guide",
+            "fragment": "conversation",
+            "keywords": [
+                "conversation",
+                "getorcreate",
+                "join",
+                "leave"
+            ]
+        },
+        {
+            "title": "Front App API Developer's Guide",
+            "path": "dev-guide",
+            "fragment": "user-agent",
+            "keywords": [
+                "useragent",
+                "user agent"
+            ]
+        },
+        {
+            "title": "Front App API Getting Started",
+            "path": "getting-started",
+            "keywords": [
+                "getting started",
+                "getting",
+                "started",
+                "useragent",
+                "user agent",
+                "conversation"
+            ]
+        }
+    ]
+}
