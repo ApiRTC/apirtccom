@@ -11,10 +11,6 @@ body {
     grid-area: main;
 }
 
-.bg-apirtc {
-    background-color: #0078D4;  
-}
-
 .bd-toc {
     grid-area: toc;
     display: none;
@@ -92,6 +88,14 @@ a.anchor {
 
 code {
     color: #1977B3;
+}
+
+.text-apirtc {
+    color: #0078D4 !important;
+}
+
+.bg-apirtc {
+    background-color: #0078D4;  
 }
 
 .btn-primary {
