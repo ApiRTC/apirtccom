@@ -12,20 +12,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { FeaturesComponent } from './features/features.component';
-import { HomeComponent } from './home/home.component';
-import { BlogComponent } from './blog/blog.component';
-import { UseCasesComponent } from './use-cases/use-cases.component';
-
 import { DocsModule } from './docs/docs.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FeaturesComponent,
-    HomeComponent,
-    BlogComponent,
-    UseCasesComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
