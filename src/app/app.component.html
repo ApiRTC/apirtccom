@@ -29,13 +29,18 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" rel="noopener" href="https://cloud.apirtc.com/">Login</a>
+                    <form class="d-flex" [formGroup]="searchFormGroup" (ngSubmit)="search()">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            formControlName="words">
+                        <button class="btn btn-outline-light" type="submit" data-bs-toggle="modal"
+                            data-bs-target="#searchModal">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-3" rel="noopener" href="https://cloud.apirtc.com/">Login</a>
                 </li>
             </ul>
-            <!-- <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form> -->
+
         </div>
     </div>
 </nav>
@@ -71,11 +76,40 @@
             [fixedTopGap]="100">
             <app-docs-side-menu (click)="onMenuClick()"></app-docs-side-menu>
         </mat-sidenav>
-        <!--mb-5 used to allow more margin for footer -->
-        <mat-sidenav-content class="mb-5">
+        <!--my-5 used to allow margin for menu and more margin for footer -->
+        <mat-sidenav-content class="my-5">
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
+</div>
+
+<!-- search results -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="searchModalLabel">Search results</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="list-group">
+                    <a *ngFor="let result of searchResults" [routerLink]="[result.path]" [fragment]="result.fragment"
+                        class="list-group-item list-group-item-action" aria-current="true" data-bs-dismiss="modal">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{result.title}}</h5>
+                            <!-- <small>3 days ago</small> -->
+                        </div>
+                        <!-- <p class="mb-1">Some placeholder content in a paragraph.</p>
+                        <small>And some small print.</small> -->
+                    </a>
+                </div>
+                <div></div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div> -->
+        </div>
+    </div>
 </div>
 
 <!-- Footer -->

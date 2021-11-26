@@ -13,6 +13,7 @@ import * as spdy from 'spdy';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
+  //const server = express.default();
   const distFolder = join(process.cwd(), 'dist/apirtccom/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
 
@@ -32,10 +33,10 @@ export function app(): express.Express {
   }));
 
   // All regular routes use the Universal engine
-  server.get('*', (req, res) => {
+  server.get('*', (req: any, res: any) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
-  server.get('**/*', (req, res) => {
+  server.get('**/*', (req: any, res: any) => {
     res.render(indexHtml, { req, providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }] });
   });
 
@@ -43,15 +44,16 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  const port = process.env['PORT'] || 4080;
-  const port_https = process.env['PORT'] || 4443;
+  //process.env['PORT'] ||
+  const port = 4080;
+  const port_https = 4443;
 
   // Start up the Node server
   //const server = app();
   // server.listen(port, () => {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
-  
+
   // For test purpose ? try plain:true
   spdy.createServer(
     {
@@ -65,19 +67,19 @@ function run(): void {
   });
 
   // Make server using h2 (http2, http/2) https protocol
-  spdy.createServer(
-    {
-      key: readFileSync("./cert/selfsigned.key"),
-      cert: readFileSync("./cert/selfsigned.crt"),
-      spdy: {
-        // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
-        plain: false
-      }
-    },
-    app()
-  ).listen(port_https, () => {
-    console.log(`Node Express server listening on https://localhost:${port_https}`);
-  });
+  // spdy.createServer(
+  //   {
+  //     key: readFileSync("./cert/selfsigned.key"),
+  //     cert: readFileSync("./cert/selfsigned.crt"),
+  //     spdy: {
+  //       // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
+  //       plain: false
+  //     }
+  //   },
+  //   app()
+  // ).listen(port_https, () => {
+  //   console.log(`Node Express server listening on https://localhost:${port_https}`);
+  // });
 }
 
 // Webpack will replace 'require' with '__webpack_require__'

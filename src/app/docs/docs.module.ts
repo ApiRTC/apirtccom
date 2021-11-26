@@ -40,8 +40,6 @@ export { ReleasePracticesComponent } from './release-practices/release-practices
 
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
-import { SafePipe } from '../safe.pipe';
-
 import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
@@ -56,11 +54,10 @@ import { UtilsModule } from '../utils/utils.module';
     OverviewComponent,
     PlatformDevGuideComponent,
     ReactUiDevGuideComponent, ReleasePracticesComponent,
-
-    SafePipe
   ],
   imports: [
-    CommonModule, RouterModule, ClipboardModule,
+    CommonModule, RouterModule,
+    ClipboardModule,
     MatTabsModule, MatButtonModule, MatIconModule,
     MatSnackBarModule,
     HighlightModule,

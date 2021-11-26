@@ -2,15 +2,18 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlatformDevGuideComponent } from './platform-dev-guide.component';
 
+import { RouterTestingModule } from '@angular/router/testing';
+
 describe('PlatformDevGuideComponent', () => {
   let component: PlatformDevGuideComponent;
   let fixture: ComponentFixture<PlatformDevGuideComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlatformDevGuideComponent ]
+      imports: [RouterTestingModule],
+      declarations: [PlatformDevGuideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

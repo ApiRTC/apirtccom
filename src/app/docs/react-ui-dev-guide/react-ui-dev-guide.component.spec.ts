@@ -2,15 +2,18 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReactUiDevGuideComponent } from './react-ui-dev-guide.component';
 
+import { RouterTestingModule } from '@angular/router/testing';
+
 describe('ReactUiDevGuideComponent', () => {
   let component: ReactUiDevGuideComponent;
   let fixture: ComponentFixture<ReactUiDevGuideComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReactUiDevGuideComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ReactUiDevGuideComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
