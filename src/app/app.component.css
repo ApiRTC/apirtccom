@@ -25,4 +25,5 @@
 mat-sidenav {
     background-color: #fafafa;
     border: unset;
+    width: 200px;
 }

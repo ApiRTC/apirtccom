@@ -1,43 +1,98 @@
-<div class="list-group">
+<div class="list-group fs-7">
     <!-- <a routerLink="intro" class="list-group-item list-group-item-action" routerLinkActive="active" aria-current="true">
         Introduction
     </a> -->
-    <a routerLink="overview" class="list-group-item list-group-item-action" routerLinkActive="active">Overview</a>
+    <a routerLink="overview" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">Overview</a>
     <!-- <a routerLink="overview" fragment="purpose" class="list-group-item list-group-item-action" routerLinkActive="active">Purpose</a>
     <a routerLink="overview" fragment="apis" class="list-group-item list-group-item-action" routerLinkActive="active">Apis</a> -->
     <!-- <a class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">disabled</a> -->
-    <a routerLink="architecture" class="list-group-item list-group-item-action"
+    <a routerLink="architecture" class="list-group-item list-group-item-action text-nowrap"
         routerLinkActive="active">Architecture</a>
-    <a routerLink="logical-concepts" class="list-group-item list-group-item-action" routerLinkActive="active">Logical
+    <a routerLink="logical-concepts" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">Logical
         Concepts</a>
-    <a routerLink="authentication" class="list-group-item list-group-item-action"
-        routerLinkActive="active">Authentication</a>
-    <a routerLink="getting-started" class="list-group-item list-group-item-action" routerLinkActive="active">Getting
+    <a routerLink="getting-started" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">Getting
         Started</a>
-    <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1"
-        aria-disabled="true">Developer Guides</span>
+    <!-- <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1"
+        aria-disabled="true">Developer Guides</span> -->
     <!-- <img class="float-end" src="./assets/devguides-icon.png" width="18" height="21" alt="devguides" /> -->
-    <a routerLink="dev-guide" class="list-group-item list-group-item-action" routerLinkActive="active">&emsp;Front
+    <!-- <a routerLink="dev-guide" class="list-group-item list-group-item-action text-nowrap" routerLinkActive="active">&emsp;Front
         Application
         API</a>
-    <a routerLink="react-ui-dev-guide" class="list-group-item list-group-item-action"
+    <a routerLink="react-ui-dev-guide" class="list-group-item list-group-item-action text-nowrap"
         routerLinkActive="active">&emsp;React UI
         Library</a>
-    <a routerLink="platform-dev-guide" class="list-group-item list-group-item-action"
-        routerLinkActive="active">&emsp;Platform API</a>
-    <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1" aria-disabled="true">Tutorials</span>
+    <a routerLink="platform-dev-guide" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">&emsp;Platform API</a> -->
+    <div class="list-group-item list-group-item-action accordion accordion-flush px-0 py-0" id="devguides-accordion">
+        <div class="accordion-item px-0 py-0">
+            <span class="accordion-header" id="devguides-accordion-header-1">
+                <button class="accordion-button collapsed px-3 py-2 text-nowrap fs-7" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#devguides-accordion-collapse-1" aria-expanded="false"
+                    aria-controls="devguides-accordion-collapse-1">Developer Guides
+                </button>
+            </span>
+            <div id="devguides-accordion-collapse-1" class="accordion-collapse collapse"
+                aria-labelledby="devguides-accordion-header-1" data-bs-parent="#devguides-accordion">
+                <div class="accordion-body px-0 py-0">
+                    <div class="list-group list-group-flush">
+                        <a routerLink="dev-guide" class="list-group-item list-group-item-action text-nowrap px-3"
+                            routerLinkActive="active">&emsp;Front Application API</a>
+                        <a routerLink="react-ui-dev-guide"
+                            class="list-group-item list-group-item-action text-nowrap px-3"
+                            routerLinkActive="active">&emsp;React UI Library</a>
+                        <a routerLink="platform-dev-guide"
+                            class="list-group-item list-group-item-action text-nowrap px-3"
+                            routerLinkActive="active">&emsp;Platform API</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1"
+        aria-disabled="true">Tutorials</span> -->
     <!-- <img class="float-end" src="./assets/tutorials-icon.svg" width="21" height="21" alt="tutorials" /> -->
-    <a routerLink="demo" class="list-group-item list-group-item-action" routerLinkActive="active">&emsp;WebApp Demo</a>
-    <a routerLink="examples" class="list-group-item list-group-item-action" routerLinkActive="active">&emsp;PureJS
-        Samples</a>
-    <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1" aria-disabled="true">References</span>
+    <!-- <a routerLink="demo" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">&emsp;WebApp Demo</a>
+    <a routerLink="examples" class="list-group-item list-group-item-action text-nowrap"
+        routerLinkActive="active">&emsp;PureJS
+        Samples</a> -->
+
+    <div class="list-group-item list-group-item-action accordion accordion-flush px-0 py-0" id="tutorials-accordion">
+        <div class="accordion-item px-0 py-0">
+            <span class="accordion-header" id="tutorials-accordion-header-1">
+                <button class="accordion-button collapsed px-3 py-2 text-nowrap fs-7" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#tutorials-accordion-collapse-1" aria-expanded="false"
+                    aria-controls="tutorials-accordion-collapse-1">Tutorials
+                </button>
+            </span>
+            <div id="tutorials-accordion-collapse-1" class="accordion-collapse collapse"
+                aria-labelledby="tutorials-accordion-header-1" data-bs-parent="#tutorials-accordion">
+                <div class="accordion-body px-0 py-0">
+                    <div class="list-group list-group-flush">
+                        <a routerLink="demo" class="list-group-item list-group-item-action text-nowrap px-3"
+                            routerLinkActive="active">&emsp;WebApp Demo</a>
+                        <a routerLink="examples" class="list-group-item list-group-item-action text-nowrap px-3"
+                            routerLinkActive="active">&emsp;PureJS
+                            Samples</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1"
+        aria-disabled="true">References</span> -->
     <!-- <img class="float-end" src="./assets/reference-icon.svg" width="20" height="20" alt="ref" /> -->
     <!-- included static -->
     <!-- <a href="/apirtc-js/1.0.0/index.html" target="_blank" rel="noopener"
         class="list-group-item list-group-item-action">&emsp;Javascript
         API</a> -->
     <!-- or external -->
-    <a href="https://dev.apirtc.com/reference/" target="_blank" rel="noopener"
+    <!-- <a href="https://dev.apirtc.com/reference/" target="_blank" rel="noopener"
         class="list-group-item list-group-item-action">&emsp;Javascript
         API&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>
     <a href="https://dev.apirtc.com/apiRTC_Android-SDK/index.html" target="_blank" rel="noopener"
@@ -48,22 +103,82 @@
         SDK&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>
     <a rel="noopener" target="_blank" href="https://cloud.apirtc.com/sdk/api/"
         class="list-group-item list-group-item-action">&emsp;REST API&nbsp;<span
-            class="material-icons align-middle fs-6">open_in_new</span></a>
+            class="material-icons align-middle fs-6">open_in_new</span></a> -->
 
-    <a routerLink="release-practices" class="list-group-item list-group-item-action" routerLinkActive="active">Release
-        Practices</a>
+    <div class="list-group-item list-group-item-action accordion accordion-flush px-0 py-0" id="references-accordion">
+        <div class="accordion-item px-0 py-0">
+            <span class="accordion-header" id="references-accordion-header-1">
+                <button class="accordion-button collapsed px-3 py-2 text-nowrap fs-7" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#references-accordion-collapse-1" aria-expanded="false"
+                    aria-controls="references-accordion-collapse-1">References
+                </button>
+            </span>
+            <div id="references-accordion-collapse-1" class="accordion-collapse collapse"
+                aria-labelledby="references-accordion-header-1" data-bs-parent="#references-accordion">
+                <div class="accordion-body px-0 py-0">
+                    <div class="list-group list-group-flush">
+                        <a href="https://dev.apirtc.com/reference/" target="_blank" rel="noopener"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;Javascript
+                            API&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <a href="https://dev.apirtc.com/apiRTC_Android-SDK/index.html" target="_blank" rel="noopener"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;Android
+                            SDK&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <a href="https://dev.apirtc.com/apiRTC_iOS-SDK/index.html" target="_blank" rel="noopener"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;iOS
+                            SDK&nbsp;<span class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <a rel="noopener" target="_blank" href="https://cloud.apirtc.com/sdk/api/"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;REST API&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a routerLink="authentication" class="list-group-item list-group-item-action"
+        routerLinkActive="active">Authentication</a>
     <a routerLink="compatibility" class="list-group-item list-group-item-action"
         routerLinkActive="active">Compatibility</a>
+    <a routerLink="release-practices" class="list-group-item list-group-item-action text-nowrap" routerLinkActive="active">Release
+        Practices</a>
 
-    <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1" aria-disabled="true">Resources</span>
+    <!-- <span class="list-group-item list-group-item-action disabled text-apirtc" tabindex="-1"
+        aria-disabled="true">Resources</span> -->
     <!-- <img class="float-end" src="./assets/tutorials-icon.svg" width="21" height="21" alt="resources" /> -->
-    <a rel="noopener" target="_blank" href="https://stackoverflow.com/search?tab=newest&q=apirtc"
-        class="list-group-item list-group-item-action">&emsp;Stackoverflow&nbsp;<span
+    <!-- <a rel="noopener" target="_blank" href="https://stackoverflow.com/search?tab=newest&q=apirtc"
+        class="list-group-item list-group-item-action text-nowrap">&emsp;Stackoverflow&nbsp;<span
             class="material-icons align-middle fs-6">open_in_new</span></a>
     <a rel="noopener" target="_blank" href="https://github.com/ApiRTC"
-        class="list-group-item list-group-item-action">&emsp;GitHub&nbsp;<span
+        class="list-group-item list-group-item-action text-nowrap">&emsp;GitHub&nbsp;<span
             class="material-icons align-middle fs-6">open_in_new</span></a>
     <a rel="noopener" target="_blank" href="https://www.npmjs.com/~apirtc"
-        class="list-group-item list-group-item-action">&emsp;NpmJS&nbsp;<span
-            class="material-icons align-middle fs-6">open_in_new</span></a>
+        class="list-group-item list-group-item-action text-nowrap">&emsp;NpmJS&nbsp;<span
+            class="material-icons align-middle fs-6">open_in_new</span></a> -->
+
+    <div class="list-group-item list-group-item-action accordion accordion-flush px-0 py-0" id="resources-accordion">
+        <div class="accordion-item px-0 py-0">
+            <span class="accordion-header" id="resources-accordion-header-1">
+                <button class="accordion-button collapsed px-3 py-2 text-nowrap fs-7" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#resources-accordion-collapse-1" aria-expanded="false"
+                    aria-controls="resources-accordion-collapse-1">Resources
+                </button>
+            </span>
+            <div id="resources-accordion-collapse-1" class="accordion-collapse collapse"
+                aria-labelledby="resources-accordion-header-1" data-bs-parent="#resources-accordion">
+                <div class="accordion-body px-0 py-0">
+                    <div class="list-group list-group-flush">
+                        <a rel="noopener" target="_blank" href="https://stackoverflow.com/search?tab=newest&q=apirtc"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;Stackoverflow&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <a rel="noopener" target="_blank" href="https://github.com/ApiRTC"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;GitHub&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>
+                        <a rel="noopener" target="_blank" href="https://www.npmjs.com/~apirtc"
+                            class="list-group-item list-group-item-action text-nowrap px-3">&emsp;NpmJS&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
