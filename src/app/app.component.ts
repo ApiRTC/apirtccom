@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, OnInit, AfterViewInit, ViewChild, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';

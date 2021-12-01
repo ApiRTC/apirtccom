@@ -16,6 +16,17 @@
                 <strong>Enterprise</strong> and an
                 admin <strong>User</strong>.
             </p>
+
+            <div class="alert alert-info d-flex align-items-center mt-3" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Create your <strong>ApiRTC account</strong> : <a class="text-nowrap" href="https://cloud.apirtc.com"
+                        target="_blank" rel="noopener" title="ApiRTC dashboard">https://cloud.apirtc.com&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>.
+                </div>
+            </div>
         </div>
     </div>
     <div class="row mt-5">
@@ -29,6 +40,11 @@
                 <strong>Enterprise</strong>, each one having it's own <strong>apiKey</strong>.
                 This is useful to isolate quota and billing of different projects.
             </p>
+            <p><strong>Enterprises</strong> management car be done through the <a class="text-nowrap"
+                    href="https://cloud.apirtc.com/enterprise/accounts" target="_blank" rel="noopener"
+                    title="ApiRTC enterprises management">ApiRTC dashboard&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>.</p>
+
         </div>
     </div>
     <div class="row mt-5">
@@ -47,11 +63,24 @@
     <div class="row mt-5">
         <div class="col">
             <h1>
-                User
+                Users
             </h1>
             <p>
-                <strong>ApiRTC</strong> can manage users. With one account you have at least one user.
+                <strong>ApiRTC</strong> let's you decide wether the users of your application are managed by your
+                backend or by <strong>ApiRTC user management</strong>.
             </p>
+            <p>
+                Each <strong>Enterprise</strong> has at least one <strong>User</strong> which is an
+                <strong>administrator</strong>. But you can create more and authenticate them from your client
+                application.
+            </p>
+            <p><strong>Users</strong> management car be done through the <a class="text-nowrap"
+                    href="https://cloud.apirtc.com/users" target="_blank" rel="noopener"
+                    title="ApiRTC user management">ApiRTC dashboard&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>, or can be provisioned
+                programmatically though the <a class="text-nowrap" routerLink="../platform-dev-guide"
+                    fragment="rest-api" title="REST API">ApiRTC REST
+                    API</a>.</p>
         </div>
     </div>
     <!-- <div class="row mt-5">
@@ -82,8 +111,24 @@
     <div class="row mt-5">
         <div class="col">
             <h1>
-                Usage based billing
+                Conversation
             </h1>
+            <p>A <strong>Conversation</strong> is the way to make individuals communicate with each other.</p>
+            <p>
+                <strong>ApiRTC</strong> enables <strong>chat, watch, listen</strong> and/or <strong>share real-time
+                    audio, video, data, screen</strong>,
+                and many <strong>associated features</strong> to help sharing information.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row mt-5">
+        <div class="col">
+            <h1>
+                Billing
+            </h1>
+            <h2>Usage based</h2>
             <p>
                 <strong>ApiRTC</strong> billing is based on usage.
             </p>
@@ -91,7 +136,13 @@
                 Video <strong>Conversation</strong> billing is based on the number of minutes in communication and per
                 <strong>participant</strong>.
             </p>
-            <div class="alert alert-info d-flex align-items-center" role="alert">
+            <h2>Per Enterprise</h2>
+            <p>Organizing your communication traffic by use case is paramount to simplifying the billing allocation
+                process. The concept of <strong>Enterprise</strong> allows developers to spin up new subaccounts for
+                each new use case and business unit, allowing billing and traffic to be allocated efficiently at the end
+                of every month.
+            </p>
+            <div class="alert alert-info d-flex align-items-center mt-3" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
                     <use xlink:href="#info-fill"></use>
                 </svg>

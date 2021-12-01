@@ -9,8 +9,8 @@
                         [ngClass]="{'active': current === 'introduction' }">Introduction</a>
                 </li>
                 <li>
-                    <a [routerLink]="['.']" fragment="rest-apis" [ngClass]="{'active': current === 'rest-apis' }">REST
-                        APIs</a>
+                    <a [routerLink]="['.']" fragment="rest-api" [ngClass]="{'active': current === 'rest-api' }">REST
+                        API</a>
                     <ul>
                         <li>
                             <a [routerLink]="['.']" fragment="authentication"
@@ -47,22 +47,21 @@
                     <p><strong>ApiRTC</strong> platform is compound of software layers to enables communication between
                         people through client applications.
                     </p>
-                    <p><strong>ApiRTC</strong>&nbsp;<strong>REST APIs</strong> and <strong>WebHooks</strong> enable
+                    <p><strong>ApiRTC</strong>&nbsp;<strong>REST API</strong> and <strong>WebHooks</strong> enable
                         interaction between your backend and <strong>ApiRTC</strong> backend.
-                    </p>
-                    <p>The most common interaction is <strong>provisioning</strong> the services you have registered
-                        for. This includes Users and Enterprises management. The <strong>REST APIs</strong> also allow
-                        to retrieve communication data, such as recorded videos...</p>
-                    <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
-                        <strong>WebHooks</strong> to your backend server.
                     </p>
                 </div>
             </div>
 
             <h1 class="mt-5">
-                <a #anchor id="rest-apis" class="anchor"></a>
-                REST APIs
+                <a #anchor id="rest-api" class="anchor"></a>
+                REST API
             </h1>
+            <p>The main usage of the <strong>REST API</strong> is <strong>provisioning</strong> of
+                <strong>Enterprises</strong> and <strong>Users</strong>.
+                But the <strong>REST API</strong> also allows to retrieve communication data, such as recorded videos.
+            </p>
+
             <h2 class="mt-5">
                 <a #anchor id="authentication" class="anchor"></a>
                 Authentication
@@ -75,49 +74,56 @@
                 <a #anchor id="provisioning" class="anchor"></a>
                 Provisioning
             </h2>
-            <p>
-                Enterprises, Users
+            <h3>Enterprises</h3>
+            <p>The concept of <strong>Enterprise</strong> in <strong>ApiRTC</strong> simplifies configuration,
+                reporting, and billing of different projects.</p>
+            <p>When you create your <strong>ApiRTC account</strong>, you get an <strong>Enterprise</strong> and an admin
+                <strong>User</strong>. You can then create sub-accounts as sub-<strong>Enterprise</strong> with
+                associated admin <strong>User</strong>.
             </p>
-            <p>Use subaccounts to simplify configuration, reporting, and billing of different projects.</p>
-            <p>Organizing your communication traffic by use case is paramount to simplifying the billing allocation
-                process. The Subaccounts API allows developers to spin up new subaccounts for each new use case and
-                business unit, allowing billing and traffic to be allocated efficiently at the end of every month.
-            </p>
-            <h2 id="medias" class="mt-5">
-                <a #anchor id="medias" class="anchor"></a>
-                Medias management
-            </h2>
-            <p>
-                Retrieve or delete medias exchanged or recorded during <strong>conversation</strong>s.
-            </p>
-            <h1 id="webhooks" class="mt-5">
-                <a #anchor id="webhooks" class="anchor"></a>
-                WebHooks
-            </h1>
-            <p><strong>ApiRTC</strong> triggers webhooks
-                to let your backend know when events happen, like a <strong>conversation</strong> has ended. Webhooks
-                are triggered
-                asynchronously.</p>
-            <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to suit
-                your needs !</p>
+            <p></p>
+            <h3>Users</h3>
+                <h2 id="medias" class="mt-5">
+                    <a #anchor id="medias" class="anchor"></a>
+                    Medias management
+                </h2>
+                <p>
+                    Retrieve or delete medias exchanged or recorded during <strong>conversation</strong>s.
+                </p>
+                <h1 id="webhooks" class="mt-5">
+                    <a #anchor id="webhooks" class="anchor"></a>
+                    WebHooks
+                </h1>
+                <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
+                    <strong>WebHooks</strong> to your backend server.
+                </p>
+                <p><strong>ApiRTC</strong> triggers webhooks
+                    to let your backend know when events happen, like a <strong>conversation</strong> has ended.
+                    Webhooks
+                    are triggered
+                    asynchronously.</p>
+                <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to
+                    suit
+                    your needs !</p>
 
-            <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
-                <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
-                URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application includes
-                details of the event. Your application can then perform whatever
-                logic is necessary.
-            </p>
-            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
-                some events happen.</p>
-            <p>
-                Explain how webhooks work
-            </p>
-            <p>
-                Explain how webhooks are configured
-            </p>
-            <p>
-                Events
-            </p>
+                <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
+                    <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
+                    URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application
+                    includes
+                    details of the event. Your application can then perform whatever
+                    logic is necessary.
+                </p>
+                <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
+                    some events happen.</p>
+                <p>
+                    Explain how webhooks work
+                </p>
+                <p>
+                    Explain how webhooks are configured
+                </p>
+                <p>
+                    Events
+                </p>
         </div>
     </div>
 </div>
