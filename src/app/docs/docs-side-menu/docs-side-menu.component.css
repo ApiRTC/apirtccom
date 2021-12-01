@@ -5,3 +5,13 @@
 .fs-7 {
     font-size: 0.9rem;
 }
+
+.accordion-button:not(.collapsed) {
+    color: #1977B3;
+    background-color: inherit;
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
