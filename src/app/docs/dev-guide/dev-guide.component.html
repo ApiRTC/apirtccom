@@ -756,27 +756,49 @@
                 This method may not work with all browsers. Also, returned capabilities may differ from a device to
                 another.
             </div>
-            <p>Stream capabilities are camera properties that are accessible and that could be modified (e.g.
-                brightness, contrast, frameRate, saturation, torch, zoom). <strong>ApiRTC</strong> allows to control
-                them through <code>Stream</code> object.</p>
-            <p>There are 3 methods to get all the information you need: <code>getSettings</code>,
-                <code>getCapabilities</code> and <code>getConstraints</code>.
+            <p><strong>Stream capabilities</strong> are accessible camera properties that can be modified, e.g.,
+                brightness, contrast, frameRate, saturation, torch, zoom.</p>
+            <p><strong>ApiRTC</strong> allows to control them through <code>Stream</code> methods:
+                <code>getCapabilities</code>, <code>getSettings</code>, <code>getConstraints</code>, and
+                <code>setCapability</code>.
             </p>
-            <p>The <code>Stream.getSettings()</code> function return an object with all available capabilities and their
-                actual values. If a capability is not on the returned object it means the device and/or the navigator
-                does not handle this capability.</p>
-            <div class="row mt-3">
+
+            <p class="mt-3"><code>Stream.getCapabilities()</code>, combined with <code>streamCapabilities</code> event
+                provide an event data object with all available capabilities and their accepted values ranges:
+            </p>
+            <div class="row">
+                <div class="col-lg-6">
+                    <app-codenav [code]="capabilitiesGetCapabilities" [(language)]="lang"></app-codenav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p>To get the result, listen the <code>streamCapabilities</code> event:</p>
+                    <app-codenav [code]="capabilitiesGetCapabilitiesListen" [(language)]="lang"></app-codenav>
+                </div>
+                <div class="col border-start">
+                    <p>Example of a <code>capabilities</code> data object:</p>
+                    <pre><code [highlight]="capabilitiesGetCapabilitiesResult" [languages]="['json']"></code></pre>
+                    <p>In this example <code>frameRate</code> capability may be modified between 0 and
+                        30.000000305175.</p>
+                </div>
+            </div>
+
+            <p class="mt-3"><code>Stream.getSettings()</code>, combined with <code>streamSettings</code> event allows to
+                get an event data object with all available capabilities and their actual values. If a capability is not
+                in the data object it means the device and/or the navigator does not handle this capability:</p>
+            <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="capabilitiesGetSettings" [(language)]="lang"></app-codenav>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row">
                 <div class="col">
-                    <p>To get the result, listen the <code>streamSettings</code> event :</p>
+                    <p>To get the result, listen the <code>streamSettings</code> event:</p>
                     <app-codenav [code]="capabilitiesGetSettingsListen" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
-                    <p>Here is an example of the object returned :</p>
+                    <p>Example of a <code>settings</code> data object:</p>
                     <pre><code [highlight]="capabilitiesGetSettingsResult" [languages]="['json']"></code></pre>
                     <p>In this example <code>frameRate</code> is a supported capability and it's actual value is 30.
                         <code>zoom</code> is not a supported capability for this combination of device/camera/navigator
@@ -789,55 +811,34 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <p>The <code>Stream.getCapabilities()</code> function return an object with all available
-                        capabilities and their accepted values ranges.</p>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-6">
-                    <app-codenav [code]="capabilitiesGetCapabilities" [(language)]="lang"></app-codenav>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-6">
-                    <p>To get the result, listen the <code>streamCapabilities</code> event:</p>
-                    <app-codenav [code]="capabilitiesGetCapabilitiesListen" [(language)]="lang"></app-codenav>
-                </div>
-                <div class="col border-start">
-                    <p>Here is an example of the object returned :</p>
-                    <pre><code [highlight]="capabilitiesGetCapabilitiesResult" [languages]="['json']"></code></pre>
-                    <p>In this example <code>frameRate</code> capability may be modified between 0 and
-                        30.000000305175.</p>
-                </div>
-            </div>
-            <p class="mt-3">The <code>Stream.getConstraints()</code> function return an object with all capabilities
-                that were modified from their default value and their actual values.</p>
+
+            <p class="mt-3"><code>Stream.getConstraints()</code>, combined with <code>streamConstraints</code> event
+                provides a data object with all capabilities that were modified from their default value and their
+                actual values:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="capabilitiesGetConstraints" [(language)]="lang"></app-codenav>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row">
                 <div class="col">
                     <p>To get the result, listen the <code>streamConstraints</code> event:</p>
                     <app-codenav [code]="capabilitiesGetConstraintsListen" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
-                    <p>Here is an example of the object returned if no capability modified:</p>
+                    <p>Example of a <code>constraints</code> data object if <code>frameRate</code> capability was
+                        modified to 10fps:</p>
                     <pre><code [highlight]="capabilitiesGetConstraintsResult" [languages]="['json']"></code></pre>
-                    <p>Here is an example of the object returned if <code>frameRate</code> capability was
-                        modified to value 10 :</p>
-                    <pre><code [highlight]="capabilitiesGetConstraintsResult2" [languages]="['json']"></code></pre>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <p>To modify a capability value use the <code>setCapability</code> function as below:</p>
+
+            <p class="mt-3">To modify a capability value use the <code>setCapability</code> function as below:</p>
+            <div class="row">
+                <div class="col-6">
                     <app-codenav [code]="setCapability" [(language)]="lang"></app-codenav>
                 </div>
             </div>
+
             <h2 class="mt-3">
                 <a #anchor id="capabilities-remote" class="anchor"></a>
                 Remote stream

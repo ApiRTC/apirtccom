@@ -655,8 +655,7 @@ javascript:
 ...
 });`}
 
-capabilitiesGetConstraintsResult = `{}`
-capabilitiesGetConstraintsResult2 = `{
+capabilitiesGetConstraintsResult = `{
   advanced: [
     "frameRate": 10
   ]
