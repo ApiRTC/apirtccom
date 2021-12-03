@@ -28,12 +28,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <form class="d-flex" [formGroup]="searchFormGroup" (ngSubmit)="search()">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                            formControlName="words">
-                        <button class="btn btn-outline-light" type="submit" data-bs-toggle="modal"
-                            data-bs-target="#searchModal">Search</button>
+                <li class="nav-item me-3">
+                    <form class="d-flex" [formGroup]="searchFormGroup">
+                        <div class="input-group">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                                formControlName="words" (focus)='onSearchFocus()'>
+                            <div *ngIf="showResults" class="input-group-text" id="btnGroupAddon2"><button
+                                    class="btn-close" type="button" (click)="searchWordsFc.setValue('');hideSearch()"></button></div>
+                        </div>
                     </form>
                 </li>
                 <li class="nav-item">
@@ -82,32 +84,15 @@
     </mat-sidenav-container>
 </div>
 
-<!-- search results -->
-<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="searchModalLabel">Search results</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="list-group">
-                    <a *ngFor="let result of searchResults" [routerLink]="[result.path]" [fragment]="result.fragment"
-                        class="list-group-item list-group-item-action" aria-current="true" data-bs-dismiss="modal">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">{{result.title}}</h5>
-                            <!-- <small>3 days ago</small> -->
-                        </div>
-                        <!-- <p class="mb-1">Some placeholder content in a paragraph.</p>
-                        <small>And some small print.</small> -->
-                    </a>
-                </div>
-                <div></div>
-            </div>
-            <!-- <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div> -->
-        </div>
+<div #collapseSearch id="collapse-search" class="container-fluid collapse fixed-top bg-apirtc-bis">
+    <div class="container py-5">
+        <p *ngFor="let result of searchResults" class="text-end">
+            <a class="link-light" [routerLink]="[result.path]" [fragment]="result.fragment" aria-current="true"
+                (click)="hideSearch()">{{result.title}}</a>
+        </p>
+        <p class="text-light text-end" *ngIf="searchResults && searchResults.length === 0">Nothing found! Refine
+            your search.
+        </p>
     </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
@@ -7,15 +7,19 @@ import { MatDrawer } from '@angular/material/sidenav';
 
 import { SearchService, Anchor } from './search.service';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'apirtccom';
 
   anchorsByKeyword: Map<string, Array<Anchor>> = new Map();
+  keywords: Array<string> = new Array();
+
   searchFormGroup = this.fb.group({
     words: this.fb.control('', [Validators.required])
   });
@@ -25,6 +29,9 @@ export class AppComponent {
   searchResults: Array<Anchor> | undefined = undefined;
 
   @ViewChild("snav") drawerRef: MatDrawer | undefined;
+
+  @ViewChild("collapseSearch") collapseSearch: ElementRef | undefined;
+  bsSearchElement: any;
 
   mobileQuery: any;
   private _mobileQueryListener: () => void = () => { };
@@ -61,29 +68,66 @@ export class AppComponent {
           }
         }
       }
+      this.keywords = Array.from(this.anchorsByKeyword.keys());
     });
 
+    this.searchWordsFc.valueChanges.subscribe((value) => {
+      if (value.length < 1) return;
+      this.throttleSearch();
+    });
+  }
+
+  private lastCall?: number;
+  private timeoutId: any;
+
+  throttleSearch() {
+    const interval = 500;
+    var now = new Date().getTime();
+    if (this.lastCall && now < (this.lastCall + interval)) {
+      // if we are inside the interval we wait
+      //console.log('throttle WAIT');
+      clearTimeout(this.timeoutId);
+      this.timeoutId = setTimeout(() => {
+        this.lastCall = now;
+        this.search();
+      }, interval - (now - this.lastCall));
+    }
+    else {
+      this.lastCall = now;
+      this.search();
+    }
   }
 
   search() {
-    const words = this.searchWordsFc.value.trim();
+    // Trim and lowercase
+    const words = this.searchWordsFc.value.trim().toLowerCase();
 
-    let searchResults: Array<Anchor> = new Array();
+    let searchResults: Set<Anchor> = new Set();
 
-    searchResults = searchResults.concat(this.anchorsByKeyword.get(words) || []);
+    // search for exact match
+    // searchResults = searchResults.concat(this.anchorsByKeyword.get(words) || []);
+
+    // if (searchResults.length > 0) {
+    //   this.searchResults = searchResults;
+    //   this.showSearch();
+    //   return;
+    // }
 
     //console.log("search", words, this.anchorsByKeyword.get(words), searchResults);
 
-    if (searchResults.length === 0) {
-      const listOfWords = words.split(" ");
-      if (listOfWords.length >= 2) {
-        for (const word of listOfWords) {
-          searchResults = searchResults.concat(this.anchorsByKeyword.get(word) || []);
-        }
+    // try to split words
+    const listOfWords = words.split(" ");
+
+    // find keywords starting by words, and get anchors for theses keywords
+    for (const word of listOfWords) {
+      const keywords = this.keywords.filter(keyword => keyword.toLowerCase().startsWith(word))
+      for (const keyword of keywords) {
+        this.anchorsByKeyword.get(keyword)?.forEach(anchor => searchResults.add(anchor));
       }
     }
 
-    this.searchResults = searchResults;
+    this.searchResults = Array.from(searchResults);
+    this.showSearch();
   }
 
   ngAfterViewInit(): void {
@@ -91,6 +135,28 @@ export class AppComponent {
     // Move this to a timeout callback to avoid :
     // ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
     setTimeout(() => { this.drawerRef?.open(); }, 100)
+
+    this.bsSearchElement = new bootstrap.Collapse(this.collapseSearch?.nativeElement, {
+      toggle: false
+    })
+  }
+
+  showResults: boolean = false;
+
+  showSearch() {
+    this.bsSearchElement.show();
+    this.showResults = true;
+  }
+
+  hideSearch() {
+    this.bsSearchElement.hide();
+    this.showResults = false;
+  }
+
+  onSearchFocus() {
+    if (!this.showResults && this.searchWordsFc.value !== '') {
+      this.showSearch();
+    }
   }
 
   onMenuClick() {

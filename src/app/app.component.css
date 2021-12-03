@@ -27,3 +27,12 @@ mat-sidenav {
     border: unset;
     width: 200px;
 }
+
+#collapse-search {
+    top: 4em;
+    background-color: #344d5e;
+    z-index: 3;
+}
+#auto-complete {
+    z-index: 4;
+}
