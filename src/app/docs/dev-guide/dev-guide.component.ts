@@ -49,7 +49,7 @@ export class DevGuideComponent implements OnInit, OnDestroy {
         this.current = element.nativeElement.id;
       }
     });
-    console.log('current =>', this.current)
+    //console.log('current =>', this.current)
   }
 
   private lastCall?: number;
@@ -582,25 +582,25 @@ if (stream.isVideoMuted()) {
   };
 
   blur = {
-    javascript: 
-`stream.blur().then(blurredStream => {
+    javascript:
+      `stream.blur().then(blurredStream => {
   ...
 })`
   };
 
   blurPublish = {
     javascript:
-`// display blurred media stream by attaching to a media element (like <video>)
+      `// display blurred media stream by attaching to a media element (like <video>)
 blurredStream.attachToElement(videoDomElement)
 // publish the blurred stream
 conversation.publish(blurredStream).then((blurredStream) => {
   ...
-});` 
+});`
   };
 
   blurStop = {
     javascript:
-`// stop blur from original stream
+      `// stop blur from original stream
 stream.unblur();
 // stop blur from blurred stream
 blurredStream.release();
@@ -609,17 +609,17 @@ blurredStream.release();
 
   capabilitiesGetSettings = {
     javascript:
-`// get stream capabilities actual values
+      `// get stream capabilities actual values
 stream.getSettings();
 `}
 
   capabilitiesGetSettingsListen = {
-  javascript:
-`stream.on('streamSettings', (settings) => {
+    javascript:
+      `stream.on('streamSettings', (settings) => {
   ...
 });`}
 
-capabilitiesGetSettingsResult = `{
+  capabilitiesGetSettingsResult = `{
   "aspectRatio": 1.333333333333,
   "frameRate": 30,
   "height": 480,
@@ -627,19 +627,19 @@ capabilitiesGetSettingsResult = `{
   "width": 640
 }`
 
-capabilitiesGetCapabilities = {
-  javascript:
-`// get stream capabilities values ranges
+  capabilitiesGetCapabilities = {
+    javascript:
+      `// get stream capabilities values ranges
 stream.getCapabilities();
 `}
 
-capabilitiesGetCapabilitiesListen = {
-javascript:
-`stream.on('streamCapabilities', (capabilities) => {
+  capabilitiesGetCapabilitiesListen = {
+    javascript:
+      `stream.on('streamCapabilities', (capabilities) => {
 ...
 });`}
 
-capabilitiesGetCapabilitiesResult = `{
+  capabilitiesGetCapabilitiesResult = `{
   "aspectRatio": { "max": 1920, "min": 0.001388888888888889 },
   "frameRate": { "max": 30.000000305175, "min": 0 },
   "height": { "max": 1080, "min": 1 },
@@ -647,54 +647,55 @@ capabilitiesGetCapabilitiesResult = `{
   "width": { "max": 1920, "min": 1 }
 }`
 
-capabilitiesGetConstraints = {
-  javascript:
-`// get stream capabilities that were modified and their values
+  capabilitiesGetConstraints = {
+    javascript:
+      `// get stream capabilities that were modified and their values
 stream.getConstraints();
 `}
 
-capabilitiesGetConstraintsListen = {
-javascript:
-`stream.on('streamConstraints', (constraints) => {
+  capabilitiesGetConstraintsListen = {
+    javascript:
+      `stream.on('streamConstraints', (constraints) => {
 ...
 });`}
 
-capabilitiesGetConstraintsResult = `{
+  capabilitiesGetConstraintsResult = `{
   advanced: [
     "frameRate": 10
   ]
 }`
 
-setCapability = {
-  javascript: 
-`stream.setCapability("frameRate", 10).then(() => {
+  setCapability = {
+    javascript:
+      `stream.setCapability("frameRate", 10).then(() => {
   ...
 });`}
 
-remoteCapability = {
-  javascript:
-`remoteStream.askRemoteCapabilityAuthorization();`}
+  remoteCapability = {
+    javascript:
+      `remoteStream.askRemoteCapabilityAuthorization();`
+  }
 
-remoteCapabilityListen = {
-  javascript:
-`remoteStream.on('remoteCapabilityRequestAccepted', () => {
+  remoteCapabilityListen = {
+    javascript:
+      `remoteStream.on('remoteCapabilityRequestAccepted', () => {
   // remote user accepted
 })
 remoteStream.on('remoteCapabilityRequestRefused', () => {
   // remote user refused
 })`}
 
-remoteRequest = {
-  javascript:
-`stream.on('remoteCapabilityRequest', (data) => {
+  remoteRequest = {
+    javascript:
+      `stream.on('remoteCapabilityRequest', (data) => {
   // accept or refuse doing one of the following
   stream.acceptRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
   stream.refuseRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
 })`}
 
-remoteSetCapability = {
-  javascript: 
-`remoteStream.setCapability("frameRate", 10).then(() => {
+  remoteSetCapability = {
+    javascript:
+      `remoteStream.setCapability("frameRate", 10).then(() => {
   ...
 })`}
 
