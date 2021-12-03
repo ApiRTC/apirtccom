@@ -96,6 +96,13 @@ val userAgent = UserAgent(this, options)`,
 userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
   }
 
+  userDataChanged = {
+    javascript: `session.on('contactListUpdate', (updatedContacts: any) => {
+  for (const contact of updatedContacts.userDataChanged) {
+    // ...
+  }
+})`
+  };
 
   mediaDeviceChanged = {
     javascript: `userAgent.on("mediaDeviceChanged", () => {
@@ -173,9 +180,6 @@ userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
     for (const contact of updatedContacts.leftGroup[group]) {
       // ...
     }
-  }
-  for (const contact of updatedContacts.userDataChanged) {
-    // ...
   }
 })`
   };

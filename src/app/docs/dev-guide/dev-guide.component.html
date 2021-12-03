@@ -227,6 +227,7 @@
                 event has a <code>userDataChanged</code> property which is an array of
                 <code>Contact</code>s for which <code>UserData</code> has changed.
             </p>
+            <app-codenav [code]="userDataChanged" [(language)]="lang"></app-codenav>
             <h2>
                 MediaDevices
             </h2>
@@ -258,23 +259,14 @@
                 connected features of <strong>ApiRTC</strong> such as chat or video conferencing.
             </p>
             <p>
-                This is done through the <code>UserAgent.register(options)</code> method.
+                This is done through the <a href="https://dev.apirtc.com/reference/UserAgent.html#register"
+                    target="_blank" rel="noopener"><code>UserAgent.register(options)</code>&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a> method. Some
+                <code>options</code> (type <a href="https://dev.apirtc.com/reference/global.html#RegisterInformation"
+                    target="_blank" rel="noopener"><code>RegisterInformation</code>&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>) parameters control the
+                authentication mechanisms.
             </p>
-            <p>
-                <code>options</code> parameter controls the authentication mechanism.
-            </p>
-            <div class="alert alert-info d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
-                    <use xlink:href="#info-fill"></use>
-                </svg>
-                <div>
-                    Configure the required authentication by <strong>Enterprise</strong> (thus by
-                    <strong>apiKey</strong>), from your <strong>account</strong> panel: <a
-                        href="https://cloud.apirtc.com/enterprise/users-authentication" title="Configure authentication"
-                        target="_blank" rel="noopener">API/Authentication&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a>.
-                </div>
-            </div>
             <h2>
                 <a #anchor id="authentication" class="anchor"></a>
                 Authentication
@@ -348,6 +340,18 @@
                     </div>
                 </div>
             </div>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Configure the required authentication by <strong>Enterprise</strong> (thus by
+                    <strong>apiKey</strong>), from your <strong>account</strong> panel: <a
+                        href="https://cloud.apirtc.com/enterprise/users-authentication" title="Configure authentication"
+                        target="_blank" rel="noopener">API/Authentication&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>.
+                </div>
+            </div>
             <h1 class="mt-5">
                 <a #anchor id="presence" class="anchor"></a>
                 Presence, Groups
@@ -356,18 +360,19 @@
                 In an <strong>ApiRTC</strong> client application, remote users are <code>Contact</code>s.
             </p>
             <p>
-                The <strong>presence</strong> feature allows to get notified to all users
-                currently connected with same <strong>apiKey</strong>.
-            </p>
-            <p>
-                Listening on <code>Session.contactListUpdate</code> event notifies on <code>Contact</code>, connected
-                with to same <strong>Enterprise</strong>(<strong>apiKey</strong>), that joined, left, or for which
-                <code>UserData</code> changed.
+                The <strong>presence</strong> feature allows to get notified to all users currently connected with same
+                <strong>apiKey</strong>. It notifies on <strong>contacts</strong>, connected with same
+                <strong>Enterprise</strong>(<strong>apiKey</strong>).
             </p>
             <p>
                 A notion of <strong>groups</strong> comes with this feature for better control. To make a user connect
                 within some group, set the <code>RegisterInformation.groups</code> in the
-                <code>UserAgent.register()</code> options.
+                <code>UserAgent.register(options)</code> options.
+            </p>
+            <p>
+                The data object associated to <code>Session.contactListUpdate</code>
+                event has <code>joinedGroup</code> and <code>leftGroup</code> properties to carry information on which
+                <code>Contact</code> joined of left which <strong>group</strong>:
             </p>
             <app-codenav [code]="contactListUpdate" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
@@ -430,8 +435,7 @@
                         </svg>
                         <div>
                             Check <a routerLink="../architecture" title="link to SFUs">Architecture</a> to learn
-                            about how <strong>ApiRTC</strong> handles
-                            small and large <code>Conversation</code>s.
+                            about how <strong>ApiRTC</strong> handles small and large <strong>conversations</strong>.
                         </div>
                     </div>
                     <p>
@@ -635,7 +639,7 @@
                 Please check reference for details on <a
                     href="https://dev.apirtc.com/reference/global.html#PublishOptions" target="_blank"
                     rel="noopener">PublishOptions&nbsp;<span
-                        class="material-icons align-middle fs-6">open_in_new</span></a>
+                        class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
             <p>
                 Unpublishing a <strong>local stream</strong> makes it unavailable for remote peer participants to
@@ -1035,14 +1039,14 @@
                 <strong>ApiRTC</strong> allows to create a background blurred stream based on an original
                 stream using <code>Stream.blur()</code>.
             </p>
-            <p>To start the blur process on a <strong>stream</strong> :</p>
+            <p>To start the blur process on a <strong>stream</strong>:</p>
             <app-codenav [code]="blur" [(language)]="lang"></app-codenav>
             <p>The returned blurred stream is a an instance of <code>Stream</code> and is a copy of the base
                 stream with a blur process applied on it. It means that there is a strong dependance between
                 the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
                 the parent is released the child also). Both streams needs to be handled by the application
                 to keep the blur process going on.</p>
-            <p>Then, use the blurred stream as a local stream :</p>
+            <p>Then, use the blurred stream as a local stream:</p>
             <app-codenav [code]="blurPublish" [(language)]="lang"></app-codenav>
 
             <p>To stop the blur process :</p>
