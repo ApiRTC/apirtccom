@@ -8,102 +8,65 @@
             </p>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 align-items-center">
         <div class="col">
-            <h1>
-                Client Application
-            </h1>
-            <p>
-                The client application is the web or mobile application that connects users together. It allows them to
-                share messages or media, and it displays messages or media from the others.
-            </p>
-            <p> <strong>ApiRTC</strong> let's you build web and mobile applications, using any modern application
-                framework or native languages.</p>
+            <img src="./assets/apirtc-architecture.svg" alt="Architecture" class="img-fluid" />
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <div class="row">
+                <div class="col">
+                    <h1>
+                        Client Application
+                    </h1>
+                    <p>
+                        The client application is the web or mobile application that connects users together. It allows
+                        them to
+                        share messages or media, and it displays messages or media from the others.
+                    </p>
+                    <p> <strong>ApiRTC</strong> let's you build web and mobile applications, using any modern
+                        application
+                        framework or native languages.</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <h1>
+                    Application Backend
+                </h1>
+                <div class="col">
+                    <p>The application backend may require some interactions with <strong>ApiRTC Platform</strong>.</p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row mt-5">
+    <div class="row mt-3">
         <h1>
-            ApiRTC Platform
+            ApiRTC PaaS Platform
         </h1>
-        <div class="col-lg-6">
+        <div class="col-lg-10">
             <!-- <p>
-                The <strong>ApiRTC</strong> platform is involved at least as a signaling server. Depending on
-                the User Management it can also act as an authentication server.
-            </p> -->
-            <p>The <strong>ApiRTC</strong> platform is compound of different systems. All together they bring a full
+        The <strong>ApiRTC</strong> platform is involved at least as a signaling server. Depending on
+        the User Management it can also act as an authentication server.
+    </p> -->
+            <p>The <strong>ApiRTC</strong> platform is compound of different systems. All together they bring a
+                full
                 featured communication system for various applications.</p>
         </div>
     </div>
-    <div class="row mt-5 justify-content-center">
-        <div class="col">
-            <p class="text-center">
-                <img src="./assets/apirtc-cloud.svg" alt="PaaS" class="img-fluid"
-                    style="width: 855px; height: 505.279px;" />
-            </p>
-        </div>
-    </div>
+    <hr class="my-5">
+    <h1 class="text-center">
+        More details
+    </h1>
     <div class="row mt-5">
-        <h2>
-            ApiRTC CCS
-        </h2>
-        <p><strong>CCS</strong> stands for <strong>C</strong>all <strong>C</strong>ontrol <strong>S</strong>erver.
-            <strong>CCS</strong> is responsible for <strong>signaling</strong> and TODO
-        </p>
-    </div>
-    <div class="row mt-5 justify-content-end">
-        <div class="col-lg-8">
-            <h3>Signaling</h3>
-            <p class="col-lg-8">
-                In order to realize a <strong>WebRTC</strong> application, one must establish a connection
-                between the browsers that want to communicate. <strong>WebRTC</strong> provides the solution
-                for
-                the media plane but does not implement the signaling, i.e. how one client’s information
-                should be sent to remote peers in order to initiate connections.
-                <strong>ApiRTC CCS</strong> implements a signaling server using WebSockets. The browser
-                and
-                server interaction is event-based : the browser does not have to poll the server for a reply
-                every time data have to be exchanged.
-            </p>
-            <p>TODO : PARTICIPATION ?</p>
-            <p>presence, signaling, and routing</p>
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-7">
+                    <p class="text-center">
+                        <img src="./assets/sfus.svg" alt="SFUs" class="img-fluid" />
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row mt-5 justify-content-start">
-        <div class="col-lg-8">
-            <h2>
-                ApiRTC Dashboard
-            </h2>
-            <p>
-                <strong>ApiRTC Dashboard</strong> is the portal to access your account on <strong>ApiRTC
-                    platform</strong>.
-            </p>
-            <p>
-                It gives you access to the configuration of your Enterprise(s), Users and services.
-            </p>
-            <h3>Users management</h3>
-            <p>
-                When it comes to <strong>Users management</strong>, one can decide to use his own or leverage with
-                <strong>ApiRTC</strong>'s.
-            </p>
-            <h3>Media storage</h3>
-            <p>
-                <strong>ApiRTC</strong> also includes databases for <strong>Media storage</strong>, providing a
-                secure way to store exchanged data or conversations recordings.
-            </p>
-            <p>TODO : PARTICIPATION ?</p>
-
-            <h3>Billing Consumption?</h3>
-            <p>stats</p>
-
-            <h3>Configuration</h3>
-            <p>auth, and ??</p>
-        </div>
-    </div>
-    <div class="row mt-5 justify-content-end">
-        <div class="col-lg-8">
-            <h2>
-                ApiRTC SFUs
-            </h2>
+        <div class="col-lg-9">
             <p>
                 ApiRTC features SFUs servers to enable large number of users video conferences to happen
             </p>
@@ -142,11 +105,61 @@
             </p>
         </div>
     </div>
-    <div class="row mt-5 justify-content-start">
-        <div class="col-lg-8">
-            <h2>
+    <div class="row  mt-5 justify-content-end align-items-center">
+        <div class="col-9">
+            <!-- <h3>Signaling</h3> -->
+            <p>
+                In order to realize a <strong>WebRTC</strong> application, one must establish a connection
+                between the browsers that want to communicate. <strong>WebRTC</strong> provides the solution
+                for
+                the media plane but does not implement the signaling, i.e. how one client’s information
+                should be sent to remote peers in order to initiate connections.
+                <strong>ApiRTC CCS</strong> implements a signaling server using WebSockets. The browser
+                and
+                server interaction is event-based : the browser does not have to poll the server for a reply
+                every time data have to be exchanged.
+            </p>
+            <p>TODO : PARTICIPATION ?</p>
+            <p>presence, signaling, and routing</p>
+        </div>
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-9">
+                    <p class="text-center">
+                        <img src="./assets/signaling-system.svg" alt="Signaling-System" class="img-fluid" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-9">
+                    <p class="text-center">
+                        <img src="./assets/storage.svg" alt="Storage" class="img-fluid" />
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <h3>Users management</h3>
+            <p>
+                When it comes to <strong>Users management</strong>, one can decide to use his own or leverage with
+                <strong>ApiRTC</strong>'s.
+            </p>
+            <h3>Media storage</h3>
+            <p>
+                <strong>ApiRTC</strong> also includes databases for <strong>Media storage</strong>, providing a
+                secure way to store exchanged data or conversations recordings.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-9">
+            <!-- <h2>
                 ApiRTC STUN/TURN
-            </h2>
+            </h2> -->
             <p> To send and receive data to another browser the client must have some specific information. The
                 most important information is the client’s public IP address. Each client or browser must know
                 this information about each other in order
@@ -205,6 +218,37 @@
                 TURN server.</p>
             <p><strong>ApiRTC</strong> provides both STUN and TURN servers to address theses WebRTC requirements.
             </p>
+        </div>
+        <div class="col align-self-center">
+            <p class="text-center">
+                <img src="./assets/stun-turn.svg" alt="STUN-TURN" class="img-fluid" />
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col align-self-center">
+            <p class="text-center">
+                <img src="./assets/web-portal.svg" alt="web-portal" class="img-fluid" />
+            </p>
+        </div>
+        <div class="col-9">
+            <!-- <h2>
+                ApiRTC Dashboard
+            </h2> -->
+            <p>
+                <strong>ApiRTC Dashboard</strong> is the portal to access your account on <strong>ApiRTC
+                    platform</strong>.
+            </p>
+            <p>
+                It gives you access to the configuration of your Enterprise(s), Users and services.
+            </p>
+            <p>TODO : PARTICIPATION ?</p>
+
+            <h3>Billing Consumption?</h3>
+            <p>stats</p>
+
+            <h3>Configuration</h3>
+            <p>auth, and ??</p>
         </div>
     </div>
 </div>
