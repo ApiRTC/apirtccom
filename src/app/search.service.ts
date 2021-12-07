@@ -3,14 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Anchor {
+  id: string,
+  keywords: Array<string>
+}
+export interface Page {
   title: string,
   path: string,
-  fragment?: string,
-  keywords: Array<string>
+  anchors: Array<Anchor>
 }
 export interface SearchData {
   dictionary?: Array<string>,
-  anchors: Array<Anchor>
+  pages: Array<Page>
 }
 
 @Injectable({

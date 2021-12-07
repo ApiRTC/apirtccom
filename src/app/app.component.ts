@@ -9,6 +9,12 @@ import { SearchService, Anchor } from './search.service';
 
 declare var bootstrap: any;
 
+interface Link {
+  title: string,
+  path: string,
+  fragment: string
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +23,7 @@ declare var bootstrap: any;
 export class AppComponent implements AfterViewInit {
   title = 'apirtccom';
 
-  anchorsByKeyword: Map<string, Array<Anchor>> = new Map();
+  linksByKeyword: Map<string, Array<Link>> = new Map();
   keywords: Array<string> = new Array();
 
   searchFormGroup = this.fb.group({
@@ -26,7 +32,9 @@ export class AppComponent implements AfterViewInit {
   get searchWordsFc(): FormControl {
     return this.searchFormGroup.get('words') as FormControl;
   }
-  searchResults: Array<Anchor> | undefined = undefined;
+
+  searchResults: Array<Link> | undefined = undefined;
+  matchingKeywords: Array<string> | undefined = undefined;
 
   @ViewChild("snav") drawerRef: MatDrawer | undefined;
 
@@ -59,16 +67,19 @@ export class AppComponent implements AfterViewInit {
   ngOnInit(): void {
 
     this.searchService.getJSON().subscribe(data => {
-      for (const anchor of data.anchors) {
-        for (const keyword of anchor.keywords) {
-          if (this.anchorsByKeyword.has(keyword)) {
-            this.anchorsByKeyword.get(keyword)?.push(anchor);
-          } else {
-            this.anchorsByKeyword.set(keyword, [anchor])
+      for (const page of data.pages) {
+        for (const anchor of page.anchors) {
+          const link = { title: page.title, path: page.path, fragment: anchor.id }
+          for (const keyword of anchor.keywords) {
+            if (this.linksByKeyword.has(keyword)) {
+              this.linksByKeyword.get(keyword)?.push(link);
+            } else {
+              this.linksByKeyword.set(keyword, [link])
+            }
           }
         }
       }
-      this.keywords = Array.from(this.anchorsByKeyword.keys());
+      this.keywords = Array.from(this.linksByKeyword.keys());
     });
 
     this.searchWordsFc.valueChanges.subscribe((value) => {
@@ -102,7 +113,7 @@ export class AppComponent implements AfterViewInit {
     // Trim and lowercase
     const words = this.searchWordsFc.value.trim().toLowerCase();
 
-    let searchResults: Set<Anchor> = new Set();
+    let searchResults: Set<Link> = new Set();
 
     // search for exact match
     // searchResults = searchResults.concat(this.anchorsByKeyword.get(words) || []);
@@ -118,14 +129,19 @@ export class AppComponent implements AfterViewInit {
     // try to split words
     const listOfWords = words.split(" ");
 
+    const matchingKeywords: Set<string> = new Set();
+
     // find keywords starting by words, and get anchors for theses keywords
     for (const word of listOfWords) {
       const keywords = this.keywords.filter(keyword => keyword.toLowerCase().startsWith(word))
       for (const keyword of keywords) {
-        this.anchorsByKeyword.get(keyword)?.forEach(anchor => searchResults.add(anchor));
+        this.linksByKeyword.get(keyword)?.forEach(link => {
+          matchingKeywords.add(keyword);
+          searchResults.add(link)});
       }
     }
 
+    this.matchingKeywords = Array.from(matchingKeywords);
     this.searchResults = Array.from(searchResults);
     this.showSearch();
   }

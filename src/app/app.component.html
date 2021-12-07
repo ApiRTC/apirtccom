@@ -86,9 +86,10 @@
 
 <div #collapseSearch id="collapse-search" class="container-fluid collapse fixed-top bg-apirtc-bis">
     <div class="container py-5">
+        <p class="text-end text-light"> <span class="ms-2" *ngFor="let keyword of matchingKeywords">{{keyword}}</span></p>
         <p *ngFor="let result of searchResults" class="text-end">
             <a class="link-light" [routerLink]="[result.path]" [fragment]="result.fragment" aria-current="true"
-                (click)="hideSearch()">{{result.title}}</a>
+                (click)="hideSearch()">#{{result.fragment}} - {{result.title}}</a>
         </p>
         <p class="text-light text-end" *ngIf="searchResults && searchResults.length === 0">Nothing found! Refine
             your search.
