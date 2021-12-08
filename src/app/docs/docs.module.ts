@@ -17,7 +17,6 @@ import { DevGuideComponent } from './dev-guide/dev-guide.component';
 import { DocsSideMenuComponent } from './docs-side-menu/docs-side-menu.component';
 import { ExamplesComponent } from './examples/examples.component';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
-import { IntroductionComponent } from './introduction/introduction.component';
 import { LogicalConceptsComponent } from './logical-concepts/logical-concepts.component';
 import { OverviewComponent } from './overview/overview.component';
 import { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
@@ -31,7 +30,6 @@ export { DemoComponent } from './demo/demo.component';
 export { DevGuideComponent } from './dev-guide/dev-guide.component';
 export { ExamplesComponent } from './examples/examples.component';
 export { GettingStartedComponent } from './getting-started/getting-started.component';
-export { IntroductionComponent } from './introduction/introduction.component';
 export { LogicalConceptsComponent } from './logical-concepts/logical-concepts.component';
 export { OverviewComponent } from './overview/overview.component';
 export { PlatformDevGuideComponent } from './platform-dev-guide/platform-dev-guide.component';
@@ -49,7 +47,6 @@ import { UtilsModule } from '../utils/utils.module';
     DemoComponent, DevGuideComponent, DocsSideMenuComponent,
     ExamplesComponent,
     GettingStartedComponent,
-    IntroductionComponent,
     LogicalConceptsComponent,
     OverviewComponent,
     PlatformDevGuideComponent,

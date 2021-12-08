@@ -53,7 +53,8 @@ def get_anchors(html_content):
     soup = BeautifulSoup(html_content, 'html.parser')
 
     anchors = []
-    for anchor_html in soup.findAll('a', {'class': 'anchor'}):
+    # 'a',{'class': 'anchor'}
+    for anchor_html in soup.findAll(class_='anchor'):
         keywords = []
         keywords.extend(anchor_html['id'].split("-") if anchor_html.get(
             'id') is not None else [])
@@ -172,16 +173,25 @@ if __name__ == '__main__':
     pages = []
     pages.append({'title': "Front App API Getting Started", 'path': "getting-started",
                  'anchors': get_anchors(get_file("./src/app/docs/getting-started/getting-started.component.html"))})
+
     pages.append({'title': "Architecture", 'path': "architecture",
                  'anchors': get_anchors(get_file("./src/app/docs/architecture/architecture.component.html"))})
+
     pages.append({'title': "Logical Concepts", 'path': "logical-concepts",
                  'anchors': get_anchors(get_file("./src/app/docs/logical-concepts/logical-concepts.component.html"))})
+
     pages.append({'title': "Front App API Developer Guide", 'path': "dev-guide",
                  'anchors': get_anchors(get_file("./src/app/docs/dev-guide/dev-guide.component.html"))})
+
+    pages.append({'title': "React UI Library Developer Guide", 'path': "react-ui-dev-guide",
+                 'anchors': get_anchors(get_file("./src/app/docs/react-ui-dev-guide/react-ui-dev-guide.component.html"))})
+
     pages.append({'title': "Platform Developer Guide", 'path': "platform-dev-guide",
                  'anchors': get_anchors(get_file("./src/app/docs/platform-dev-guide/platform-dev-guide.component.html"))})
+
     pages.append({'title': "Demo", 'path': "demo",
                  'anchors': get_anchors(get_file("./src/app/docs/demo/demo.component.html"))})
+                 
     pages.append({'title': "Samples", 'path': "examples",
                  'anchors': get_anchors(get_file("./src/app/docs/examples/examples.component.html"))})
 

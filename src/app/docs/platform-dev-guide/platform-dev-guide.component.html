@@ -1,12 +1,11 @@
 <div class="bd-main">
-    <a #anchor id="introduction" class="anchor"></a>
     <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
         <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
         <nav class="table-of-contents">
             <ul>
                 <li>
-                    <a [routerLink]="['.']" fragment="introduction"
-                        [ngClass]="{'active': current === 'introduction' }">Introduction</a>
+                    <a [routerLink]="['.']" fragment="platform"
+                        [ngClass]="{'active': current === 'platform' }">Introduction</a>
                 </li>
                 <li>
                     <a [routerLink]="['.']" fragment="rest-api" [ngClass]="{'active': current === 'rest-api' }">REST
@@ -37,6 +36,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-10 fs-5">
+                    <a #anchor id="platform" class="anchor"></a>
                     <p class="text-center">
                         Learn how to interact with <strong>ApiRTC Platform</strong>.
                     </p>

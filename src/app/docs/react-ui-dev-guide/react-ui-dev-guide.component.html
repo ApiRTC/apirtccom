@@ -1,5 +1,4 @@
 <div class="bd-main">
-
     <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
         <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
         <nav class="table-of-contents">
@@ -26,12 +25,14 @@
     </div>
     <div class="bd-content">
         <div class="container">
+            <!-- For search -->
+            <span class="anchor" keywords="react,ui,gui,graphical,components"></span>
+            <!-- For search -->
             <div class="row justify-content-center">
                 <div class="col-10 fs-5">
                     <p class="text-center">
                         This guide presents how to use <strong>ApiRTC</strong> set of <strong>React</strong> components
-                        to
-                        speed-up your <strong>React</strong>&nbsp;<strong>client application</strong> development.
+                        to speed-up your <strong>React</strong>&nbsp;<strong>client application</strong> development.
                     </p>
                 </div>
             </div>
@@ -53,7 +54,8 @@
                         class="material-icons align-middle fs-6">open_in_new</span></a>
                 on github.
             </p>
-            <h1 #anchor id="useapirtc" class="anchor" class="mt-5">
+            <h1 class="mt-5">
+                <a #anchor id="useapirtc" class="anchor"></a>
                 useApiRTC
             </h1>
             <p>
@@ -68,7 +70,8 @@
             </p>
             <h3 class="mt-2">Greetings example</h3>
             <app-codenav [code]="useapirtc_greetings" [(language)]="lang"></app-codenav>
-            <h1 #anchor id="login" class="anchor" class="mt-5">
+            <h1 class="mt-5">
+                <a #anchor id="login" class="anchor"></a>
                 LoginForm
             </h1>
             <p>
@@ -81,7 +84,8 @@
                 The login prop is retrieved thanks to the hook <b>useApiRTC</b> with <code>apirtc.login</code>
             </p>
             <app-codenav [code]="login" [(language)]="lang"></app-codenav>
-            <h1 #anchor id="agenda" class="anchor" class="mt-5">
+            <h1 class="mt-5">
+                <a #anchor id="agenda" class="anchor"></a>
                 Agenda
             </h1>
             <p>
@@ -95,7 +99,8 @@
                 <code>apirtc.session</code>
             </p>
             <app-codenav [code]="agenda" [(language)]="lang"></app-codenav>
-            <h1 #anchor id="chat" class="anchor" class="mt-5">
+            <h1 class="mt-5">
+                <a #anchor id="chat" class="anchor"></a>
                 Chat
             </h1>
             <p>
@@ -108,7 +113,8 @@
                 The <code>apirtc</code> prop will be used by the Chat component implicitly.
             </p>
             <app-codenav [code]="chat" [(language)]="lang"></app-codenav>
-            <h1 #anchor id="whiteboard" class="anchor" class="mt-5">
+            <h1 class="mt-5">
+                <a #anchor id="whiteboard" class="anchor"></a>
                 Whiteboard
             </h1>
             <p>
