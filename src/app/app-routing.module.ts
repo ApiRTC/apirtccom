@@ -40,13 +40,8 @@ const routes: Routes = [
   { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
   { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
   { path: 'release-practices', component: ReleasePracticesComponent },
-
-  // { path: 'features', component: FeaturesComponent },
-  // { path: 'blog', component: BlogComponent },
-  // { path: 'use-cases', component: UseCasesComponent },
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'docs', redirectTo: '/overview', pathMatch: 'full' },
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
+  { path: '**', component: OverviewComponent }
 ];
 
 @NgModule({
