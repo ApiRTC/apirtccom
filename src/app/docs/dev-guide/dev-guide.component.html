@@ -150,7 +150,7 @@
                 UserAgent
             </h1>
             <p>
-                The <a href="https://dev.apirtc.com/reference/UserAgent.html" target="_blank"
+                The <a href="https://apirtc.github.io/references/apirtc-js/UserAgent.html" target="_blank"
                     rel="noopener"><code>UserAgent</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> is an entrypoint to
                 <strong>ApiRTC</strong>. This is the first object to
@@ -242,7 +242,7 @@
                 Session
             </h1>
             <p>
-                A <a href="https://dev.apirtc.com/reference/Session.html" target="_blank"
+                A <a href="https://apirtc.github.io/references/apirtc-js/Session.html" target="_blank"
                     rel="noopener"><code>Session</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> instance is obtained when
                 connecting to the ApiRTC platform.
@@ -252,10 +252,10 @@
                 access connected features of <strong>ApiRTC</strong> such as chat or video conferencing.
             </p>
             <p>
-                This is done through the <a href="https://dev.apirtc.com/reference/UserAgent.html#register"
+                This is done through the <a href="https://apirtc.github.io/references/apirtc-js/UserAgent.html#register"
                     target="_blank" rel="noopener"><code>UserAgent.register(options)</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> method. Some
-                <code>options</code> (type <a href="https://dev.apirtc.com/reference/global.html#RegisterInformation"
+                <code>options</code> (type <a href="https://apirtc.github.io/references/apirtc-js/global.html#RegisterInformation"
                     target="_blank" rel="noopener"><code>RegisterInformation</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>) parameters control the
                 authentication mechanisms.
@@ -383,11 +383,11 @@
                 getOrCreate
             </h2>
             <p>
-                To get a <a href="https://dev.apirtc.com/reference/Conversation.html" target="_blank"
+                To get a <a href="https://apirtc.github.io/references/apirtc-js/Conversation.html" target="_blank"
                     rel="noopener"><code>Conversation</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> instance, the
                 <code>Session</code> method
-                <a href="https://dev.apirtc.com/reference/Session.html#getOrCreateConversation__anchor" target="_blank"
+                <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor" target="_blank"
                     rel="noopener">getOrCreateConversation(name, options)&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> shall be used.
             </p>
@@ -483,7 +483,7 @@
                 In order to activate the <strong>moderation</strong> for a <strong>conversation</strong>, every party
                 (<strong>moderator</strong> or not) must explicitly set the <code>moderationEnabled</code> option to
                 <code>true</code>
-                when calling <a href="https://dev.apirtc.com/reference/Session.html#getOrCreateConversation__anchor"
+                when calling <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor"
                     target="_blank" rel="noopener">getOrCreateConversation&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
@@ -572,7 +572,7 @@
                 Acquiring <strong>camera local stream</strong> is done through the
                 <code>UserAgent.createStream(options)</code> method. The browser asks the user to choose among available
                 media devices. The <code>Promise</code> resolves with a <a
-                    href="https://dev.apirtc.com/reference/Stream.html" target="_blank"
+                    href="https://apirtc.github.io/references/apirtc-js/Stream.html" target="_blank"
                     rel="noopener"><code>Stream</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> instance.
             </p>
@@ -583,7 +583,7 @@
                 <div class="col border-start">
                     <p>
                         Possible <code>options</code> (<a
-                            href="https://dev.apirtc.com/reference/global.html#CreateStreamOptions" target="_blank"
+                            href="https://apirtc.github.io/references/apirtc-js/global.html#CreateStreamOptions" target="_blank"
                             rel="noopener"><code>CreateStreamOptions</code>&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>) are:
                     </p>
@@ -597,7 +597,7 @@
                     </p>
                     <p>
                         <code>filters</code> is an array of type <a
-                            href="https://dev.apirtc.com/reference/global.html#FilterDescriptor" target="_blank"
+                            href="https://apirtc.github.io/references/apirtc-js/global.html#FilterDescriptor" target="_blank"
                             rel="noopener">FilterDescriptor&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>
                     </p>
@@ -630,7 +630,7 @@
                 <code>Conversation.publish(stream, options)</code> can take optionally take <code>PublishOptions</code>
                 second parameter object to control publication.
                 Please check reference for details on <a
-                    href="https://dev.apirtc.com/reference/global.html#PublishOptions" target="_blank"
+                    href="https://apirtc.github.io/references/apirtc-js/global.html#PublishOptions" target="_blank"
                     rel="noopener">PublishOptions&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
@@ -681,7 +681,7 @@
             </h3>
             <p>
                 <code>Conversation.subscribeToStream(streamId, options)</code> can take optionally take
-                <a class="text-nowrap" href="https://dev.apirtc.com/reference/global.html#SubscribeOptions"
+                <a class="text-nowrap" href="https://apirtc.github.io/references/apirtc-js/global.html#SubscribeOptions"
                     target="_blank" rel="noopener"><code>SubscribeOptions</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> second parameter object to
                 control subscription.
@@ -982,7 +982,7 @@
                 <div class="col border-start">
                     <p>
                         Refer to <a class="text-nowrap"
-                            href="https://dev.apirtc.com/reference/Conversation.html#startRecording" target="_blank"
+                            href="https://apirtc.github.io/references/apirtc-js/Conversation.html#startRecording" target="_blank"
                             rel="noopener"><code>startRecording(options)</code>&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a> for
                         <code>options</code> details.
@@ -991,7 +991,7 @@
             </div>
             <p>
                 Example of <code>recordingInfo</code> (<a class="text-nowrap"
-                    href="https://dev.apirtc.com/reference/global.html#RecordingInfo" target="_blank"
+                    href="https://apirtc.github.io/references/apirtc-js/global.html#RecordingInfo" target="_blank"
                     rel="noopener"><code>RecordingInfo</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>):
             </p>
