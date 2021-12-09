@@ -11,23 +11,6 @@ import {
 } from './docs/docs.module';
 
 const routes: Routes = [
-  //{ path: 'home', component: HomeComponent },
-  // {
-  //   path: 'docs', component: DocsComponent,
-  //   children: [
-  //     // { path: 'intro', component: IntroductionComponent },
-  //     { path: 'overview', component: OverviewComponent },
-  //     { path: 'getting-started', component: GettingStartedComponent },
-  //     { path: 'architecture', component: ArchitectureComponent },
-  //     { path: 'logical-concepts', component: LogicalConceptsComponent },
-  //     { path: 'dev-guide', component: DevGuideComponent },
-  //     { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
-  //     { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
-  //     { path: 'demo', component: DemoComponent },
-  //     { path: 'examples', component: ExamplesComponent },
-  //     { path: '', redirectTo: 'overview', pathMatch: 'full' },
-  //   ]
-  // },
   { path: 'overview', component: OverviewComponent },
   { path: 'getting-started', component: GettingStartedComponent },
   { path: 'architecture', component: ArchitectureComponent },
@@ -40,7 +23,16 @@ const routes: Routes = [
   { path: 'platform-dev-guide', component: PlatformDevGuideComponent },
   { path: 'react-ui-dev-guide', component: ReactUiDevGuideComponent },
   { path: 'release-practices', component: ReleasePracticesComponent },
+
+  // Old site redirects
+  { path: 'api/quick_start', redirectTo: 'getting-started' },
+  { path: 'api/CHANGELOG', redirectTo: 'release-practices' },
+  { path: 'tutorials', redirectTo: 'examples' },
+
+  // Default to overview
   { path: '', redirectTo: '/overview', pathMatch: 'full' },
+
+  // Any other path to overview
   { path: '**', component: OverviewComponent }
 ];
 
