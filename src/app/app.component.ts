@@ -65,7 +65,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
-
     this.searchService.getJSON().subscribe(data => {
       for (const page of data.pages) {
         for (const anchor of page.anchors) {
@@ -137,7 +136,8 @@ export class AppComponent implements AfterViewInit {
       for (const keyword of keywords) {
         this.linksByKeyword.get(keyword)?.forEach(link => {
           matchingKeywords.add(keyword);
-          searchResults.add(link)});
+          searchResults.add(link)
+        });
       }
     }
 
