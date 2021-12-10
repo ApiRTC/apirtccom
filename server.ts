@@ -25,8 +25,39 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  // Redirect internal routes
+  server.get('/api/quick_start', (req, res) => {
+    res.redirect('/getting-started', 301);
+  });
+  server.get('/tutorials', (req, res) => {
+    res.redirect('/examples', 301);
+  });
+
+  // Redirect old references
+  server.get('/api/reference', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-js', 301);
+  });
+  server.get('/reference/**', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-js', 301);
+  });
+  server.get('/api/CHANGELOG', (req, res) => {
+    res.redirect('https://github.com/ApiRTC/references/blob/master/apirtc-js/CHANGELOG.md', 301);
+  });
+
+  server.get('/api/reference_apiRTC_Android-SDK', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-android-sdk', 301);
+  });
+  server.get('/apiRTC_Android-SDK/**', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-android-sdk', 301);
+  });
+
+  server.get('/api/reference_apiRTC_iOS-SDK', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-ios-sdk', 301);
+  });
+  server.get('/apiRTC_iOS-SDK/**', (req, res) => {
+    res.redirect('https://apirtc.github.io/references/apirtc-ios-sdk', 301);
+  });
+
   // Serve static files from /browser
   server.get('*.*', express.static(distFolder, {
     maxAge: '1y'
@@ -45,8 +76,8 @@ export function app(): express.Express {
 
 function run(): void {
   //process.env['PORT'] ||
-  const port = 4080;
-  const port_https = 4443;
+  const port = 80;
+  const port_https = 443;
 
   // Start up the Node server
   //const server = app();

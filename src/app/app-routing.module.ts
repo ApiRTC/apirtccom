@@ -13,27 +13,27 @@ import {
 
 // Functions to match old site apis references urls
 //
-function apiReferenceMatcher(url: UrlSegment[]) {
-  if (url.length >= 1 && url[0].path === 'reference' || (url.length >= 2 && url[0].path === 'api' && url[1].path === 'reference')) {
-    return { consumed: url };
-  }
-  return null;
-}
+// function apiReferenceMatcher(url: UrlSegment[]) {
+//   if (url.length >= 1 && url[0].path === 'reference' || (url.length >= 2 && url[0].path === 'api' && url[1].path === 'reference')) {
+//     return { consumed: url };
+//   }
+//   return null;
+// }
 
-function sDKMatcher(url: UrlSegment[], refName: string) {
-  if (url.length >= 1 && url[0].path === refName || (url.length >= 2 && url[0].path === 'api' && url[1].path === 'reference_' + refName)) {
-    return { consumed: url };
-  }
-  return null;
-}
+// function sDKMatcher(url: UrlSegment[], refName: string) {
+//   if (url.length >= 1 && url[0].path === refName || (url.length >= 2 && url[0].path === 'api' && url[1].path === 'reference_' + refName)) {
+//     return { consumed: url };
+//   }
+//   return null;
+// }
 
-function androidSDKMatcher(url: UrlSegment[]) {
-  return sDKMatcher(url, 'apiRTC_Android-SDK');
-}
+// function androidSDKMatcher(url: UrlSegment[]) {
+//   return sDKMatcher(url, 'apiRTC_Android-SDK');
+// }
 
-function iosSDKMatcher(url: UrlSegment[]) {
-  return sDKMatcher(url, 'apiRTC_iOS-SDK');
-}
+// function iosSDKMatcher(url: UrlSegment[]) {
+//   return sDKMatcher(url, 'apiRTC_iOS-SDK');
+// }
 
 const routes: Routes = [
   { path: 'overview', component: OverviewComponent },
@@ -50,29 +50,31 @@ const routes: Routes = [
   { path: 'release-practices', component: ReleasePracticesComponent },
 
   // Old site redirects to internal routes
-  { path: 'api/quick_start', redirectTo: 'getting-started' },
-  { path: 'api/CHANGELOG', redirectTo: 'release-practices' },
-  { path: 'tutorials', redirectTo: 'examples' },
+  // { path: 'api/quick_start', redirectTo: 'getting-started' },
+  // { path: 'api/CHANGELOG', redirectTo: 'release-practices' },
+  // { path: 'tutorials', redirectTo: 'examples' },
 
   // Old site redirects to references external urls
-  {
-    matcher: apiReferenceMatcher,
-    component: OverviewComponent, // unused but mandatory for 'matcher' route to use 'resolve'
-    resolve: { url: 'referencesUrlRedirectResolver' },
-    data: { externalUrl: 'https://apirtc.github.io/references/apirtc-js' }
-  },
-  {
-    matcher: androidSDKMatcher,
-    component: OverviewComponent,
-    resolve: { url: 'referencesUrlRedirectResolver' },
-    data: { externalUrl: 'https://apirtc.github.io/references/apirtc-android-sdk' }
-  },
-  {
-    matcher: iosSDKMatcher,
-    component: OverviewComponent,
-    resolve: { url: 'referencesUrlRedirectResolver' },
-    data: { externalUrl: 'https://apirtc.github.io/references/apirtc-ios-sdk' }
-  },
+  // COMMENTED OUT : because it does not work in SSR
+  // => had to implement this in SSR nodejs express server itself
+  // {
+  //   matcher: apiReferenceMatcher,
+  //   component: OverviewComponent, // unused but mandatory for 'matcher' route to use 'resolve'
+  //   resolve: { url: 'referencesUrlRedirectResolver' },
+  //   data: { externalUrl: 'https://apirtc.github.io/references/apirtc-js' }
+  // },
+  // {
+  //   matcher: androidSDKMatcher,
+  //   component: OverviewComponent,
+  //   resolve: { url: 'referencesUrlRedirectResolver' },
+  //   data: { externalUrl: 'https://apirtc.github.io/references/apirtc-android-sdk' }
+  // },
+  // {
+  //   matcher: iosSDKMatcher,
+  //   component: OverviewComponent,
+  //   resolve: { url: 'referencesUrlRedirectResolver' },
+  //   data: { externalUrl: 'https://apirtc.github.io/references/apirtc-ios-sdk' }
+  // },
 
   // Default to overview
   { path: '', redirectTo: '/overview', pathMatch: 'full' },

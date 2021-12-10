@@ -100,10 +100,14 @@ cd apirtccom/
 npm install
 npm run build:ssr
 sudo npm install pm2 -g
-pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
-pm2 stop apirtccom
-pm2 restart apirtccom
+sudo pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
+sudo pm2 stop apirtccom
+sudo pm2 restart apirtccom
 ```
+
+Note : sudo is required for pm2 when trying to bind 80/443 ports
+
+Note2 : certificates can be configured to another path in server.ts
 
 Apache Configuration
 
