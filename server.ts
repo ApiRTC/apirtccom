@@ -76,8 +76,8 @@ export function app(): express.Express {
 
 function run(): void {
   //process.env['PORT'] ||
-  const port = 80;
-  const port_https = 443;
+  const port = 8080;
+  const port_https = 8443;
 
   // Start up the Node server
   //const server = app();
@@ -85,17 +85,25 @@ function run(): void {
   //   console.log(`Node Express server listening on http://localhost:${port}`);
   // });
 
+  // set up plain http server
+  const httpServer = express();
+  // set up a route to redirect http to https
+  httpServer.get('*', function (req, res) {
+    res.redirect('https://' + req.headers.host + req.url);
+  })
+  httpServer.listen(port);
+
   // For test purpose ? try plain:true
-  spdy.createServer(
-    {
-      spdy: {
-        plain: true
-      }
-    },
-    app()
-  ).listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
-  });
+  // spdy.createServer(
+  //   {
+  //     spdy: {
+  //       plain: true
+  //     }
+  //   },
+  //   app()
+  // ).listen(port, () => {
+  //   console.log(`Node Express server listening on http://localhost:${port}`);
+  // });
 
   // Make server using h2 (http2, http/2) https protocol
   spdy.createServer(

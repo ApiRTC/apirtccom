@@ -100,14 +100,17 @@ cd apirtccom/
 npm install
 npm run build:ssr
 sudo npm install pm2 -g
-sudo pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
-sudo pm2 stop apirtccom
-sudo pm2 restart apirtccom
+pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
+pm2 stop apirtccom
+pm2 restart apirtccom
+
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8443
 ```
 
-Note : sudo is required for pm2 when trying to bind 80/443 ports
+Note : certificates can be configured to another path in server.ts
 
-Note2 : certificates can be configured to another path in server.ts
+(Note2 : sudo is required for pm2 when trying to directly bind 80/443 ports)
 
 Apache Configuration
 
