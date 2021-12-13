@@ -255,8 +255,9 @@
                 This is done through the <a href="https://apirtc.github.io/references/apirtc-js/UserAgent.html#register"
                     target="_blank" rel="noopener"><code>UserAgent.register(options)</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> method. Some
-                <code>options</code> (type <a href="https://apirtc.github.io/references/apirtc-js/global.html#RegisterInformation"
-                    target="_blank" rel="noopener"><code>RegisterInformation</code>&nbsp;<span
+                <code>options</code> (type <a
+                    href="https://apirtc.github.io/references/apirtc-js/global.html#RegisterInformation" target="_blank"
+                    rel="noopener"><code>RegisterInformation</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>) parameters control the
                 authentication mechanisms.
             </p>
@@ -387,8 +388,8 @@
                     rel="noopener"><code>Conversation</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> instance, the
                 <code>Session</code> method
-                <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor" target="_blank"
-                    rel="noopener">getOrCreateConversation(name, options)&nbsp;<span
+                <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor"
+                    target="_blank" rel="noopener">getOrCreateConversation(name, options)&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> shall be used.
             </p>
             <p>
@@ -483,7 +484,8 @@
                 In order to activate the <strong>moderation</strong> for a <strong>conversation</strong>, every party
                 (<strong>moderator</strong> or not) must explicitly set the <code>moderationEnabled</code> option to
                 <code>true</code>
-                when calling <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor"
+                when calling <a
+                    href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor"
                     target="_blank" rel="noopener">getOrCreateConversation&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
@@ -583,8 +585,8 @@
                 <div class="col border-start">
                     <p>
                         Possible <code>options</code> (<a
-                            href="https://apirtc.github.io/references/apirtc-js/global.html#CreateStreamOptions" target="_blank"
-                            rel="noopener"><code>CreateStreamOptions</code>&nbsp;<span
+                            href="https://apirtc.github.io/references/apirtc-js/global.html#CreateStreamOptions"
+                            target="_blank" rel="noopener"><code>CreateStreamOptions</code>&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>) are:
                     </p>
                     <pre><code [highlight]="createStream_options" [languages]="['javascript']"></code></pre>
@@ -597,8 +599,8 @@
                     </p>
                     <p>
                         <code>filters</code> is an array of type <a
-                            href="https://apirtc.github.io/references/apirtc-js/global.html#FilterDescriptor" target="_blank"
-                            rel="noopener">FilterDescriptor&nbsp;<span
+                            href="https://apirtc.github.io/references/apirtc-js/global.html#FilterDescriptor"
+                            target="_blank" rel="noopener">FilterDescriptor&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>
                     </p>
                 </div>
@@ -957,9 +959,8 @@
                 <a #anchor id="whiteboard" class="anchor" keywords="whiteboard,board,screen"></a>
                 Whiteboard
             </h1>
-            <p>
-                Explain Whiteboard
-            </p>
+            <!-- TODO -->
+            <p class="fst-italic">Will be documented soon.</p>
             <h1 class="mt-5">
                 <a #anchor id="recording" class="anchor" keywords="video,composite"></a>
                 Recording
@@ -982,8 +983,8 @@
                 <div class="col border-start">
                     <p>
                         Refer to <a class="text-nowrap"
-                            href="https://apirtc.github.io/references/apirtc-js/Conversation.html#startRecording" target="_blank"
-                            rel="noopener"><code>startRecording(options)</code>&nbsp;<span
+                            href="https://apirtc.github.io/references/apirtc-js/Conversation.html#startRecording"
+                            target="_blank" rel="noopener"><code>startRecording(options)</code>&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a> for
                         <code>options</code> details.
                     </p>
@@ -1020,9 +1021,8 @@
                 <a #anchor id="chat-messages" class="anchor"></a>
                 Chat messages
             </h1>
-            <p>
-                Explain Chat messages
-            </p>
+            <!-- TODO -->
+            <p class="fst-italic">Will be documented soon.</p>
             <h1 class="mt-5">
                 <a #anchor id="background-subtraction" class="anchor" keywords="blur"></a>
                 Background subtraction
@@ -1049,9 +1049,12 @@
                 <a #anchor id="good-practices" class="anchor" keywords=""></a>
                 Good practices
             </h1>
-            <p>
-                Explain Good practices
-            </p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Register events required for a feature BEFORE calling the methods involving
+                    the feature.</li>
+                <li class="list-group-item">Always implement error cases</li>
+                <li class="list-group-item">Always implement objects cleanup</li>
+            </ul>
         </div>
     </div>
 </div>

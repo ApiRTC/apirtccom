@@ -81,49 +81,50 @@
                 <strong>User</strong>. You can then create sub-accounts as sub-<strong>Enterprise</strong> with
                 associated admin <strong>User</strong>.
             </p>
-            <p></p>
             <h3>Users</h3>
-                <h2 id="medias" class="mt-5">
-                    <a #anchor id="medias" class="anchor"></a>
-                    Medias management
-                </h2>
-                <p>
-                    Retrieve or delete medias exchanged or recorded during <strong>conversation</strong>s.
-                </p>
-                <h1 id="webhooks" class="mt-5">
-                    <a #anchor id="webhooks" class="anchor"></a>
-                    WebHooks
-                </h1>
-                <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
-                    <strong>WebHooks</strong> to your backend server.
-                </p>
-                <p><strong>ApiRTC</strong> triggers webhooks
-                    to let your backend know when events happen, like a <strong>conversation</strong> has ended.
-                    Webhooks
-                    are triggered
-                    asynchronously.</p>
-                <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to
-                    suit
-                    your needs !</p>
+            <p>You can use CRUD operations on <strong>Users</strong>.</p>
+            <h2 id="medias" class="mt-5">
+                <a #anchor id="medias" class="anchor"></a>
+                Medias management
+            </h2>
+            <p>
+                Retrieve or delete medias exchanged or recorded during <strong>conversation</strong>s.
+            </p>
+            <h1 id="webhooks" class="mt-5">
+                <a #anchor id="webhooks" class="anchor"></a>
+                WebHooks
+            </h1>
+            <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
+                <strong>WebHooks</strong> to your backend server.
+            </p>
+            <p><strong>ApiRTC</strong> triggers webhooks
+                to let your backend know when events happen, like a <strong>conversation</strong> has ended.
+                Webhooks
+                are triggered
+                asynchronously.</p>
+            <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to
+                suit
+                your needs !</p>
 
-                <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
-                    <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
-                    URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application
-                    includes
-                    details of the event. Your application can then perform whatever
-                    logic is necessary.
-                </p>
-                <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
-                    some events happen.</p>
-                <p>
+            <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
+                <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
+                URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application
+                includes
+                details of the event. Your application can then perform whatever
+                logic is necessary.
+            </p>
+            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
+                some events happen.</p>
+            <!-- TODO -->
+            <!-- <p>
                     Explain how webhooks work
                 </p>
                 <p>
                     Explain how webhooks are configured
                 </p>
                 <p>
-                    Events
-                </p>
+                    Events list
+                </p> -->
         </div>
     </div>
 </div>
