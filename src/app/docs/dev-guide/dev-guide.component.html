@@ -1028,20 +1028,21 @@
                 Background subtraction
             </h1>
             <p>
-                <strong>ApiRTC</strong> allows to create a background blurred stream based on an original
-                stream using <code>Stream.blur()</code>.
+                <strong>ApiRTC</strong> allows to create a background blurred <strong>stream</strong> based on an
+                original <strong>stream</strong> using <code>Stream.blur()</code>.
             </p>
             <p>To start the blur process on a <strong>stream</strong>:</p>
             <app-codenav [code]="blur" [(language)]="lang"></app-codenav>
-            <p>The returned blurred stream is a an instance of <code>Stream</code> and is a copy of the base
-                stream with a blur process applied on it. It means that there is a strong dependance between
-                the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
-                the parent is released the child also). Both streams needs to be handled by the application
-                to keep the blur process going on.</p>
-            <p>Then, use the blurred stream as a local stream:</p>
+            <p>The returned <code>blurredStream</code> is a an instance of <code>Stream</code> and is a copy of the base
+                <code>stream</code> with a blur process applied on it. It means that there is a strong dependance
+                between the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
+                the parent is released the child also). Both <strong>stream</strong>s needs to be handled by the
+                application to keep the blur process going on.
+            </p>
+            <p>Use the blurred <strong>stream</strong> as a <strong>local stream</strong>:</p>
             <app-codenav [code]="blurPublish" [(language)]="lang"></app-codenav>
 
-            <p>To stop the blur process :</p>
+            <p>To stop the blur process:</p>
             <app-codenav [code]="blurStop" [(language)]="lang"></app-codenav>
             <p>Both methods have the same result, the only difference is the object on which you call the
                 method.</p>
