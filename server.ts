@@ -75,41 +75,26 @@ export function app(): express.Express {
 }
 
 function run(): void {
-  //process.env['PORT'] ||
   const port = 8080;
   const port_https = 8443;
 
-  // Start up the Node server
-  //const server = app();
-  // server.listen(port, () => {
-  //   console.log(`Node Express server listening on http://localhost:${port}`);
-  // });
-
-  // set up plain http server
+  // Set up plain http server
   const httpServer = express();
+  // For certificate generation with certbot (sudo certbot certonly --manual)
+  // httpServer.get('/.well-known/acme-challenge/*', function (req, res) {
+  //   res.send("wcMfSgyWgDzZXeGm7wpoKwg9zgTn_KV4ZCieot07VSM.bTNYdNXFsAOigdbs1rZgTypq8oYpHKKtqYlbf39cy8I");
+  // })
   // set up a route to redirect http to https
   httpServer.get('*', function (req, res) {
     res.redirect('https://' + req.headers.host + req.url);
   })
   httpServer.listen(port);
 
-  // For test purpose ? try plain:true
-  // spdy.createServer(
-  //   {
-  //     spdy: {
-  //       plain: true
-  //     }
-  //   },
-  //   app()
-  // ).listen(port, () => {
-  //   console.log(`Node Express server listening on http://localhost:${port}`);
-  // });
-
   // Make server using h2 (http2, http/2) https protocol
   spdy.createServer(
     {
-      key: readFileSync("./cert/selfsigned.key"),
-      cert: readFileSync("./cert/selfsigned.crt"),
+      key: readFileSync("./cert/privkey.pem"),
+      cert: readFileSync("./cert/fullchain.pem"),
       spdy: {
         // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
         plain: false
@@ -117,7 +102,7 @@ function run(): void {
     },
     app()
   ).listen(port_https, () => {
-    console.log(`Node Express server listening on https://localhost:${port_https}`);
+    console.log(`Node Express server listening on https://0.0.0.0:${port_https}`);
   });
 }
 

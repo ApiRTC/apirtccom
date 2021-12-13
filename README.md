@@ -92,34 +92,55 @@ A frontend apache server configured with SSL and will proxies requests to the no
 
 pm2 is installed on the server and manages the website node/express server.
 
-Commands
+Commands To build
 
 ```
 git clone https://github.com/ApiRTC/apirtccom.git
 cd apirtccom/
 npm install
 npm run build:ssr
+```
+
+Commands to start
+
+```
 sudo npm install pm2 -g
 pm2 start /home/kevinm/apirtccom/dist/apirtccom/server/main.js --name apirtccom
 pm2 stop apirtccom
 pm2 restart apirtccom
-
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8443
 ```
 
 Note : certificates can be configured to another path in server.ts
 
 (Note2 : sudo is required for pm2 when trying to directly bind 80/443 ports)
 
-Apache Configuration
+Commands for port forwarding
 
 ```
-sudo vi /etc/apache2/sites-enabled/000-default.conf
+sudo iptables -L -t nat
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8443
 ```
 
-In both VirtualHost *:80 and VirtualHost *:443 for ServerName dev.apirtc.com, added:
 
-```
- ProxyPass / http://localhost:4000/
-```
+## Certificates generation
+
+At initial generation, use `sudo certbot certonly --manual`:
+
+    - Provide the domain
+
+    - When it asks for http://<domain>/.well-known/acme-challenge, uncomment httpServer.get('/.well-known/acme-challenge/*', function (req, res) { ...
+in server.ts and change the response to what certbot provides as the content of file
+
+    - run `ng run apirtccom:server` and `pm2 restart apirtccom`
+
+    - then continue with certbot.
+
+    - copy `sudo cp /etc/letsencrypt/live/dev2.apirtc.com/fullchain.pem apirtccom/cert/` and `sudo cp /etc/letsencrypt/live/dev2.apirtc.com/privkey.pem apirtccom/cert/`
+
+    - comment back httpServer.get('/.well-known/acme-challenge/*', function (req, res) { ...
+in server.ts
+
+    - run again `ng run apirtccom:server` and `pm2 restart apirtccom`
+
+That should work !
