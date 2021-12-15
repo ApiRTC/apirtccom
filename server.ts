@@ -29,7 +29,17 @@ export function app(): express.Express {
   server.get('/api/quick_start', (req, res) => {
     res.redirect('/getting-started', 301);
   });
+  server.get('/api/quick_start_iOS', (req, res) => {
+    res.redirect('/getting-started', 301);
+  });
+  server.get('/api/quick_start_android', (req, res) => {
+    res.redirect('/getting-started', 301);
+  });
+
   server.get('/tutorials', (req, res) => {
+    res.redirect('/examples', 301);
+  });
+  server.get('/tutorials/**', (req, res) => {
     res.redirect('/examples', 301);
   });
 
@@ -56,6 +66,10 @@ export function app(): express.Express {
   });
   server.get('/apiRTC_iOS-SDK/**', (req, res) => {
     res.redirect('https://apirtc.github.io/references/apirtc-ios-sdk', 301);
+  });
+
+  server.get('/api/reference_apiRTC_REST', (req, res) => {
+    res.redirect('https://cloud.apirtc.com/sdk/api/', 301);
   });
 
   // Serve static files from /browser
