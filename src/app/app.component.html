@@ -82,6 +82,8 @@
         <!--my-5 used to allow margin for menu and more margin for footer -->
         <mat-sidenav-content class="my-5">
             <router-outlet></router-outlet>
+            <!-- to let more room for footer in mobile case: -->
+            <p *ngIf="mobileQuery?.matches" class="mt-5"></p>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>
