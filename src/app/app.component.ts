@@ -23,6 +23,8 @@ interface Link {
 export class AppComponent implements AfterViewInit {
   title = 'apirtccom';
 
+  readonly year: number = new Date().getFullYear();
+
   linksByKeyword: Map<string, Array<Link>> = new Map();
   keywords: Array<string> = new Array();
 
