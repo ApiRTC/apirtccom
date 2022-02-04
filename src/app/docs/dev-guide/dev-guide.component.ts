@@ -78,22 +78,22 @@ export class DevGuideComponent implements OnInit, OnDestroy {
 
   useragent_apikey = {
     javascript: `userAgent = new UserAgent({
-  uri: 'apzkey:' + apiKey
+  uri: 'apiKey:' + apiKey
 });`,
-    kotlin: `val options = UserAgent.UserAgentOptions(uri = "apzkey:$apiKey")
+    kotlin: `val options = UserAgent.UserAgentOptions(uri = "apiKey:$apiKey")
 val userAgent = UserAgent(this, options)`,
     swift: `var userAgent: UserAgent?
-userAgent = UserAgent(UserAgentOptions(uri: .apzkey(apiKey)))`,
+userAgent = UserAgent(UserAgentOptions(uri: .apiKey(apiKey)))`,
   }
 
   useragent_apirtc = {
     javascript: `userAgent = new UserAgent({
-  uri: 'apizee:' + username
+  uri: 'apirtc:' + username
 });`,
-    kotlin: `val options = UserAgent.UserAgentOptions(uri = "apizee:$username")
+    kotlin: `val options = UserAgent.UserAgentOptions(uri = "apirtc:$username")
 val userAgent = UserAgent(this, options)`,
     swift: `var userAgent: UserAgent?
-userAgent = UserAgent(UserAgentOptions(uri: .apizee(username)))`,
+userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
   }
 
   userDataChanged = {
@@ -557,7 +557,7 @@ if (stream.isVideoMuted()) {
     "recordType": "composite",
     "convId": "2b0839f5-aa1e-4cb2-ba9a-46848a6b",
     "mediaId": "1261785",
-    "mediaURL": "https://dashboard.apizee.com/media/showVideo/<id>/hash/2c625610-4baa-11ec-a192-538513dee1ef",
+    "mediaURL": "https://dashboard.apirtc.com/media/showVideo/<id>/hash/2c625610-4baa-11ec-a192-538513dee1ef",
     "recordedFileName": "vfrP9vWu-3467-composite.mp4",
     "audioOnly": false,
     "videoOnly": false,

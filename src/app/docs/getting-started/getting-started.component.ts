@@ -46,16 +46,16 @@ end`;
   useragent = {
     javascript: `declare var apiRTC: any;
 userAgent = new apiRTC.UserAgent({
-  uri: 'apzkey:' + apiKey
+  uri: 'apiKey:' + apiKey
 });`,
     typescript: `import { UserAgent } from '@apirtc/apirtc';
-const userAgent = new UserAgent({uri: 'apzkey:' + apiKey});`,
+const userAgent = new UserAgent({uri: 'apiKey:' + apiKey});`,
     kotlin: `import com.apizee.apiRTC.*
-val options = UserAgent.UserAgentOptions(uri = "apzkey:$apiKey")
+val options = UserAgent.UserAgentOptions(uri = "apiKey:$apiKey")
 val userAgent = UserAgent(this, options)`,
     swift: `import ApiRTCSDK
 var userAgent: UserAgent?
-userAgent = UserAgent(UserAgentOptions(uri: .apizee(login)))`
+userAgent = UserAgent(UserAgentOptions(uri: .apirtc(login)))`
   }
   // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instead of apiKey
 
