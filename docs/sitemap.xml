@@ -4,9 +4,6 @@
     <loc>https://dev.apirtc.com/</loc>
   </url>
   <url>
-    <loc>https://dev.apirtc.com/docs</loc>
-  </url>
-  <url>
     <loc>https://dev.apirtc.com/overview</loc>
   </url>
   <url>
@@ -19,6 +16,9 @@
     <loc>https://dev.apirtc.com/getting-started</loc>
   </url>
   <url>
+    <loc>https://dev.apirtc.com/dev-guide</loc>
+  </url>
+  <url>
     <loc>https://dev.apirtc.com/react-ui-dev-guide</loc>
   </url>
   <url>
@@ -28,9 +28,15 @@
     <loc>https://dev.apirtc.com/demo</loc>
   </url>
   <url>
-    <loc>https://dev.apirtc.com/dev-guide</loc>
+    <loc>https://dev.apirtc.com/examples</loc>
   </url>
   <url>
-    <loc>https://dev.apirtc.com/examples</loc>
+    <loc>https://dev.apirtc.com/authentication</loc>
+  </url>
+  <url>
+    <loc>https://dev.apirtc.com/compatibility</loc>
+  </url>
+  <url>
+    <loc>https://dev.apirtc.com/release-practices</loc>
   </url>
 </urlset>
