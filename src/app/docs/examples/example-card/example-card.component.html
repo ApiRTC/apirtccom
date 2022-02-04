@@ -1,0 +1,27 @@
+<div class="card h-100">
+    <!-- <div class="card-header">
+        <h1><img height="64" src="./assets/examples/{{imgName}}" alt="{{title}}"> {{title}}</h1>
+    </div> -->
+    <div class="card-body">
+        <h1 class="card-title">
+            <img height="32" src="./assets/examples/{{imgName}}" alt="{{title}}"><span class="ms-3">{{title}}</span>
+        </h1>
+        <p class="card-text">
+            {{text}}
+        </p>
+        <div class="mt-5"></div>
+        <div class="mt-5" style="justify-content: center; display: flex;">
+            <div class="btn-toolbar position-absolute bottom-0 pb-3" role="toolbar" aria-label="Links">
+                <div class="btn-group me-2" role="group" aria-label="First group">
+                    <a class="btn btn-primary btn-sm" href="{{codeLink}}" target="_blank" rel="noopener"
+                        title="source code">Code&nbsp;<span class="material-icons align-middle">code</span></a>
+                </div>
+                <div class="btn-group me-2" role="group" aria-label="Second group">
+                    <a class="btn btn-primary btn-sm" href="{{runLink}}" target="_blank" rel="noopener" title="run">Run
+                        Demo&nbsp;
+                        <span class="material-icons align-middle">play_arrow</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

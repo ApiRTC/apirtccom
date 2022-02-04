@@ -39,6 +39,7 @@ export { ReleasePracticesComponent } from './release-practices/release-practices
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 import { UtilsModule } from '../utils/utils.module';
+import { ExampleCardComponent } from './examples/example-card/example-card.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { UtilsModule } from '../utils/utils.module';
     LogicalConceptsComponent,
     OverviewComponent,
     PlatformDevGuideComponent,
-    ReactUiDevGuideComponent, ReleasePracticesComponent,
+    ReactUiDevGuideComponent, ReleasePracticesComponent, ExampleCardComponent,
   ],
   imports: [
     CommonModule, RouterModule,
