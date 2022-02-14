@@ -60,12 +60,12 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(login)))`
   // TODO : WARNING Here the swift code seems to be using apirtc usermanagement (apizee) instead of apiKey
 
   createStream = {
-    javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(stream => {
-  stream.attachToElement(document.getElementById("local"))
+    javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(localStream => {
+  localStream.attachToElement(document.getElementById("local"))
 });`,
     typescript: `import { Stream } from '@apirtc/apirtc'
-userAgent.createStream({constraints: {audio: true, video: true}}).then((stream:Stream) => {
-  stream.attachToElement(document.getElementById("local"))
+userAgent.createStream({constraints: {audio: true, video: true}}).then((localStream:Stream) => {
+  localStream.attachToElement(document.getElementById("local"))
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
@@ -109,8 +109,8 @@ const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATI
   }
 });
   
-conversation.on('streamAdded', stream => {
-  stream.attachToElement(domElement)
+conversation.on('streamAdded', remoteStream => {
+  remoteStream.attachToElement(domElement)
 });`,
     typescript: `conversation.on('streamListChanged', (streamInfo:any) => {
   if (streamInfo.isRemote === true) {
@@ -120,8 +120,8 @@ conversation.on('streamAdded', stream => {
   }
 });
   
-conversation.on('streamAdded', (stream:Stream) => {
-  stream.attachToElement(domElement)
+conversation.on('streamAdded', (remoteStream:Stream) => {
+  remoteStream.attachToElement(domElement)
 });`  };
 
   lang = 'javascript';
