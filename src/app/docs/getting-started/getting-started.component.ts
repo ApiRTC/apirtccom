@@ -44,8 +44,8 @@ export class GettingStartedComponent implements OnInit {
 end`;
 
   useragent = {
-    javascript: `declare var apiRTC: any;
-userAgent = new apiRTC.UserAgent({
+    javascript: `
+var userAgent = new apiRTC.UserAgent({
   uri: 'apiKey:' + apiKey
 });`,
     typescript: `import { UserAgent } from '@apirtc/apirtc';
@@ -61,7 +61,11 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(login)))`
 
   createStream = {
     javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(stream => {
-  stream.attachToElement(domElement)
+  stream.attachToElement(document.getElementById("local"))
+});`,
+    typescript: `import { Stream } from '@apirtc/apirtc'
+userAgent.createStream({constraints: {audio: true, video: true}}).then((stream:Stream) => {
+  stream.attachToElement(document.getElementById("local"))
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
@@ -74,16 +78,27 @@ userAgent?.createStream(createStreamOptions)?.then {
 
   register = {
     javascript: `userAgent.register().then(session => {...});`,
+    typescript: `import { Session } from '@apirtc/apirtc'
+userAgent.register().then((session:Session) => {...});`,
     kotlin: `userAgent.register(optionsRegister)?.then { itSession ->
   val session = itSession as Session
   ...
 }` };
 
-  getOrCreateConversation = { javascript: `conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
+  getOrCreateConversation = {
+    javascript: `var conversation = session.getOrCreateConversation("MY_CONVERSATION");`,
+    typescript: `import { Conversation } from '@apirtc/apirtc'
+const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
 
-  join = { javascript: `conversation.join();` };
+  join = {
+    javascript: `conversation.join().then(() => {...});`,
+    typescript: `conversation.join().then(() => {...}).catch((error:any) => {...});`
+  };
 
-  publish = { javascript: `conversation.publish(stream).then(stream => {...});` };
+  publish = {
+    javascript: `conversation.publish(stream).then(stream => {...});`,
+    typescript: `conversation.publish(stream).then(() => {...}).catch((error:any) => {...});`
+  };
 
   subscribe = {
     javascript: `conversation.on('streamListChanged', streamInfo => {
@@ -96,7 +111,18 @@ userAgent?.createStream(createStreamOptions)?.then {
   
 conversation.on('streamAdded', stream => {
   stream.attachToElement(domElement)
-});` };
+});`,
+    typescript: `conversation.on('streamListChanged', (streamInfo:any) => {
+  if (streamInfo.isRemote === true) {
+    if (streamInfo.listEventType === 'added') {
+      conversation.subscribeToStream(streamInfo.streamId);
+    }
+  }
+});
+  
+conversation.on('streamAdded', (stream:Stream) => {
+  stream.attachToElement(domElement)
+});`  };
 
   lang = 'javascript';
 
