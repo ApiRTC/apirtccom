@@ -96,8 +96,8 @@ const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATI
   };
 
   publish = {
-    javascript: `conversation.publish(stream).then(stream => {...});`,
-    typescript: `conversation.publish(stream).then(() => {...}).catch((error:any) => {...});`
+    javascript: `conversation.publish(localStream).then(stream => {...});`,
+    typescript: `conversation.publish(localStream).then((stream:Stream) => {...}).catch((error:any) => {...});`
   };
 
   subscribe = {
@@ -110,7 +110,7 @@ const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATI
 });
   
 conversation.on('streamAdded', remoteStream => {
-  remoteStream.attachToElement(domElement)
+  remoteStream.attachToElement(document.getElementById("remote"))
 });`,
     typescript: `conversation.on('streamListChanged', (streamInfo:any) => {
   if (streamInfo.isRemote === true) {
@@ -121,7 +121,7 @@ conversation.on('streamAdded', remoteStream => {
 });
   
 conversation.on('streamAdded', (remoteStream:Stream) => {
-  remoteStream.attachToElement(domElement)
+  remoteStream.attachToElement(document.getElementById("remote"))
 });`  };
 
   lang = 'javascript';
