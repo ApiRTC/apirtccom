@@ -610,94 +610,102 @@ blurredStream.release();
   capabilitiesGetSettings = {
     javascript:
       `// get stream capabilities actual values
-stream.getSettings();
+stream.getSettings()
+  .then((settings) => {
+    console.log(settings) // settings object
+  });
+  .catch((error) => {
+    ... // error during process
+  });
 `}
 
-  capabilitiesGetSettingsListen = {
-    javascript:
-      `stream.on('streamSettings', (settings) => {
-  ...
-});`}
-
   capabilitiesGetSettingsResult = `{
-  "aspectRatio": 1.333333333333,
-  "frameRate": 30,
-  "height": 480,
-  "resizeMode": "none",
-  "width": 640
+  "audio": {
+    "autoGainControl": true,
+    "channelCount": 1,
+    "deviceId": "...",
+    "echoCancellation": true,
+    "groupId": "...",
+    "latency": 0.01,
+    "noiseSuppression": true,
+    "sampleRate": 48000,
+    "sampleSize": 16
+  },
+  "video": {
+    "aspectRatio": 1.333333333333,
+    "deviceId": "...",
+    "frameRate": 30,
+    "groupId": "...",
+    "height": 480,
+    "resizeMode": "none",
+    "width": 640
+  }
 }`
 
   capabilitiesGetCapabilities = {
     javascript:
       `// get stream capabilities values ranges
-stream.getCapabilities();
+stream.getCapabilities()
+  .then((capabilities) => {
+    console.log(capabilities) // capabilities object
+  });
+  .catch((error) => {
+    ... // error during process
+  });
 `}
 
-  capabilitiesGetCapabilitiesListen = {
-    javascript:
-      `stream.on('streamCapabilities', (capabilities) => {
-...
-});`}
-
   capabilitiesGetCapabilitiesResult = `{
-  "aspectRatio": { "max": 1920, "min": 0.001388888888888889 },
-  "frameRate": { "max": 30.000000305175, "min": 0 },
-  "height": { "max": 1080, "min": 1 },
-  "resizeMode": ["none", "crop-and-scale"],
-  "width": { "max": 1920, "min": 1 }
+  "audio": {
+    "autoGainControl": [ true, false ],
+    "channelCount": { "max": 1, "min": 1 },
+    "deviceId": "...",
+    "echoCancellation": [ true, false ],
+    "groupId": "...",
+    "latency": { "max": 0.085333, "min": 0.002666 },
+    "noiseSuppression": [ true, false ],
+    "sampleRate": { "max": 48000, "min": 48000 },
+    "sampleSize": { "max": 16, "min": 16 }
+  },
+  "video": {
+    "aspectRatio": { "max": 1920, "min": 0.001388888888888889 },
+    "deviceId": "...",
+    "frameRate": { "max": 30, "min": 0 },
+    "groupId": "...",
+    "height": { "max": 1080, "min": 1 },
+    "resizeMode": ["none", "crop-and-scale"],
+    "width": { "max": 1920, "min": 1 }
+  }
 }`
 
   capabilitiesGetConstraints = {
     javascript:
       `// get stream capabilities that were modified and their values
-stream.getConstraints();
+stream.getConstraints()
+  .then((constraints) => {
+    console.log(constraints) // constraints object
+  });
+  .catch((error) => {
+    ... // error during process
+  });
 `}
 
-  capabilitiesGetConstraintsListen = {
-    javascript:
-      `stream.on('streamConstraints', (constraints) => {
-...
-});`}
-
   capabilitiesGetConstraintsResult = `{
-  advanced: [
+  "audio":{},
+  "video": {
     "frameRate": 10
-  ]
+  }
 }`
 
-  setCapability = {
+  applyConstraints = {
     javascript:
-      `stream.setCapability("frameRate", 10).then(() => {
-  ...
-});`}
-
-  remoteCapability = {
-    javascript:
-      `remoteStream.askRemoteCapabilityAuthorization();`
+`stream.applyConstraints({
+  "audio": {},
+  "video": {
+    "frameRate": 10
   }
-
-  remoteCapabilityListen = {
-    javascript:
-      `remoteStream.on('remoteCapabilityRequestAccepted', () => {
-  // remote user accepted
-})
-remoteStream.on('remoteCapabilityRequestRefused', () => {
-  // remote user refused
-})`}
-
-  remoteRequest = {
-    javascript:
-      `stream.on('remoteCapabilityRequest', (data) => {
-  // accept or refuse doing one of the following
-  stream.acceptRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
-  stream.refuseRemoteCapabilityRequest(data.contactId, data.roomName, data.streamId);
-})`}
-
-  remoteSetCapability = {
-    javascript:
-      `remoteStream.setCapability("frameRate", 10).then(() => {
-  ...
-})`}
+}).then(() => {
+  ... // constraints applied
+});`}
 
   // default lang
   lang = 'javascript';

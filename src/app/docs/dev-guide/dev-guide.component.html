@@ -760,48 +760,33 @@
                 brightness, contrast, frameRate, saturation, torch, zoom.</p>
             <p><strong>ApiRTC</strong> allows to control them through <code>Stream</code> methods:
                 <code>getCapabilities</code>, <code>getSettings</code>, <code>getConstraints</code>, and
-                <code>setCapability</code>.
+                <code>applyConstraints</code>.
             </p>
 
-            <p class="mt-3"><code>Stream.getCapabilities()</code>, combined with <code>streamCapabilities</code> event
-                provide an event data object with all available capabilities and their accepted values ranges:
+            <p class="mt-3"><code>Stream.getCapabilities()</code> returns in a Promise all available capabilities and their accepted values ranges:
             </p>
             <div class="row">
                 <div class="col-lg-6">
                     <app-codenav [code]="capabilitiesGetCapabilities" [(language)]="lang"></app-codenav>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <p>To get the result, listen the <code>streamCapabilities</code> event:</p>
-                    <app-codenav [code]="capabilitiesGetCapabilitiesListen" [(language)]="lang"></app-codenav>
-                </div>
                 <div class="col border-start">
                     <p>Example of a <code>capabilities</code> data object:</p>
                     <pre><code [highlight]="capabilitiesGetCapabilitiesResult" [languages]="['json']"></code></pre>
-                    <p>In this example <code>frameRate</code> capability may be modified between 0 and
-                        30.000000305175.</p>
+                    <p>In this example <code>video.frameRate</code> capability may be modified between 0 and 30.</p>
                 </div>
             </div>
 
-            <p class="mt-3"><code>Stream.getSettings()</code>, combined with <code>streamSettings</code> event allows to
-                get an event data object with all available capabilities and their actual values. If a capability is not
+            <p class="mt-3"><code>Stream.getSettings()</code> returns in a Promise all available capabilities and their actual values. If a capability is not
                 in the data object it means the device and/or the navigator does not handle this capability:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="capabilitiesGetSettings" [(language)]="lang"></app-codenav>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>To get the result, listen the <code>streamSettings</code> event:</p>
-                    <app-codenav [code]="capabilitiesGetSettingsListen" [(language)]="lang"></app-codenav>
-                </div>
                 <div class="col border-start">
                     <p>Example of a <code>settings</code> data object:</p>
                     <pre><code [highlight]="capabilitiesGetSettingsResult" [languages]="['json']"></code></pre>
-                    <p>In this example <code>frameRate</code> is a supported capability and it's actual value is 30.
-                        <code>zoom</code> is not a supported capability for this combination of device/camera/navigator
+                    <p>In this example <code>video.frameRate</code> is a supported capability and it's actual value is 30.
+                        <code>video.zoom</code> is not a supported capability for this combination of device/camera/navigator
                         as it is not present in the returned object.
                     </p>
                     <div class="alert alert-warning" role="alert">
@@ -812,30 +797,23 @@
                 </div>
             </div>
 
-            <p class="mt-3"><code>Stream.getConstraints()</code>, combined with <code>streamConstraints</code> event
-                provides a data object with all capabilities that were modified from their default value and their
+            <p class="mt-3"><code>Stream.getConstraints()</code> returns in a Promise all capabilities that were modified by the user from their default value and their
                 actual values:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="capabilitiesGetConstraints" [(language)]="lang"></app-codenav>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>To get the result, listen the <code>streamConstraints</code> event:</p>
-                    <app-codenav [code]="capabilitiesGetConstraintsListen" [(language)]="lang"></app-codenav>
-                </div>
                 <div class="col border-start">
-                    <p>Example of a <code>constraints</code> data object if <code>frameRate</code> capability was
-                        modified to 10fps:</p>
+                    <p>Example of a <code>constraints</code> data object </p>
                     <pre><code [highlight]="capabilitiesGetConstraintsResult" [languages]="['json']"></code></pre>
+                    <p>In this example, only the <code>video.frameRate</code> was modified from it's default value to be at 10.</p>
                 </div>
             </div>
 
-            <p class="mt-3">To modify a capability value use the <code>setCapability</code> function as below:</p>
+            <p class="mt-3">To modify a capability value use the <code>applyConstraints</code> function as below. The promise is released when all constraints are applied.</p>
             <div class="row">
                 <div class="col-6">
-                    <app-codenav [code]="setCapability" [(language)]="lang"></app-codenav>
+                    <app-codenav [code]="applyConstraints" [(language)]="lang"></app-codenav>
                 </div>
             </div>
 
@@ -843,46 +821,10 @@
                 <a #anchor id="remote-capabilities" class="anchor" keywords="capability,authorization"></a>
                 Remote stream
             </h2>
-            <p>On a remote stream you may use all the previous functions explained for a local stream the
-                exact same way, except for the <code>setCapability</code> method for a non-intrusive reason.
-            </p>
-            <p>The usage of <code>setCapability</code> is the same, but it will throw an error saying you
-                need to ask authorization to the remote user before using this method.</p>
-            <p class="mt-3">Here is what you need to do to ask the authorization to the remote user to perform
-                <code>setCapability</code> calls in his name on his device:
-            </p>
-            <div class="row">
-                <div class="col-6">
-                    <app-codenav [code]="remoteCapability" [(language)]="lang"></app-codenav>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <p>Then, listen <code>remoteCapabilityRequestAccepted</code> and
-                        <code>remoteCapabilityRequestRefused</code> events:
-                    </p>
-                    <app-codenav [code]="remoteCapabilityListen" [(language)]="lang"></app-codenav>
-                </div>
-                <div class="col border-start">
-                    <p>Here is what the remote user needs to do to handle your request, and to accept or
-                        refuse it. Listen the <code>remoteCapabilityRequest</code> event, and answer by
-                        accepting using <code>acceptRemoteCapabilityRequest</code> function or refuse using
-                        <code>refuseRemoteCapabilityRequest</code> function.
-                    </p>
-                    <app-codenav [code]="remoteRequest" [(language)]="lang"></app-codenav>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col">
-                    <p>If the remote user accepted the remote capability control you may perform
-                        <code>setCapability</code> calls without error:
-                    </p>
-                    <app-codenav [code]="remoteSetCapability" [(language)]="lang"></app-codenav>
-                    <p>In this particular case of remote <code>setCapability</code> usage the promise is released
-                        when the order has been send to the remote user to execute the <code>setCapability</code>
-                        function, not when the capability has been set.</p>
-                </div>
-            </div>
+            <p>On a remote stream you may use all the functions explained before the exact same way as for a local stream.</p>
+            <p>When using these functions, you are asking the publisher to execute the command on his local stream and then to send you back the result.</p>
+            <p>The usage of <code>getCapabilities</code>, <code>getSettings</code> and <code>getConstraints</code> is the same as before.</p>
+            <p>The promise of <code>applyConstraints</code> is not released until constraints are applied on the publisher side.</p>
             <h1 class="mt-5">
                 <a #anchor id="qos-statistics" class="anchor"></a>
                 QoS statistics
