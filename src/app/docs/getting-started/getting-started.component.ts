@@ -14,20 +14,20 @@ export class GettingStartedComponent implements OnInit {
 </head>`;
 
   npm_install = `npm install @apirtc/apirtc@latest --save`;
-  angular_json = `{
-    "projects": {
-      "YOUR_PROJECT_NAME": {
-        "architect": {
-          "build": {
-            "options": {
-              "scripts": [
-                "node_modules/@apirtc/apirtc/apiRTC.min.js"]
-            }
-          }
-        }
-      }
-    }
-  }`;
+  // angular_json = `{
+  //   "projects": {
+  //     "YOUR_PROJECT_NAME": {
+  //       "architect": {
+  //         "build": {
+  //           "options": {
+  //             "scripts": [
+  //               "node_modules/@apirtc/apirtc/apiRTC.min.js"]
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }`;
 
   android_dependency = `dependencies {
   ...
