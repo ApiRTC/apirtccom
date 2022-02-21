@@ -607,9 +607,9 @@ blurredStream.release();
 `
   }
 
-  capabilitiesGetSettings = {
+  getSettings = {
     javascript:
-      `// get stream capabilities actual values
+      `// get stream actual constraints settings
 stream.getSettings()
   .then((settings) => {
     console.log(settings) // settings object
@@ -619,7 +619,7 @@ stream.getSettings()
   });
 `}
 
-  capabilitiesGetSettingsResult = `{
+  getSettingsResult = `{
   "audio": {
     "autoGainControl": true,
     "channelCount": 1,
@@ -642,7 +642,7 @@ stream.getSettings()
   }
 }`
 
-  capabilitiesGetCapabilities = {
+  getCapabilities = {
     javascript:
       `// get stream capabilities values ranges
 stream.getCapabilities()
@@ -654,7 +654,7 @@ stream.getCapabilities()
   });
 `}
 
-  capabilitiesGetCapabilitiesResult = `{
+  getCapabilitiesResult = `{
   "audio": {
     "autoGainControl": [ true, false ],
     "channelCount": { "max": 1, "min": 1 },
@@ -677,9 +677,9 @@ stream.getCapabilities()
   }
 }`
 
-  capabilitiesGetConstraints = {
+  getConstraints = {
     javascript:
-      `// get stream capabilities that were modified and their values
+      `// get stream constraints that were applied and their values
 stream.getConstraints()
   .then((constraints) => {
     console.log(constraints) // constraints object
@@ -689,7 +689,7 @@ stream.getConstraints()
   });
 `}
 
-  capabilitiesGetConstraintsResult = `{
+  getConstraintsResult = `{
   "audio":{},
   "video": {
     "frameRate": 10
@@ -698,7 +698,7 @@ stream.getConstraints()
 
   applyConstraints = {
     javascript:
-`stream.applyConstraints({
+      `stream.applyConstraints({
   "audio": {},
   "video": {
     "frameRate": 10
