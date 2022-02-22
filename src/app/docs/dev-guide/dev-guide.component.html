@@ -746,7 +746,7 @@
             <app-codenav [code]="displayStream" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
                 <a #anchor id="stream-constraints" class="anchor"
-                    keywords="constraint,capabilities,capability,applyconstraint,resolution,brightness,contrast,frameRate,saturation,torch,zoom"></a>
+                    keywords="constraint,capabilities,capability,setting,property,applyconstraint,resolution,brightness,contrast,frameRate,saturation,torch,zoom,remote control,device"></a>
                 Stream constraints
             </h1>
 
@@ -757,8 +757,9 @@
                 the current properties values.</p>
 
             <p class="mt-3"><strong>ApiRTC</strong> allows to access <strong>constraints</strong>,
-                <strong>capabilities</strong>, <strong>settings</strong> on both
-                <strong>local</strong> and <strong>remote</strong> streams using the same methods.
+                <strong>capabilities</strong>, <strong>settings</strong> on both <strong>local</strong> and
+                <strong>remote streams</strong>, using the same methods.
+                This means you can easily control both local and remote devices.
             </p>
 
             <p class="mt-5"><code>Stream.applyConstraints(constraints:<a
@@ -774,7 +775,7 @@
             </div>
 
             <p class="mt-3"><code>Stream.getConstraints()</code> returns in a Promise all properties that were
-                modified and their actual values:</p>
+                modified and their current values:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="getConstraints" [(language)]="lang"></app-codenav>
@@ -799,8 +800,7 @@
             </div>
 
             <p class="mt-5">In addition, supported properties can be queried using
-                <code>Stream.getCapabilities()</code> that returns a Promise with all supported properties and
-                their accepted values ranges:
+                <code>Stream.getCapabilities()</code> that returns a Promise with accepted values ranges:
             </p>
             <div class="row">
                 <div class="col-lg-6">
@@ -822,7 +822,7 @@
                     differ from a device to another.</span>
             </div>
 
-            <p class="mt-5"> Finally, supported properties values can be checked with <code>Stream.getSettings()</code>
+            <p class="mt-5"> Finally, properties values can be checked with <code>Stream.getSettings()</code>
                 that returns in a Promise all current settings:</p>
             <div class="row">
                 <div class="col-6">
