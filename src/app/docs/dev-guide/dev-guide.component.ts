@@ -306,7 +306,7 @@ conversation.denyEntry(contact);
     audio: true,
     video: true
   }
-}).then(stream => {
+}).then(localStream => {
   // ...
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
@@ -329,13 +329,13 @@ val stream = it as Stream
 
   screenSharing = {
     javascript: `// Returns a Promise.<Stream> containing the stream
-Stream.createScreensharingStream().then(stream => {
+Stream.createScreensharingStream().then(localStream => {
 // ...
 }.catch(console.err)`
   }
 
   publish = {
-    javascript: `conversation.publish(localStream).then(stream => {
+    javascript: `conversation.publish(localStream).then(publishedStream => {
   // local stream is published
 }).catch(error => {
   // error
@@ -343,7 +343,7 @@ Stream.createScreensharingStream().then(stream => {
   }
 
   unpublish = {
-    javascript: `conversation.unpublish(stream);`
+    javascript: `conversation.unpublish(localStream);`
   }
 
   streamListChanged = {
@@ -370,14 +370,14 @@ Stream.createScreensharingStream().then(stream => {
   }
 
   streamAdded = {
-    javascript: `conversation.on('streamAdded', stream => ({
+    javascript: `conversation.on('streamAdded', remoteStream => ({
   // display media stream
   ...
 });`
   }
 
   streamRemoved = {
-    javascript: `conversation.on('streamRemoved', stream => ({
+    javascript: `conversation.on('streamRemoved', remoteStream => ({
   // undisplay media stream
   ...
 });`
