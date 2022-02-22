@@ -753,7 +753,7 @@
             <p><strong>Constraints</strong> are camera properties that can be set:
                 resolution, brightness, contrast, frameRate, saturation, torch, zoom.</p>
 
-            <p><strong>Capabilities</strong> are available properties and value ranges. <strong>Settings</strong> are
+            <p><strong>Capabilities</strong> are supported properties and value ranges. <strong>Settings</strong> are
                 the current properties values.</p>
 
             <p class="mt-3"><strong>ApiRTC</strong> allows to access <strong>constraints</strong>,
@@ -773,22 +773,33 @@
                 </div>
             </div>
 
-            <p class="mt-3"><code>Stream.getConstraints()</code> returns in a Promise all constraints that were
+            <p class="mt-3"><code>Stream.getConstraints()</code> returns in a Promise all properties that were
                 modified and their actual values:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="getConstraints" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
-                    <p>Example of a <code>constraints</code> data object </p>
+                    <p>Example of a <code>constraints</code> data object:</p>
                     <pre><code [highlight]="getConstraintsResult" [languages]="['json']"></code></pre>
                     <p>In this example, only the <code>video.frameRate</code> was modified from it's default value to be
                         at 10.</p>
                 </div>
             </div>
 
-            <p class="mt-5">In addition, applicable constraints can be queried using
-                <code>Stream.getCapabilities()</code> that returns a Promise with all available capabilities and
+            <div class="alert alert-warning mt-3" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <span>
+                    Available properties are linked to the device used.
+                    On smartphones with multiple back cameras, sometimes the torch capability is only attached to
+                    one of them.
+                </span>
+            </div>
+
+            <p class="mt-5">In addition, supported properties can be queried using
+                <code>Stream.getCapabilities()</code> that returns a Promise with all supported properties and
                 their accepted values ranges:
             </p>
             <div class="row">
@@ -802,7 +813,7 @@
                 </div>
             </div>
 
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-warning mt-3" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
                     <use xlink:href="#exclamation-triangle-fill"></use>
                 </svg>
@@ -811,8 +822,8 @@
                     differ from a device to another.</span>
             </div>
 
-            <p class="mt-5"> Finally, applied constraints can be checked with <code>Stream.getSettings()</code> that
-                returns in a Promise all current settings values:</p>
+            <p class="mt-5"> Finally, supported properties values can be checked with <code>Stream.getSettings()</code>
+                that returns in a Promise all current settings:</p>
             <div class="row">
                 <div class="col-6">
                     <app-codenav [code]="getSettings" [(language)]="lang"></app-codenav>
@@ -826,17 +837,6 @@
                         device/camera/navigator as it is not present in the returned object.
                     </p>
                 </div>
-            </div>
-
-            <div class="alert alert-warning" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
-                    <use xlink:href="#exclamation-triangle-fill"></use>
-                </svg>
-                <span>
-                    Capabilites and constraints are linked to the device used.
-                    On smartphones with multiple back cameras, sometimes the torch capability is only attached to
-                    one of them.
-                </span>
             </div>
 
             <h1 class="mt-5">
