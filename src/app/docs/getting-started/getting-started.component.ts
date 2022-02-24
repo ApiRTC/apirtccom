@@ -64,7 +64,7 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(login)))`
   localStream.attachToElement(document.getElementById("local"))
 });`,
     typescript: `import { Stream } from '@apirtc/apirtc'
-userAgent.createStream({constraints: {audio: true, video: true}}).then((localStream:Stream) => {
+userAgent.createStream({constraints: {audio: true, video: true}}).then((localStream: Stream) => {
   localStream.attachToElement(document.getElementById("local"))
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
@@ -79,7 +79,7 @@ userAgent?.createStream(createStreamOptions)?.then {
   register = {
     javascript: `userAgent.register().then(session => {...});`,
     typescript: `import { Session } from '@apirtc/apirtc'
-userAgent.register().then((session:Session) => {...});`,
+userAgent.register().then((session: Session) => {...});`,
     kotlin: `userAgent.register(optionsRegister)?.then { itSession ->
   val session = itSession as Session
   ...
@@ -88,16 +88,16 @@ userAgent.register().then((session:Session) => {...});`,
   getOrCreateConversation = {
     javascript: `var conversation = session.getOrCreateConversation("MY_CONVERSATION");`,
     typescript: `import { Conversation } from '@apirtc/apirtc'
-const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
+const conversation: Conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
 
   join = {
     javascript: `conversation.join().then(() => {...});`,
-    typescript: `conversation.join().then(() => {...}).catch((error:any) => {...});`
+    typescript: `conversation.join().then(() => {...}).catch((error: any) => {...});`
   };
 
   publish = {
     javascript: `conversation.publish(localStream).then(stream => {...});`,
-    typescript: `conversation.publish(localStream).then((stream:Stream) => {...}).catch((error:any) => {...});`
+    typescript: `conversation.publish(localStream).then((stream: Stream) => {...}).catch((error: any) => {...});`
   };
 
   subscribe = {
@@ -112,7 +112,8 @@ const conversation:Conversation = session.getOrCreateConversation("MY_CONVERSATI
 conversation.on('streamAdded', remoteStream => {
   remoteStream.attachToElement(document.getElementById("remote"))
 });`,
-    typescript: `conversation.on('streamListChanged', (streamInfo:any) => {
+    typescript: `import { Stream, StreamInfo } from '@apirtc/apirtc'
+  conversation.on('streamListChanged', (streamInfo: StreamInfo) => {
   if (streamInfo.isRemote === true) {
     if (streamInfo.listEventType === 'added') {
       conversation.subscribeToStream(streamInfo.streamId);
@@ -120,7 +121,7 @@ conversation.on('streamAdded', remoteStream => {
   }
 });
   
-conversation.on('streamAdded', (remoteStream:Stream) => {
+conversation.on('streamAdded', (remoteStream: Stream) => {
   remoteStream.attachToElement(document.getElementById("remote"))
 });`  };
 
