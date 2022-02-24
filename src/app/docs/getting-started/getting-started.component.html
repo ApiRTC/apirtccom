@@ -114,8 +114,9 @@
                 <span>The <strong>ApiRTC</strong> api references can be found at:</span>
                 <ul class="mt-3 ps-5">
                     <li>
-                        javascript: <a class="text-nowrap" href="https://apirtc.github.io/references/apirtc-js"
-                            target="_blank" rel="noopener">https://apirtc.github.io/references/apirtc-js&nbsp;<span
+                        javascript/typescript: <a class="text-nowrap"
+                            href="https://apirtc.github.io/references/apirtc-js" target="_blank"
+                            rel="noopener">https://apirtc.github.io/references/apirtc-js&nbsp;<span
                                 class="material-icons align-middle fs-6">open_in_new</span></a>
                     </li>
                     <li>
@@ -228,8 +229,7 @@
     </p>
     <app-codenav [code]="register" [(language)]="lang"></app-codenav>
     <p>
-        The <code>session</code> grants access to connected features such like <strong>conversations</strong> or
-        <strong>conferences</strong>.
+        The <code>session</code> grants access to connected features such like <strong>conversations</strong>.
     </p>
     <h1 class="mt-5">
         Conversation
@@ -295,7 +295,7 @@
         </li>
         <li>
             <p>
-                Finally, listening on <code>Conversation</code>&nbsp;<code>'streamAdded'</code> notifies with a
+                Finally, listening on <code>Conversation</code>&nbsp;<code>'streamAdded'</code> notifies with a remote
                 <code>Stream</code> instance which can be attached to web page for display.
             </p>
         </li>
