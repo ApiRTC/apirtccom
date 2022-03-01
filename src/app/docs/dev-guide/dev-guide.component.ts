@@ -211,8 +211,8 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
 conversation.join()
   .then(() => {
     // local user successfully joined the conversation.
-  }, error => {
-    // local user could not join the conversation.
+  }).catch(error => {
+    // error
   });`,
     kotlin: `TODO`,
     swift: `TODO`
@@ -299,8 +299,8 @@ conversation.denyEntry(contact);
   .then(() => {
     console.log('ejected', contact);
   })
-  .catch((err) => {
-    console.error('eject error', err);
+  .catch((error) => {
+    console.error('eject error', error);
   });`,
     kotlin: `TODO`,
     swift: `TODO`
@@ -327,6 +327,8 @@ conversation.denyEntry(contact);
   }
 }).then(localStream => {
   // ...
+}).catch(error => {
+  // error
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
@@ -351,7 +353,9 @@ val stream = it as Stream
     javascript: `// Returns a Promise.<Stream> containing the stream
 Stream.createScreensharingStream().then(localStream => {
 // ...
-}.catch(console.err)`,
+}).catch(error => {
+  // error
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
@@ -384,7 +388,8 @@ Stream.createScreensharingStream().then(localStream => {
       // a remote stream is not published anymore
       ...
     }
-  }`,
+  }
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
@@ -431,7 +436,7 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`,
   callStatsUpdate = {
     javascript: `conversation.on('callStatsUpdate', callStats => {
   // handle callStats.stats data
-}`,
+});`,
     kotlin: `TODO`,
     swift: `TODO`
   }
