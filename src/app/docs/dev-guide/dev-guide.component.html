@@ -466,7 +466,8 @@
                 ongoing calls will be automatically closed.
             </p>
             <p>
-                A good practice is to destroy the <code>Conversation</code> after leaving it.
+                A good practice is to destroy the <code>Conversation</code> after leaving it. (Except if you wish to be
+                able to join it back)
             </p>
             <app-codenav [code]="conversationLeaveAndDestroy" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
@@ -491,8 +492,7 @@
             </p>
             <p>
                 Additionally, a party that shall be a <strong>moderator</strong> must set the <code>moderator</code>
-                option to
-                <code>true</code> as well.
+                option to <code>true</code> as well.
             </p>
             <!-- <h2>
                 Moderators
