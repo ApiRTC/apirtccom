@@ -101,18 +101,19 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
   for (const contact of updatedContacts.userDataChanged) {
     // ...
   }
-})`
+})`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   mediaDeviceChanged = {
     javascript: `userAgent.on("mediaDeviceChanged", () => {
   const mediaDevices = this.userAgent.getUserMediaDevices();
   // handle new set of mediaDevices
-});`};
-
-  mediaDeviceChanged_kotlin = `TODO`;
-
-  mediaDeviceChanged_swift = `TODO`;
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  };
 
   mediaDevices_json = `{
     "audioinput": {
@@ -181,7 +182,9 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
       // ...
     }
   }
-})`
+})`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   // TODO : do we document the 'active' option here ?
@@ -193,7 +196,9 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
   meshOnlyEnabled: false,
   moderationEnabled: false,
   moderator: false
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationJoin = {
@@ -208,14 +213,18 @@ conversation.join()
     // local user successfully joined the conversation.
   }, error => {
     // local user could not join the conversation.
-  });`
+  });`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationLeaveAndDestroy = {
     javascript: `conversation.leave()
   .then(() => {
     conversation.destroy();
-  });`
+  });`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   // `
@@ -247,7 +256,9 @@ conversation.on('contactLeftWaitingRoom', contact => {
   // A candidate left the waiting room.
   // Remove from list
   // ...
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationAllowDenyEntry = {
@@ -255,7 +266,9 @@ conversation.on('contactLeftWaitingRoom', contact => {
 conversation.allowEntry(contact);
 // ... or deny access.
 conversation.denyEntry(contact);
-`
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationModeratorJoinRequest = {
@@ -276,7 +289,9 @@ conversation.denyEntry(contact);
     .then(() => {
       // Negative response sent to the participant.
     });
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationModeratorEject = {
@@ -286,7 +301,9 @@ conversation.denyEntry(contact);
   })
   .catch((err) => {
     console.error('eject error', err);
-  });`
+  });`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   conversationParticipantEjected = {
@@ -297,7 +314,9 @@ conversation.denyEntry(contact);
     // unpublish streams,
     // and destroy the conversation
   }
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   createStream = {
@@ -315,7 +334,8 @@ createStreamOptions.constraints.video = true
 userAgent?.createStream(createStreamOptions)?.then {
 val stream = it as Stream
 // ...
-}`
+}`,
+    swift: `TODO`
   };
 
   createStream_options = `{
@@ -331,7 +351,9 @@ val stream = it as Stream
     javascript: `// Returns a Promise.<Stream> containing the stream
 Stream.createScreensharingStream().then(localStream => {
 // ...
-}.catch(console.err)`
+}.catch(console.err)`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   publish = {
@@ -339,11 +361,15 @@ Stream.createScreensharingStream().then(localStream => {
   // local stream is published
 }).catch(error => {
   // error
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   unpublish = {
-    javascript: `conversation.unpublish(localStream);`
+    javascript: `conversation.unpublish(localStream);`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   streamListChanged = {
@@ -358,42 +384,56 @@ Stream.createScreensharingStream().then(localStream => {
       // a remote stream is not published anymore
       ...
     }
-  }`
+  }`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   subscribe = {
-    javascript: `conversation.subscribeToStream(streamInfo.streamId);`
+    javascript: `conversation.subscribeToStream(streamInfo.streamId);`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   unsubscribe = {
-    javascript: `conversation.unsubscribeToStream(streamId);`
+    javascript: `conversation.unsubscribeToStream(streamId);`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   streamAdded = {
     javascript: `conversation.on('streamAdded', remoteStream => ({
   // display media stream
   ...
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   streamRemoved = {
     javascript: `conversation.on('streamRemoved', remoteStream => ({
   // undisplay media stream
   ...
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   displayStream = {
     javascript: `// display media stream by attaching to a media element (like <video>)
 stream.attachToElement(videoDomElement)
 // or insert into a container div
-stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
+stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   callStatsUpdate = {
     javascript: `conversation.on('callStatsUpdate', (callStats: any) => {
   // handle callStats.stats data
-}`
+}`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   stats_sent = `{
@@ -513,13 +553,17 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`
 }`
 
   enableActiveSpeakerDetecting = {
-    javascript: `userAgent.enableActiveSpeakerDetecting(true, { threshold: 50 });`
+    javascript: `userAgent.enableActiveSpeakerDetecting(true, { threshold: 50 });`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   audioAmplitude = {
     javascript: `conversation.on('audioAmplitude', (amplitudeInfo: any) => {
   // handle amplitudeInfo
-}`
+}`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   amplitudeInfo = `{
@@ -541,14 +585,18 @@ if (stream.isVideoMuted()) {
   stream.unmuteVideo();
 } else {
   stream.muteVideo();
-}`
+}`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   recordingAvailable = {
     javascript: `conversation.on('recordingAvailable', (recordingInfo: any) => {
   console.log("on:recordingAvailable", recordingInfo);
   ...
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   recordingInfo = `{
@@ -570,7 +618,9 @@ if (stream.isVideoMuted()) {
   console.info('startRecording', recordingInfo);
 }).catch((error: any) => {
   console.error('startRecording', error);
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   stopRecording = {
@@ -578,14 +628,18 @@ if (stream.isVideoMuted()) {
   console.info('stopRecording', recordingInfo);
 }).catch((error: any) => {
   console.error('stopRecording', error);
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   blur = {
     javascript:
       `stream.blur().then(blurredStream => {
   ...
-})`
+})`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   blurPublish = {
@@ -595,7 +649,9 @@ blurredStream.attachToElement(videoDomElement)
 // publish the blurred stream
 conversation.publish(blurredStream).then((blurredStream) => {
   ...
-});`
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
   };
 
   blurStop = {
@@ -604,7 +660,9 @@ conversation.publish(blurredStream).then((blurredStream) => {
 stream.unblur();
 // stop blur from blurred stream
 blurredStream.release();
-`
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
   }
 
   getSettings = {
@@ -617,7 +675,10 @@ stream.getSettings()
   .catch((error) => {
     ... // error during process
   });
-`}
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  }
 
   getSettingsResult = `{
   "audio": {
@@ -652,7 +713,10 @@ stream.getCapabilities()
   .catch((error) => {
     ... // error during process
   });
-`}
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  }
 
   getCapabilitiesResult = `{
   "audio": {
@@ -687,7 +751,10 @@ stream.getConstraints()
   .catch((error) => {
     ... // error during process
   });
-`}
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  }
 
   getConstraintsResult = `{
   "audio":{},
@@ -705,7 +772,10 @@ stream.getConstraints()
   }
 }).then(() => {
   ... // constraints applied
-});`}
+});`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  }
 
   // default lang
   lang = 'javascript';

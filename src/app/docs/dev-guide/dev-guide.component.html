@@ -629,7 +629,8 @@
                 PublishOptions
             </h3>
             <p>
-                <code>Conversation.publish(localStream, options)</code> can take optionally take <code>PublishOptions</code>
+                <code>Conversation.publish(localStream, options)</code> can take optionally take
+                <code>PublishOptions</code>
                 second parameter object to control publication.
                 Please check reference for details on <a
                     href="https://apirtc.github.io/references/apirtc-js/global.html#PublishOptions" target="_blank"
@@ -641,7 +642,7 @@
                 subscribe and stops sending <strong>media stream</strong> to peers.
             </p>
             <app-codenav [code]="unpublish" [(language)]="lang"></app-codenav>
-            
+
             <h1 class="mt-5">
                 <a #anchor id="remote-streams" class="anchor"></a>
                 Remote Streams
@@ -772,7 +773,7 @@
                 a Promise resolved when all constraints are applied:
             </p>
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-12 col-lg-6">
                     <app-codenav [code]="applyConstraints" [(language)]="lang"></app-codenav>
                 </div>
             </div>
@@ -780,7 +781,7 @@
             <p class="mt-3"><code>Stream.getConstraints()</code> returns in a Promise all properties that were
                 modified and their current values:</p>
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-12 col-lg-6">
                     <app-codenav [code]="getConstraints" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
@@ -806,7 +807,7 @@
                 <code>Stream.getCapabilities()</code> that returns a Promise with accepted values ranges:
             </p>
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-md-12 col-lg-6">
                     <app-codenav [code]="getCapabilities" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
@@ -828,7 +829,7 @@
             <p class="mt-5"> Finally, properties values can be checked with <code>Stream.getSettings()</code>
                 that returns in a Promise all current settings:</p>
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-12 col-lg-6">
                     <app-codenav [code]="getSettings" [(language)]="lang"></app-codenav>
                 </div>
                 <div class="col border-start">
