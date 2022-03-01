@@ -373,7 +373,7 @@ Stream.createScreensharingStream().then(localStream => {
   }
 
   streamListChanged = {
-    javascript: `conversation.on('streamListChanged', streamInfo => ({
+    javascript: `conversation.on('streamListChanged', streamInfo => {
   const streamId = String(streamInfo.streamId);
   const contactId = String(streamInfo.contact.getId());
   if (streamInfo.isRemote === true) {
@@ -402,7 +402,7 @@ Stream.createScreensharingStream().then(localStream => {
   }
 
   streamAdded = {
-    javascript: `conversation.on('streamAdded', remoteStream => ({
+    javascript: `conversation.on('streamAdded', remoteStream => {
   // display media stream
   ...
 });`,
@@ -411,7 +411,7 @@ Stream.createScreensharingStream().then(localStream => {
   }
 
   streamRemoved = {
-    javascript: `conversation.on('streamRemoved', remoteStream => ({
+    javascript: `conversation.on('streamRemoved', remoteStream => {
   // undisplay media stream
   ...
 });`,
@@ -429,7 +429,7 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`,
   }
 
   callStatsUpdate = {
-    javascript: `conversation.on('callStatsUpdate', (callStats: any) => {
+    javascript: `conversation.on('callStatsUpdate', callStats => {
   // handle callStats.stats data
 }`,
     kotlin: `TODO`,
@@ -559,7 +559,7 @@ stream.addInDiv('container-id', 'media-element-' + stream.streamId, {}, false)`,
   }
 
   audioAmplitude = {
-    javascript: `conversation.on('audioAmplitude', (amplitudeInfo: any) => {
+    javascript: `conversation.on('audioAmplitude', amplitudeInfo => {
   // handle amplitudeInfo
 }`,
     kotlin: `TODO`,
@@ -591,7 +591,7 @@ if (stream.isVideoMuted()) {
   };
 
   recordingAvailable = {
-    javascript: `conversation.on('recordingAvailable', (recordingInfo: any) => {
+    javascript: `conversation.on('recordingAvailable', recordingInfo => {
   console.log("on:recordingAvailable", recordingInfo);
   ...
 });`,
@@ -614,7 +614,7 @@ if (stream.isVideoMuted()) {
   }`
 
   startRecording = {
-    javascript: `conversation.startRecording().then((recordingInfo: any) => {
+    javascript: `conversation.startRecording().then(recordingInfo => {
   console.info('startRecording', recordingInfo);
 }).catch((error: any) => {
   console.error('startRecording', error);
@@ -624,7 +624,7 @@ if (stream.isVideoMuted()) {
   };
 
   stopRecording = {
-    javascript: `conversation.stopRecording().then((recordingInfo: any) => {
+    javascript: `conversation.stopRecording().then(recordingInfo => {
   console.info('stopRecording', recordingInfo);
 }).catch((error: any) => {
   console.error('stopRecording', error);
@@ -647,7 +647,7 @@ if (stream.isVideoMuted()) {
       `// display blurred media stream by attaching to a media element (like <video>)
 blurredStream.attachToElement(videoDomElement)
 // publish the blurred stream
-conversation.publish(blurredStream).then((blurredStream) => {
+conversation.publish(blurredStream).then(blurredStream => {
   ...
 });`,
     kotlin: `TODO`,
@@ -669,7 +669,7 @@ blurredStream.release();
     javascript:
       `// get stream actual constraints settings
 stream.getSettings()
-  .then((settings) => {
+  .then(settings => {
     console.log(settings) // settings object
   });
   .catch((error) => {
@@ -707,7 +707,7 @@ stream.getSettings()
     javascript:
       `// get stream capabilities values ranges
 stream.getCapabilities()
-  .then((capabilities) => {
+  .then(capabilities => {
     console.log(capabilities) // capabilities object
   });
   .catch((error) => {
@@ -745,7 +745,7 @@ stream.getCapabilities()
     javascript:
       `// get stream constraints that were applied and their values
 stream.getConstraints()
-  .then((constraints) => {
+  .then(constraints => {
     console.log(constraints) // constraints object
   });
   .catch((error) => {
