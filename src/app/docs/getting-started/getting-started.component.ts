@@ -61,11 +61,11 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(login)))`
 
   createStream = {
     javascript: `userAgent.createStream({constraints: {audio: true, video: true}}).then(localStream => {
-  localStream.attachToElement(document.getElementById("local"))
+  localStream.attachToElement(document.getElementById("local-stream"))
 });`,
     typescript: `import { Stream } from '@apirtc/apirtc'
 userAgent.createStream({constraints: {audio: true, video: true}}).then((localStream: Stream) => {
-  localStream.attachToElement(document.getElementById("local"))
+  localStream.attachToElement(document.getElementById("local-stream"))
 });`,
     kotlin: `val createStreamOptions = UserAgent.CreateStreamOptions()
 createStreamOptions.constraints.audio = true
@@ -77,12 +77,16 @@ userAgent?.createStream(createStreamOptions)?.then {
   };
 
   register = {
-    javascript: `userAgent.register().then(session => {...});`,
+    javascript: `userAgent.register().then(session => {
+  // registered
+});`,
     typescript: `import { Session } from '@apirtc/apirtc'
-userAgent.register().then((session: Session) => {...});`,
+userAgent.register().then((session: Session) => {
+  // registered
+});`,
     kotlin: `userAgent.register(optionsRegister)?.then { itSession ->
   val session = itSession as Session
-  ...
+  // registered
 }` };
 
   getOrCreateConversation = {
@@ -91,13 +95,29 @@ userAgent.register().then((session: Session) => {...});`,
 const conversation: Conversation = session.getOrCreateConversation("MY_CONVERSATION");` };
 
   join = {
-    javascript: `conversation.join().then(() => {...});`,
-    typescript: `conversation.join().then(() => {...}).catch((error: any) => {...});`
+    javascript: `conversation.join().then(() => {
+  // conversation joined
+}).catch(error => {
+  console.error("join error", error)
+});`,
+    typescript: `conversation.join().then(() => {
+  // conversation joined
+}).catch((error: any) => {
+  console.error("join error", error)
+});`
   };
 
   publish = {
-    javascript: `conversation.publish(localStream).then(stream => {...});`,
-    typescript: `conversation.publish(localStream).then((stream: Stream) => {...}).catch((error: any) => {...});`
+    javascript: `conversation.publish(localStream).then((publishedLocalStream) => {
+  console.log("published", publishedLocalStream)
+}).catch(error => {
+  console.error("publish error", error)
+});`,
+    typescript: `conversation.publish(localStream).then((publishedLocalStream: Stream) => {
+  console.log("published", publishedLocalStream)
+}).catch((error: any) => {
+  console.error("publish error", error)
+});`
   };
 
   subscribe = {
@@ -110,7 +130,7 @@ const conversation: Conversation = session.getOrCreateConversation("MY_CONVERSAT
 });
   
 conversation.on('streamAdded', remoteStream => {
-  remoteStream.attachToElement(document.getElementById("remote"))
+  remotestream.addInDiv('remote-streams', 'remote-stream-' + remotestream.getId(), {}, false);
 });`,
     typescript: `import { Stream, StreamInfo } from '@apirtc/apirtc'
   conversation.on('streamListChanged', (streamInfo: StreamInfo) => {
@@ -122,8 +142,8 @@ conversation.on('streamAdded', remoteStream => {
 });
   
 conversation.on('streamAdded', (remoteStream: Stream) => {
-  remoteStream.attachToElement(document.getElementById("remote"))
-});`  };
+  remotestream.addInDiv('remote-streams', 'remote-stream-' + remotestream.getId(), {}, false);
+});`};
 
   lang = 'javascript';
 
