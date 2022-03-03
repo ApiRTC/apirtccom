@@ -130,7 +130,7 @@ const conversation: Conversation = session.getOrCreateConversation("MY_CONVERSAT
 });
   
 conversation.on('streamAdded', remoteStream => {
-  remotestream.addInDiv('remote-streams', 'remote-stream-' + remotestream.getId(), {}, false);
+  remoteStream.addInDiv('remote-streams', 'remote-stream-' + remoteStream.getId(), {}, false);
 });`,
     typescript: `import { Stream, StreamInfo } from '@apirtc/apirtc'
   conversation.on('streamListChanged', (streamInfo: StreamInfo) => {
@@ -142,7 +142,7 @@ conversation.on('streamAdded', remoteStream => {
 });
   
 conversation.on('streamAdded', (remoteStream: Stream) => {
-  remotestream.addInDiv('remote-streams', 'remote-stream-' + remotestream.getId(), {}, false);
+  remoteStream.addInDiv('remote-streams', 'remote-stream-' + remoteStream.getId(), {}, false);
 });`};
 
   lang = 'javascript';
