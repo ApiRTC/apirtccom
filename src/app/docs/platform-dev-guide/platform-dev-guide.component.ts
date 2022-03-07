@@ -64,4 +64,16 @@ export class PlatformDevGuideComponent implements OnInit {
     }
   }
 
+  conversationEnded = `{
+  event: 'update',
+  time: 1632144306,
+  object: 'conversation',
+  objectId: '734e3a7b-eb17-4d3f-901d-bcff178b',
+  props: {
+    eventType: 'conversationEnded',
+    name: 'TEST',
+    finishedAt: '2021-09-20T13:25:06+00:00'
+  }
+}`;
+
 }

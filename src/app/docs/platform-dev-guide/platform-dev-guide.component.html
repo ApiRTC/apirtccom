@@ -94,37 +94,49 @@
                 <a #anchor id="webhooks" class="anchor"></a>
                 WebHooks
             </h1>
-            <p>To get notified of various communication or plateform events, <strong>ApiRTC</strong> can trigger
+            <p>To get notified of some communication or platform events, <strong>ApiRTC</strong> can trigger
                 <strong>WebHooks</strong> to your backend server.
             </p>
-            <p><strong>ApiRTC</strong> triggers webhooks
-                to let your backend know when events happen, like a <strong>conversation</strong> has ended.
-                Webhooks
-                are triggered
-                asynchronously.</p>
-            <p>Note: Not all events you may require are available to all accounts, but you can ask us for events to
-                suit
-                your needs !</p>
-
-            <p>To handle a webhook, your backend needs to accept HTTP requests. When the webhook event occurs,
-                <strong>ApiRTC</strong> makes an HTTP request (usually POST) to the
-                URL you have configured for your webhook. <strong>ApiRTC</strong> request to your application
-                includes
-                details of the event. Your application can then perform whatever
-                logic is necessary.
+            <p>
+                <strong>WebHooks</strong> are triggered asynchronously.
             </p>
-            <p>With <strong>webhooks</strong>, <strong>ApiRTC Platform</strong> can notify your backend server when
-                some events happen.</p>
-            <!-- TODO -->
-            <!-- <p>
-                    Explain how webhooks work
-                </p>
-                <p>
-                    Explain how webhooks are configured
-                </p>
-                <p>
-                    Events list
-                </p> -->
+            <p>To handle <strong>WebHooks</strong>, your backend needs to accept HTTP requests. When some event
+                occurs, <strong>ApiRTC</strong> makes a POST HTTP request to the
+                URL you have configured for your <strong>WebHooks</strong>.
+            </p>
+            <p>The request includes details of the event.
+                Your backend can then perform whatever logic is necessary.</p>
+
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Set your server URL from your <a class="text-nowrap" href="https://cloud.apirtc.com/enterprise/edit"
+                        target="_blank" rel="noopener">Company account&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a> -> Settings ->
+                    <strong>WebHooks</strong>. (and don't forget to check
+                    the <strong>Activate</strong> button)
+                </div>
+            </div>
+
+            <p>Example of a <strong>webhook</strong> payload corresponding to a <code>conversationEnded</code> event:
+            </p>
+            <pre><code [highlight]="conversationEnded" [languages]="['json']"></code></pre>
+
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <div>
+                    Not all events you may require are available to all accounts, but you can ask us for events to
+                    suit your needs !</div>
+            </div>
+
+            <!-- TODO
+            <p>
+                Events list
+            </p> -->
         </div>
     </div>
 </div>
