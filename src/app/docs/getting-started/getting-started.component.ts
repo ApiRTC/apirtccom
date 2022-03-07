@@ -131,6 +131,9 @@ const conversation: Conversation = session.getOrCreateConversation("MY_CONVERSAT
   
 conversation.on('streamAdded', remoteStream => {
   remoteStream.addInDiv('remote-streams', 'remote-stream-' + remoteStream.getId(), {}, false);
+});
+conversation.on("streamRemoved", remoteStream => {
+  remoteStream.removeFromDiv('remote-streams', 'remote-stream-' + remoteStream.getId());
 });`,
     typescript: `import { Stream, StreamInfo } from '@apirtc/apirtc'
   conversation.on('streamListChanged', (streamInfo: StreamInfo) => {
@@ -143,6 +146,9 @@ conversation.on('streamAdded', remoteStream => {
   
 conversation.on('streamAdded', (remoteStream: Stream) => {
   remoteStream.addInDiv('remote-streams', 'remote-stream-' + remoteStream.getId(), {}, false);
+});
+conversation.on("streamRemoved", (remoteStream: Stream) => {
+  remoteStream.removeFromDiv('remote-streams', 'remote-stream-' + remoteStream.getId());
 });`};
 
   lang = 'javascript';
