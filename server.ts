@@ -91,10 +91,13 @@ export function app(): express.Express {
 function run(): void {
   const port = 8080;
   const port_https = 8443;
+  const acmeFolder = join(process.cwd(), 'dist/apirtccom/.well-known/acme-challenge');
 
   // Set up plain http server
   const httpServer = express();
   // For certificate generation with certbot (sudo certbot certonly --manual)
+  
+  httpServer.use('/.well-known/acme-challenge',express.static(acmeFolder));  
   // httpServer.get('/.well-known/acme-challenge/*', function (req, res) {
   //   res.send("wcMfSgyWgDzZXeGm7wpoKwg9zgTn_KV4ZCieot07VSM.bTNYdNXFsAOigdbs1rZgTypq8oYpHKKtqYlbf39cy8I");
   // })
