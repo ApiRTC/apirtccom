@@ -97,7 +97,7 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
   }
 
   userDataChanged = {
-    javascript: `session.on('contactListUpdate', (updatedContacts: any) => {
+    javascript: `session.on('contactListUpdate', updatedContacts => {
   for (const contact of updatedContacts.userDataChanged) {
     // ...
   }
@@ -182,6 +182,26 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
       // ...
     }
   }
+})`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  };
+
+  sendData = {
+    javascript: `contact.sendData({aProperty:'aValue'})
+  .then(() => {
+    console.log("message sent")
+  })
+  .catch((error: any) => {
+    console.error("sendData", error)
+  })`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  };
+
+  contactData = {
+    javascript: `session.on('contactData', contactDataEvent => {
+  console.log('received data from sender', contactDataEvent.sender, contactDataEvent.content)
 })`,
     kotlin: `TODO`,
     swift: `TODO`

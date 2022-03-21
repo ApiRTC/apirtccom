@@ -21,7 +21,7 @@
                         </li>
                         <li>
                             <a [routerLink]="['.']" fragment="presence"
-                                [ngClass]="{'active': current === 'presence' }">Presence, Groups</a>
+                                [ngClass]="{'active': current === 'presence' }">Presence</a>
                         </li>
                     </ul>
                 </li>
@@ -346,18 +346,23 @@
                             class="material-icons align-middle fs-6">open_in_new</span></a>.
                 </div>
             </div>
-            <h1 class="mt-5">
-                <a #anchor id="presence" class="anchor"></a>
-                Presence, Groups
-            </h1>
+            <h2>
+                <a #anchor id="presence" class="anchor"
+                    keywords="group,contact,contactData,contactListUpdate,sendData"></a>
+                Presence
+            </h2>
             <p>
-                In an <strong>ApiRTC</strong> client application, remote users are <code>Contact</code>s.
+                In an <strong>ApiRTC</strong> client application, remote users are
+                <a href="https://apirtc.github.io/references/apirtc-js/Contact.html" target="_blank"
+                    rel="noopener"><code>Contact</code>s&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>.
             </p>
             <p>
                 The <strong>presence</strong> feature allows to get notified to all users currently connected with same
                 <strong>apiKey</strong>. It notifies on <strong>contacts</strong>, connected with same
                 <strong>Enterprise</strong>(<strong>apiKey</strong>).
             </p>
+            <h3>Groups</h3>
             <p>
                 A notion of <strong>groups</strong> comes with this feature for better control. To make a user connect
                 within some group, set the <code>RegisterInformation.groups</code> in the
@@ -369,8 +374,37 @@
                 <code>Contact</code> joined of left which <strong>group</strong>:
             </p>
             <app-codenav [code]="contactListUpdate" [(language)]="lang"></app-codenav>
+
+            <h3>Data exchange</h3>
+            <p>Data can be exchanged with <code>Contact</code>s by using the
+                <a href="https://apirtc.github.io/references/apirtc-js/Contact.html#sendData__anchor" target="_blank"
+                    rel="noopener"><code>Contact.sendData(object)</code>&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a> method:
+            </p>
+            <app-codenav [code]="sendData" [(language)]="lang"></app-codenav>
+
+            <p>
+                To receive the data, listen on the session
+                <a href="https://apirtc.github.io/references/apirtc-js/Session.html#event:contactData" target="_blank"
+                    rel="noopener"><code>contactData</code>&nbsp;<span
+                        class="material-icons align-middle fs-6">open_in_new</span></a>
+                event:
+            </p>
+            <app-codenav [code]="contactData" [(language)]="lang"></app-codenav>
+
+            <div class="alert alert-info" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <span><strong>Use your imagination !</strong></span>
+                <p class="mt-3">
+                    You could use this mechanism to notify a <code>Contact</code> that your application wants to
+                    establish a <strong>Conversation</strong> by sending him the conversation name.
+                </p>
+            </div>
+
             <h1 class="mt-5">
-                <a #anchor id="conversation" class="anchor"></a>
+                <a #anchor id="conversation" class="anchor" keywords="getorcreate,join,leave"></a>
                 Conversation
             </h1>
             <p>
@@ -389,7 +423,7 @@
                         class="material-icons align-middle fs-6">open_in_new</span></a> instance, the
                 <code>Session</code> method
                 <a href="https://apirtc.github.io/references/apirtc-js/Session.html#getOrCreateConversation__anchor"
-                    target="_blank" rel="noopener">getOrCreateConversation(name, options)&nbsp;<span
+                    target="_blank" rel="noopener"><code>getOrCreateConversation(name, options)</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a> shall be used.
             </p>
             <p>
@@ -916,7 +950,7 @@
             </p>
             <app-codenav [code]="toggleAudioVideoMute" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
-                <a #anchor id="whiteboard" class="anchor" keywords="whiteboard,board,screen"></a>
+                <a #anchor id="whiteboard" class="anchor" keywords="board,screen"></a>
                 Whiteboard
             </h1>
             <!-- TODO -->
