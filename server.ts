@@ -8,7 +8,12 @@ import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync, readFileSync } from 'fs';
 
-import * as spdy from 'spdy';
+// Commented out because spdy seemed to be the source of issues when getting some
+// large css or js files : they were not fully transferred to the client. Thus
+// website was not working properly
+// import * as spdy from 'spdy';
+
+import { createServer } from 'https'
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -115,20 +120,34 @@ function run(): void {
   })
   httpServer.listen(port);
 
-  // Make server using h2 (http2, http/2) https protocol
-  spdy.createServer(
+  // HTTPS server
+  createServer(
     {
       key: readFileSync("./cert/privkey.pem"),
       cert: readFileSync("./cert/fullchain.pem"),
-      spdy: {
-        // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
-        plain: false
-      }
     },
-    app()
-  ).listen(port_https, () => {
-    console.log(`Node Express server listening on https://0.0.0.0:${port_https}`);
-  });
+    app())
+    .listen(port_https, () => {
+      console.log(`Node Express server listening on https://0.0.0.0:${port_https}`);
+    });
+
+  // Make server use h2 (http2, http/2) https protocol
+  // Commented out because spdy seemed to be the source of issues when getting some
+  // large css or js files : they were not fully transferred to the client. Thus
+  // website was not working properly
+  // spdy.createServer(
+  //   {
+  //     key: readFileSync("./cert/privkey.pem"),
+  //     cert: readFileSync("./cert/fullchain.pem"),
+  //     spdy: {
+  //       // setting plain to true disables https, but it does not seem to be h2 then : curl says http/1.1
+  //       plain: false
+  //     }
+  //   },
+  //   app()
+  // ).listen(port_https, () => {
+  //   console.log(`Node Express server listening on https://0.0.0.0:${port_https}`);
+  // });
 }
 
 // Webpack will replace 'require' with '__webpack_require__'
@@ -142,3 +161,4 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
 }
 
 export * from './src/main.server';
+
