@@ -191,8 +191,7 @@ userAgent = UserAgent(UserAgentOptions(uri: .apirtc(username)))`,
     javascript: `contact.sendData({aProperty:'aValue'})
   .then(() => {
     console.log("message sent")
-  })
-  .catch((error: any) => {
+  }).catch((error: any) => {
     console.error("sendData", error)
   })`,
     kotlin: `TODO`,
@@ -318,8 +317,7 @@ conversation.denyEntry(contact);
     javascript: `conversation.eject(contact, { reason: 'a reason' })
   .then(() => {
     console.log('ejected', contact);
-  })
-  .catch((error) => {
+  }).catch((error) => {
     console.error('eject error', error);
   });`,
     kotlin: `TODO`,
@@ -696,8 +694,7 @@ blurredStream.release();
 stream.getSettings()
   .then(settings => {
     console.log(settings) // settings object
-  });
-  .catch((error) => {
+  }).catch((error) => {
     ... // error during process
   });
 `,
@@ -734,8 +731,7 @@ stream.getSettings()
 stream.getCapabilities()
   .then(capabilities => {
     console.log(capabilities) // capabilities object
-  });
-  .catch((error) => {
+  }).catch((error) => {
     ... // error during process
   });
 `,
@@ -772,8 +768,7 @@ stream.getCapabilities()
 stream.getConstraints()
   .then(constraints => {
     console.log(constraints) // constraints object
-  });
-  .catch((error) => {
+  }).catch((error) => {
     ... // error during process
   });
 `,
