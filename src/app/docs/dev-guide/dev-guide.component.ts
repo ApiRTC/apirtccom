@@ -658,8 +658,16 @@ if (stream.isVideoMuted()) {
 
   blur = {
     javascript:
-      `stream.blur().then(blurredStream => {
-  ...
+`stream.applyVideoProcessor('blur').then((streamWithEffect) => {
+...
+})
+
+//To replace background with an image :
+var videoProcessorOptions = {
+  backgroundImageUrl : imgUrl,
+}
+stream.applyVideoProcessor('backgroundImage', videoProcessorOptions).then((streamWithEffect) => {
+...
 })`,
     kotlin: `TODO`,
     swift: `TODO`
@@ -667,10 +675,11 @@ if (stream.isVideoMuted()) {
 
   blurPublish = {
     javascript:
-      `// display blurred media stream by attaching to a media element (like <video>)
-blurredStream.attachToElement(videoDomElement)
-// publish the blurred stream
-conversation.publish(blurredStream).then(blurredStream => {
+      `// display streamWithEffect media stream by attaching to a media element (like <video>)
+streamWithEffect.attachToElement(videoDomElement)
+
+// publish the streamWithEffect stream
+conversation.publish(streamWithEffect).then(() => {
   ...
 });`,
     kotlin: `TODO`,
@@ -680,10 +689,9 @@ conversation.publish(blurredStream).then(blurredStream => {
   blurStop = {
     javascript:
       `// stop blur from original stream
-stream.unblur();
-// stop blur from blurred stream
-blurredStream.release();
-`,
+stream.applyVideoProcessor('none').then((blurredStream) => {
+...
+})`,
     kotlin: `TODO`,
     swift: `TODO`
   }
