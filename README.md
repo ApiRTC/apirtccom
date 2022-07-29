@@ -42,6 +42,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Good Practices and rules
 
+Wording
+
+    - All **ApiRTC** wording shall be bold, for example **local stream** (use <strong>local stream</strong>)
+
+    - **ApiRTC** shall always be spelled **ApiRTC** (use <strong>local stream</strong>)
+
 Links:
 
     - Use hyphens, but don’t use underscores (Google doesn’t recognise them!)

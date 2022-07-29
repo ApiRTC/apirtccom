@@ -94,7 +94,7 @@
                     <a [routerLink]="['.']" fragment="recording"
                         [ngClass]="{'active': current === 'recording' }">Recording</a>
                 </li>
-<!--
+                <!--
                 <li>
                     <a [routerLink]="['.']" fragment="chat-messages"
                         [ngClass]="{'active': current === 'chat-messages' }">Chat messages</a>
@@ -1012,7 +1012,7 @@
                             class="material-icons align-middle fs-6">open_in_new</span></a>
                 </div>
             </div>
-<!--
+            <!--
             <h1 class="mt-5">
                 <a #anchor id="chat-messages" class="anchor"></a>
                 Chat messages
@@ -1022,10 +1022,11 @@
             <p class="fst-italic">Will be documented soon.</p>
             <h1 class="mt-5">
                 <a #anchor id="background-subtraction" class="anchor" keywords="blur"></a>
-                Background subtraction : blur, background image - ApplyVideoProcessor()
+                Background subtraction : blur, background image - applyVideoProcessor()
             </h1>
             <p>
-                <strong>ApiRTC</strong> allows to create a background blurred <strong>stream</strong> or to add a background image based on an
+                <strong>ApiRTC</strong> allows to create a background blurred <strong>stream</strong> or to add a
+                background image based on an
                 original <strong>stream</strong>.
             </p>
 
@@ -1035,30 +1036,33 @@
                 </svg>
                 <div>
                     Check our <a class="text-nowrap"
-                        href="https://apizee.github.io/ApiRTC-examples/streams_applyVideoProcessor/" title="ApplyVideoProcessor tutorial" target="_blank"
-                        rel="noopener">Tutorial&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a> about the subject.
+                        href="https://apizee.github.io/ApiRTC-examples/streams_applyVideoProcessor/"
+                        title="ApplyVideoProcessor tutorial" target="_blank" rel="noopener">Tutorial&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a> about applyVideoProcessor().
                 </div>
             </div>
             <p>
-            ApiRTC give you access to <code>Stream.blur()</code>, <code>Stream.unblur()</code>, <code>Stream.backgroundImage()</code>, <code>Stream.unBackgroundImage()</code>
-        </p>
+                <strong>ApiRTC</strong> gives you access to <code>Stream.blur()</code>, <code>Stream.unblur()</code>,
+                <code>Stream.backgroundImage()</code>, <code>Stream.unBackgroundImage()</code>
+            </p>
             <p>
-            but we advice you to use our 
-            <a class="text-nowrap"
-                    href="https://apirtc.github.io/references/apirtc-js/Stream.html#applyVideoProcessor__anchor" target="_blank"
-                    rel="noopener"><code>applyVideoProcessor</code>&nbsp;<span
+                but we advice you to use our
+                <a class="text-nowrap"
+                    href="https://apirtc.github.io/references/apirtc-js/Stream.html#applyVideoProcessor__anchor"
+                    target="_blank" rel="noopener"><code>applyVideoProcessor</code>&nbsp;<span
                         class="material-icons align-middle fs-6">open_in_new</span></a>
-            helper that will manage the different stream states for you. (ie : swithc from blur to background image ...)
+                helper that will manage the different <strong>stream</strong> states for you. (ie : switch from blur to
+                background image ...)
             </p>
 
             <p>To start the blur process on a <strong>stream</strong>:</p>
             <app-codenav [code]="blur" [(language)]="lang"></app-codenav>
-            <p>The returned <code>streamWithEffect</code> is a an instance of <code>Stream</code> and is a copy of the base
-                <code>stream</code> with an effect process applied on it (blur, backgroundImage ...). It means that there is a strong dependance
-                between the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
-                the parent is released the child also). Both <strong>stream</strong>s needs to be handled by the
-                application to keep the blur process going on.
+            <p>The returned <code>streamWithEffect</code> is a an instance of <code>Stream</code> and is a copy of the
+                base
+                <code>stream</code> with an effect process applied on it (blur, backgroundImage ...). It means that
+                there is a strong dependance between the child and his parent (e.g. If the parent audio is muted the
+                child audio will be too, if the parent is released the child also). Both <strong>stream</strong>s needs
+                to be handled by the application to keep the blur process going on.
             </p>
             <p>Use the <strong>stream</strong> with effect as a <strong>local stream</strong>:</p>
             <app-codenav [code]="blurPublish" [(language)]="lang"></app-codenav>
@@ -1071,13 +1075,14 @@
                     <use xlink:href="#exclamation-triangle-fill"></use>
                 </svg>
                 <span>
-                    If an error occurs during applyVideoProcessor() process, apiRTC will reject the promise but will try to restore stream with previous effect.
+                    If an error occurs during applyVideoProcessor() process, <strong>ApiRTC</strong> will reject the
+                    promise but will try to restore stream with previous effect.
                     <p>
                         Error description is available in
                         <a class="text-nowrap"
-                        href="https://apirtc.github.io/references/apirtc-js/ApplyVideoProcessorError.html" target="_blank"
-                        rel="noopener"><code>API Reference</code>&nbsp;<span
-                            class="material-icons align-middle fs-6">open_in_new</span></a>
+                            href="https://apirtc.github.io/references/apirtc-js/ApplyVideoProcessorError.html"
+                            target="_blank" rel="noopener"><code>API Reference</code>&nbsp;<span
+                                class="material-icons align-middle fs-6">open_in_new</span></a>
                     </p>
                 </span>
             </div>
