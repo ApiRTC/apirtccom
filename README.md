@@ -48,6 +48,10 @@ Wording
 
     - **ApiRTC** shall always be spelled **ApiRTC** (use <strong>local stream</strong>)
 
+Search System
+
+    - When adding content to the site, don't forget to update keywords and regenerate index file for search index
+
 Links:
 
     - Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
