@@ -42,29 +42,29 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Good Practices and rules
 
-Wording
+### Wording:
 
-    - All **ApiRTC** wording shall be bold, for example **local stream** (use <strong>local stream</strong>)
+* All **ApiRTC** wording shall be bold, for example **local stream** (use `<strong>local stream</strong>`)
 
-    - **ApiRTC** shall always be spelled **ApiRTC** (use <strong>local stream</strong>)
+* **ApiRTC** shall always be spelled **ApiRTC** and bold (use `<strong>ApiRTC</strong>`)
 
-Search System
+### Search System:
 
-    - When adding content to the site, don't forget to update keywords and regenerate index file for search index
+* When adding content to the site, don't forget to update keywords and regenerate index file for search index
 
-Links:
+### Links:
 
-    - Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
+* Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
 
-Images:
+### Images:
 
-    - Optimise images filenames for SEO: Use keyword descriptive language, Don’t use stop words (such as a, in, the), Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
+* Optimise images filenames for SEO: Use keyword descriptive language, Don’t use stop words (such as a, in, the), Use hyphens, but don’t use underscores (Google doesn’t recognise them!)
 
-    - Use alt="alt tag" for img
+* Use alt="alt tag" for img
 
-    - reduce file size
+* reduce file size
 
-    - more https://www.natalleblas.com/optimise-images-for-seo/
+* more https://www.natalleblas.com/optimise-images-for-seo/
 
 ## SSR (Server-Side-Rendering)
 
