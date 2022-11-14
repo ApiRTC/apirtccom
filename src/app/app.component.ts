@@ -1,5 +1,5 @@
 import { Component, Inject, PLATFORM_ID, AfterViewInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, Validators } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { MediaMatcher } from '@angular/cdk/layout';
 
@@ -34,8 +34,8 @@ export class AppComponent implements AfterViewInit {
   searchFormGroup = this.fb.group({
     words: this.fb.control('', [Validators.required])
   });
-  get searchWordsFc(): FormControl {
-    return this.searchFormGroup.get('words') as FormControl;
+  get searchWordsFc(): UntypedFormControl {
+    return this.searchFormGroup.get('words') as UntypedFormControl;
   }
 
   searchResults: Array<Link> | undefined = undefined;
@@ -50,7 +50,7 @@ export class AppComponent implements AfterViewInit {
   private _mobileQueryListener: () => void = () => { };
 
   constructor(@Inject(PLATFORM_ID) platformId: Object, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private searchService: SearchService) {
     // For SSR (Server-Side-Rendering): MediaMatcher can only be used on the browser (not on the server)
     if (isPlatformBrowser(platformId)) {
