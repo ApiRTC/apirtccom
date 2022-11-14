@@ -658,7 +658,7 @@ if (stream.isVideoMuted()) {
 
   blur = {
     javascript:
-`stream.applyVideoProcessor('blur').then((streamWithEffect) => {
+      `stream.applyVideoProcessor('blur').then((streamWithEffect) => {
 ...
 })
 
@@ -803,6 +803,14 @@ stream.getConstraints()
 });`,
     kotlin: `TODO`,
     swift: `TODO`
+  }
+
+  whiteboardBasics = {
+    javascript: `
+    conversation.startNewWhiteboardSession('canvas-element-id');  // instanciate a whiteboard in a canvas
+    whiteboardClient = userAgent.getWhiteboardClient(); //retrieve the Whiteboardclient object
+    whiteBoardClient.setFocusOnDrawing(true); //The whiteboard follows the drawings done by other users if the canvas is set on a scrollable container<
+  `
   }
 
   // default lang
