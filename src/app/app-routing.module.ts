@@ -100,7 +100,7 @@ const routes: Routes = [
     anchorScrolling: 'enabled',
     scrollPositionRestoration: 'enabled',
     // for SSR:
-    initialNavigation: 'enabled'
+    initialNavigation: 'enabledBlocking'
   })],
   exports: [RouterModule]
 })
