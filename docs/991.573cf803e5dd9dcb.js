@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkapirtccom=self.webpackChunkapirtccom||[]).push([[991],{991:(n,s,e)=>{function a(l){return{name:"Shell Session",aliases:["console","shellsession"],contains:[{className:"meta.prompt",begin:/^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?/,starts:{end:/[^\\](?=\s*$)/,subLanguage:"bash"}}]}}e.r(s),e.d(s,{default:()=>a})}}]);
+//# sourceMappingURL=991.573cf803e5dd9dcb.js.map
