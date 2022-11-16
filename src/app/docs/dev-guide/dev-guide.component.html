@@ -952,21 +952,44 @@
             </p>
             <app-codenav [code]="toggleAudioVideoMute" [(language)]="lang"></app-codenav>
             <h1 class="mt-5">
-                <a #anchor id="whiteboard" class="anchor" keywords="board,screen"></a>
+                <a #anchor id="whiteboard" class="anchor" keywords="board,screen, whiteboard,interaction"></a>
                 Whiteboard
             </h1>
-            <!-- TODO -->
-            <p class="fst-italic">Will be documented soon. <br/> These github repos might help you in the meantime: </p>
+            <p>The whiteboard component enables participants to interact together with:</p>
+            <ul>
+                <li>lines (<code>pen</code>)</li>
+                <li>shapes (<code>arrow</code>, <code>rectangle</code> or <code>ellipse</code>)</li>
+                <li>texts</li>
+                <li>and also an eraser (<code>eraser</code>)</li>
+            </ul>
+            <p>Lines weight and colors, and text size are configurable. Undo & redo functions are available
+                (<code>whiteboardClient.undo</code> and <code>whiteboardClient.redo</code>). The whiteboard area can be
+                zoomed in and out (<code>whiteboardClient.setScale</code>), and shifted around
+                (<code>whiteboardClient.setOffset</code>).
+                The whiteboard can be erased at once with the <code>whiteboardClient.deleteHistory</code> function</p>.
 
-                <ul>
-                    <li>
-                        <a href="https://github.com/apizee/ApiRTC-examples/tree/master/conferencing_whiteboard" target="_blank">Whiteboard example</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/apizee/ApiRTC-examples/tree/master/conferencing_whiteboard_invitation" target="_blank">Whiteboard with invite example</a>
-                    </li>
-                </ul>
-            
+            <p style="text-align:center">
+                <video src="../../../assets/whiteboard_media.webm" style="width:500px" autoplay loop></video>
+            </p>
+            <p>
+                Adding a whiteboard to a web page takes a few lines:
+            </p>
+            <app-codenav [code]="whiteboardBasics" [(language)]="lang"></app-codenav>
+            <p class="fst-italic">See the whiteboard in action in the following github repos: </p>
+
+            <ul>
+                <li>
+                    <a href="https://github.com/apizee/ApiRTC-examples/tree/master/conferencing_whiteboard"
+                        target="_blank">Whiteboard example</a>/<a
+                        href="https://apizee.github.io/ApiRTC-examples/conferencing_whiteboard/index.html">Demo</a>
+                </li>
+                <li>
+                    <a href="https://github.com/apizee/ApiRTC-examples/tree/master/conferencing_whiteboard_invitation"
+                        target="_blank">Whiteboard with invite example</a>/<a
+                        href="https://apizee.github.io/ApiRTC-examples/conferencing_whiteboard_invitation/index.html">Demo</a>
+                </li>
+            </ul>
+
             <h1 class="mt-5">
                 <a #anchor id="recording" class="anchor" keywords="video,composite"></a>
                 Recording

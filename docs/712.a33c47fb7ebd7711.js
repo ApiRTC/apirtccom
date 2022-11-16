@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkapirtccom=self.webpackChunkapirtccom||[]).push([[712],{712:(u,n,a)=>{function t(e){const c=["true","false","null"],o={scope:"literal",beginKeywords:c.join(" ")};return{name:"JSON",keywords:{literal:c},contains:[{className:"attr",begin:/"(\\.|[^\\"\r\n])*"(?=\s*:)/,relevance:1.01},{match:/[{}[\],:]/,className:"punctuation",relevance:0},e.QUOTE_STRING_MODE,o,e.C_NUMBER_MODE,e.C_LINE_COMMENT_MODE,e.C_BLOCK_COMMENT_MODE],illegal:"\\S"}}a.r(n),a.d(n,{default:()=>t})}}]);
+//# sourceMappingURL=712.a33c47fb7ebd7711.js.map
