@@ -8,6 +8,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 import { SearchService, Anchor } from './search.service';
 
 declare var bootstrap: any;
+// import { Collapse } from 'bootstrap' // DO NOT USE: it prevents the SSR server start
 
 interface Link {
   title: string,
@@ -154,9 +155,16 @@ export class AppComponent implements AfterViewInit {
     // ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
     setTimeout(() => { this.drawerRef?.open(); }, 100)
 
-    this.bsSearchElement = new bootstrap.Collapse(this.collapseSearch?.nativeElement, {
-      toggle: false
-    })
+    // When running SSR, and to prevent :
+    // ERROR ReferenceError: bootstrap is not defined
+    // check for window being defined first. This allow
+    // to execute the block only on browser. The block is really needed only on client side
+    // as this is javascript to control the search bar display.
+    if (typeof window !== "undefined") {
+      this.bsSearchElement = new bootstrap.Collapse(this.collapseSearch?.nativeElement, {
+        toggle: false
+      })
+    }
   }
 
   showResults: boolean = false;
