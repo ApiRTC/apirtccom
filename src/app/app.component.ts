@@ -7,10 +7,7 @@ import { MatDrawer } from '@angular/material/sidenav';
 
 import { SearchService, Anchor } from './search.service';
 
-import { Collapse } from 'bootstrap';
-
-//declare var bootstrap: any;
-
+declare var bootstrap: any;
 
 interface Link {
   title: string,
@@ -157,7 +154,7 @@ export class AppComponent implements AfterViewInit {
     // ERROR Error: NG0100: ExpressionChangedAfterItHasBeenCheckedError: Expression has changed after it was checked
     setTimeout(() => { this.drawerRef?.open(); }, 100)
 
-    this.bsSearchElement = new Collapse(this.collapseSearch?.nativeElement, {
+    this.bsSearchElement = new bootstrap.Collapse(this.collapseSearch?.nativeElement, {
       toggle: false
     })
   }
