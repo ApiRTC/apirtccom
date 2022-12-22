@@ -101,6 +101,11 @@
                 </li>
 -->
                 <li>
+                    <a [routerLink]="['.']" fragment="noiseReduction"
+                        [ngClass]="{'active': current === 'noiseReduction' }">Noise
+                        reduction</a>
+                </li>
+                <li>
                     <a [routerLink]="['.']" fragment="background-subtraction"
                         [ngClass]="{'active': current === 'background-subtraction' }">Background
                         subtraction</a>
@@ -1053,6 +1058,65 @@
 -->
             <!-- TODO -->
             <p class="fst-italic">Will be documented soon.</p>
+
+            <h1 class="mt-5">
+                <a #anchor id="noiseReduction" class="anchor" keywords="noiseReduction"></a>
+                Audio filters : noiseReduction - ApplyAudioProcessor()
+            </h1>
+            <p>
+                <strong>ApiRTC</strong> allows to create a <strong>stream</strong> with a noise reduction filter.
+            </p>
+            <div class="alert alert-info d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:">
+                    <use xlink:href="#info-fill"></use>
+                </svg>
+                <div>
+                    Check our <a class="text-nowrap"
+                        href="https://apizee.github.io/ApiRTC-examples/streams_applyAudioProcessor/" title="ApplyAudioProcessor tutorial" target="_blank"
+                        rel="noopener">Tutorial&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a> about the subject.
+                </div>
+            </div>
+            <p>
+                ApiRTC give you access to <code>Stream.startNoiseReduction()</code>, <code>Stream.stopNoiseReduction()</code>
+            </p>
+            <p>
+                but we advice you to use our 
+                <a class="text-nowrap"
+                        href="https://apirtc.github.io/references/apirtc-js/Stream.html#applyAudioProcessor__anchor" target="_blank"
+                        rel="noopener"><code>applyAudioProcessor</code>&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>
+                helper that will manage the different stream states for you. (ie : switch from noisedReduction to blur to background image ...)
+            </p>
+    
+            <p>To start the noise reduction process on a <strong>stream</strong>:</p>
+            <app-codenav [code]="noiseReduction" [(language)]="lang"></app-codenav>
+            <p>The returned <code>streamWithEffect</code> is a an instance of <code>Stream</code> and is a copy of the base
+                <code>stream</code> with an noise reduction filter applied on it. It means that there is a strong dependance
+                between the child and his parent (e.g. If the parent audio is muted the child audio will be too, if
+                the parent is released the child also). Both <strong>stream</strong>s needs to be handled by the
+                application to keep the noise reduction process going on.
+            </p>
+
+            <p>To stop the noise reduction process:</p>
+            <app-codenav [code]="noiseReductionStop" [(language)]="lang"></app-codenav>
+
+            <div class="alert alert-warning" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:">
+                    <use xlink:href="#exclamation-triangle-fill"></use>
+                </svg>
+                <span>
+                    If an error occurs during applyAudioProcessor() process, apiRTC will reject the promise but will try to restore stream with previous effect.
+                    <p>
+                        Error description is available in
+                        <a class="text-nowrap"
+                        href="https://apirtc.github.io/references/apirtc-js/ApplyAudioProcessorError.html" target="_blank"
+                        rel="noopener"><code>API Reference</code>&nbsp;<span
+                            class="material-icons align-middle fs-6">open_in_new</span></a>
+                    </p>
+                </span>
+            </div>
+
             <h1 class="mt-5">
                 <a #anchor id="background-subtraction" class="anchor" keywords="blur,image,applyVideoProcessor"></a>
                 Background subtraction : blur, background image - applyVideoProcessor()

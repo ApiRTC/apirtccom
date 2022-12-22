@@ -694,7 +694,27 @@ stream.applyVideoProcessor('none').then((blurredStream) => {
 })`,
     kotlin: `TODO`,
     swift: `TODO`
-  }
+  };
+
+  noiseReduction = {
+    javascript:
+`stream.applyAudioProcessor('noiseReduction').then((streamWithEffect) => {
+...
+})
+`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  };
+
+  noiseReductionStop = {
+    javascript:
+      `// stop the noise reduction from original stream
+stream.applyAudioProcessor('none').then((originalStream) => {
+...
+})`,
+    kotlin: `TODO`,
+    swift: `TODO`
+  };
 
   getSettings = {
     javascript:
